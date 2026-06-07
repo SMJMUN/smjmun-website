@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useRef } from 'react';
+
+import { useEffect, useRef } from 'react';
 
 const partners = [
   {
@@ -63,6 +64,30 @@ export default function TrustSection() {
       behavior: 'smooth',
     });
   };
+  useEffect(() => {
+  const slider = scrollRef.current;
+
+  if (!slider) return;
+
+  const interval = setInterval(() => {
+    slider.scrollBy({
+      left: 250,
+      behavior: 'smooth',
+    });
+
+    if (
+      slider.scrollLeft + slider.clientWidth >=
+      slider.scrollWidth - 100
+    ) {
+      slider.scrollTo({
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <section
@@ -71,49 +96,21 @@ export default function TrustSection() {
     >
       {/* Floral Left */}
       <img
-        src="/floral-left.svg"
+        src="/images/floral-left.svg"
         alt=""
         className="pointer-events-none! absolute left-0 top-0 w-[220px]! opacity-[0.09]!"
       />
 
       {/* Floral Right */}
       <img
-        src="/floral-right.svg"
+        src="/images/floral-right.svg"
         alt=""
         className="pointer-events-none! absolute! right-0! top-0! w-[220px]! opacity-[0.09]!"
       />
 
       <div className="relative! z-10! mx-auto! max-w-[1500px]! px-8! lg:px-20!">
         {/* Intro */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-          className="mx-auto! mb-20! max-w-4xl! text-center!"
-        >
-          <div className="mx-auto! mb-0! h-px! w-24! bg-[#bb8b57]!" />
-
-          <h2
-            className="
-              text-[30px]!
-              leading-[1.5]!
-              text-[#042147]!
-              md:text-[40px]!
-              font-light!
-            "
-            style={{
-              fontFamily:
-                'var(--font-heading), Georgia, Times New Roman, serif',
-            }}
-          >
-            Partnering with India's most forward-thinking educational
-            institutions to cultivate the next generation of global leaders.
-          </h2>
-
-          <div className="mx-auto! mt-0! h-px! w-24! bg-[#bb8b57]!" />
-        </motion.div>
+    
 
         {/* Label */}
 
@@ -129,120 +126,123 @@ export default function TrustSection() {
           </span>
         </motion.div>
 
-        {/* Controls */}
+    <div className="relative mt-10!">
+  <div
+    className="pointer-events-none! absolute! left-[60px]! top-0! z-20! h-full! w-24!"
+    style={{
+      background:
+        'linear-gradient(to right,#f8f5f1 0%,rgba(248,245,241,0) 100%)',
+    }}
+  />
 
-        <div className="mb-0! flex! items-center! justify-between!">
-          <button
-            onClick={scrollLeft}
-            className="
-              flex! h-12! w-12! items-center! justify-center!
-              rounded-full! border! border-[#d9c9b7]!
-              bg-white! transition-all! duration-300!
-              hover:border-[#bb8b57]!
-              hover:shadow-lg!
-            "
-          >
-            <ChevronLeft size={18} />
-          </button>
+  <div
+    className="pointer-events-none! absolute! right-[60px]! top-0! z-20! h-full! w-24!"
+    style={{
+      background:
+        'linear-gradient(to left,#f8f5f1 0%,rgba(248,245,241,0) 100%)',
+    }}
+  />
 
-          <button
-            onClick={scrollRight}
-            className="
-              flex! h-12! w-12! items-center! justify-center!
-              rounded-full! border! border-[#d9c9b7]!
-              bg-white! transition-all! duration-300!
-              hover:border-[#bb8b57]!
-              hover:shadow-lg!
-            "
-          >
-            <ChevronRight size={18} />
-          </button>
-        </div>
+  <div className="flex!  items-center! gap-8!">
+    {/* Left Arrow */}
+    <button
+      onClick={scrollLeft}
+      className="
+        z-30!
+        flex! h-12! w-12!
+        shrink-0!
+        items-center!
+        justify-center!
+        rounded-full!
+        border! border-[#ddd2c4]!
+        bg-white!
+        text-[#8b7355]!
+        transition-all!
+        duration-300!
+        hover:border-[#bb8b57]!
+        hover:shadow-md!
+      "
+    >
+      <ChevronLeft size={18} />
+    </button>
 
-        {/* Logo Slider */}
-
-        <div className="relative">
-          {/* Left Fade */}
-
+    {/* Logos */}
+    <div
+      ref={scrollRef}
+      className="
+        flex-1!
+        overflow-x-auto!
+        scrollbar-hide!
+        scroll-smooth!
+      "
+    >
+      <div className="flex!  min-w-max! items-center!">
+        {partners.map((partner, index) => (
           <div
-            className="
-              pointer-events-none!
-              absolute! left-0! top-0! z-20!
-              h-full! w-28!
-            "
-            style={{
-              background:
-                'linear-gradient(to right,#f8f5f1 0%,transparent 100%)',
-            }}
-          />
-
-          {/* Right Fade */}
-
-          <div
-            className="
-              pointer-events-none!
-              absolute! right-0! top-0! z-20!
-              h-full! w-28!
-            "
-            style={{
-              background:
-                'linear-gradient(to left,#f8f5f1 0%,transparent 100%)',
-            }}
-          />
-
-          <div
-            ref={scrollRef}
-            className="
-              flex!
-              snap-x!
-              gap-12!
-              overflow-x-auto!
-              scrollbar-hide!
-              py-!
-            "
+            key={partner.name}
+            className="flex! shrink-0! items-center!"
           >
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.05,
-                }}
+            <div className="flex! items-center! gap-4! px-8!">
+              <img
+                src={partner.logo}
+                alt={partner.name}
                 className="
-                  group!
-                  flex!
-                  min-w-[260px]!
-                  snap-center!
-                  items-center!
-                  justify-center!
-                  gap-12!
+                  
+                  object-contain!
+                  opacity-90!
                 "
-              >
-                <div
-                  className="
-                    flex h-[90px]!
-                    items-center!
-                    justify-center! gap-4!
-                  "
-                > {partner.name }
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="
-                     
-                    "
-                  />
-                </div>
+              />
 
-                {index !== partners.length - 1 && (
-                  <div className="h-12 w-px bg-[#d8c6b4]!" />
-                )}
-              </motion.div>
-            ))}
+              <span
+                className="
+                  text-[15px]!
+                  font-semibold!
+                  uppercase!
+                  leading-tight!
+                  tracking-[0.05em]!
+                  text-[#042147]!
+                  whitespace-nowrap!
+                "
+                style={{
+                  fontFamily:
+                    'var(--font-heading), Georgia, Times New Roman, serif',
+                }}
+              >
+                {partner.name}
+              </span>
+            </div>
+
+            {index !== partners.length - 1 && (
+              <div className="h-12! w-px! bg-[#ddd2c4]!" />
+            )}
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Right Arrow */}
+    <button
+      onClick={scrollRight}
+      className="
+        z-30!
+        flex! h-12! w-12!
+        shrink-0!
+        items-center!
+        justify-center!
+        rounded-full!
+        border! border-[#ddd2c4]!
+        bg-white!
+        text-[#8b7355]!
+        transition-all!
+        duration-300!
+        hover:border-[#bb8b57]!
+        hover:shadow-md!
+      "
+    >
+      <ChevronRight size={18} />
+    </button>
+  </div>
+</div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DesktopDropdown from './DesktopDropdown';
 import MobileMenu from './MobileMenu';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,6 +38,17 @@ export default function Navbar() {
         'Newsroom',
         'Events',
         'Contact',
+      ],
+    },
+    {
+      label: 'Services',
+      items: [
+        'School MUN Association Membership',
+        'College MUN Association Membership',
+        'Full Conference Execution Services',
+        'Executive Board Curation',
+        'Secretariat Support',
+        'Advisory & Consulting',
       ],
     },
     {
@@ -182,8 +194,8 @@ ${scrolled
                 </div>
               ))}
 
-              <a
-                href="#partner"
+              <Link
+                href="/partnerships"
                 className="
                  border border-white/30
                 px-5! py-3!
@@ -197,7 +209,7 @@ ${scrolled
               "
               >
                 Partner With Us →
-              </a>
+              </Link>
             </div>
 
             {/* MENU ICON */}

@@ -44,7 +44,7 @@ export default function EditorialStatement() {
             alt="Aarush Sahu — Founder of SMJ MUN"
             style={{
               width: '100%',
-              height: '100%',
+              // height: '100%',
               objectFit: 'cover',
               display: 'block',
               position: 'absolute',

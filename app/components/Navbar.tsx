@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import DesktopDropdown from './DesktopDropdown';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -197,18 +198,30 @@ ${scrolled
               <Link
                 href="/partnerships"
                 className="
-                 border border-white/30
-                px-5! py-3!
-                text-white
-                uppercase
-                tracking-[0.15em]
-                text-xs
-                hover:bg-white
-                hover:text-black
-                transition-all
-              "
+    group!
+    inline-flex items-center gap-2!
+    border border-white/30!
+    px-5! py-3!
+    text-white!
+    uppercase!
+    tracking-[0.15em]!
+    text-xs!
+    hover:bg-white!
+    hover:text-black!
+    transition-all!
+  "
               >
-                Partner With Us →
+                Partner With Us
+
+                <ArrowRight
+                  size={18}
+                  className=" 
+    transition-transform!
+    duration-300!
+    ease-out!
+    group-hover:translate-x-1.5!
+  "
+                />
               </Link>
             </div>
 
@@ -229,7 +242,7 @@ ${scrolled
           </div>
         </div>
       </nav>
-
+gti 
       <MobileMenu
         open={mobileOpen}
         setOpen={setMobileOpen}

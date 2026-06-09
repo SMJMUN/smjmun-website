@@ -1,3 +1,10 @@
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaFacebookF,
+} from "react-icons/fa";
+
 export default function Footer() {
   const navLinks = [
     { label: 'About', href: '#about' },
@@ -153,36 +160,35 @@ export default function Footer() {
       <p className="text-sm! text-white/55!">
         © 2026 SMJ MUN. All Rights Reserved.
       </p>
+<div className="flex! items-center! gap-6!">
+  <a
+    href="#"
+    className="text-white/60! transition! hover:text-[var(--color-gold)]! hover:scale-110!"
+  >
+    <FaInstagram size={20} />
+  </a>
 
-      <div className="flex items-center! gap-6!">
-        <a
-          href="#"
-          className="text-white/60! transition! hover:text-[var(--color-gold)]!"
-        >
-          Instagram
-        </a>
+  <a
+    href="#"
+    className="text-white/60! transition! hover:text-[var(--color-gold)]! hover:scale-110!"
+  >
+    <FaLinkedinIn size={20} />
+  </a>
 
-        <a
-          href="#"
-          className="text-white/60! transition! hover:text-[var(--color-gold)]!"
-        >
-          LinkedIn
-        </a>
+  <a
+    href="#"
+    className="text-white/60! transition! hover:text-[var(--color-gold)]! hover:scale-110!"
+  >
+    <FaYoutube size={20} />
+  </a>
 
-        <a
-          href="#"
-          className="text-white/60! transition! hover:text-[var(--color-gold)]!"
-        >
-          YouTube
-        </a>
-
-        <a
-          href="#"
-          className="text-white/60! transition! hover:text-[var(--color-gold)]! "
-        >
-          Facebook
-        </a>
-      </div>
+  <a
+    href="#"
+    className="text-white/60! transition! hover:text-[var(--color-gold)]! hover:scale-110!"
+  >
+    <FaFacebookF size={20} />
+  </a>
+</div>
     </div>
   </div>
 </footer>

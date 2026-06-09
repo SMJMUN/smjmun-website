@@ -1,87 +1,95 @@
 export default function EditorialStatement() {
-  return (
-    <section
-      id="about"
-      style={{
-        backgroundColor: '#f8f8f8',
-        padding: '40px 0',
-        overflow: 'hidden',
-      }}
+  return (<section
+  id="about"
+  style={{
+    backgroundColor: '#f8f8f8',
+    padding: '80px 0',
+    overflow: 'hidden',
+  }}
+>
+  <div
+    className="
+      flex!
+      flex-col!
+      md:flex-row!
+      items-center!
+      justify-center!
+      gap-10!
+      md:gap-16!
+      max-w-[1200px]!
+      mx-auto!
+      px-[5vw]!
+    "
+  >
+    {/* Image */}
+    <div
+      className="
+        w-full!
+        md:w-[45%]!
+        flex!
+        justify-center!
+      "
     >
+      <img
+        src="/images/perparestudent.jpeg"
+        alt="Students participating in SMJ MUN"
+        className="
+          w-full!
+          max-w-[500px]!
+          h-auto!
+          object-cover!
+          block!
+        "
+      />
+    </div>
+
+    {/* Quote */}
+    <div
+      className="
+        w-full!
+        md:w-[55%]!
+        text-center!
+      "
+    >
+      {/* Gold Line */}
       <div
+        className="
+          w-20!
+          h-[1px]!
+          bg-[#bb8b57]!
+          mx-auto!
+          mb-8!
+        "
+      />
+
+      <p
         style={{
-          display: 'flex',
-          // maxWidth: '760px',
-          alignItems: 'center',
-          margin: '0 auto',
-          gap: '60px',
-          textAlign: 'center' as const,
-          padding: '0 5vw',
+          fontFamily: 'var(--font-heading), Georgia, serif',
+          fontSize: 'clamp(24px, 4vw, 52px)',
+          lineHeight: 1.3,
+          fontWeight: 400,
+          fontStyle: 'italic',
+          color: '#042147',
+          letterSpacing: '-0.01em',
         }}
       >
-        {/* Gold rule above */}
-        <div
-          style={{
-            width: '80px',
-            height: '1px',
-            backgroundColor: '#bb8b57',
-            margin: '0 auto 60px',
-          }}
-        />
+        &ldquo;We don&apos;t prepare students for conferences.
+        <br />
+        We prepare them for the world.&rdquo;
+      </p>
 
-           <div
-          style={{
-            flex: '0 0 45%',
-            maxWidth: '45%',
-            position: 'relative',
-            minHeight: '600px',
-            overflow: 'hidden',
-            
-          }}
-          className="founder-portrait flex! items-center! overflow-hidden! justify-center! md:flex-row! flex-col"
-        >
-          <img
-            src="/images/perparestudent.jpeg"
-            alt="Aarush Sahu — Founder of SMJ MUN"
-            style={{
-              width: '100%',
-              // height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-              position: 'absolute',
-              inset: 0,
-              height: '80%',
-            }}
-          />
-        </div>
-
-        {/* Editorial quote */}
-        <p
-          style={{
-            fontFamily: 'var(--font-heading), Georgia, serif',
-            fontSize: 'clamp(28px, 4vw, 52px)',
-            lineHeight: 1.3,
-            fontWeight: 400,
-            fontStyle: 'italic',
-            color: '#042147',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          &ldquo;We don&apos;t prepare students for conferences.
-          <br />
-          We prepare them for the world.&rdquo;
-        </p>
-
-        {/* Gold rule below */}
-        <div
-          style={{
-            width: '80px',
-            height: '1px',
-            backgroundColor: '#bb8b57',
-            margin: '30px auto 0',
-          }}
-        />
-      </div>
-    </section>
+      {/* Gold Line */}
+      <div
+        className="
+          w-20!
+          h-[1px]!
+          bg-[#bb8b57]!
+          mx-auto!
+          mt-8!
+        "
+      />
+    </div>
+  </div>
+</section>
   );
 }

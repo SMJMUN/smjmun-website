@@ -5,6 +5,7 @@ export default function EditorialStatement() {
       style={{
         backgroundColor: '#f8f8f8',
         padding: '40px 0',
+        overflow: 'hidden',
       }}
     >
       <div
@@ -37,7 +38,7 @@ export default function EditorialStatement() {
             overflow: 'hidden',
             
           }}
-          className="founder-portrait"
+          className="founder-portrait flex! items-center! overflow-hidden! justify-center! md:flex-row! flex-col"
         >
           <img
             src="/images/perparestudent.jpeg"

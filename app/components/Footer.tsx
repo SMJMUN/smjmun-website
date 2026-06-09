@@ -162,9 +162,9 @@ export default function Footer() {
       </p>
 <div className="flex! items-center! gap-6!">
   <a
-    href="#"
+    href="https://www.google.com/aclk?sa=L&pf=1&ai=DChsSEwiv1rCJ2vmUAxUflGYCHWCbAk0YACICCAEQABoCc20&co=1&ase=2&gclid=CjwKCAjw857RBhAgEiwAI-1yKFkaJvQK4PQ878HB8HEjGMw5upgDncBhiN2VjwxQS4UhrNa0s9opxRoC9m4QAvD_BwE&cid=CAASugHkaJSB9vN4WAYmHfYheaApK40rga9TotnL4kmXlhn6NZRw3rA4hDA7refo6t01Z0X6K07uvycV2-EhA0Nw6B3UzT3mLK2Ugtn-bNf8eOGTndWHBhaH8Zzt-haIfX-OH095Yov2RztpCgqwDXkuxAX7w9wncGEHRC4v0xZlWFWGIPOFZVUd7lKl94FJXW7GsRhVTjT5DQWiadI78jiDGlCPOK10OZAwoyjY8jv3C40BnVj-UfOd_K3Q4g8&cce=2&category=acrcp_v1_32&sig=AOD64_2nxdy0GulI_nSNlrg0uhPIy_uDmA&q&nis=4&adurl=https://www.amazon.in/?%26tag%3Dgooghydrabk1-21%26ref%3Dpd_sl_5szpgfto9i_e%26adgrpid%3D155259813593%26hvpone%3D%26hvptwo%3D%26hvadid%3D809000348074%26hvpos%3D%26hvnetw%3Dg%26hvrand%3D13781579522422987795%26hvqmt%3De%26hvdev%3Dc%26hvdvcmdl%3D%26hvlocint%3D%26hvlocphy%3D1007796%26hvtargid%3Dkwd-64107830%26hydadcr%3D14452_2459470%26gad_source%3D1&ved=2ahUKEwifuKiJ2vmUAxXhS2cHHfR_BeMQ0Qx6BAgMEAE"
     className="text-white/60! transition! hover:text-[var(--color-gold)]! hover:scale-110!"
-  >
+  > 
     <FaInstagram size={20} />
   </a>
 

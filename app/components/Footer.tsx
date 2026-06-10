@@ -14,7 +14,7 @@ export default function Footer() {
     { label: 'Contact', href: '#contact' },
   ];
 
-  return (
+  return (      
     <footer className="relative overflow-hidden! bg-[var(--color-navy)]! text-white!">
   {/* Top Gold Line */}
   <div className="h-[2px] w-full bg-[var(--color-gold)]!" />

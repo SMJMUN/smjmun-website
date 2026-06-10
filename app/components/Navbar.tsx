@@ -196,7 +196,7 @@ ${scrolled
               ))}
 
               <Link
-                href="/partnerships"
+                href="/partnerships"  
                 className="
     group!
     inline-flex items-center gap-2!
@@ -234,9 +234,9 @@ ${scrolled
               className="lg:hidden text-white"
             >
               <div className="flex flex-col gap-1.5">
-                <span className="w-7 h-[2px] bg-white"></span>
-                <span className="w-7 h-[2px] bg-white"></span>
-                <span className="w-7 h-[2px] bg-white"></span>
+                <span className="w-7! h-[2px]! bg-white"></span>
+                <span className="w-7! h-[2px]! bg-white"></span>
+                <span className="w-7! h-[2px]! bg-white"></span>
               </div>
             </button>
           </div>

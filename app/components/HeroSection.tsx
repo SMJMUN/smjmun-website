@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const heroImages = ['/images/hero-1.png', '/images/founder-2.jpeg', '/images/hero-3.png'];
@@ -44,20 +45,20 @@ export default function HeroSection() {
       ))}
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
-     <div
-  className="absolute inset-0 z-[2]"
-  style={{
-    background:
-      'linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.78) 45%, rgba(0,0,0,.45) 100%)',
-  }}
-/>
-<div
-  className="absolute inset-0 z-[3]"
-  style={{
-    background:
-      'radial-gradient(circle at 80% 40%, rgba(184,134,11,.18), transparent 35%)',
-  }}
-/>
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.78) 45%, rgba(0,0,0,.45) 100%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 z-[3]"
+        style={{
+          background:
+            'radial-gradient(circle at 80% 40%, rgba(184,134,11,.18), transparent 35%)',
+        }}
+      />
 
       {/* Bottom fade for depth */}
       <div
@@ -134,9 +135,9 @@ export default function HeroSection() {
           }}
           className='text-3xl!'
         >
-          India&apos;s Premier Platform  <br />For 
-         
-           <span className='text-gold! text-3xl'> Diplomacy, Leadership &amp; Global Engagement.</span>
+          India&apos;s Premier Platform  <br />For
+
+          <span className='text-gold! text-3xl'> Diplomacy, Leadership &amp; Global Engagement.</span>
         </p>
 
         {/* CTAs — one solid, one text link */}
@@ -150,19 +151,20 @@ export default function HeroSection() {
             animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards',
           }}
         >
+
           <a
             href="#contact"
             className="btn-primary  "
             style={{
               padding: '18px 44px',
               fontSize: '13px',
-            
+
             }}
             onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'black'; }}
             onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#83090e'; }}
 
           >
-           Partner With Us
+            Partner With Us
           </a>
           <a
             href="#leadership"

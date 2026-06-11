@@ -242,8 +242,7 @@ ${scrolled
           </div>
         </div>
       </nav>
-gti 
-      <MobileMenu
+        <MobileMenu
         open={mobileOpen}
         setOpen={setMobileOpen}
         navItems={navItems}

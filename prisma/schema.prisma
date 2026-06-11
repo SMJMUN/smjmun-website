@@ -1,0 +1,168 @@
+// ─── Prisma Schema ─────────────────────────────────────────────────
+// SMJ MUN — PostgreSQL (Neon) via Prisma ORM 7
+// ────────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ─────────────────────────────────────────────────────────
+
+enum RegistrationStatus {
+  PENDING_OTP
+  PENDING_PAYMENT
+  PAID
+  PAYMENT_FAILED
+  CANCELLED
+  REFUNDED
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+// ─── Registration ──────────────────────────────────────────────────
+
+model Registration {
+  id        String   @id @default(cuid())
+
+  // Student info
+  email       String
+  firstName   String
+  lastName    String
+  phone       String
+  institution String
+  city        String?
+
+  // Conference snapshot (denormalized from Sanity)
+  conferenceId    String
+  conferenceTitle String
+  conferenceDate  DateTime?
+  conferenceFee   Float
+  currency        String    @default("INR")
+
+  // Preferences
+  committeePreference  String?
+  dietaryRequirements  String?
+
+  // Registration lifecycle
+  status      RegistrationStatus @default(PENDING_OTP)
+
+  // Payment (HDFC / Juspay)
+  hdfcOrderId String?   @unique
+  paymentId   String?
+  paidAt      DateTime?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // One registration per email per conference
+  @@unique([email, conferenceId])
+
+  // Query indexes
+  @@index([conferenceId])
+  @@index([status])
+  @@index([email])
+}
+
+// ─── OTP Verification ──────────────────────────────────────────────
+
+model OtpVerification {
+  id        String   @id @default(cuid())
+
+  email     String
+  otpHash   String
+  expiresAt DateTime
+  verified  Boolean  @default(false)
+  attempts  Int      @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+// ─── Partnership Inquiry ───────────────────────────────────────────
+
+model PartnershipInquiry {
+  id              String   @id @default(cuid())
+
+  institutionName String
+  contactPerson   String
+  email           String
+  phone           String?
+  institutionType String?
+  message         String?
+
+  status    InquiryStatus @default(NEW)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+// ─── Contact Inquiry ───────────────────────────────────────────────
+
+model ContactInquiry {
+  id      String @id @default(cuid())
+
+  name    String
+  email   String
+  phone   String?
+  subject String?
+  message String
+
+  status    InquiryStatus @default(NEW)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+// ─── Volunteer Application ─────────────────────────────────────────
+
+model VolunteerApplication {
+  id          String @id @default(cuid())
+
+  name        String
+  email       String
+  phone       String
+  institution String
+  experience  String?
+  motivation  String?
+  conferenceId String?
+
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+// ─── Executive Board Application ───────────────────────────────────
+
+model ExecutiveBoardApplication {
+  id                String @id @default(cuid())
+
+  name              String
+  email             String
+  phone             String
+  institution       String
+  experience        String
+  preferredCommittee String?
+  portfolio         String?
+  conferenceId      String?
+
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}

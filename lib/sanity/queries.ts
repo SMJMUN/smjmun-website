@@ -74,6 +74,15 @@ export const CONFERENCE_BY_SLUG_QUERY = defineQuery(
   }`
 );
 
+export const CONFERENCE_BY_ID_QUERY = defineQuery(
+  `*[_type == "conference" && _id == $id][0]{
+    _id,
+    title,
+    venue,
+    date
+  }`
+);
+
 // ─── Blog ──────────────────────────────────────────────────────────
 
 export const BLOG_POSTS_QUERY = defineQuery(

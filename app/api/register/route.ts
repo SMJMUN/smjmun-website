@@ -11,6 +11,7 @@ import {
 import { generateOtp } from "@/lib/otp/generate-otp";
 import { hashOtp } from "@/lib/otp/hash-otp";
 import { createOtpRecord } from "@/lib/otp/create-otp-record";
+import { sendOtpEmail } from "@/lib/email/send-otp-email";
 import { createOrReplaceDraft } from "@/lib/registration/create-draft";
 import { rateLimit } from "@/lib/security/rate-limit";
 
@@ -168,10 +169,17 @@ export async function POST(request: Request) {
       expiresAt,
     });
 
+    const emailResult = await sendOtpEmail({
+      to: email,
+      firstName: data.firstName,
+      otp,
+    });
+
     return NextResponse.json({
       success: true,
       message: "OTP generated successfully",
       email: maskEmail(email),
+      warning: emailResult.success ? undefined : "OTP generated but email delivery failed.",
     });
   } catch (error) {
     console.error("[POST /api/register]", error);

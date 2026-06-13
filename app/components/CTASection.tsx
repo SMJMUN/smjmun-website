@@ -1,6 +1,35 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function CTASection() {
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(err.message);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -48,56 +77,85 @@ export default function CTASection() {
             Together?
           </h2>
 
-          {/* Buttons — stacked vertically, left-aligned */}
+          {/* Contact Form */}
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column' as const,
-              gap: '16px',
-              alignItems: 'flex-start',
+              width: '100%',
+              maxWidth: '480px',
             }}
           >
-            <a
-              href="mailto:contact@smjmun.org"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '18px 48px',
-                backgroundColor: '#ffffff',
-                color: '#83090e',
-                fontFamily: 'var(--font-body), system-ui, sans-serif',
-                fontSize: '14px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase' as const,
-                textDecoration: 'none',
-                transition: 'opacity 0.3s ease',
-              }}
-            >
-              Book Consultation
-            </a>
-            <a
-              href="mailto:partnerships@smjmun.org"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '18px 48px',
-                backgroundColor: 'transparent',
-                color: '#ffffff',
-                fontFamily: 'var(--font-body), system-ui, sans-serif',
-                fontSize: '14px',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase' as const,
-                textDecoration: 'none',
-                border: '1px solid rgba(255,255,255,0.35)',
-                transition: 'all 0.3s ease',
-              }}
-            >
-              Partner With Us
-            </a>
+            {status === "success" ? (
+              <div style={{ color: "#fff", padding: "20px", border: "1px solid rgba(255,255,255,0.3)", backgroundColor: "rgba(255,255,255,0.1)" }}>
+                Thank you for your message! We will get back to you soon.
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <input
+                  type="text"
+                  placeholder="Your Name *"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  style={{
+                    width: '100%', padding: '16px 20px', backgroundColor: 'transparent',
+                    border: '1px solid rgba(255,255,255,0.3)', color: '#fff', outline: 'none'
+                  }}
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address *"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  style={{
+                    width: '100%', padding: '16px 20px', backgroundColor: 'transparent',
+                    border: '1px solid rgba(255,255,255,0.3)', color: '#fff', outline: 'none'
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  style={{
+                    width: '100%', padding: '16px 20px', backgroundColor: 'transparent',
+                    border: '1px solid rgba(255,255,255,0.3)', color: '#fff', outline: 'none'
+                  }}
+                />
+                <textarea
+                  placeholder="Your Message *"
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  style={{
+                    width: '100%', padding: '16px 20px', backgroundColor: 'transparent',
+                    border: '1px solid rgba(255,255,255,0.3)', color: '#fff', outline: 'none', resize: 'none'
+                  }}
+                />
+                {status === "error" && <div style={{ color: "#ffb3b3", fontSize: "14px" }}>{errorMessage}</div>}
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  style={{
+                    alignSelf: 'flex-start',
+                    padding: '16px 48px',
+                    backgroundColor: '#ffffff',
+                    color: '#83090e',
+                    fontFamily: 'var(--font-body), system-ui, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    border: 'none',
+                    cursor: status === "loading" ? "not-allowed" : "pointer",
+                    opacity: status === "loading" ? 0.7 : 1,
+                  }}
+                >
+                  {status === "loading" ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 

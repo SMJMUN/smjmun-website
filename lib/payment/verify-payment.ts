@@ -12,6 +12,9 @@ import {
   unauthorized,
 } from "@/lib/payment/errors";
 import { logPaymentEvent } from "@/lib/payment/log-payment-event";
+import { sanityFetch } from "@/lib/sanity/client";
+import { CONFERENCE_BY_ID_QUERY } from "@/lib/sanity/queries";
+import { sendRegistrationEmail } from "@/lib/email/send-registration-email";
 
 const PENDING_STATUSES = new Set(["PENDING", "PENDING_VBV"]);
 const FAILED_STATUSES = new Set([
@@ -122,6 +125,26 @@ export async function verifyPayment(
       hdfcOrderId: registration.hdfcOrderId,
       status: hdfcStatus,
     });
+
+    try {
+      const conference = await sanityFetch<{ title: string; venue?: string; date: string } | null>({
+        query: CONFERENCE_BY_ID_QUERY,
+        params: { id: updated.conferenceId },
+        revalidate: false,
+      });
+
+      await sendRegistrationEmail({
+        to: updated.email,
+        studentName: updated.firstName,
+        conferenceTitle: updated.conferenceTitle || conference?.title || "SMJ MUN Conference",
+        venue: conference?.venue || "TBA",
+        date: updated.conferenceDate ? new Date(updated.conferenceDate).toLocaleDateString() : (conference?.date || "TBA"),
+        registrationId: updated.id,
+      });
+    } catch (emailError) {
+      console.error("[EMAIL ERROR] Failed to send registration email:", emailError);
+      // We do not rollback or throw, business operation succeeded.
+    }
 
     return {
       outcome: "paid",

@@ -1,12 +1,52 @@
+"use client";
 
- import Image from "next/image";
-
-
+import Image from "next/image";
 import TrustSection from "../components/TrustSection";
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
-    export default function PartnershipsPage() {
+export default function PartnershipsPage() {
+  const [formData, setFormData] = useState({
+    institutionName: "",
+    contactPerson: "",
+    email: "",
+    phone: "",
+    institutionType: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/partnerships", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+      setStatus("success");
+      setFormData({
+        institutionName: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        institutionType: "",
+        message: "",
+      });
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(err.message);
+    }
+  };
       return (
        <main className="!bg-[#f8f8f8] !text-black">
 
@@ -813,12 +853,15 @@ import { ArrowRight } from 'lucide-react';
       </div>
 
       {/* RIGHT SIDE */}
-      <form className="!space-y-5">
+      <form className="!space-y-5" onSubmit={handleSubmit}>
 
         <div className="!grid md:!grid-cols-2 !gap-4">
 
           <input
             placeholder="Institution Name *"
+            required
+            value={formData.institutionName}
+            onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
             className="
               !w-full
               !bg-transparent
@@ -835,43 +878,9 @@ import { ArrowRight } from 'lucide-react';
 
           <input
             placeholder="Contact Person *"
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-        </div>
-
-        <div className="!grid md:!grid-cols-2 !gap-4">
-
-          <input
-            placeholder="Designation *"
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-          <input
-            placeholder="Email Address *"
-            type="email"
+            required
+            value={formData.contactPerson}
+            onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
             className="
               !w-full
               !bg-transparent
@@ -892,6 +901,8 @@ import { ArrowRight } from 'lucide-react';
 
           <input
             placeholder="Phone Number *"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="
               !w-full
               !bg-transparent
@@ -906,7 +917,33 @@ import { ArrowRight } from 'lucide-react';
             "
           />
 
+          <input
+            placeholder="Email Address *"
+            type="email"
+            required
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            className="
+              !w-full
+              !bg-transparent
+              !border
+              !border-white/20
+              !px-5
+              !py-4
+              !text-white
+              placeholder:!text-white/50
+              focus:!outline-none
+              focus:!border-[#bb8b57]
+            "
+          />
+
+        </div>
+
+        <div className="!grid md:!grid-cols-1 !gap-4">
+
           <select
+            value={formData.institutionType}
+            onChange={(e) => setFormData({ ...formData, institutionType: e.target.value })}
             className="
               !w-full
               !bg-black
@@ -920,59 +957,21 @@ import { ArrowRight } from 'lucide-react';
               focus:!border-[#bb8b57]
             "
           >
-            <option>Institution Type</option>
-            <option>School</option>
-            <option>College</option>
-            <option>University</option>
-            <option>NGO</option>
-            <option>Corporate</option>
+            <option value="">Institution Type</option>
+            <option value="School">School</option>
+            <option value="College">College</option>
+            <option value="University">University</option>
+            <option value="NGO">NGO</option>
+            <option value="Corporate">Corporate</option>
           </select>
-
-        </div>
-
-        <div className="!grid md:!grid-cols-2 !gap-4">
-
-          <select
-            className="
-              !w-full
-              
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            !bg-black
-            "
-          >
-            <option>Interested In</option>
-            <option>School Partnership</option>
-            <option>College Partnership</option>
-            <option>Sponsorship</option>
-          </select>
-
-          <input
-            placeholder="Expected Number of Students"
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
 
         </div>
 
         <textarea
           rows={5}
           placeholder="Message"
+          value={formData.message}
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="
             !w-full
             !bg-transparent
@@ -987,7 +986,16 @@ import { ArrowRight } from 'lucide-react';
           "
         />
 
+        {status === "error" && (
+          <div className="text-red-500 text-sm mt-2">{errorMessage}</div>
+        )}
+        {status === "success" && (
+          <div className="text-green-500 text-sm mt-2">Thank you! Your inquiry has been submitted.</div>
+        )}
+
         <button
+          type="submit"
+          disabled={status === "loading"}
           className="
             !w-full
             !bg-[#bb8b57]

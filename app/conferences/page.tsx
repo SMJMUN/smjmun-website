@@ -189,11 +189,13 @@ export default async function ConferencesPage() {
                               src={imageUrl}
                               alt={conf.title}
                               fill
+                              unoptimized
                               sizes="(max-width: 768px) 100vw, 400px"
                               style={{
                                 objectFit: "cover",
                                 transition: "transform 0.6s ease",
                               }}
+                              className="unoptimized-image"
                             />
                           )}
                           {/* Status Badge */}

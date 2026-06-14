@@ -268,6 +268,7 @@ export default async function MediaPage() {
                                   .url()}
                                 alt={item.title}
                                 fill
+                                unoptimized
                                 sizes="40vw"
                                 style={{
                                   objectFit: "cover",

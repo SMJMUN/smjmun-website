@@ -244,6 +244,7 @@ export default async function GalleryPage() {
                                   `${album.title} — photo ${i + 1}`
                                 }
                                 fill
+                                unoptimized
                                 sizes="(max-width: 768px) 100vw, 300px"
                                 style={{
                                   objectFit: "cover",

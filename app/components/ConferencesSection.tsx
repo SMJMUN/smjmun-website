@@ -104,10 +104,10 @@ export default function ConferencesSection() {
               flexShrink: 0,
               scrollSnapAlign: 'start',
             }}
-           onMouseEnter={(e) => {
-  (e.currentTarget as HTMLElement)
-    .style.backgroundColor = 'black';
-}}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement)
+                .style.backgroundColor = 'black';
+            }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = '#83090e'; }}
           >
             {/* Cinematic image */}
@@ -118,8 +118,8 @@ export default function ConferencesSection() {
                 overflow: 'hidden',
                 position: 'relative',
               }}
-              
-          
+
+
             >
               <img
                 src={conf.image}
@@ -131,7 +131,7 @@ export default function ConferencesSection() {
                   display: 'block',
                   transition: 'filter 0.4s ease',
                 }}
-                   />
+              />
             </div>
 
             {/* Gold rule separator */}

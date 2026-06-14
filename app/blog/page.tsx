@@ -171,6 +171,7 @@ export default async function BlogPage() {
                               .url()}
                             alt={featured.title}
                             fill
+                            unoptimized
                             sizes="50vw"
                             style={{
                               objectFit: "cover",
@@ -315,6 +316,7 @@ export default async function BlogPage() {
                                   src={coverUrl}
                                   alt={post.title}
                                   fill
+                                  unoptimized
                                   sizes="(max-width: 768px) 100vw, 400px"
                                   style={{
                                     objectFit: "cover",

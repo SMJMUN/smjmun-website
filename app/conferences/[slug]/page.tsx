@@ -617,6 +617,7 @@ export default async function ConferenceDetailPage({
                         src={imgUrl}
                         alt={img.alt || `${conference.title} gallery image ${i + 1}`}
                         fill
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, 300px"
                         style={{ objectFit: "cover" }}
                       />

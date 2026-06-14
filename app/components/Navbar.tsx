@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import DesktopDropdown from './DesktopDropdown';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -99,7 +99,7 @@ export default function Navbar() {
 fixed top-0 left-0 right-0 z-50
 transition-all duration-500
 ${scrolled
-            ? 'py-3 bg-black/85 backdrop-blur-xl'
+            ? 'py-1 bg-black/85 backdrop-blur-xl'
             : 'py-8 bg-transparent'
           }
 `}
@@ -180,7 +180,7 @@ ${scrolled
                     text-white/90
                     uppercase
                     tracking-[0.15em]
-                    text-[12px]
+                    text-[11px]
                     hover:text-white
                     transition
                   "
@@ -196,7 +196,7 @@ ${scrolled
               ))}
 
               <Link
-                href="/partnerships"  
+                href="/partnerships"
                 className="
     group!
     inline-flex items-center gap-2!
@@ -228,16 +228,14 @@ ${scrolled
             {/* MENU ICON */}
 
             <button
-              onClick={() =>
-                setMobileOpen((prev) => !prev)
-              }
-              className="lg:hidden text-white"
+              onClick={() => setMobileOpen((prev) => !prev)}
+             className="lg:hidden text-white relative z-[9999]"
             >
-              <div className="flex flex-col gap-1.5">
-                <span className="w-7! h-[2px]! bg-white"></span>
-                <span className="w-7! h-[2px]! bg-white"></span>
-                <span className="w-7! h-[2px]! bg-white"></span>
-              </div>
+              {mobileOpen ? (
+                <X  size={20} />
+              ) : (
+                <Menu size={20} />
+              )}
             </button>
           </div>
         </div>

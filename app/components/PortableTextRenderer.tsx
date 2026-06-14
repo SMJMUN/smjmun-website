@@ -3,10 +3,21 @@ import type { PortableTextBlock } from "next-sanity";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
 
+/** Produces a URL-safe id from a heading's text content */
+function slugify(children: React.ReactNode): string {
+  const text = String(children ?? "")
+    .replace(/[^a-zA-Z0-9\s-]/g, "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+  return text || "heading";
+}
+
 const components: PortableTextComponents = {
   block: {
     h1: ({ children }) => (
       <h1
+        id={slugify(children)}
         style={{
           fontFamily: "var(--font-heading), Georgia, serif",
           fontSize: "clamp(32px, 4vw, 48px)",
@@ -16,6 +27,7 @@ const components: PortableTextComponents = {
           color: "var(--color-navy)",
           marginBottom: "24px",
           marginTop: "48px",
+          scrollMarginTop: "100px",
         }}
       >
         {children}
@@ -23,6 +35,7 @@ const components: PortableTextComponents = {
     ),
     h2: ({ children }) => (
       <h2
+        id={slugify(children)}
         style={{
           fontFamily: "var(--font-heading), Georgia, serif",
           fontSize: "clamp(26px, 3vw, 36px)",
@@ -32,6 +45,7 @@ const components: PortableTextComponents = {
           color: "var(--color-navy)",
           marginBottom: "20px",
           marginTop: "40px",
+          scrollMarginTop: "100px",
         }}
       >
         {children}
@@ -39,6 +53,7 @@ const components: PortableTextComponents = {
     ),
     h3: ({ children }) => (
       <h3
+        id={slugify(children)}
         style={{
           fontFamily: "var(--font-heading), Georgia, serif",
           fontSize: "clamp(22px, 2.5vw, 28px)",
@@ -47,6 +62,7 @@ const components: PortableTextComponents = {
           color: "var(--color-navy)",
           marginBottom: "16px",
           marginTop: "32px",
+          scrollMarginTop: "100px",
         }}
       >
         {children}
@@ -54,6 +70,7 @@ const components: PortableTextComponents = {
     ),
     h4: ({ children }) => (
       <h4
+        id={slugify(children)}
         style={{
           fontFamily: "var(--font-heading), Georgia, serif",
           fontSize: "20px",
@@ -62,6 +79,7 @@ const components: PortableTextComponents = {
           color: "var(--color-navy)",
           marginBottom: "12px",
           marginTop: "24px",
+          scrollMarginTop: "100px",
         }}
       >
         {children}

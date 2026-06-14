@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { X } from 'lucide-react';
 
 interface Props {
   open: boolean;
@@ -63,6 +64,14 @@ export default function MobileMenu({
               p-8
             "
           >
+            <div className="flex justify-end mb-10">
+  <button
+              onClick={() => setOpen(false)}
+              className="text-white"
+            >
+              <X size={28} />
+            </button>
+            </div>  
             <div className="mt-16">
               {navItems.map((item) => (
                 <div

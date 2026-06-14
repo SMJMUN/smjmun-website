@@ -65,7 +65,7 @@ function SidebarPostItem({ post, index }: { post: Blog; index?: number }) {
             fill
             unoptimized
             sizes="56px"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover rounded-sm transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       ) : (

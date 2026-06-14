@@ -20,7 +20,7 @@ export default function FeaturedConference({ conference }: { conference: Confere
     : null;
 
   return (
-    <section id="upcoming-conferences" className="section-padding-lg bg-white">
+    <section id="upcoming-conferences" className="section-padding-sm bg-white">
       <div className="content-editorial text-center mb-16">
         <h2 className="text-heading text-navy">Featured Conference</h2>
         <div className="gold-rule mx-auto mt-6" />
@@ -29,10 +29,10 @@ export default function FeaturedConference({ conference }: { conference: Confere
       <div className="content-wide">
         <Link
           href={`/conferences/${conference.slug.current}`}
-          className="group block border-[0.5px] border-gold/30 rounded-sm p-2 lg:p-3 no-underline h-full transition-colors duration-500 hover:border-gold"
+          className="group block border-[1px] border-gold/30 rounded-sm p-2 lg:p-3 no-underline h-full transition-colors duration-500 hover:border-gold"
           aria-label={`Featured conference: ${conference.title}`}
         >
-          <article className="relative rounded-sm overflow-hidden bg-navy flex flex-col lg:flex-row min-h-[500px]">
+        <article className="relative rounded-xl overflow-hidden bg-white flex flex-col lg:flex-row min-h-[460px] border border-stone-200">
             
             {/* Image Side */}
             <div className="relative w-full lg:w-1/2 aspect-[4/3] lg:aspect-auto">
@@ -57,14 +57,26 @@ export default function FeaturedConference({ conference }: { conference: Confere
               
               {/* "Featured" pill top-left over image */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="font-sans text-[10px] font-semibold tracking-[0.2em] uppercase text-gold bg-navy/80 backdrop-blur-sm border border-gold/30 px-4 py-2">
-                  Highlight
-                </span>
+             <span className="
+text-[10px]
+font-semibold
+tracking-[0.18em]
+uppercase
+text-gold
+bg-[#FFF8EE]
+border
+border-gold/30
+px-4
+py-2
+rounded-full
+">
+Featured Conference
+</span>
               </div>
             </div>
 
             {/* Content Side */}
-            <div className="relative z-10 w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center bg-navy">
+           <div className="relative z-10 w-full lg:w-1/2 p-10 lg:p-14 flex flex-col justify-center bg-white">
               
               <div className="flex items-center gap-4 mb-6">
                  {conference.registrationOpen && (
@@ -75,11 +87,22 @@ export default function FeaturedConference({ conference }: { conference: Confere
                  )}
               </div>
 
-              <h3 className="font-serif text-[clamp(28px,3vw,42px)] font-bold leading-[1.15] tracking-[-0.01em] text-white mb-6 group-hover:text-gold transition-colors duration-500">
+            <h3 className="
+font-serif
+text-[clamp(32px,3vw,48px)]
+font-bold
+leading-[1.1]
+tracking-[-0.02em]
+text-navy
+mb-6
+group-hover:text-gold
+transition-colors
+duration-500
+">
                 {conference.title}
               </h3>
 
-              <div className="flex flex-col gap-3 mb-8 font-sans text-[13px] tracking-[0.1em] uppercase text-white/60 font-medium">
+              <div className="flex text-navy    flex-col gap-3 mb-8 font-sans text-[13px] tracking-[0.1em] uppercase  font-medium">
                 {conference.venue && (
                   <div className="flex items-center gap-3">
                     <span className="text-gold opacity-80 text-[14px]">📍</span>
@@ -96,7 +119,7 @@ export default function FeaturedConference({ conference }: { conference: Confere
 
               {/* Excerpt logic using overview */}
               {conference.overview && conference.overview.length > 0 && (
-                 <p className="font-sans text-[15px] leading-[1.7] text-white/60 mb-10 line-clamp-3">
+                 <p className="font-sans text-[15px] leading-[1.7] text-stone-600 mb-10 line-clamp-3">
                    {/* Extracting pure text from portable text block 0 for the excerpt */}
                    {conference.overview[0]?.children?.[0]?.text || "Join us for an immersive diplomatic experience."}
                  </p>

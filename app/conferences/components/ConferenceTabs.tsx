@@ -26,12 +26,15 @@ export default function ConferenceTabs({ conferences }: { conferences: Conferenc
 
   return (
     <section className="section-padding-md bg-ivory">
-      <div className="content-editorial text-center mb-12">
-         <span className="font-sans text-[12px] font-semibold tracking-[0.25em] uppercase text-gold block mb-4">
-            Explore All
-         </span>
-         <h2 className="text-heading text-navy">Global Conferences</h2>
-      </div>
+     <div className="content-editorial pl-[15vw] mb-12">
+  <span className="font-sans text-[12px] font-semibold tracking-[0.25em] uppercase text-gold block mb-4">
+    Explore All
+  </span>
+
+  <h2 className="text-heading text-navy">
+    Global Conferences
+  </h2>
+</div>
 
       <div className="content-wide">
         {/* Tabs - Mirrored from Blog CategoryFilters styling */}

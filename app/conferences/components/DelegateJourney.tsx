@@ -27,13 +27,15 @@ const STEPS = [
 export default function DelegateJourney() {
   return (
     <section className="section-padding-lg bg-ivory">
-      <div className="content-editorial text-center mb-20">
+      <div className="content-editorial mx-auto flex flex-col items-center text-center mb-20">
         <span className="font-sans text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-6 block">
           The Experience
         </span>
+
         <h2 className="text-section text-navy mb-8">
           Your journey from registration to resolution.
         </h2>
+
         <div className="gold-rule mx-auto" />
       </div>
 

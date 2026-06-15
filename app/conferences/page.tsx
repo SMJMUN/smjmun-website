@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import { CONFERENCES_QUERY } from "@/lib/sanity/queries";
@@ -42,7 +41,6 @@ export default async function ConferencesPage() {
 
   return (
     <>
-      <Navbar />
       <main>
         <ConferenceVideoHero conference={featured} />
         <FeaturedConference conference={featured} />

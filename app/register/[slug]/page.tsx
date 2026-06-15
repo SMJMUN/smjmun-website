@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { RegistrationStatus } from "@prisma/client";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import RegistrationForm from "@/app/components/RegistrationForm";
 import { sanityFetch } from "@/lib/sanity/client";
@@ -116,7 +115,6 @@ export default async function RegisterPage({
 
   return (
     <>
-      <Navbar />
       <main>
         <section
           style={{

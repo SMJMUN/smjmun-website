@@ -1,4 +1,3 @@
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 export default function PaymentLayout({
@@ -8,7 +7,6 @@ export default function PaymentLayout({
 }) {
   return (
     <>
-      <Navbar />
       <main>{children}</main>
       <Footer />
     </>

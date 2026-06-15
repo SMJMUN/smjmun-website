@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import { BLOG_POSTS_QUERY } from "@/lib/sanity/queries";
@@ -33,7 +32,6 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Navbar />
       <main>
         <BlogPageClient posts={posts} featuredPost={featuredPost} />
       </main>

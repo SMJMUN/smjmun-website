@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import {
@@ -92,7 +91,6 @@ export default async function ConferenceDetailPage({
 
   return (
     <>
-      <Navbar />
       <main style={{ backgroundColor: "var(--color-white)", position: "relative" }}>
         
         {/* Hero */}

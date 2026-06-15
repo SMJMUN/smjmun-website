@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import TrustSection from "./components/TrustSection";
 import ImpactSection from "./components/ImpactSection";
@@ -17,7 +16,6 @@ import Test from "./components/Test";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <HeroSection />
         <TrustSection />

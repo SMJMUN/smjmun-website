@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import {
@@ -98,7 +97,6 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <Navbar />
       <main>
         {/* Section 1: Article Hero */}
         <ArticleHero post={post} />

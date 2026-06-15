@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import { MEDIA_QUERY } from "@/lib/sanity/queries";
@@ -42,7 +41,6 @@ export default async function MediaPage() {
 
   return (
     <>
-      <Navbar />
       <main>
         {/* Header */}
         <section

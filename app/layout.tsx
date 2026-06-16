@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Geist } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "@/components/ScrollToTop";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -56,6 +57,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1">
           {children}
+          <ScrollToTop />
         </div>
       </body>
     </html>

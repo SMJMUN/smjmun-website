@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Geist } from "next/font/google";
 import "./globals.css";
-import ScrollToTop from "@/components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
 

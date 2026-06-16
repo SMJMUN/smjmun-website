@@ -9,7 +9,7 @@ export default function ConferenceSidebar({ conference }: { conference: Conferen
       {/* Authority Card */}
       <div className="bg-white border border-navy/10 p-8">
         <div className="flex items-center gap-4 mb-6">
-          <Image src="/logo-dark.png" alt="SMJ MUN Logo" width={48} height={48} className="object-contain" unoptimized />
+          <Image src="/images/smg-mun-logo.png" alt="SMJ MUN Logo" width={48} height={48} className="object-contain" unoptimized />
           <div>
             <h3 className="font-serif text-[18px] font-bold text-navy">SMJ MUN Secretariat</h3>
             <p className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-navy/50">Organizing Body</p>

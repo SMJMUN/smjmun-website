@@ -23,7 +23,7 @@ export function NavigationItem({ item, className, onClick }: NavigationItemProps
       onClick={onClick}
       className={cn(
         "group flex items-center gap-1 font-body text-[15px] font-medium transition-all duration-300",
-        isActive ? "text-accent" : "text-primary/80 hover:text-primary",
+        isActive ? "text-accent" : "text-white hover:text-charcoal",
         className
       )}
     >
@@ -33,7 +33,7 @@ export function NavigationItem({ item, className, onClick }: NavigationItemProps
         <span 
           className={cn(
             "absolute -bottom-1 left-0 h-[1.5px] bg-accent transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
-            isActive ? "w-full" : "w-0 group-hover:w-full opacity-50 group-hover:opacity-100"
+            isActive ? "w-full" : " w-0 group-hover:w-full opacity-50 group-hover:opacity-100"
           )} 
         />
       </span>

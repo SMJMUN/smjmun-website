@@ -22,7 +22,7 @@ export function DesktopNav() {
 
   return (
     <NavigationMenu className="hidden md:flex mx-auto z-50">
-      <NavigationMenuList className="gap-8">
+      <NavigationMenuList className="gap-8 ">
         {MAIN_NAVIGATION.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
           
@@ -36,7 +36,7 @@ export function DesktopNav() {
                     "bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent",
                     "font-body text-[15px] font-medium p-0 h-auto",
                     "group flex items-center gap-1 transition-all duration-300",
-                    isActive ? "text-accent" : "text-primary/80 hover:text-primary",
+                    isActive ? "text-white" : "text-accent hover:text-charcoal",
                     // Custom override for the generic shadcn styling
                     "[&>svg]:w-3 [&>svg]:h-3 [&>svg]:ml-1.5 [&>svg]:opacity-60 [&>svg]:transition-transform [&>svg]:duration-300",
                     "data-[state=open]:[&>svg]:rotate-180 data-[state=open]:text-accent"
@@ -47,7 +47,7 @@ export function DesktopNav() {
                     <span 
                       className={cn(
                         "absolute -bottom-1 left-0 h-[1.5px] bg-accent transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
-                        isActive ? "w-full" : "w-0 group-hover:w-full group-data-[state=open]:w-full opacity-50 group-hover:opacity-100"
+                        isActive ? "w-full" :  "w-0 group-hover:w-full group-data-[state=open]:w-full opacity-50 group-hover:opacity-100"
                       )} 
                     />
                   </span>

@@ -15,7 +15,7 @@ export function Header() {
       className={cn(
         "fixed top-0 w-full z-[100] transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
         isScrolled 
-          ? "h-[72px] bg-white/95 backdrop-blur-[8px] border-b border-primary/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]" 
+          ? "h-[66px] bg-[#18171C] backdrop-blur-[8px] border-b border-primary/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]" 
           : "h-[96px] bg-transparent border-transparent shadow-none"
       )}
     >

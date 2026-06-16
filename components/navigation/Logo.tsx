@@ -2,19 +2,28 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { motion, AnimatePresence } from "framer-motion";
 interface LogoProps {
   isScrolled: boolean;
 }
 
 export function Logo({ isScrolled }: LogoProps) {
   return (
-    <Link href="/" className="flex items-center gap-3 md:gap-4 group z-50 relative">
-      {/* Logo Mark */}
-      <div 
-        className={`relative overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-          isScrolled ? 'h-10 w-10 md:h-12 md:w-12' : 'h-12 w-12 md:h-16 md:w-16'
-        }`}
+    <Link
+      href="/"
+      className="flex items-center gap-3 md:gap-4 group relative z-50"
+    >
+      {/* Logo */}
+      <motion.div
+        animate={{
+          width: isScrolled ? 64 : 99,
+          height: isScrolled ? 64 : 99,
+        }}
+        transition={{
+          duration: 0.99,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="relative overflow-hidden shrink-0"
       >
         <Image
           src="/images/smg-mun-logo.png"
@@ -23,30 +32,45 @@ export function Logo({ isScrolled }: LogoProps) {
           className="object-contain"
           priority
         />
-      </div>
+      </motion.div>
 
-      {/* Institution Name */}
-      <div className="flex flex-col">
-        <span 
-          className={`font-heading font-bold text-primary tracking-tight transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-            isScrolled 
-              ? 'text-lg md:text-xl' 
-              : 'text-xl md:text-2xl'
-          }`}
-        >
-          SMJ MUN
-        </span>
-        {/* We only show the full subtitle on desktop, and it fades/shrinks slightly on scroll but remains visible as requested */}
-        <span 
-          className={`hidden md:block font-body text-primary/70 uppercase tracking-widest transition-all duration-500 origin-left ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-            isScrolled 
-              ? 'text-[9px] opacity-80' 
-              : 'text-[11px] opacity-100'
-          }`}
-        >
-          International Secretariat
-        </span>
-      </div>
+      {/* Institution Text */}
+      <AnimatePresence mode="wait">
+        {!isScrolled && (
+        <motion.div
+  animate={{
+    opacity: isScrolled ? 0 : 1,
+    y: isScrolled ? 55 : 0,
+    scale: isScrolled ? 0.96 : 1,
+    filter: isScrolled
+      ? "blur(8px)"
+      : "blur(0px)",
+  }}
+  transition={{
+    duration: 1.8,
+    delay: isScrolled ? 0.15 : 0,
+    ease: [0.16, 1, 0.3, 1],
+  }}
+  className="flex flex-col origin-top-left"
+>
+            <span
+              style={{
+                fontFamily:
+                  "var(--font-heading), Georgia, serif",
+              }}
+              className="font-bold text-xl md:text-2xl text-white tracking-tight"
+            >
+              SMJMUN
+            </span>
+
+            <div className="h-px bg-[#bb8b57] my-1 w-full" />
+
+            <span className="hidden md:block text-[11px] uppercase tracking-[0.22em] text-white/70">
+              Shri Seth Mangilalji Sahu
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Link>
   );
 }

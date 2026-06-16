@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
+import { Header } from "@/components/navigation/Header";
+
 import Footer from "@/app/components/Footer";
 import { sanityFetch } from "@/lib/sanity/client";
 import {
@@ -96,7 +97,7 @@ export default async function GalleryCollectionPage({
 
   return (
     <>
-      <Navbar />
+      <Header />
       <main>
         {/* 1. Hero — large cover image with key stats */}
         <CollectionHero gallery={gallery} />

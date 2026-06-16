@@ -1,8 +1,11 @@
+
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import { cn } from "@/lib/utils";
+import LayoutWrapper from "@/app/components/LayoutWrapper";
+
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -41,23 +44,25 @@ export const metadata: Metadata = {
   },
 };
 
-import { Header } from "@/components/navigation/Header";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+   
+
   return (
     <html
       lang="en"
       className={cn(playfair.variable, inter.variable, "font-sans", geist.variable)}
     >
       <body className="antialiased min-h-screen flex flex-col">
-        <Header />
+     
         <div className="flex-1">
-          {children}
+          {/* {children} */}
           <ScrollToTop />
+          <LayoutWrapper>{children}</LayoutWrapper>
         </div>
       </body>
     </html>

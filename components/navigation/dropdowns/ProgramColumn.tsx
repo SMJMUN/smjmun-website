@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
 
 interface ProgramLink {
   title: string;
@@ -11,27 +10,57 @@ interface ProgramColumnProps {
   links: ProgramLink[];
 }
 
-export function ProgramColumn({ title, links }: ProgramColumnProps) {
+export function ProgramColumn({
+  title,
+  links,
+}: ProgramColumnProps) {
   return (
-    <div className="flex flex-col gap-4">
-      <h3 className="font-heading text-lg font-bold text-primary border-b border-primary/10 pb-2 mb-2">
+    <div className="flex flex-col">
+      {/* Section overline label — editorial style */}
+      <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
         {title}
-      </h3>
-      <ul className="flex flex-col gap-3">
+      </p>
+
+      <div className="h-px bg-white/10 mb-7" />
+
+      <div className="space-y-4">
         {links.map((link) => (
-          <li key={link.title}>
-            <Link
-              href={link.href}
-              className="group flex items-center w-fit"
-            >
-              <span className="relative font-body text-[15px] text-primary/80 transition-colors duration-300 group-hover:text-accent">
-                {link.title}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:w-full" />
-              </span>
-            </Link>
-          </li>
+          <Link
+            key={link.title}
+            href={link.href}
+            className="
+              block
+              group
+              text-white/60
+              hover:text-white
+              transition-colors
+              duration-300
+              ease-[cubic-bezier(0.22,1,0.36,1)]
+              text-[15px]
+              font-body
+              font-normal
+            "
+          >
+            <span className="relative inline-block">
+              {link.title}
+              <span
+                className="
+                  absolute
+                  left-0
+                  -bottom-0.5
+                  h-px
+                  w-0
+                  bg-[#bb8b57]
+                  transition-all
+                  duration-300
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  group-hover:w-full
+                "
+              />
+            </span>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

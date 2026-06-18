@@ -138,9 +138,9 @@ export default function HeroSection() {
           className='text-3xl!'
         >
           MUN Teaches You How To Speak.
-      <br />SMJMUN
+      <br />SMJMUN 
 
-          <span className='text-gold! text-3xl'>  Exists To Give You Something Worth Saying</span>
+          <span className='text-gold! text-3xl'>  Exists To Give   You Something Worth Saying</span>
         </p>
 <div
   style={{

@@ -21,17 +21,25 @@ export function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <NavigationMenu className="hidden md:flex mx-auto z-50">
+    <NavigationMenu
+      className="
+    hidden
+    md:flex
+    mx-auto
+    z-50
+    static 
+  "
+    >
       <NavigationMenuList className="gap-8 ">
         {MAIN_NAVIGATION.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-          
+
           // Special handling for Conferences and Programs to render the Mega Menu
           if (item.label === 'Conferences' || item.label === 'Programs') {
             const MenuComponent = item.label === 'Conferences' ? ConferencesMenu : ProgramsMenu;
             return (
               <NavigationMenuItem key={item.label}>
-                <NavigationMenuTrigger 
+                <NavigationMenuTrigger
                   className={cn(
                     "bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent",
                     "font-body text-[15px] font-medium p-0 h-auto",
@@ -44,18 +52,24 @@ export function DesktopNav() {
                 >
                   <span className="relative">
                     {item.label}
-                    <span 
+                    <span
                       className={cn(
                         "absolute -bottom-1 left-0 h-[1.5px] bg-accent transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
-                        isActive ? "w-full" :  "w-0 group-hover:w-full group-data-[state=open]:w-full opacity-50 group-hover:opacity-100"
-                      )} 
+                        isActive ? "w-full" : "w-0 group-hover:w-full group-data-[state=open]:w-full opacity-50 group-hover:opacity-100"
+                      )}
                     />
                   </span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="mt-6 border-none shadow-none bg-transparent">
-                  <div className="pt-4"> {/* Padding to prevent mouse leave gap */}
-                    <MenuComponent />
-                  </div>
+                <NavigationMenuContent
+                  className="
+    mt-0
+    p-0
+    border-none
+    shadow-none
+    bg-transparent
+  "
+                >
+                  <MenuComponent />
                 </NavigationMenuContent>
               </NavigationMenuItem>
             );

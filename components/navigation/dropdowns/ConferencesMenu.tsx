@@ -1,110 +1,215 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  MapPin,
+  Calendar,
+} from 'lucide-react';
 import { CONFERENCES_DATA } from '../constants/navigation';
-import { cn } from '@/lib/utils';
 
 export function ConferencesMenu() {
   const { featured } = CONFERENCES_DATA;
 
   return (
-    <div
-     className="w-[800px] p-8 grid grid-cols-12 gap-8 bg-surface-white rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-primary/5"
-     >
-      
-      {/* Featured Conference Card (Takes up 7 columns) */}
-      <div className="col-span-7 flex flex-col group cursor-pointer relative overflow-hidden rounded-lg bg-surface border border-primary/5 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-        <Link href={featured.href} className="absolute inset-0 z-10">
-          <span className="sr-only">View {featured.title}</span>
-        </Link>
-        
-        <div className="relative h-48 w-full overflow-hidden">
-          <Image 
-            src={featured.image} 
-            alt={featured.title}
-            fill
-            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-          
-          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 shadow-sm flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-[10px] font-bold tracking-widest uppercase text-primary">
-              {featured.registrationStatus}
-            </span>
-          </div>
-        </div>
-        
-        <div className="p-6 flex flex-col flex-grow bg-white">
-          <span className="font-body text-[11px] font-semibold tracking-widest uppercase text-highlight mb-2">
-            Featured Summit
-          </span>
-          <h3 className="font-heading text-2xl font-bold text-primary mb-4 leading-tight group-hover:text-accent transition-colors duration-300">
-            {featured.title}
-          </h3>
-          
-          <div className="flex flex-col gap-3 mt-auto mb-6">
-            <div className="flex items-start gap-2.5 text-primary/70">
-              <MapPin className="w-4 h-4 mt-0.5 text-highlight/70" />
-              <span className="font-body text-[14px] leading-snug">{featured.venue}</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-primary/70">
-              <Calendar className="w-4 h-4 text-highlight/70" />
-              <span className="font-body text-[14px]">{featured.date}</span>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2 text-accent font-medium text-[14px] mt-auto">
-            View Conference Details
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
-        </div>
-      </div>
+    <motion.div
+      initial={{ opacity: 0, y: -24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      transition={{
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="
+        w-screen
+        bg-[#0a0a0a]
+        text-white
+        border-t
+        border-white/10
+        px-24
+        py-14
+      "
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-16">
 
-      {/* Conference Links & Info (Takes up 5 columns) */}
-      <div className="col-span-5 flex flex-col py-2">
-        <h4 className="font-heading text-xl font-bold text-primary mb-6 pb-4 border-b border-highlight/20 relative">
-          Global Conferences
-          <span className="absolute bottom-[-1px] left-0 w-12 h-[2px] bg-highlight" />
-        </h4>
-        
-        <p className="font-body text-[14px] text-primary/70 leading-relaxed mb-6">
-          Experience world-class diplomacy, debate, and negotiation at our international and national summits.
-        </p>
-
-        <div className="flex flex-col gap-2 mt-auto">
-          <Link 
-            href="/conferences"
-            className="flex items-center justify-between p-4 rounded-md bg-surface hover:bg-highlight/5 border border-transparent hover:border-highlight/10 transition-all duration-300 group"
+        {/* COLUMN 01 — Featured Conference */}
+        <div className="col-span-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.06, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex flex-col">
-              <span className="font-heading text-lg font-bold text-primary group-hover:text-accent transition-colors">
-                Conference Archive
-              </span>
-              <span className="font-body text-[12px] text-primary/60 mt-1">
-                Explore past resolutions and committees
-              </span>
-            </div>
-            <ArrowRight className="w-4 h-4 text-primary/40 group-hover:text-accent group-hover:translate-x-1 transition-all" />
-          </Link>
-          
-          <Link 
-            href="/register"
-            className="flex items-center justify-between p-4 rounded-md bg-primary text-white hover:bg-accent transition-all duration-300 group shadow-md hover:shadow-lg"
-          >
-            <div className="flex flex-col">
-              <span className="font-heading text-lg font-bold">
-                Register Delegation
-              </span>
-            </div>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all" />
-          </Link>
-        </div>
-      </div>
+            {/* Overline label */}
+            <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
+              Featured Conference
+            </p>
 
-    </div>
+            <div className="h-px bg-white/10 mb-7" />
+
+            <div className="space-y-5">
+              <h4 className="font-heading text-[28px] font-normal leading-snug text-white">
+                {featured.title}
+              </h4>
+
+              <div className="space-y-3 pt-1">
+                <div className="flex items-start gap-3 text-white/50">
+                  <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#bb8b57]" />
+                  <span className="font-body text-[13px] leading-relaxed tracking-wide">
+                    {featured.venue}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 text-white/50">
+                  <Calendar className="w-3.5 h-3.5 shrink-0 text-[#bb8b57]" />
+                  <span className="font-body text-[13px] tracking-wide">
+                    {featured.date}
+                  </span>
+                </div>
+              </div>
+
+              <Link
+                href={featured.href}
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-[#bb8b57]
+                  text-[13px]
+                  tracking-[0.06em]
+                  uppercase
+                  hover:gap-3.5
+                  transition-all
+                  duration-300
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  pt-2
+                "
+              >
+                View Conference
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* COLUMN 02 — Conference Opportunities */}
+        <div className="col-span-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
+              Conference Opportunities
+            </p>
+
+            <div className="h-px bg-white/10 mb-7" />
+
+            <div className="space-y-4">
+              {[
+                'International Conferences',
+                'National Conferences',
+                'School Conferences',
+                'College Conferences',
+                'Delegate Training',
+                'Executive Board Program',
+              ].map((item) => (
+                <Link
+                  key={item}
+                  href="/conferences"
+                  className="
+                    block
+                    group
+                    font-body
+                    text-[15px]
+                    font-normal
+                    text-white/60
+                    hover:text-white
+                    transition-colors
+                    duration-300
+                  "
+                >
+                  <span className="relative inline-block">
+                    {item}
+                    <span
+                      className="
+                        absolute
+                        left-0
+                        -bottom-0.5
+                        h-px
+                        w-0
+                        bg-[#bb8b57]
+                        transition-all
+                        duration-300
+                        ease-[cubic-bezier(0.22,1,0.36,1)]
+                        group-hover:w-full
+                      "
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* COLUMN 03 — Quick Access */}
+        <div className="col-span-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.14, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
+              Quick Access
+            </p>
+
+            <div className="h-px bg-white/10 mb-7" />
+
+            <div className="space-y-4">
+              {[
+                { label: 'Register Delegation', href: '/register' },
+                { label: 'Conference Archive', href: '/conferences' },
+                { label: 'Download Brochure', href: '/conferences' },
+                { label: 'Partner With Us', href: '/partnerships' },
+                { label: 'Contact Secretariat', href: '/contact' },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="
+                    flex
+                    items-center
+                    justify-between
+                    font-body
+                    text-[15px]
+                    text-white/60
+                    hover:text-white
+                    transition-colors
+                    duration-300
+                    group
+                  "
+                >
+                  <span>{item.label}</span>
+                  <ArrowRight
+                    className="
+                      w-3.5
+                      h-3.5
+                      opacity-0
+                      -translate-x-2
+                      transition-all
+                      duration-300
+                      ease-[cubic-bezier(0.22,1,0.36,1)]
+                      group-hover:opacity-100
+                      group-hover:translate-x-0
+                    "
+                  />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+      </div>
+    </motion.div>
   );
 }

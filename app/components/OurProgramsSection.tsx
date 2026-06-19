@@ -4,7 +4,6 @@ import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-// ─── Data ────────────────────────────────────────────────────────────────────
 const PROGRAMS = [
   {
     id: 'conferences',
@@ -69,44 +68,29 @@ const PROGRAMS = [
 ];
 
 export default function OurProgramsSection() {
-  // ── Single source of truth. Background AND content always in sync. ──────────
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
-
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // pendingIndex lets us track the latest requested index so rapid hovers
-  // always resolve to wherever the user landed, not an intermediate stop.
-  const pendingIndex = useRef<number>(0);
+  const pendingIdx = useRef<number>(0);
 
   const switchTo = useCallback((index: number) => {
-    // Always record the latest intent
-    pendingIndex.current = index;
-
-    // Already there — nothing to do
+    pendingIdx.current = index;
     if (activeIndex === index) return;
-
-    // Kick off the fade-out, then swap once it finishes
     setAnimating(true);
-
     if (animTimer.current) clearTimeout(animTimer.current);
     animTimer.current = setTimeout(() => {
-      // Use the *latest* pending index, not the stale closure value,
-      // so rapid hovers resolve to the tab the user is actually on.
-      setActiveIndex(pendingIndex.current);
+      setActiveIndex(pendingIdx.current);
       setAnimating(false);
     }, 200);
   }, [activeIndex]);
 
   const handleTabHover = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    // Small debounce so accidental brush-overs don't trigger switches
     hoverTimer.current = setTimeout(() => switchTo(index), 80);
   }, [switchTo]);
 
   const handleTabClick = useCallback((index: number) => {
-    // On click we skip the hover debounce and switch immediately
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
     switchTo(index);
   }, [switchTo]);
@@ -116,27 +100,27 @@ export default function OurProgramsSection() {
   return (
     <>
       <style>{`
-        .prog-read-btn {
+        /* ─── Read-more pill ─────────────────────────────── */
+        .prog-btn {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin-top: 40px;
-          padding: 13px 28px;
+          margin-top: 36px;
+          padding: 12px 26px;
           border-radius: 50px;
-          border: 1.5px solid rgba(255,255,255,0.55);
-          color: rgba(255,255,255,0.90);
+          border: 1.5px solid rgba(255,255,255,0.50);
+          color: #fff;
           font-family: system-ui, sans-serif;
           font-size: 14px;
-          letter-spacing: 0.03em;
+          letter-spacing: 0.04em;
           text-decoration: none;
           background: transparent;
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          transition: color 300ms ease, border-color 300ms ease;
+          transition: border-color 300ms ease, color 300ms ease;
         }
-
-        .prog-read-btn::before {
+        .prog-btn::before {
           content: '';
           position: absolute;
           inset: 0;
@@ -144,48 +128,74 @@ export default function OurProgramsSection() {
           background: #bb8b57;
           transform: scaleX(0);
           transform-origin: left center;
-          transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+          transition: transform 320ms cubic-bezier(0.22,1,0.36,1);
           z-index: 0;
         }
+        .prog-btn:hover::before  { transform: scaleX(1); }
+        .prog-btn:hover          { border-color: #bb8b57; }
+        .prog-btn span,
+        .prog-btn svg            { position: relative; z-index: 1; }
 
-        .prog-read-btn:hover::before { transform: scaleX(1); }
-        .prog-read-btn:hover { border-color: #bb8b57; color: #ffffff; }
-
-        .prog-read-btn span,
-        .prog-read-btn svg { position: relative; z-index: 1; }
-
-        .prog-tab-btn {
+        /* ─── Tab button base ────────────────────────────── */
+        .prog-tab {
           display: flex;
           align-items: center;
           width: 100%;
-          padding: 20px 24px 20px 20px;
-          min-width: 240px;
+          min-width: 260px;
+          padding: 20px 24px;
           text-align: left;
           background: transparent;
           border: none;
+          border-bottom: 1px solid rgba(255,255,255,0.14);
+          outline: none;
+          box-sizing: border-box;
           cursor: pointer;
-          position: relative;
-          transition: background 220ms ease;
+          transition: background 200ms ease;
+        }
+        .prog-tab:last-child {
+          border-bottom: none;
+        }
+        .prog-tab:not(.active):hover {
+          background: rgba(255,255,255,0.05);
         }
 
-        .prog-tab-btn:hover {
-          background: rgba(255,255,255,0.04);
+        /* ─── Active tab: white rect box + gold bottom ───── */
+        .prog-tab.active {
+          border-top:    1px solid rgba(255,255,255,0.50);
+          border-left:   1px solid rgba(255,255,255,0.50);
+          border-right:  1px solid rgba(255,255,255,0.50);
+          border-bottom: 4px solid #bb8b57;
+          background:    rgba(255,255,255,0.05);
+        }
+        .prog-tab.active:last-child {
+          border-bottom: 3px solid #bb8b57;
         }
 
+        /* ─── Tab label ──────────────────────────────────── */
         .prog-tab-label {
           font-family: system-ui, sans-serif;
-          font-size: clamp(12px, 1.05vw, 14px);
-          letter-spacing: 0.14em;
+          font-size: clamp(12px, 1.1vw, 15px);
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          transition: color 220ms ease;
+          white-space: nowrap;
+          transition: color 180ms ease;
         }
+        
+  .prog-tab-label {
+  transition: transform 300ms ease;
+}
+
+.prog-tab:hover .prog-tab-label {
+  transform: scale(1.10);
+}
       `}</style>
 
       <section
         className="relative w-full overflow-hidden"
-        style={{ minHeight: '90vh', backgroundColor: '#050505' }}
+        style={{ minHeight: '100vh', backgroundColor: '#0a1520' }}
       >
-        {/* ── Background images: crossfade ──────────────────────────────────── */}
+
+        {/* ── LAYER 1: Crossfading background images ──────────── */}
         {PROGRAMS.map((prog, i) => (
           <div
             key={prog.id}
@@ -193,7 +203,7 @@ export default function OurProgramsSection() {
             className="absolute inset-0"
             style={{
               opacity: i === activeIndex ? 1 : 0,
-              transition: 'opacity 700ms cubic-bezier(0.22,1,0.36,1)',
+              transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
               pointerEvents: 'none',
             }}
           >
@@ -201,63 +211,86 @@ export default function OurProgramsSection() {
               src={prog.image}
               alt=""
               className="absolute inset-0 w-full h-full"
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ objectFit: 'cover', objectPosition: 'center top' }}
             />
 
-            {/* Lighter base overlay — let the image breathe like Reliance */}
-            <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.28)' }} />
+            {/* ── Overlay stack — matches Reliance exactly ── */}
 
-            {/* Left gradient — heavier for text legibility, fades to nothing by 55% */}
+            {/* 1. Uniform dark teal base — tones the whole image into editorial slate */}
+            {/* Base Editorial Overlay */}
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.50) 25%, rgba(0,0,0,0.15) 55%, transparent 75%)',
+                background: 'rgba(5,14,24,0.58)',
               }}
             />
 
-            {/* Right gradient — for tab legibility */}
+            {/* Left Editorial Panel */}
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  'linear-gradient(to left, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 25%, transparent 55%)',
+                background: `
+      linear-gradient(
+        to right,
+        rgba(4,10,18,0.96) 0%,
+        rgba(4,10,18,0.88) 22%,
+        rgba(4,10,18,0.52) 42%,
+        transparent 72%
+      )
+    `,
               }}
             />
 
-            {/* Bottom vignette — grounds the section */}
+            {/* Right Panel */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+      linear-gradient(
+        to left,
+        rgba(4,10,18,0.78) 0%,
+        rgba(4,10,18,0.38) 25%,
+        transparent 55%
+      )
+    `,
+              }}
+            />
+
+            {/* Bottom Vignette */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 40%)',
+                  'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
               }}
             />
           </div>
         ))}
 
-        {/* ── Foreground ──────────────────────────────────────────────────────── */}
+        {/* ── FOREGROUND ──────────────────────────────────────── */}
         <div
           className="relative z-10 flex flex-col"
-          style={{ minHeight: '90vh' }}
+          style={{ minHeight: '100vh' }}
         >
-          {/* Overline — pinned top-left like Reliance, detached from content */}
-          <div className="flex items-center gap-3 px-10 md:px-16 lg:px-20 pt-10">
+
+          {/* Overline — top-left, detached */}
+          <div
+            className="flex items-center gap-3"
+            style={{ padding: '36px 80px 0' }}
+          >
             <span
               style={{
-                width: '9px',
-                height: '9px',
+                width: '9px', height: '9px',
                 background: '#bb8b57',
                 transform: 'rotate(45deg)',
-                flexShrink: 0,
-                display: 'inline-block',
+                flexShrink: 0, display: 'inline-block',
               }}
             />
             <span
               style={{
                 fontFamily: 'system-ui, sans-serif',
                 fontSize: '11px',
-                letterSpacing: '0.25em',
+                letterSpacing: '0.26em',
                 textTransform: 'uppercase',
                 color: '#bb8b57',
                 fontWeight: 600,
@@ -267,51 +300,58 @@ export default function OurProgramsSection() {
             </span>
           </div>
 
-          {/* Main row — content left, tabs right */}
-          <div className="flex flex-col md:flex-row flex-1">
+          {/* Main content row */}
+          <div
+            className="flex flex-col md:flex-row flex-1"
+            style={{ padding: '0' }}
+          >
 
-            {/* LEFT: content */}
+            {/* ── LEFT: heading + body + cta ─── */}
             <div
-              className="flex flex-col justify-center px-10 md:px-16 lg:px-20 py-12 md:py-16"
-              style={{ flex: '0 0 auto', width: 'min(680px, 100%)', maxWidth: '100%' }}
+              style={{
+                flex: '0 0 auto',
+                width: 'min(600px, 100%)',
+                maxWidth: '100%',
+                padding: '48px 80px 64px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
             >
-              {/* Animated content block */}
               <div
                 style={{
                   opacity: animating ? 0 : 1,
-                  transform: animating ? 'translateY(14px)' : 'translateY(0)',
+                  transform: animating ? 'translateY(12px)' : 'translateY(0)',
                   transition: 'opacity 200ms ease, transform 200ms ease',
                 }}
               >
-                {/* Heading — big and dominant */}
+                {/* Heading — Reliance size: large serif, tight tracking */}
                 <h2
                   style={{
                     fontFamily: 'Georgia, "Times New Roman", serif',
                     fontWeight: 400,
-                    fontSize: 'clamp(72px, 8vw, 110px)',
-                    lineHeight: 0.95,
-                    letterSpacing: '-0.04em',
+                    fontSize: 'clamp(64px, 7.5vw, 11px)',
+                    lineHeight: 1.0,
+                    letterSpacing: '-0.02em',
                     color: '#ffffff',
-                    marginBottom: '32px',
-                    textShadow: '0 2px 32px rgba(0,0,0,0.4)',
+                    margin: '0 0 28px 0',
                   }}
                 >
                   {active.heading}
                 </h2>
 
-                {/* Body paragraphs — wider, lighter weight, Reliance-style */}
-                <div style={{ maxWidth: '38ch' }}>
-                  {active.body.map((para, i) => (
+                {/* Body — Reliance uses ~15-16px, weight 400, NOT 300 */}
+                <div style={{ maxWidth: '420px' }}>
+                  {active.body.map((para, idx) => (
                     <p
-                      key={i}
+                      key={idx}
                       style={{
                         fontFamily: 'system-ui, sans-serif',
-                        fontSize: 'clamp(16px, 1.3vw, 20px)',
-                        lineHeight: 1.65,
-                        color: 'rgba(255,255,255,0.90)',
-                        fontWeight: 300,
-                        marginBottom: i < active.body.length - 1 ? '20px' : '0',
-                        textShadow: '0 1px 12px rgba(0,0,0,0.5)',
+                        fontSize: 'clamp(14px, 1.15vw, 16px)',
+                        lineHeight: 1.75,
+                        color: 'rgba(255,255,255,0.88)',
+                        fontWeight: 400,
+                        margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
                       }}
                     >
                       {para}
@@ -319,10 +359,9 @@ export default function OurProgramsSection() {
                   ))}
                 </div>
 
-                {/* Read more */}
-                <Link href={active.href} className="prog-read-btn">
+                <Link href={active.href} className="prog-btn">
                   <span>read more</span>
-                  <ArrowRight style={{ width: '15px', height: '15px' }} />
+                  <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -330,16 +369,13 @@ export default function OurProgramsSection() {
             {/* Spacer */}
             <div className="hidden md:block flex-1" />
 
-            {/* RIGHT: tab navigation — vertically centered */}
+            {/* ── RIGHT: tab list ─────────────── */}
             <div
-              className="
-                flex flex-row md:flex-col
-                overflow-x-auto md:overflow-x-visible
-                justify-start md:justify-center
-                px-6 md:px-0 py-4 md:py-0
-                md:pr-14 lg:pr-20
-              "
-              style={{ flexShrink: 0 }}
+              className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
+              style={{
+                flexShrink: 0,
+                padding: '0 80px 0 0',
+              }}
             >
               {PROGRAMS.map((prog, i) => {
                 const isActive = i === activeIndex;
@@ -348,27 +384,14 @@ export default function OurProgramsSection() {
                     key={prog.id}
                     onMouseEnter={() => handleTabHover(i)}
                     onClick={() => handleTabClick(i)}
-                    className={`prog-tab-btn${isActive ? ' is-active' : ''}`}
-                    style={{
-                      borderBottom:
-                        i < PROGRAMS.length - 1
-                          ? '1px solid rgba(255,255,255,0.10)'
-                          : 'none',
-                      // Active: left amber border accent (Reliance pattern)
-                      borderLeft: isActive
-                        ? '3px solid #bb8b57'
-                        : '3px solid transparent',
-                      paddingLeft: '20px',
-                      transition: 'border-color 250ms ease',
-                    }}
+                    className={`prog-tab${isActive ? ' active' : ''}`}
                   >
                     <span
-                      className="prog-tab-label text-2xl!"
+                      className="prog-tab-label "
                       style={{
-                        fontWeight: isActive ? 700 : 400,
-                        color:  '#ffffff',
+                        // fontWeight: isActive ? 700 : 400,
+                        color: '#ffffff',
                       }}
-                      
                     >
                       {prog.tab}
                     </span>
@@ -376,6 +399,7 @@ export default function OurProgramsSection() {
                 );
               })}
             </div>
+
           </div>
         </div>
       </section>

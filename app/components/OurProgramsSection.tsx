@@ -100,7 +100,7 @@ export default function OurProgramsSection() {
   return (
     <>
       <style>{`
-        /* ─── Read-more pill ─────────────────────────────── */
+        /* ─── Read-more pill ───────────────────────── */
         .prog-btn {
           display: inline-flex;
           align-items: center;
@@ -118,7 +118,7 @@ export default function OurProgramsSection() {
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          transition: border-color 300ms ease, color 300ms ease;
+          transition: border-color 300ms ease;
         }
         .prog-btn::before {
           content: '';
@@ -131,18 +131,18 @@ export default function OurProgramsSection() {
           transition: transform 320ms cubic-bezier(0.22,1,0.36,1);
           z-index: 0;
         }
-        .prog-btn:hover::before  { transform: scaleX(1); }
-        .prog-btn:hover          { border-color: #bb8b57; }
+        .prog-btn:hover::before { transform: scaleX(1); }
+        .prog-btn:hover         { border-color: #bb8b57; }
         .prog-btn span,
-        .prog-btn svg            { position: relative; z-index: 1; }
+        .prog-btn svg           { position: relative; z-index: 1; }
 
-        /* ─── Tab button base ────────────────────────────── */
+        /* ─── Tab button ───────────────────────────── */
         .prog-tab {
           display: flex;
           align-items: center;
           width: 100%;
-          min-width: 260px;
-          padding: 20px 24px;
+          min-width: 280px;
+          padding: 20px 20px;
           text-align: left;
           background: transparent;
           border: none;
@@ -152,170 +152,141 @@ export default function OurProgramsSection() {
           cursor: pointer;
           transition: background 200ms ease;
         }
-        .prog-tab:last-child {
-          border-bottom: none;
-        }
-        .prog-tab:not(.active):hover {
-          background: rgba(255,255,255,0.05);
-        }
+        .prog-tab:last-child          { border-bottom: none; }
+        .prog-tab:not(.active):hover  { background: rgba(255,255,255,0.05); }
 
-        /* ─── Active tab: white rect box + gold bottom ───── */
+        /* Active: white rect + gold bottom */
         .prog-tab.active {
           border-top:    1px solid rgba(255,255,255,0.50);
           border-left:   1px solid rgba(255,255,255,0.50);
           border-right:  1px solid rgba(255,255,255,0.50);
-          border-bottom: 4px solid #bb8b57;
+          border-bottom: 3px solid #bb8b57;
           background:    rgba(255,255,255,0.05);
         }
-        .prog-tab.active:last-child {
-          border-bottom: 3px solid #bb8b57;
-        }
+        .prog-tab.active:last-child { border-bottom: 3px solid #bb8b57; }
 
-        /* ─── Tab label ──────────────────────────────────── */
+        /* ─── Tab label ────────────────────────────── */
         .prog-tab-label {
           font-family: system-ui, sans-serif;
-          font-size: clamp(12px, 1.1vw, 15px);
+          font-size: clamp(11px, 1vw, 14px);
           letter-spacing: 0.16em;
           text-transform: uppercase;
           white-space: nowrap;
+          color: #ffffff;
           transition: color 180ms ease;
         }
-        
-  .prog-tab-label {
-  transition: transform 300ms ease;
-}
-
-.prog-tab:hover .prog-tab-label {
-  transform: scale(1.10);
-}
+        .prog-tab.active .prog-tab-label { font-weight: 700; }
       `}</style>
 
+      {/* ── ROOT SECTION ────────────────────────────────────────── */}
       <section
-        className="relative w-full overflow-hidden "
-        style={{ minHeight: '100vh', backgroundColor: '#0a1520' }}
+        style={{
+          position: 'relative',
+          width: '100%',
+          minHeight: '100vh',
+          overflow: 'hidden',
+          backgroundColor: '#0a1520',
+        }}
       >
 
-        {/* ── LAYER 1: Crossfading background images ──────────── */}
+        {/* ── BACKGROUND IMAGES ───────────────────────────────── */}
         {PROGRAMS.map((prog, i) => (
           <div
             key={prog.id}
             aria-hidden
-            className="absolute inset-0"
             style={{
+              position: 'absolute', inset: 0,
               opacity: i === activeIndex ? 1 : 0,
               transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
               pointerEvents: 'none',
             }}
           >
             <img
-              src={prog.image}
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              style={{ objectFit: 'cover', objectPosition: 'center top' }}
-            />
-
-            {/* ── Overlay stack — matches Reliance exactly ── */}
-
-            {/* 1. Uniform dark teal base — tones the whole image into editorial slate */}
-            {/* Base Editorial Overlay */}
-            <div
-              className="absolute inset-0"
+              src={prog.image} alt=""
               style={{
-                background: 'rgba(5,14,24,0.58)',
+                position: 'absolute', inset: 0,
+                width: '100%', height: '100%',
+                objectFit: 'cover', objectPosition: 'center top',
               }}
             />
-
-            {/* Left Editorial Panel */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `
-      linear-gradient(
-        to right,
-        rgba(4,10,18,0.96) 0%,
-        rgba(4,10,18,0.88) 22%,
-        rgba(4,10,18,0.52) 42%,
-        transparent 72%
-      )
-    `,
-              }}
-            />
-
-            {/* Right Panel */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `
-      linear-gradient(
-        to left,
-        rgba(4,10,18,0.78) 0%,
-        rgba(4,10,18,0.38) 25%,
-        transparent 55%
-      )
-    `,
-              }}
-            />
-
-            {/* Bottom Vignette */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
-              }}
-            />
+            {/* 1 — uniform dark teal base */}
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(5,14,24,0.58)' }} />
+            {/* 2 — strong left panel */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to right, rgba(4,10,18,0.96) 0%, rgba(4,10,18,0.88) 22%, rgba(4,10,18,0.52) 42%, transparent 72%)',
+            }} />
+            {/* 3 — right panel for tab legibility */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to left, rgba(4,10,18,0.78) 0%, rgba(4,10,18,0.38) 25%, transparent 55%)',
+            }} />
+            {/* 4 — bottom vignette */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
+            }} />
           </div>
         ))}
 
-        {/* ── FOREGROUND ──────────────────────────────────────── */}
+        {/* ── FOREGROUND — full width, full height ────────────── */}
         <div
-          className="relative z-10 flex flex-col max-w-[80%]"
-          style={{ minHeight: '100vh' , alignItems:''}}
+          style={{
+            position: 'relative',
+            zIndex: 10,
+            width: '100%',          /* FULL WIDTH — no max-w-[80%] */
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
         >
 
-          {/* Overline — top-left, detached */}
+          {/* OVERLINE — top-left, ~88px from left, ~88px from top */}
           <div
-            className="flex items-center gap-3"
-            style={{ padding: '36px 80px 0' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '36px 0 0 88px',   /* matches Reliance exactly */
+            }}
           >
-            <span
-              style={{
-                width: '9px', height: '9px',
-                background: '#bb8b57',
-                transform: 'rotate(45deg)',
-                flexShrink: 0, display: 'inline-block',
-              }}
-            />
-            <span
-              style={{
-                fontFamily: 'system-ui, sans-serif',
-                fontSize: '11px',
-                letterSpacing: '0.26em',
-                textTransform: 'uppercase',
-                color: '#bb8b57',
-                fontWeight: 600,
-              }}
-            >
+            <span style={{
+              width: '9px', height: '9px',
+              background: '#bb8b57',
+              transform: 'rotate(45deg)',
+              flexShrink: 0, display: 'inline-block',
+            }} />
+            <span style={{
+              fontFamily: 'system-ui, sans-serif',
+              fontSize: '11px',
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: '#bb8b57',
+              fontWeight: 600,
+            }}>
               Our Programs
             </span>
           </div>
 
-          {/* Main content row */}
+          {/* MAIN ROW — flex-1 so it fills remaining height */}
           <div
-            className="flex flex-col md:flex-row flex-1"
-            style={{ padding: '0' }}
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'stretch',
+            }}
           >
 
-            {/* ── LEFT: heading + body + cta ─── */}
+            {/* ── LEFT CONTENT — vertically centered in remaining height */}
             <div
               style={{
                 flex: '0 0 auto',
-                width: 'min(600px, 100%)',
-                maxWidth: '100%',
-                padding: '48px 100px 64px',
+                width: 'min(560px, 55%)',
+                padding: '0 0 0 88px',     /* same left as overline */
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
+                justifyContent: 'center',  /* vertically centers heading+body+btn */
               }}
             >
               <div
@@ -325,35 +296,30 @@ export default function OurProgramsSection() {
                   transition: 'opacity 200ms ease, transform 200ms ease',
                 }}
               >
-                {/* Heading — Reliance size: large serif, tight tracking */}
-                <h2
-                  style={{
-                    fontFamily: 'Georgia, "Times New Roman", serif',
-                    fontWeight: 400,
-                    fontSize: 'clamp(64px, 7.5vw, 11px)',
-                    lineHeight: 1.0,
-                    letterSpacing: '-0.02em',
-                    color: '#ffffff',
-                    margin: '0 0 28px 0',
-                  }}
-                >
+                {/* Heading */}
+                <h2 style={{
+                  fontFamily: 'Georgia, "Times New Roman", serif',
+                  fontWeight: 400,
+                  fontSize: 'clamp(56px, 6.5vw, 96px)',
+                  lineHeight: 1.0,
+                  letterSpacing: '-0.02em',
+                  color: '#ffffff',
+                  margin: '0 0 24px 0',
+                }}>
                   {active.heading}
                 </h2>
 
-                {/* Body — Reliance uses ~15-16px, weight 400, NOT 300 */}
-                <div style={{ maxWidth: '420px' }}>
+                {/* Body */}
+                <div style={{ maxWidth: '440px' }}>
                   {active.body.map((para, idx) => (
-                    <p
-                      key={idx}
-                      style={{
-                        fontFamily: 'system-ui, sans-serif',
-                        fontSize: 'clamp(14px, 1.15vw, 16px)',
-                        lineHeight: 1.75,
-                        color: 'rgba(255,255,255,0.88)',
-                        fontWeight: 400,
-                        margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
-                      }}
-                    >
+                    <p key={idx} style={{
+                      fontFamily: 'system-ui, sans-serif',
+                      fontSize: 'clamp(14px, 1.1vw, 16px)',
+                      lineHeight: 1.75,
+                      color: 'rgba(255,255,255,0.88)',
+                      fontWeight: 400,
+                      margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
+                    }}>
                       {para}
                     </p>
                   ))}
@@ -366,15 +332,17 @@ export default function OurProgramsSection() {
               </div>
             </div>
 
-            {/* Spacer */}
-            <div className="hidden md:block flex-1" />
+            {/* ── SPACER — pushes tabs to the right ── */}
+            <div style={{ flex: 1 }} />
 
-            {/* ── RIGHT: tab list ─────────────── */}
+            {/* ── RIGHT TABS — vertically centered, right-anchored ── */}
             <div
-              className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
               style={{
-                flexShrink: 0,
-                padding: '0 0px 0 0',
+                flex: '0 0 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',  /* vertical center in full height */
+                padding: '0 80px 0 0',     /* 80px from right edge = Reliance */
               }}
             >
               {PROGRAMS.map((prog, i) => {
@@ -386,13 +354,7 @@ export default function OurProgramsSection() {
                     onClick={() => handleTabClick(i)}
                     className={`prog-tab${isActive ? ' active' : ''}`}
                   >
-                    <span
-                      className="prog-tab-label "
-                      style={{
-                        // fontWeight: isActive ? 700 : 400,
-                        color: '#ffffff',
-                      }}
-                    >
+                    <span className="prog-tab-label">
                       {prog.tab}
                     </span>
                   </button>

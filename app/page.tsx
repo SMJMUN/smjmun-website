@@ -13,15 +13,17 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import MediaSection from "./components/MediaSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
+import MosaicHero from "./components/smjmun-mosaic/MosaicHero";
 
 export default function Home() {
   return (
     <>
       <main>
         <HeroSection />
+        <AboutWordmark />
         <TrustSection />
         <OurProgramsSection />
-        <AboutWordmark />
+        {/* <MosaicHero /> */}
         <ImpactSection />
         <EditorialStatement />
         <FounderSection />

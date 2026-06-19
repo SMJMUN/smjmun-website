@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react';
 // ─── SMJ: people, delegates, community ──────────────────────────────────────
 const SMJ_IMAGES = [
   
-  '/images/SHCOOL-PHOTO.png',
-  '/images/hero-1.png',
-  '/images/hero-2.png',
-  '/images/hero-3.png',
+  '/images/community.jpeg',
+  '/images/smj-hero-6.jpeg',
+  '/images/community-2.jpeg',
+  '/images/smj-hero-9.jpeg',
 ];
 
 // ─── MUN: institutional, formal, legacy ─────────────────────────────────────
-const MUN_IMAGE = '/images/institution.png';
+const MUN_IMAGE = '/images/treecolour.png';
 
 const INTERVAL_MS = 3000;
 const FADE_MS = 800;
@@ -86,27 +86,17 @@ export default function AboutWordmark() {
       <div className="flex flex-col items-center px-4 pt-20 pb-8 md:pt-28 md:pb-10">
 
         {/* Overline */}
-        <p
-          className="font-body mb-10 md:mb-14"
-          style={{
-            fontSize: '10px',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            color: '#b08a5a',
-          }}
-        >
-          Est. SMJMUN · Since 2018
-        </p>
+     
 
         {/* ── SMJMUN wordmark ──────────────────────────────────────────── */}
         <div
-          className="flex flex-col md:flex-row items-center md:items-baseline"
+          className="flex flex-col md:flex-row items-center md:items-baseline "
           style={{
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: 900,
-            fontSize: 'clamp(96px, 21vw, 256px)',
+            fontSize: 'clamp(96px, 21vw, 200px)',
             lineHeight: 0.88,
-            letterSpacing: '-0.04em',
+            letterSpacing: '0.1em',
             userSelect: 'none',
           }}
         >
@@ -114,16 +104,7 @@ export default function AboutWordmark() {
           <SMJLetters activeIndex={activeIndex} />
 
           {/* Desktop divider */}
-          <span
-            className="hidden md:block"
-            style={{
-              width: '2px',
-              alignSelf: 'stretch',
-              margin: '0 12px',
-              background: 'linear-gradient(to bottom, transparent 10%, #b08a5a66 50%, transparent 90%)',
-              flexShrink: 0,
-            }}
-          />
+         
 
           {/* MUN — static institutional imagery */}
           <span
@@ -145,7 +126,7 @@ export default function AboutWordmark() {
         </div>
 
         {/* ── Progress dots (SMJ) ──────────────────────────────────────── */}
-        <div className="flex items-center gap-2.5 mt-7">
+        {/* <div className="flex items-center gap-2.5 mt-7">
           {SMJ_IMAGES.map((_, i) => (
             <button
               key={i}
@@ -163,10 +144,10 @@ export default function AboutWordmark() {
               }}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Contrast labels */}
-        <div className="flex items-center gap-8 mt-5">
+        {/* <div className="flex items-center gap-8 mt-5">
           <span
             style={{
               fontSize: '10px',
@@ -188,15 +169,16 @@ export default function AboutWordmark() {
           >
             Purpose remains
           </span>
-        </div>
+        </div> */}
 
       </div>
 
       {/* ── Bottom rule ──────────────────────────────────────────────────── */}
-      <div className="w-full h-px" style={{ backgroundColor: '#1a1a1815' }} />
+      {/* <div className="w-full h-px" style={{ backgroundColor: '#1a1a1815' }} /> */}
 
       {/* ── Editorial statement ──────────────────────────────────────────── */}
-      <div className="flex flex-col items-center text-center px-6 pt-20 pb-28">
+{/*       
+       <div className="flex flex-col items-center text-center px-6 pt-20 pb-28">
 
         <h2
           style={{
@@ -231,13 +213,11 @@ export default function AboutWordmark() {
           SMJMUN exists to give you something worth saying.
         </p>
 
-        {/* ── Two-column contrast ──────────────────────────────────────── */}
         <div
           className="mt-16 grid grid-cols-2 w-full max-w-[440px]"
           style={{ borderTop: '1px solid #1a1a1812' }}
         >
 
-          {/* SMJ panel */}
           <div
             className="flex flex-col items-center pt-10 pb-4 px-6"
             style={{ borderRight: '1px solid #1a1a1812' }}
@@ -290,7 +270,6 @@ export default function AboutWordmark() {
             </p>
           </div>
 
-          {/* MUN panel */}
           <div className="flex flex-col items-center pt-10 pb-4 px-6">
             <span
               style={{
@@ -339,10 +318,9 @@ export default function AboutWordmark() {
             </p>
           </div>
 
-        </div>
-
+        </div> 
       </div>
-
+ */}
     </section>
   );
 }

@@ -16,14 +16,14 @@ const PROGRAMS = [
     href: '/conferences',
   },
   {
-    id: 'programs',
-    tab: 'Programs',
-    heading: 'Programs',
+    id: 'school-mun',
+    tab: 'School MUN',
+    heading: 'School MUN',
     body: [
-      'Our training programs exist to bridge the gap between ambition and ability. From first-time delegates to seasoned chairs, every program is structured to accelerate growth in public speaking, critical thinking, and global awareness.',
+      'Our training School MUN exist to bridge the gap between ambition and ability. From first-time delegates to seasoned chairs, every program is structured to accelerate growth in public speaking, critical thinking, and global awareness.',
     ],
     image: '/images/hero-2.png',
-    href: '/programs',
+    href: '/School MUN',
   },
   {
     id: 'training',
@@ -36,9 +36,9 @@ const PROGRAMS = [
     href: '/programs',
   },
   {
-    id: 'institution',
-    tab: 'Institution Services',
-    heading: 'Institution Services',
+    id: 'collage-mun',
+    tab: 'College MUN',
+    heading: 'College MUN',
     body: [
       'SMJMUN partners with schools and colleges across India to establish, train, and sustain their own MUN chapters. We provide end-to-end institutional support — from curriculum design to conference management.',
     ],
@@ -65,6 +65,7 @@ const PROGRAMS = [
     image: '/images/photo.jpg',
     href: '/conferences',
   },
+
 ];
 
 export default function OurProgramsSection() {
@@ -100,7 +101,7 @@ export default function OurProgramsSection() {
   return (
     <>
       <style>{`
-        /* ─── Read-more pill ───────────────────────── */
+        /* ─── Read-more pill ─────────────────────────────── */
         .prog-btn {
           display: inline-flex;
           align-items: center;
@@ -118,7 +119,7 @@ export default function OurProgramsSection() {
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          transition: border-color 300ms ease;
+          transition: border-color 300ms ease, color 300ms ease;
         }
         .prog-btn::before {
           content: '';
@@ -131,18 +132,18 @@ export default function OurProgramsSection() {
           transition: transform 320ms cubic-bezier(0.22,1,0.36,1);
           z-index: 0;
         }
-        .prog-btn:hover::before { transform: scaleX(1); }
-        .prog-btn:hover         { border-color: #bb8b57; }
+        .prog-btn:hover::before  { transform: scaleX(1); }
+        .prog-btn:hover          { border-color: #bb8b57; }
         .prog-btn span,
-        .prog-btn svg           { position: relative; z-index: 1; }
+        .prog-btn svg            { position: relative; z-index: 1; }
 
-        /* ─── Tab button ───────────────────────────── */
+        /* ─── Tab button base ────────────────────────────── */
         .prog-tab {
           display: flex;
           align-items: center;
           width: 100%;
-          min-width: 280px;
-          padding: 20px 20px;
+          min-width: 260px;
+          padding: 20px 24px;
           text-align: left;
           background: transparent;
           border: none;
@@ -152,141 +153,170 @@ export default function OurProgramsSection() {
           cursor: pointer;
           transition: background 200ms ease;
         }
-        .prog-tab:last-child          { border-bottom: none; }
-        .prog-tab:not(.active):hover  { background: rgba(255,255,255,0.05); }
+        .prog-tab:last-child {
+          border-bottom: none;
+        }
+        .prog-tab:not(.active):hover {
+          background: rgba(255,255,255,0.05);
+        }
 
-        /* Active: white rect + gold bottom */
+        /* ─── Active tab: white rect box + gold bottom ───── */
         .prog-tab.active {
           border-top:    1px solid rgba(255,255,255,0.50);
           border-left:   1px solid rgba(255,255,255,0.50);
           border-right:  1px solid rgba(255,255,255,0.50);
-          border-bottom: 3px solid #bb8b57;
+          border-bottom: 4px solid #bb8b57;
           background:    rgba(255,255,255,0.05);
         }
-        .prog-tab.active:last-child { border-bottom: 3px solid #bb8b57; }
+        .prog-tab.active:last-child {
+          border-bottom: 3px solid #bb8b57;
+        }
 
-        /* ─── Tab label ────────────────────────────── */
+        /* ─── Tab label ──────────────────────────────────── */
         .prog-tab-label {
           font-family: system-ui, sans-serif;
-          font-size: clamp(11px, 1vw, 14px);
+          font-size: clamp(12px, 1.1vw, 15px);
           letter-spacing: 0.16em;
           text-transform: uppercase;
           white-space: nowrap;
-          color: #ffffff;
           transition: color 180ms ease;
         }
-        .prog-tab.active .prog-tab-label { font-weight: 700; }
+        
+  .prog-tab-label {
+  transition: transform 300ms ease;
+}
+
+.prog-tab:hover .prog-tab-label {
+  transform: scale(1.10);
+}
       `}</style>
 
-      {/* ── ROOT SECTION ────────────────────────────────────────── */}
       <section
-        style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: '100vh',
-          overflow: 'hidden',
-          backgroundColor: '#0a1520',
-        }}
+        className="relative w-full overflow-hidden "
+        style={{ minHeight: '100vh', backgroundColor: '#0a1520' }}
       >
 
-        {/* ── BACKGROUND IMAGES ───────────────────────────────── */}
+        {/* ── LAYER 1: Crossfading background images ──────────── */}
         {PROGRAMS.map((prog, i) => (
           <div
             key={prog.id}
             aria-hidden
+            className="absolute inset-0"
             style={{
-              position: 'absolute', inset: 0,
               opacity: i === activeIndex ? 1 : 0,
               transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
               pointerEvents: 'none',
             }}
           >
             <img
-              src={prog.image} alt=""
+              src={prog.image}
+              alt=""
+              className="absolute inset-0 w-full h-full"
+              style={{ objectFit: 'cover', objectPosition: 'center top' }}
+            />
+
+            {/* ── Overlay stack — matches Reliance exactly ── */}
+
+            {/* 1. Uniform dark teal base — tones the whole image into editorial slate */}
+            {/* Base Editorial Overlay */}
+            <div
+              className="absolute inset-0"
               style={{
-                position: 'absolute', inset: 0,
-                width: '100%', height: '100%',
-                objectFit: 'cover', objectPosition: 'center top',
+                background: 'rgba(5,14,24,0.58)',
               }}
             />
-            {/* 1 — uniform dark teal base */}
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(5,14,24,0.58)' }} />
-            {/* 2 — strong left panel */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to right, rgba(4,10,18,0.96) 0%, rgba(4,10,18,0.88) 22%, rgba(4,10,18,0.52) 42%, transparent 72%)',
-            }} />
-            {/* 3 — right panel for tab legibility */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to left, rgba(4,10,18,0.78) 0%, rgba(4,10,18,0.38) 25%, transparent 55%)',
-            }} />
-            {/* 4 — bottom vignette */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
-            }} />
+
+            {/* Left Editorial Panel */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+      linear-gradient(
+        to right,
+        rgba(4,10,18,0.96) 0%,
+        rgba(4,10,18,0.88) 22%,
+        rgba(4,10,18,0.52) 42%,
+        transparent 72%
+      )
+    `,
+              }}
+            />
+
+            {/* Right Panel */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+      linear-gradient(
+        to left,
+        rgba(4,10,18,0.78) 0%,
+        rgba(4,10,18,0.38) 25%,
+        transparent 55%
+      )
+    `,
+              }}
+            />
+
+            {/* Bottom Vignette */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
+              }}
+            />
           </div>
         ))}
 
-        {/* ── FOREGROUND — full width, full height ────────────── */}
+        {/* ── FOREGROUND ──────────────────────────────────────── */}
         <div
-          style={{
-            position: 'relative',
-            zIndex: 10,
-            width: '100%',          /* FULL WIDTH — no max-w-[80%] */
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
+          className="relative z-10 flex flex-col max-w-[80%]"
+          style={{ minHeight: '100vh' , alignItems:''}}
         >
 
-          {/* OVERLINE — top-left, ~88px from left, ~88px from top */}
+          {/* Overline — top-left, detached */}
           <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '36px 0 0 88px',   /* matches Reliance exactly */
-            }}
+            className="flex items-center gap-3"
+            style={{ padding: '36px 80px 0' }}
           >
-            <span style={{
-              width: '9px', height: '9px',
-              background: '#bb8b57',
-              transform: 'rotate(45deg)',
-              flexShrink: 0, display: 'inline-block',
-            }} />
-            <span style={{
-              fontFamily: 'system-ui, sans-serif',
-              fontSize: '11px',
-              letterSpacing: '0.26em',
-              textTransform: 'uppercase',
-              color: '#bb8b57',
-              fontWeight: 600,
-            }}>
+            <span
+              style={{
+                width: '9px', height: '9px',
+                background: '#bb8b57',
+                transform: 'rotate(45deg)',
+                flexShrink: 0, display: 'inline-block',
+              }}
+            />
+            <span
+              style={{
+                fontFamily: 'system-ui, sans-serif',
+                fontSize: '11px',
+                letterSpacing: '0.26em',
+                textTransform: 'uppercase',
+                color: '#bb8b57',
+                fontWeight: 600,
+              }}
+            >
               Our Programs
             </span>
           </div>
 
-          {/* MAIN ROW — flex-1 so it fills remaining height */}
+          {/* Main content row */}
           <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'stretch',
-            }}
+            className="flex flex-col md:flex-row flex-1"
+            style={{ padding: '0' }}
           >
 
-            {/* ── LEFT CONTENT — vertically centered in remaining height */}
+            {/* ── LEFT: heading + body + cta ─── */}
             <div
               style={{
                 flex: '0 0 auto',
-                width: 'min(560px, 55%)',
-                padding: '0 0 0 88px',     /* same left as overline */
+                width: 'min(600px, 100%)',
+                maxWidth: '100%',
+                padding: '48px 100px 64px',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',  /* vertically centers heading+body+btn */
+                justifyContent: 'center',
               }}
             >
               <div
@@ -296,30 +326,35 @@ export default function OurProgramsSection() {
                   transition: 'opacity 200ms ease, transform 200ms ease',
                 }}
               >
-                {/* Heading */}
-                <h2 style={{
-                  fontFamily: 'Georgia, "Times New Roman", serif',
-                  fontWeight: 400,
-                  fontSize: 'clamp(56px, 6.5vw, 96px)',
-                  lineHeight: 1.0,
-                  letterSpacing: '-0.02em',
-                  color: '#ffffff',
-                  margin: '0 0 24px 0',
-                }}>
+                {/* Heading — Reliance size: large serif, tight tracking */}
+                <h2
+                  style={{
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(64px, 7.5vw, 11px)',
+                    lineHeight: 1.0,
+                    letterSpacing: '-0.02em',
+                    color: '#ffffff',
+                    margin: '0 0 28px 0',
+                  }}
+                >
                   {active.heading}
                 </h2>
 
-                {/* Body */}
-                <div style={{ maxWidth: '440px' }}>
+                {/* Body — Reliance uses ~15-16px, weight 400, NOT 300 */}
+                <div style={{ maxWidth: '420px' }}>
                   {active.body.map((para, idx) => (
-                    <p key={idx} style={{
-                      fontFamily: 'system-ui, sans-serif',
-                      fontSize: 'clamp(14px, 1.1vw, 16px)',
-                      lineHeight: 1.75,
-                      color: 'rgba(255,255,255,0.88)',
-                      fontWeight: 400,
-                      margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
-                    }}>
+                    <p
+                      key={idx}
+                      style={{
+                        fontFamily: 'system-ui, sans-serif',
+                        fontSize: 'clamp(14px, 1.15vw, 16px)',
+                        lineHeight: 1.75,
+                        color: 'rgba(255,255,255,0.88)',
+                        fontWeight: 400,
+                        margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
+                      }}
+                    >
                       {para}
                     </p>
                   ))}
@@ -332,17 +367,15 @@ export default function OurProgramsSection() {
               </div>
             </div>
 
-            {/* ── SPACER — pushes tabs to the right ── */}
-            <div style={{ flex: 1 }} />
+            {/* Spacer */}
+            <div className="hidden md:block flex-1" />
 
-            {/* ── RIGHT TABS — vertically centered, right-anchored ── */}
+            {/* ── RIGHT: tab list ─────────────── */}
             <div
+              className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
               style={{
-                flex: '0 0 auto',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',  /* vertical center in full height */
-                padding: '0 80px 0 0',     /* 80px from right edge = Reliance */
+                flexShrink: 0,
+                padding: '0 0px 0 0',
               }}
             >
               {PROGRAMS.map((prog, i) => {
@@ -354,7 +387,13 @@ export default function OurProgramsSection() {
                     onClick={() => handleTabClick(i)}
                     className={`prog-tab${isActive ? ' active' : ''}`}
                   >
-                    <span className="prog-tab-label">
+                    <span
+                      className="prog-tab-label font-inter! "
+                      style={{
+                        // fontWeight: isActive ? 700 : 400,
+                        color: '#ffffff',
+                      }}
+                    >
                       {prog.tab}
                     </span>
                   </button>

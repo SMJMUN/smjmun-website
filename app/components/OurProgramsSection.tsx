@@ -32,7 +32,7 @@ const PROGRAMS = [
     body: [
       'The SMJMUN Training Cell is the institution\'s academic backbone. It designs curriculum, runs intensive workshops, and certifies delegates before every conference season.',
     ],
-    image: '/images/student-training.jpeg',
+    image: '/images/student-training-2.jpeg',
     href: '/programs',
   },
   {
@@ -191,7 +191,7 @@ export default function OurProgramsSection() {
       `}</style>
 
       <section
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden "
         style={{ minHeight: '100vh', backgroundColor: '#0a1520' }}
       >
 
@@ -269,8 +269,8 @@ export default function OurProgramsSection() {
 
         {/* ── FOREGROUND ──────────────────────────────────────── */}
         <div
-          className="relative z-10 flex flex-col"
-          style={{ minHeight: '100vh' }}
+          className="relative z-10 flex flex-col max-w-[80%]"
+          style={{ minHeight: '100vh' , alignItems:''}}
         >
 
           {/* Overline — top-left, detached */}
@@ -312,7 +312,7 @@ export default function OurProgramsSection() {
                 flex: '0 0 auto',
                 width: 'min(600px, 100%)',
                 maxWidth: '100%',
-                padding: '48px 80px 64px',
+                padding: '48px 100px 64px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -374,7 +374,7 @@ export default function OurProgramsSection() {
               className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
               style={{
                 flexShrink: 0,
-                padding: '0 80px 0 0',
+                padding: '0 0px 0 0',
               }}
             >
               {PROGRAMS.map((prog, i) => {

@@ -12,7 +12,7 @@ const PROGRAMS = [
     body: [
       'SMJMUN hosts India\'s most rigorous Model United Nations conferences — from school-level summits to international assemblies. Each conference is designed to challenge delegates, build real negotiation skills, and create experiences that stay with participants for life.',
     ],
-    image: '/images/hero-1.png',
+    image: '/images/smj-hero-5.jpeg',
     href: '/conferences',
   },
   {
@@ -32,7 +32,7 @@ const PROGRAMS = [
     body: [
       'The SMJMUN Training Cell is the institution\'s academic backbone. It designs curriculum, runs intensive workshops, and certifies delegates before every conference season.',
     ],
-    image: '/images/training.png',
+    image: '/images/student-training.jpeg',
     href: '/programs',
   },
   {
@@ -52,7 +52,7 @@ const PROGRAMS = [
     body: [
       'Strategic partnerships are how SMJMUN scales its mission. We collaborate with educational institutions, government bodies, and global organizations to bring world-class diplomacy education to more students.',
     ],
-    image: '/images/partnerships-image.png',
+    image: '/images/smj-hero-4.jpeg',
     href: '/partnerships',
   },
   {
@@ -62,7 +62,7 @@ const PROGRAMS = [
     body: [
       'The SMJMUN alumni network spans thousands of delegates across the country. Our community events, mentorship programs, and digital platforms keep that network active and growing.',
     ],
-    image: '/images/SHCOOL-PHOTO-1.png',
+    image: '/images/photo.jpg',
     href: '/conferences',
   },
 ];

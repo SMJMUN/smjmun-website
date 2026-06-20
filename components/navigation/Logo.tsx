@@ -86,7 +86,8 @@ export function Logo({ isScrolled }: LogoProps) {
       />
 
       <span className="hidden md:block text-[11px] uppercase tracking-[0.22em] text-white/70">
-        Shri Seth Mangilalji Sahu
+        Shri Seth Mangilalji Sahu <br /> Model United Nations
+        
       </span>
     </motion.div>
   </Link>

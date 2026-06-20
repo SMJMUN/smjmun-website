@@ -155,7 +155,7 @@ export default function OurProgramsSection() {
         .prog-tab {
           display: flex;
           align-items: center;
-          width: 100%;
+           width: min(320px, 85vw);
           min-width: 260px;
           padding: 20px 24px;
           text-align: left;
@@ -205,11 +205,33 @@ border-right: 1px solid rgba(255,255,255,0.8);
 .prog-tab:hover .prog-tab-label {
    
 }
+@media (max-width: 1024px) {
+  .prog-tab {
+   width: 85vw;
+    max-width: 320px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .prog-tab.active {
+    transform: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid #bb8b57;
+    background: transparent;
+  }
+
+  .prog-tab-label {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+}
       `}</style>
 
       <section
         className="relative w-full overflow-hidden "
-        style={{ minHeight: '100vh', backgroundColor: '#0a1520' }}
+        style={{ minHeight: '70vh', backgroundColor: '#0a1520' }}
       >
 
         {/* ── LAYER 1: Crossfading background images ──────────── */}
@@ -285,32 +307,31 @@ border-right: 1px solid rgba(255,255,255,0.8);
         ))}
 
         {/* ── FOREGROUND ──────────────────────────────────────── */}
-        <div
-          className="relative z-10 flex flex-col mr-10"
-          style={{ minHeight: '100vh', alignItems: '' }}
-        >
+  <div
+  className="relative z-10 flex flex-col"
+  style={{ minHeight: '100vh' }}
+>
 
           {/* Overline — top-left, detached */}
 
 
           {/* Main content row */}
-          <div
-            className="flex flex-col md:flex-row flex-1"
-            style={{ padding: '0' }}
-          >
+        <div
+  className="flex flex-col lg:flex-row flex-1 h-full"
+>
 
             {/* ── LEFT: heading + body + cta ─── */}
-            <div
-              style={{
-                flex: '0 0 auto',
-                width: 'min(600px, 100%)',
-                maxWidth: '100%',
-                padding: '48px 100px 64px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
-            >
+          <div
+  className="hidden lg:flex"
+  style={{
+    flex: '0 0 auto',
+    width: 'min(600px, 100%)',
+    maxWidth: '100%',
+    padding: '48px 100px 64px',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  }}
+>
               <div
                 style={{
                   opacity: animating ? 0 : 1,
@@ -389,14 +410,53 @@ border-right: 1px solid rgba(255,255,255,0.8);
             {/* Spacer */}
             <div className="hidden md:block flex-1" />
 
+            
+
             {/* ── RIGHT: tab list ─────────────── */}
-            <div
-              className="flex w-[30vw] flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
-              style={{
-                flexShrink: 0,
-                padding: '0 0px 0 0',
-              }}
-            >
+           <div
+  className="
+    flex
+    flex-col
+    justify-center
+    w-full
+    h-screen
+    lg:h-auto
+    lg:w-[30vw]
+    px-4
+    lg:px-0
+  "
+  style={{
+  // background: 'rgba(4,10,18,0.65)',
+  // backdropFilter: 'blur(4px)',
+}}
+>
+      <div
+                  className="flex items-center gap-3 md:hidden lg:hidden"
+                  style={{ marginBottom: '26px' }}
+                >
+                    <img
+                     src={'/images/smg-mun-logo.png'}
+                   alt=""
+                    style={{
+                      width: '50px', height: '50px',
+                      // background: '#bb8b57',
+                      // transform: 'rotate(45deg)',
+                      // flexShrink: 0, display: 'inline-block',
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: 'system-ui, sans-serif',
+                      fontSize: '20px',
+                      letterSpacing: '0.26em',
+                      textTransform: 'uppercase',
+                      color: '#bb8b57',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Our Programs
+                  </span>
+                </div>
               {PROGRAMS.map((prog, i) => {
                 const isActive = i === activeIndex;
                 return (

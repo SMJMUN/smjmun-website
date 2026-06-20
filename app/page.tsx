@@ -13,7 +13,6 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import MediaSection from "./components/MediaSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
-import MosaicHero from "./components/smjmun-mosaic/MosaicHero";
 import MomentsCollage from "./components/MomentCollage";
 import AboutHero from "./components/AboutSection";
 
@@ -28,7 +27,6 @@ export default function Home() {
         <AboutHero />
         
         <OurProgramsSection />
-        {/* <MosaicHero /> */}
         <MomentsCollage/>
         <EditorialStatement />
         <GlobalMovementSection />

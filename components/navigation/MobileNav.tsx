@@ -11,7 +11,7 @@ export function MobileNav() {
   return (
     <div className="flex md:hidden items-center z-50">
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
+        <SheetTrigger  >
           <button
             className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200"
             aria-label="Open navigation menu"

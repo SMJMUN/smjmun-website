@@ -168,89 +168,108 @@ export default function ImpactSection() {
       </div>
 
       {/* Stats Row */}
+      {/* Stats Row */}
+<div
+  className="
+    reveal
+    grid
+    grid-cols-2
+    md:grid-cols-3
+    lg:grid-cols-6
+  "
+>
+  {[
+    {
+      value: 11000,
+      suffix: '+',
+      label: 'Delegates Trained',
+    },
+    {
+      value: 70,
+      suffix: '+',
+      label: 'National Conferences',
+    },
+    {
+      value: 10,
+      suffix: '+',
+      label: 'International Conferences',
+    },
+    {
+      value: 55,
+      suffix: '+',
+      label: 'Best Delegate Awards',
+    },
+    {
+      value: 50,
+      suffix: '+',
+      label: 'Committees Chaired',
+    },
+    {
+      value: 100,
+      suffix: '+',
+      label: 'Institutional Collaborations',
+    },
+  ].map((stat, index) => (
+    <div
+      key={stat.label}
+      className={`
+        px-4 py-6 md:px-6 lg:px-7
+
+        border-[#d8b17a]/25
+
+        ${
+          index % 2 === 0
+            ? 'border-r lg:border-r'
+            : ''
+        }
+
+        ${
+          index < 4
+            ? 'border-b md:border-b'
+            : ''
+        }
+
+        lg:border-b-0
+
+        ${
+          index === 5
+            ? 'lg:border-r-0'
+            : ''
+        }
+      `}
+    >
       <div
-        className="reveal"
         style={{
-          display: 'grid',
-          gridTemplateColumns:
-            'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: 0,
+          fontFamily:
+            'var(--font-heading), Georgia, serif',
+          fontSize: 'clamp(36px, 4vw, 72px)',
+          lineHeight: 1,
+          color: '#d8b17a',
+          marginBottom: '14px',
         }}
       >
-        {[
-          {
-            value: 11000,
-            suffix: '+',
-            label: 'Delegates Trained',
-          },
-          {
-            value: 70,
-            suffix: '+',
-            label: 'National Conferences',
-          },
-          {
-            value: 10,
-            suffix: '+',
-            label: 'International Conferences',
-          },
-          {
-            value: 55,
-            suffix: '+',
-            label: 'Best Delegate Awards',
-          },
-          {
-            value: 50,
-            suffix: '+',
-            label: 'Committees Chaired',
-          },
-          {
-            value: 100,
-            suffix: '+',
-            label: 'Institutional Collaborations',
-          },
-        ].map((stat, index) => (
-          <div
-            key={stat.label}
-            style={{
-              padding: '0 28px',
-              borderRight:
-                index !== 5
-                  ? '1px solid rgba(216,177,122,0.25)'
-                  : 'none',
-            }}
-          >
-            <div
-              style={{
-                fontFamily:
-                  'var(--font-heading), Georgia, serif',
-                fontSize: 'clamp(42px, 4vw, 72px)',
-                lineHeight: 1,
-                color: '#d8b17a',
-                marginBottom: '18px',
-              }}
-            >
-              <AnimatedNumber
-                target={stat.value}
-                suffix={stat.suffix}
-                triggered={triggered}
-              />
-            </div>
-
-            <div
-              style={{
-                fontFamily:
-                  'var(--font-body), system-ui, sans-serif',
-                fontSize: '17px',
-                lineHeight: 1.6,
-                color: '#f8f8f8',
-                opacity: 0.92,
-              }}
-            >
-              {stat.label}
-            </div>
-          </div>
-        ))}
+        <AnimatedNumber
+          target={stat.value}
+          suffix={stat.suffix}
+          triggered={triggered}
+        />
       </div>
+
+      <div
+        style={{
+          fontFamily:
+            'var(--font-body), system-ui, sans-serif',
+          fontSize: 'clamp(14px, 1.2vw, 17px)',
+          lineHeight: 1.5,
+          color: '#f8f8f8',
+          opacity: 0.92,
+        }}
+      >
+        {stat.label}
+      </div>
+    </div>
+  ))}
+</div>
     </div>
   </section>
 );

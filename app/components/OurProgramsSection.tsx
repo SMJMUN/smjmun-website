@@ -42,7 +42,7 @@ const PROGRAMS = [
     body: [
       'SMJMUN partners with schools and colleges across India to establish, train, and sustain their own MUN chapters. We provide end-to-end institutional support — from curriculum design to conference management.',
     ],
-    image: '/images/institution.png',
+    image: '/images/moment-1.jpeg',
     href: '/programs',
   },
   {
@@ -162,11 +162,13 @@ export default function OurProgramsSection() {
 
         /* ─── Active tab: white rect box + gold bottom ───── */
         .prog-tab.active {
-          border-top:    1px solid rgba(255,255,255,0.50);
-          border-left:   1px solid rgba(255,255,255,0.50);
-          border-right:  1px solid rgba(255,255,255,0.50);
+        border-top:   1px solid rgba(255,255,255,0.8);
+border-left:  1px solid rgba(255,255,255,0.8);
+border-right: 1px solid rgba(255,255,255,0.8);
           border-bottom: 4px solid #bb8b57;
           background:    rgba(255,255,255,0.05);
+          transform: scale(1.10);
+           transition: transform 300ms ease;
         }
         .prog-tab.active:last-child {
           border-bottom: 3px solid #bb8b57;
@@ -187,7 +189,7 @@ export default function OurProgramsSection() {
 }
 
 .prog-tab:hover .prog-tab-label {
-  transform: scale(1.10);
+   
 }
       `}</style>
 
@@ -270,12 +272,12 @@ export default function OurProgramsSection() {
 
         {/* ── FOREGROUND ──────────────────────────────────────── */}
         <div
-          className="relative z-10 flex flex-col max-w-[80%]"
-          style={{ minHeight: '100vh' , alignItems:''}}
+          className="relative z-10 flex flex-col mr-10"
+          style={{ minHeight: '100vh', alignItems: '' }}
         >
 
           {/* Overline — top-left, detached */}
-         
+
 
           {/* Main content row */}
           <div
@@ -302,31 +304,31 @@ export default function OurProgramsSection() {
                   transition: 'opacity 200ms ease, transform 200ms ease',
                 }}
               >
-                 <div
-            className="flex items-center gap-3"
-            style={{ marginBottom: '16px' }}
-          >
-            <span
-              style={{
-                width: '9px', height: '9px',
-                background: '#bb8b57',
-                transform: 'rotate(45deg)',
-                flexShrink: 0, display: 'inline-block',
-              }}
-            />
-            <span
-              style={{
-                fontFamily: 'system-ui, sans-serif',
-                fontSize: '11px',
-                letterSpacing: '0.26em',
-                textTransform: 'uppercase',
-                color: '#bb8b57',
-                fontWeight: 600,
-              }}
-            >
-              Our Programs
-            </span>
-          </div>
+                <div
+                  className="flex items-center gap-3"
+                  style={{ marginBottom: '16px' }}
+                >
+                  <span
+                    style={{
+                      width: '9px', height: '9px',
+                      background: '#bb8b57',
+                      transform: 'rotate(45deg)',
+                      flexShrink: 0, display: 'inline-block',
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: 'system-ui, sans-serif',
+                      fontSize: '11px',
+                      letterSpacing: '0.26em',
+                      textTransform: 'uppercase',
+                      color: '#bb8b57',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Our Programs
+                  </span>
+                </div>
                 {/* Heading — Reliance size: large serif, tight tracking */}
                 <h2
                   style={{
@@ -373,7 +375,7 @@ export default function OurProgramsSection() {
 
             {/* ── RIGHT: tab list ─────────────── */}
             <div
-              className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
+              className="flex w-[30vw] flex-row md:flex-col overflow-x-auto md:overflow-visible justify-start md:justify-center"
               style={{
                 flexShrink: 0,
                 padding: '0 0px 0 0',

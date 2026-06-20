@@ -1,4 +1,6 @@
+ 
 import Image from "next/image"
+import Link from "next/link"
 
 const photos = [
     { src: "/images/student-training-2.jpeg", rotate: "rotate-10", x: "translate-x-50", y: "translate-y-10" },
@@ -15,7 +17,7 @@ const photos = [
 
 export default function MomentsCollage() {
     return (
-        <section className="h-[80vh] bg-black md:min-h-screen w-full md:py-8 text-white text-center">
+        <section className=" bg-black md:min-h-screen w-full md:py-8 text-white text-center">
 
             {/* HEADING FIRST */}
 
@@ -38,10 +40,14 @@ export default function MomentsCollage() {
                 ))}
 
             </div>
-                        <h2 className="text-3xl md:text-4xl text-gold font-semibold max-w-2xl mx-auto mb-12 px-6">
+                        <h2 className="text-3xl md:text-4xl text-gold  font-semibold max-w-2xl mx-auto mb-12 px-6">
                 Some experiences end when the event does.
-                The ones that shape you stay forever.
+                The ones that shape you stay forever. <br />
+               <Link href="/gallery"> <button className="bg-charcoal text-black px-6 py-3 mt-2 rounded-md text-lg font-bold hover:bg-white transition-colors">
+                View Gallery
+            </button></Link>
             </h2>
+             
         </section>
 
     )

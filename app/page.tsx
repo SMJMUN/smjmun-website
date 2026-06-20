@@ -22,6 +22,7 @@ export default function Home() {
     <>
       <main>
         <HeroSection />
+        <AboutWordmark />
         <TrustSection />
         <ImpactSection />
         <AboutHero />

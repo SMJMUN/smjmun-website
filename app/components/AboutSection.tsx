@@ -10,7 +10,7 @@ export default function AboutHero() {
         <img
           src="/images/community-3.png"
           alt="Founder"
-          className="h-full w-full object-cover object-right"
+          className="h-full w-full object-center object-cover md:object-right"
         />
 
         {/* Dark Overlay */}

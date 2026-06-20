@@ -3,69 +3,83 @@
 import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-
 const PROGRAMS = [
   {
     id: 'conferences',
     tab: 'Conferences',
     heading: 'Conferences',
     body: [
-      'SMJMUN hosts India\'s most rigorous Model United Nations conferences — from school-level summits to international assemblies. Each conference is designed to challenge delegates, build real negotiation skills, and create experiences that stay with participants for life.',
+      `SMJMUN Conferences represent the flagship experience of the organization, bringing together students from diverse schools, colleges, and regions to engage in meaningful dialogue on global challenges.  `,
+      `Every conference is designed to simulate the workings of international institutions, allowing delegates to step into the roles of diplomats, policymakers, and world leaders. Through committee sessions, negotiations, moderated debates, and resolution drafting, participants gain firsthand exposure to the complexities of international decision-making.`,
+
     ],
     image: '/images/smj-hero-5.jpeg',
     href: '/conferences',
   },
+
   {
     id: 'school-mun',
     tab: 'School MUN',
     heading: 'School MUN',
     body: [
-      'Our training School MUN exist to bridge the gap between ambition and ability. From first-time delegates to seasoned chairs, every program is structured to accelerate growth in public speaking, critical thinking, and global awareness.',
+      `The School MUN Program introduces students to the world of diplomacy, public speaking, and international affairs through a structured and age-appropriate learning environment. `,
+      ` Designed specifically for school students, the program focuses on building strong foundational skills while making Model United Nations accessible, engaging, and intellectually stimulating. Participants learn research techniques, speech delivery, committee procedures, and the art of persuasive communication.`,
+
     ],
     image: '/images/smj-hero-7.jpeg',
     href: '/School MUN',
   },
+
   {
     id: 'training',
     tab: 'Training Cell',
     heading: 'Training Cell',
     body: [
-      'The SMJMUN Training Cell is the institution\'s academic backbone. It designs curriculum, runs intensive workshops, and certifies delegates before every conference season.',
+      `The SMJMUN Training Cell serves as the academic and developmental backbone of the organization. It is responsible for designing comprehensive learning frameworks that prepare students for excellence inside and outside committee rooms.  `,
+      `Through carefully structured workshops, bootcamps, research modules, and skill-development sessions, the Training Cell ensures that every participant receives world-class mentorship and guidance.`,
+
     ],
     image: '/images/student-training-2.jpeg',
     href: '/programs',
   },
+
   {
     id: 'collage-mun',
     tab: 'College MUN',
     heading: 'College MUN',
     body: [
-      'SMJMUN partners with schools and colleges across India to establish, train, and sustain their own MUN chapters. We provide end-to-end institutional support — from curriculum design to conference management.',
+      `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience. ` , 
+      ` These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
+
     ],
     image: '/images/moment-1.jpeg',
     href: '/programs',
   },
+
   {
     id: 'partnerships',
     tab: 'Partnerships',
     heading: 'Partnerships',
     body: [
-      'Strategic partnerships are how SMJMUN scales its mission. We collaborate with educational institutions, government bodies, and global organizations to bring world-class diplomacy education to more students.',
+      `Partnerships are central to SMJMUN’s mission of expanding access to quality diplomacy and leadership education. We collaborate with schools, colleges, educational organizations, corporate partners, and public institutions to create  meaningful opportunities for students across India. `,
+      ` These partnerships allow us to extend our reach, enhance our programs, and bring innovative learning experiences to diverse communities.`,
+
     ],
     image: '/images/smj-hero-4.jpeg',
     href: '/partnerships',
   },
+
   {
     id: 'community',
     tab: 'Community',
     heading: 'Community',
     body: [
-      'The SMJMUN alumni network spans thousands of delegates across the country. Our community events, mentorship programs, and digital platforms keep that network active and growing.',
+      `The SMJMUN Community is a growing network of delegates, chairs, organizers, educators, and alumni united by a shared passion for diplomacy, leadership, and lifelong learning.`,
+      ` What begins as participation in a conference often evolves into lasting relationships, mentorship opportunities, and collaborative initiatives that continue well beyond the committee room. The community serves as a space where members support, inspire, and learn from one another.`
     ],
     image: '/images/community.jpeg',
     href: '/conferences',
   },
-
 ];
 
 export default function OurProgramsSection() {
@@ -306,20 +320,22 @@ border-right: 1px solid rgba(255,255,255,0.8);
               >
                 <div
                   className="flex items-center gap-3"
-                  style={{ marginBottom: '16px' }}
+                  style={{ marginBottom: '26px' }}
                 >
-                  <span
+                    <img
+                     src={'/images/smg-mun-logo.png'}
+                   alt=""
                     style={{
-                      width: '9px', height: '9px',
-                      background: '#bb8b57',
-                      transform: 'rotate(45deg)',
-                      flexShrink: 0, display: 'inline-block',
+                      width: '50px', height: '50px',
+                      // background: '#bb8b57',
+                      // transform: 'rotate(45deg)',
+                      // flexShrink: 0, display: 'inline-block',
                     }}
                   />
                   <span
                     style={{
                       fontFamily: 'system-ui, sans-serif',
-                      fontSize: '11px',
+                      fontSize: '20px',
                       letterSpacing: '0.26em',
                       textTransform: 'uppercase',
                       color: '#bb8b57',

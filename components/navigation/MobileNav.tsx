@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { MobileDrawer } from './mobile/MobileDrawer';
+import MenuTwoLineIcon from './constants/MenuIcon';
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ export function MobileNav() {
             className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200"
             aria-label="Open navigation menu"
           >
-            <Menu className="w-6 h-6 " strokeWidth={1.5} />
+          <MenuTwoLineIcon color="white" size={24} />
           </button>
         </SheetTrigger>
         <SheetContent

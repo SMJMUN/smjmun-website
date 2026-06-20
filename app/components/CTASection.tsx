@@ -40,9 +40,9 @@ return (
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#d8b17a]">
+          {/* <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#d8b17a]">
             Partner With SMJMUN
-          </p>
+          </p> */}
 
           <h2
             className="
@@ -212,7 +212,7 @@ hover:duration-75
           "
         >
           <img
-            src="/images/institution.png"
+            src="/images/perparestudent.jpeg"
             alt="SMJMUN"
             className="
               h-full

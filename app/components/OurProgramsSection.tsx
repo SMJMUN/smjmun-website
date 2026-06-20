@@ -22,7 +22,7 @@ const PROGRAMS = [
     body: [
       'Our training School MUN exist to bridge the gap between ambition and ability. From first-time delegates to seasoned chairs, every program is structured to accelerate growth in public speaking, critical thinking, and global awareness.',
     ],
-    image: '/images/hero-2.png',
+    image: '/images/smj-hero-7.jpeg',
     href: '/School MUN',
   },
   {
@@ -62,7 +62,7 @@ const PROGRAMS = [
     body: [
       'The SMJMUN alumni network spans thousands of delegates across the country. Our community events, mentorship programs, and digital platforms keep that network active and growing.',
     ],
-    image: '/images/photo.jpg',
+    image: '/images/community.jpeg',
     href: '/conferences',
   },
 
@@ -175,7 +175,7 @@ export default function OurProgramsSection() {
         /* ─── Tab label ──────────────────────────────────── */
         .prog-tab-label {
           font-family: system-ui, sans-serif;
-          font-size: clamp(12px, 1.1vw, 15px);
+          font-size: clamp(12px, 1.1vw, 30px);
           letter-spacing: 0.16em;
           text-transform: uppercase;
           white-space: nowrap;
@@ -275,31 +275,7 @@ export default function OurProgramsSection() {
         >
 
           {/* Overline — top-left, detached */}
-          <div
-            className="flex items-center gap-3"
-            style={{ padding: '36px 80px 0' }}
-          >
-            <span
-              style={{
-                width: '9px', height: '9px',
-                background: '#bb8b57',
-                transform: 'rotate(45deg)',
-                flexShrink: 0, display: 'inline-block',
-              }}
-            />
-            <span
-              style={{
-                fontFamily: 'system-ui, sans-serif',
-                fontSize: '11px',
-                letterSpacing: '0.26em',
-                textTransform: 'uppercase',
-                color: '#bb8b57',
-                fontWeight: 600,
-              }}
-            >
-              Our Programs
-            </span>
-          </div>
+         
 
           {/* Main content row */}
           <div
@@ -326,6 +302,31 @@ export default function OurProgramsSection() {
                   transition: 'opacity 200ms ease, transform 200ms ease',
                 }}
               >
+                 <div
+            className="flex items-center gap-3"
+            style={{ marginBottom: '16px' }}
+          >
+            <span
+              style={{
+                width: '9px', height: '9px',
+                background: '#bb8b57',
+                transform: 'rotate(45deg)',
+                flexShrink: 0, display: 'inline-block',
+              }}
+            />
+            <span
+              style={{
+                fontFamily: 'system-ui, sans-serif',
+                fontSize: '11px',
+                letterSpacing: '0.26em',
+                textTransform: 'uppercase',
+                color: '#bb8b57',
+                fontWeight: 600,
+              }}
+            >
+              Our Programs
+            </span>
+          </div>
                 {/* Heading — Reliance size: large serif, tight tracking */}
                 <h2
                   style={{

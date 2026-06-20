@@ -31,7 +31,8 @@ export default function ScrollToTop() {
       className={`
         fixed bottom-8 right-8
 h-14 w-14
-rounded-full
+rounded-[0_1rem_1rem_1rem]
+ 
 bg-white
 border border-gold/30
 text-gold
@@ -48,6 +49,7 @@ transition-all
       aria-label="Back to top"
     >
       <ChevronUp className="h-5 w-5 mx-auto" />
+      <ChevronUp className="h-5 w-5 mx-auto" /> 
     </button>
   );
 }

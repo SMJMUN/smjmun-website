@@ -107,7 +107,10 @@ export default function AboutHero() {
               Model United Nations conferences,
               leadership programs and global
               engagement initiatives.
+              <br />
+             <span className="text-charcoal"> IGNITE , INNOVATE , IMPACT</span>
             </p>
+            
           </motion.div>
         </div>
       </div>

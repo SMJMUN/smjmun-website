@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const heroImages = ['/images/smj-hero-6.jpeg',   '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
 
@@ -133,26 +134,61 @@ console.log("length:", heroImages.length);
         </h1> */}
 
         {/* Tagline */}
-        <p
-          style={{
-                        fontFamily: 'var(--font-heading), Georgia, serif',
+   <motion.h1
+  className="
+    text-5xl
+    md:text-6xl
+    lg:text-7xl
+    font-bold
+    leading-[0.85]
+    tracking-[-0.05em]
+    max-w-3xl
+  "
+>
+  <motion.span
+    initial={{ opacity: 0, x: -80 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="block text-white"
+  >
+    DARE.
+  </motion.span>
 
-            fontSize: 'clamp(16px, 1.5vw, 20px)',
-            lineHeight: 1.6,
-            color: 'rgba(255, 255, 255, 0.75)',
-            maxWidth: '480px',
-            marginBottom: '24px',
-            opacity: 0,
-            animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.7s forwards',
-          }}
-          className='text-4xl! md:text-5xl lg:text-6xl! font-bold! text-white/80! leading-[1.1]! max-w-3xl!'
-        >
-          Dare 
-         <span className='text-charcoal!'> Rise</span> 
+  <motion.span
+    initial={{ opacity: 0, x: -80 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.2,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="block text-charcoal"
+  >
+    RISE.
+  </motion.span>
 
-          <span className='text-gold!'> Impact</span>
-        </p>
-<div
+<motion.span
+  className="block text-gold"
+  animate={{
+    textShadow: [
+      '0 0 0px rgba(212,164,90,0)',
+      '0 0 20px rgba(212,164,90,.35)',
+      '0 0 0px rgba(212,164,90,0)',
+    ],
+  }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: 'easeInOut',
+  }}
+>
+  IMPACT.
+</motion.span>
+</motion.h1>
+{/* <div
   style={{
     width: "340px",
     height: "2px",
@@ -160,12 +196,13 @@ console.log("length:", heroImages.length);
     marginBottom: "28px",
   }}
   className="md:w-[400px]! lg:w-[480px]!"
-/>
+/> */}
      <div
   style={{
     display: "flex",
     alignItems: "center",
     gap: "24px",
+    marginTop: "28px",
     flexWrap: "wrap",
     opacity: 0,
     animation:

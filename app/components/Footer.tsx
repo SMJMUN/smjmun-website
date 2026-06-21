@@ -5,6 +5,47 @@ import {
   FaYoutube,
   FaFacebookF,
 } from "react-icons/fa";
+import Link from "next/link";
+const conferenceLinks = [
+  { label: "Committees", href: "/conferences" },
+  { label: "Agenda", href: "/conferences" },
+  { label: "Secretariat", href: "/conferences" },
+  { label: "Schedule", href: "/conferences" },
+  { label: "Venue", href: "/conferences" },
+];
+
+const delegateLinks = [
+  { label: "Registration", href: "/conferences" },
+  { label: "Delegate Guide", href: "/resources" },
+  { label: "Code of Conduct", href: "/resources" },
+  { label: "Resources", href: "/resources" },
+];
+
+const organizationLinks = [
+  { label: "About SMJ MUN", href: "/about" },
+  { label: "Partners", href: "/partnerships" },
+  { label: "Sponsors", href: "/partnerships" },
+  { label: "Contact", href: "/contact" },
+];
+
+const socialLinks = [
+  {
+    icon: FaFacebookF,
+    href: "https://facebook.com",
+  },
+  {
+    icon: FaLinkedinIn,
+    href: "https://linkedin.com",
+  },
+  {
+    icon: FaInstagram,
+    href: "https://instagram.com",
+  },
+  {
+    icon: FaYoutube,
+    href: "https://youtube.com",
+  },
+];
 
 export default function Footer() {
   const navLinks = [
@@ -32,18 +73,16 @@ export default function Footer() {
         </h4>
 
         <ul className="space-y-3">
-          {["Committees", "Agenda", "Secretariat", "Schedule", "Venue"].map(
-            (item) => (
-              <li key={item}>
-                <a
-                  href="#"
-                  className="text-white/70 hover:text-white transition-colors duration-300"
-                >
-                  {item}
-                </a>
-              </li>
-            )
-          )}
+         {conferenceLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
         </ul>
       </div>
 
@@ -54,21 +93,16 @@ export default function Footer() {
         </h4>
 
         <ul className="space-y-3">
-          {[
-            "Registration",
-            "Delegate Guide",
-            "Code of Conduct",
-            "Resources",
-          ].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="text-white/70 hover:text-white transition-colors duration-300"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
+          {delegateLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
         </ul>
       </div>
     </div>
@@ -80,32 +114,36 @@ export default function Footer() {
       </h4>
 
       <ul className="grid grid-cols-2 gap-y-3">
-        {["About SMJ MUN", "Partners", "Sponsors", "Contact"].map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="text-white/70 hover:text-white transition-colors duration-300"
-            >
-              {item}
-            </a>
-          </li>
-        ))}
+       {organizationLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
       </ul>
     </div>
 
     {/* Social */}
     <div className="flex justify-center gap-6 text-lg mt-12">
-      {[FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube].map(
-        (Icon, index) => (
-          <a
-            key={index}
-            href="#"
-            className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
-          >
-            <Icon />
-          </a>
-        )
-      )}
+      {socialLinks.map((item, index) => {
+  const Icon = item.icon;
+
+  return (
+    <a
+      key={index}
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
+    >
+      <Icon />
+    </a>
+  );
+})}
     </div>
 
     {/* Newsletter */}
@@ -156,18 +194,16 @@ export default function Footer() {
       </h4>
 
       <ul className="space-y-4">
-        {["Committees", "Agenda", "Secretariat", "Schedule", "Venue"].map(
-          (item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="text-white/70 hover:text-white transition-colors duration-300"
-              >
-                {item}
-              </a>
-            </li>
-          )
-        )}
+      {conferenceLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
       </ul>
     </div>
 
@@ -178,21 +214,16 @@ export default function Footer() {
       </h4>
 
       <ul className="space-y-4">
-        {[
-          "Registration",
-          "Delegate Guide",
-          "Code of Conduct",
-          "Resources",
-        ].map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="text-white/70 hover:text-white transition-colors duration-300"
-            >
-              {item}
-            </a>
-          </li>
-        ))}
+       {delegateLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
       </ul>
     </div>
 
@@ -203,16 +234,16 @@ export default function Footer() {
       </h4>
 
       <ul className="space-y-4">
-        {["About SMJ MUN", "Partners", "Sponsors", "Contact"].map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="text-white/70 hover:text-white transition-colors duration-300"
-            >
-              {item}
-            </a>
-          </li>
-        ))}
+        {organizationLinks.map((item) => (
+  <li key={item.label}>
+    <Link
+      href={item.href}
+      className="text-white/70 hover:text-white transition-colors duration-300"
+    >
+      {item.label}
+    </Link>
+  </li>
+))}
       </ul>
     </div>
 
@@ -220,17 +251,21 @@ export default function Footer() {
     <div className="border-l border-white/10 pl-12">
 
       <div className="flex gap-5 text-xl mb-8">
-        {[FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube].map(
-          (Icon, index) => (
-            <a
-              key={index}
-              href="#"
-              className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
-            >
-              <Icon />
-            </a>
-          )
-        )}
+       {socialLinks.map((item, index) => {
+  const Icon = item.icon;
+
+  return (
+    <a
+      key={index}
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
+    >
+      <Icon />
+    </a>
+  );
+})}
       </div>
 
       <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-gold)] mb-4">

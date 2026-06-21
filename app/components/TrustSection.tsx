@@ -95,18 +95,37 @@ export default function TrustSection() {
       className="relative overflow-hidden! bg-[#f8f5f1]! py-24!"
     >
       {/* Floral Left */}
-      <img
-        src="/images/floral-left.svg"
-        alt=""
-        className="pointer-events-none! absolute left-0 top-0 w-[220px]! opacity-[0.09]!"
-      />
+     {/* Floral Left */}
+<img
+  src="/images/floral-left.svg"
+  alt=""
+  className="
+    pointer-events-none
+    absolute
+    left-0
+    top-0
+    w-[110px]
+    md:w-[180px]
+    lg:w-[220px]
+    opacity-[0.09]
+  "
+/>
 
-      {/* Floral Right */}
-      <img
-        src="/images/floral-right.svg"
-        alt=""
-        className="pointer-events-none! absolute! right-0! top-0! w-[220px]! opacity-[0.09]!"
-      />
+{/* Floral Right */}
+<img
+  src="/images/floral-right.svg"
+  alt=""
+  className="
+    pointer-events-none
+    absolute
+    right-0
+    top-0
+    w-[110px]
+    md:w-[180px]
+    lg:w-[220px]
+    opacity-[0.09]
+  "
+/>
 
       <div className="relative! z-10! mx-auto! max-w-[1500px]! px-8! lg:px-20!">
         {/* Intro */}
@@ -127,21 +146,21 @@ export default function TrustSection() {
         </motion.div>
 
     <div className="relative mt-10!">
-  <div
+  {/* <div
     className="pointer-events-none! absolute! left-[60px]! top-0! z-20! h-full! w-24!"
     style={{
       background:
         'linear-gradient(to right,#f8f5f1 0%,rgba(248,245,241,0) 100%)',
     }}
-  />
+  /> */}
 
-  <div
+  {/* <div
     className="pointer-events-none! absolute! right-[60px]! top-0! z-20! h-full! w-24!"
     style={{
       background:
         'linear-gradient(to left,#f8f5f1 0%,rgba(248,245,241,0) 100%)',
     }}
-  />
+  /> */}
 
   <div className="flex!  items-center! gap-8!">
     {/* Left Arrow */}

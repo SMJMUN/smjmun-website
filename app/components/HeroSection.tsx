@@ -163,8 +163,8 @@ export default function HeroSection() {
       "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
   }}
 >
-  <a
-    href="#contact"
+  <Link
+    href="/about"
     style={{
       display: "inline-flex",
       alignItems: "center",
@@ -206,10 +206,10 @@ export default function HeroSection() {
     about us
     <span> <ArrowRight />
   </span>
-  </a>
+  </Link>
 
   <a
-    href="#leadership"
+    href="#programs"
     style={{
       display: "inline-flex",
       alignItems: "center",

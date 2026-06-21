@@ -245,6 +245,7 @@ border-right: 1px solid rgba(255,255,255,0.8);
       `}</style>
 
       <section
+        id="programs"
         className="relative w-full overflow-hidden "
         style={{ minHeight: '70vh', backgroundColor: '#0a1520' }}
       >

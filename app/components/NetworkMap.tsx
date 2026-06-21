@@ -3,38 +3,32 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import CityNode from './CityNode';
 import ConnectionLines from './ConnectionLines';
+import { useMediaQuery } from '@/components/navigation/hooks/useMediaQuery';
 
-const cities = [
-  {
-    name: 'NEW YORK',
-    x: 180,
-    y: 220,
-  },
-  {
-    name: 'LONDON',
-    x: 420,
-    y: 150,
-  },
-  {
-    name: 'DUBAI',
-    x: 220,
-    y: 320,
-  },
-  {
-    name: 'NEW DELHI',
-    x: 360,
-    y: 270,
-  },
-  {
-    name: 'SINGAPORE',
-    x: 550,
-    y: 305,
-  },
+type City = { name: string; x: number; y: number; labelPosition?: 'left' | 'right' };
+
+const desktopCities: City[] = [
+  { name: 'NEW YORK', x: 180, y: 220 },
+  { name: 'LONDON', x: 420, y: 150 },
+  { name: 'DUBAI', x: 220, y: 320 },
+  { name: 'NEW DELHI', x: 360, y: 270 },
+  { name: 'SINGAPORE', x: 550, y: 305 },       
 ];
 
+const mobileCities: City[] = [
+  { name: 'NEW YORK', x: 70, y: 185, labelPosition: 'right' },
+  { name: 'LONDON', x: 165, y: 145, labelPosition: 'left' },
+  { name: 'DUBAI', x: 185, y: 125, labelPosition: 'left' },
+  { name: 'NEW DELHI', x: 245, y: 110, labelPosition: 'right' },
+  { name: 'SINGAPORE', x: 310, y: 140, labelPosition: 'right' },
+];
 export default function NetworkMap() {
   const { scrollYProgress } = useScroll();
+const isMobile = useMediaQuery('(max-width: 768px)');
 
+const cities = isMobile
+  ? mobileCities
+  : desktopCities;
   const mapY = useTransform(
     scrollYProgress,
     [0, 1],
@@ -151,12 +145,13 @@ blur-[80px]!
         "
       >
         {cities.map((city) => (
-          <CityNode
-            key={city.name}
-            name={city.name}
-            x={city.x}
-            y={city.y}
-          />
+         <CityNode
+  key={city.name}
+  name={city.name}
+  x={city.x}
+  y={city.y}
+  labelPosition={city.labelPosition}
+/>
         ))}
       </div>
 

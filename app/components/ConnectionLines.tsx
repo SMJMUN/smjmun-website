@@ -6,6 +6,8 @@ interface City {
   name: string;
   x: number;
   y: number;
+  labelPosition?: 'left' | 'right';
+
 }
 
 interface Props {
@@ -59,12 +61,12 @@ const routes = [
   };
 
   return (
-    <svg
-      viewBox="0 0 600 450"
-      className="absolute! inset-0! h-full! w-full!"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      <defs>
+  <svg
+  viewBox="0 0 600 450"
+  preserveAspectRatio="none"
+  className="absolute inset-0 h-full w-full"
+> 
+<defs>
         <filter id="route-glow">
           <feGaussianBlur
             stdDeviation="5"

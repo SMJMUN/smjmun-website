@@ -18,8 +18,8 @@ export default function GlobalMovementSection() {
         relative
         overflow-hidden!
         bg-[#1A1A1A]!
-        py-8!
-            min-h-[550px]!
+        pt-8!
+          min-h-[450px]  md:min-h-[550px]!
         
       "
     >
@@ -160,7 +160,7 @@ export default function GlobalMovementSection() {
         "
       />
 
-      <div className="relative h-[450px]!">
+      <div className="relative h-[300px] md:h-[450px]!">
         <NetworkMap />
       </div>
 

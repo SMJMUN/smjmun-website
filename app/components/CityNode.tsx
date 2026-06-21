@@ -1,17 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
 interface CityNodeProps {
   name: string;
   x: number;
   y: number;
+  labelPosition?: 'left' | 'right';
 }
-
 export default function CityNode({
   name,
   x,
   y,
+  labelPosition = 'right'
 }: CityNodeProps) {
   return (
     <motion.div
@@ -89,31 +89,32 @@ export default function CityNode({
       />
 
       {/* Glass Label */}
-      <motion.div
-        className="
-          absolute!
-          left-5!
-          top-1/21
-          -translate-y-1/2!
-          whitespace-nowrap!
-          rounded-full!
-          border!
-          border-white/10!
-          bg-white/5!
-          px-4!
-          py-2!
-          text-[11px]!
-          uppercase!
-          tracking-[0.2em]!
-          text-white/90!
-          backdrop-blur-xl!
-        "
-        whileHover={{
-          y: -2,
-        }}
-      >
-        {name}
-      </motion.div>
+   <motion.div
+  className={`
+    absolute!
+    top-1/2!
+    -translate-y-1/2!
+    whitespace-nowrap!
+    rounded-full!
+    border!
+    border-white/10!
+    bg-white/5!
+    px-4!
+    py-2!
+    text-[11px]!
+    uppercase!
+    tracking-[0.2em]!
+    text-white/90!
+    backdrop-blur-xl!
+    ${
+      labelPosition === 'right'
+        ? 'left-5!'
+        : 'right-5!'
+    }
+  `}
+>
+  {name}
+</motion.div>
     </motion.div>
   );
 }

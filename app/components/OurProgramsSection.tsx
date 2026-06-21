@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 const PROGRAMS = [
   {
     id: 'conferences',
@@ -48,7 +49,7 @@ const PROGRAMS = [
     tab: 'College MUN',
     heading: 'College MUN',
     body: [
-      `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience. ` , 
+      `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience. `,
       ` These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
 
     ],
@@ -227,6 +228,20 @@ border-right: 1px solid rgba(255,255,255,0.8);
     letter-spacing: 0.08em;
   }
 }
+  .mobile-tab-arrow {
+  animation: arrowReveal 0.3s ease;
+}
+
+@keyframes arrowReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
       `}</style>
 
       <section
@@ -307,31 +322,31 @@ border-right: 1px solid rgba(255,255,255,0.8);
         ))}
 
         {/* ── FOREGROUND ──────────────────────────────────────── */}
-  <div
-  className="relative z-10 flex flex-col"
-  style={{ minHeight: '100vh' }}
->
+        <div
+          className="relative z-10 flex flex-col"
+          style={{ minHeight: '100vh' }}
+        >
 
           {/* Overline — top-left, detached */}
 
 
           {/* Main content row */}
-        <div
-  className="flex flex-col lg:flex-row flex-1 h-full"
->
+          <div
+            className="flex flex-col lg:flex-row flex-1 h-full"
+          >
 
             {/* ── LEFT: heading + body + cta ─── */}
-          <div
-  className="hidden lg:flex"
-  style={{
-    flex: '0 0 auto',
-    width: 'min(600px, 100%)',
-    maxWidth: '100%',
-    padding: '48px 100px 64px',
-    flexDirection: 'column',
-    justifyContent: 'center',
-  }}
->
+            <div
+              className="hidden lg:flex"
+              style={{
+                flex: '0 0 auto',
+                width: 'min(600px, 100%)',
+                maxWidth: '100%',
+                padding: '48px 100px 64px',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
+            >
               <div
                 style={{
                   opacity: animating ? 0 : 1,
@@ -343,9 +358,9 @@ border-right: 1px solid rgba(255,255,255,0.8);
                   className="flex items-center gap-3"
                   style={{ marginBottom: '26px' }}
                 >
-                    <img
-                     src={'/images/smg-mun-logo.png'}
-                   alt=""
+                  <img
+                    src={'/images/smg-mun-logo.png'}
+                    alt=""
                     style={{
                       width: '50px', height: '50px',
                       // background: '#bb8b57',
@@ -410,11 +425,11 @@ border-right: 1px solid rgba(255,255,255,0.8);
             {/* Spacer */}
             <div className="hidden md:block flex-1" />
 
-            
+
 
             {/* ── RIGHT: tab list ─────────────── */}
-           <div
-  className="
+            <div
+              className="
     flex
     flex-col
     justify-center
@@ -425,38 +440,38 @@ border-right: 1px solid rgba(255,255,255,0.8);
     px-4
     lg:px-0
   "
-  style={{
-  // background: 'rgba(4,10,18,0.65)',
-  // backdropFilter: 'blur(4px)',
-}}
->
-      <div
-                  className="flex items-center gap-3 md:hidden lg:hidden"
-                  style={{ marginBottom: '26px' }}
+              style={{
+                // background: 'rgba(4,10,18,0.65)',
+                // backdropFilter: 'blur(4px)',
+              }}
+            >
+              <div
+                className="flex items-center gap-3 md:hidden lg:hidden"
+                style={{ marginBottom: '26px' }}
+              >
+                <img
+                  src={'/images/smg-mun-logo.png'}
+                  alt=""
+                  style={{
+                    width: '50px', height: '50px',
+                    // background: '#bb8b57',
+                    // transform: 'rotate(45deg)',
+                    // flexShrink: 0, display: 'inline-block',
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: 'system-ui, sans-serif',
+                    fontSize: '20px',
+                    letterSpacing: '0.26em',
+                    textTransform: 'uppercase',
+                    color: '#bb8b57',
+                    fontWeight: 600,
+                  }}
                 >
-                    <img
-                     src={'/images/smg-mun-logo.png'}
-                   alt=""
-                    style={{
-                      width: '50px', height: '50px',
-                      // background: '#bb8b57',
-                      // transform: 'rotate(45deg)',
-                      // flexShrink: 0, display: 'inline-block',
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: 'system-ui, sans-serif',
-                      fontSize: '20px',
-                      letterSpacing: '0.26em',
-                      textTransform: 'uppercase',
-                      color: '#bb8b57',
-                      fontWeight: 600,
-                    }}
-                  >
-                    Our Programs
-                  </span>
-                </div>
+                  Our Programs
+                </span>
+              </div>
               {PROGRAMS.map((prog, i) => {
                 const isActive = i === activeIndex;
                 return (
@@ -466,15 +481,39 @@ border-right: 1px solid rgba(255,255,255,0.8);
                     onClick={() => handleTabClick(i)}
                     className={`prog-tab${isActive ? ' active' : ''}`}
                   >
-                    <span
-                      className="prog-tab-label font-inter! "
-                      style={{
-                        // fontWeight: isActive ? 700 : 400,
-                        color: '#ffffff',
-                      }}
-                    >
-                      {prog.tab}
-                    </span>
+                    <div className="flex w-full items-center justify-between">
+                      <span
+                        className="prog-tab-label font-inter!"
+                        style={{
+                          color: '#ffffff',
+                        }}
+                      >
+                        {prog.tab}
+                      </span>
+
+                      {isActive && (
+                        <Link
+                          href={prog.href}
+                          className="
+          lg:hidden
+          flex
+          items-center
+          justify-center
+          h-9
+          w-9
+          rounded-full
+          border
+          border-[#bb8b57]
+          text-[#bb8b57]
+          transition-all
+          duration-300
+        "
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <ArrowUpRight size={18} />
+                        </Link>
+                      )}
+                    </div>
                   </button>
                 );
               })}

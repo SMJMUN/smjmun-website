@@ -161,6 +161,7 @@ export default function TrustSection() {
         duration-300!
         hover:border-[#bb8b57]!
         hover:shadow-md!
+        hidden! md:block
       "
     >
       <ChevronLeft size={18} />
@@ -237,6 +238,7 @@ export default function TrustSection() {
         duration-300!
         hover:border-[#bb8b57]!
         hover:shadow-md!
+        hidden! md:block
       "
     >
       <ChevronRight size={18} />

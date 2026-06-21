@@ -28,6 +28,7 @@ export function DesktopNav() {
     mx-auto
     z-50
     static 
+    
   "
     >
       <NavigationMenuList className="gap-8 ">

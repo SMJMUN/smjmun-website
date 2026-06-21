@@ -16,7 +16,7 @@ import Link from 'next/link';
         className={cn(
           "fixed top-0 w-full z-[100] transition-all overflow-visible duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
           isScrolled 
-            ? "h-[66px] bg-[#18171C] backdrop-blur-[8px] border-b border-white/10" 
+            ? "h-[66px] bg-[#0a0a0a] backdrop-blur-[8px] border-b border-white/10" 
             : "h-[96px] bg-transparent border-transparent shadow-none"
         )}
       >

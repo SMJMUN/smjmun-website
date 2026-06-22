@@ -140,13 +140,19 @@ export function IntroLogo({ show }: IntroLogoProps) {
                     </motion.div>
 
                     {/* Logo */}
-                    <div className=' absolute
+                <div
+  className="
+    absolute
+    top-[20%]
+    left-1/2
+    -translate-x-1/2
 
-  top-[20%]
-  left-1/2
-  -translate-x-1/2
-
-  md:static'>
+    md:top-1/2
+    md:left-1/2
+    md:-translate-x-1/2
+    md:-translate-y-1/2
+  "
+>
                     <motion.div
                         layoutId="smjmun-logo"
                         initial={{

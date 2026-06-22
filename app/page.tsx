@@ -19,7 +19,7 @@ import AboutHero from "./components/AboutSection";
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="bg-[#0A0A0A]">
         <HeroSection />
         <AboutHero />
         <AboutWordmark />

@@ -104,6 +104,7 @@ export default function TrustSection() {
     absolute
     left-0
     top-0
+    text-white
     w-[110px]
     md:w-[180px]
     lg:w-[220px]

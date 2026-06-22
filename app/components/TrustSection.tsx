@@ -92,7 +92,7 @@ export default function TrustSection() {
   return (
     <section
       id="partnerships"
-      className="relative overflow-hidden! bg-[#f8f5f1]! py-24!"
+      className="relative overflow-hidden! bg-[#191816] py-24!"
     >
       {/* Floral Left */}
      {/* Floral Left */}
@@ -220,7 +220,7 @@ export default function TrustSection() {
                   uppercase!
                   leading-tight!
                   tracking-[0.05em]!
-                  text-[#042147]!
+                  text-white
                   whitespace-nowrap!
                 "
                 style={{

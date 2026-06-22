@@ -5,7 +5,7 @@ export default function FounderSection() {
     <section
       id="founder"
       style={{
-        backgroundColor: '#ffffff',
+        backgroundColor: '#0A0A0A',
         padding: '160px 0',
         overflow: 'hidden',
       }}
@@ -42,7 +42,7 @@ export default function FounderSection() {
               position: 'absolute',
               inset: 0,
             }}
-            className="border border-white/10 border-radius-lg"   
+            className="border border-white/10 border-radius-lg rounded-md"   
           />
         </div>
 
@@ -89,7 +89,7 @@ export default function FounderSection() {
                   fontSize: 'clamp(36px, 4vw, 48px)',
                   fontWeight: 700,
                   lineHeight: 1.1,
-                  color: '#042147',
+                  color: '#ffffffff',
                   letterSpacing: '-0.02em',
                 }}
               >
@@ -104,7 +104,7 @@ export default function FounderSection() {
               fontFamily: 'var(--font-body), system-ui, sans-serif',
               fontSize: '16px',
               lineHeight: 1.8,
-              color: '#042147',
+              color: '#AEADAC',
               opacity: 0.8,
               marginBottom: '40px',
             }}
@@ -130,7 +130,7 @@ export default function FounderSection() {
                 fontSize: 'clamp(18px, 2vw, 24px)',
                 lineHeight: 1.4,
                 fontStyle: 'italic',
-                color: '#042147',
+                color: '#AEADAC',
                 fontWeight: 400,
               }}
             >
@@ -145,7 +145,7 @@ export default function FounderSection() {
               fontFamily: 'var(--font-body), system-ui, sans-serif',
               fontSize: '15px',
               lineHeight: 1.75,
-              color: '#042147',
+              color: '#AEADAC',
               opacity: 0.7,
               marginBottom: '48px',
             }}
@@ -161,12 +161,12 @@ export default function FounderSection() {
               href="https://www.linkedin.com/in/theaarushsahu"
               aria-label="LinkedIn"
               style={{
-                color: '#042147',
                 opacity: 0.4,
                 transition: 'opacity 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
               }}
+              className='text-white'
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.8'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.4'; }}
             >
@@ -179,12 +179,13 @@ export default function FounderSection() {
               href="https://www.instagram.com/theaarushhsahu?igsh=MXR6amRrYndvNnNvOA=="
               aria-label="Instagram"
               style={{
-                color: '#042147',
                 opacity: 0.4,
                 transition: 'opacity 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
               }}
+              className='text-white'
+
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.8'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.4'; }}
             >
@@ -197,12 +198,13 @@ export default function FounderSection() {
               href="Info@smjmun.com"
               aria-label="Email"
               style={{
-                color: '#042147',
                 opacity: 0.4,
                 transition: 'opacity 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
               }}
+              className='text-white'
+
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.8'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.4'; }}
             >

@@ -2,7 +2,7 @@ export default function EditorialStatement() {
   return (<section
   id="about"
   style={{
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#191816',
     padding: '80px 0',
     overflow: 'hidden',
   }}
@@ -39,6 +39,7 @@ export default function EditorialStatement() {
           h-auto!
           object-cover!
           block!
+          rounded-xl
         "
       />
     </div>
@@ -69,9 +70,10 @@ export default function EditorialStatement() {
           lineHeight: 1.3,
           fontWeight: 400,
           fontStyle: 'italic',
-          color: '#042147',
+          // color: '#470404ff',
           letterSpacing: '-0.01em',
         }}
+        className="text-charcoal"
       >
         &ldquo;We don&apos;t prepare students for conferences.
         <br />

@@ -8,10 +8,16 @@ interface LogoProps {
 }
 
 export function Logo({ isScrolled }: LogoProps) {
+  const scrollToHero = () => {
+    document
+      .getElementById("hero")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <Link
-      href="/"
+      href="#hero"
       className="flex items-center gap-3 md:gap-4 group relative z-50"
+      onClick={scrollToHero}
     >
       {/* Logo */}
       <motion.div

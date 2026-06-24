@@ -5,26 +5,26 @@ import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const heroImages = ['/images/smj-hero-6.jpeg',   '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
+const heroImages = ['/images/smj-hero-6.jpeg', '/images/smj-hero-4.jpeg', '/images/smj-hero-7.jpeg'];
 
 export default function HeroSection() {
-const [currentImage, setCurrentImage] = useState(0);
- 
+  const [currentImage, setCurrentImage] = useState(0);
 
-const SLIDE_DURATION = 4000;
- useEffect(() => {
-  const timer = setInterval(() => {
-    setCurrentImage(
-      (prev) => (prev + 1) % heroImages.length
-    );
-  }, SLIDE_DURATION);
 
-  return () => clearInterval(timer);
+  const SLIDE_DURATION = 4000;
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage(
+        (prev) => (prev + 1) % heroImages.length
+      );
+    }, SLIDE_DURATION);
 
-  
-}, []);
-console.log("currentImage:", currentImage);
-console.log("length:", heroImages.length);
+    return () => clearInterval(timer);
+
+
+  }, []);
+  console.log("currentImage:", currentImage);
+  console.log("length:", heroImages.length);
   return (
     <section
       id="hero"
@@ -54,7 +54,7 @@ console.log("length:", heroImages.length);
           className=" bg-cover  bg-center  "
         />
       ))}
-      
+
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
       <div
@@ -134,8 +134,8 @@ console.log("length:", heroImages.length);
         </h1> */}
 
         {/* Tagline */}
-   <motion.h1
-  className="
+        <motion.h1
+          className="
     text-5xl
     md:text-6xl
     lg:text-7xl
@@ -144,51 +144,53 @@ console.log("length:", heroImages.length);
     tracking-[-0.05em]
     max-w-3xl
   "
->
-  <motion.span
-    initial={{ opacity: 0, x: -80 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-    }}
-    className="block text-white"
-  >
-    DARE.
-  </motion.span>
+        >
+          <motion.span
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="block text-[#0603A5]"
+          >
+            DARE.
+          </motion.span>
 
-  <motion.span
-    initial={{ opacity: 0, x: -80 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{
-      duration: 0.8,
-      delay: 0.2,
-      ease: [0.22, 1, 0.36, 1],
-    }}
-    className="block text-charcoal"
-  >
-    RISE.
-  </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: -80 }}
+            animate={{
+              opacity: 1, x: 0, textShadow: [
+                '0 0 0px rgba(212,164,90,0)',
+                '0 0 20px rgba(212,164,90,.35)',
+                '0 0 0px rgba(212,164,90,0)',
+              ],
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="block text-gold"
+          >
+            RISE.
+          </motion.span>
 
-<motion.span
-  className="block text-gold"
-  animate={{
-    textShadow: [
-      '0 0 0px rgba(212,164,90,0)',
-      '0 0 20px rgba(212,164,90,.35)',
-      '0 0 0px rgba(212,164,90,0)',
-    ],
-  }}
-  transition={{
-    duration: 4,
-    repeat: Infinity,
-    ease: 'easeInOut',
-  }}
->
-  IMPACT.
-</motion.span>
-</motion.h1>
-{/* <div
+          <motion.span
+            className="block text-charcoal"
+            animate={{
+
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            IMPACT.
+          </motion.span>
+        </motion.h1>
+        {/* <div
   style={{
     width: "340px",
     height: "2px",
@@ -197,112 +199,112 @@ console.log("length:", heroImages.length);
   }}
   className="md:w-[400px]! lg:w-[480px]!"
 /> */}
-     <div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "24px",
-    marginTop: "28px",
-    flexWrap: "wrap",
-    opacity: 0,
-    animation:
-      "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
-  }}
->
-  <Link
-    href="/about"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "10px",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "24px",
+            marginTop: "28px",
+            flexWrap: "wrap",
+            opacity: 0,
+            animation:
+              "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
+          }}
+        >
+          <Link
+            href="/about"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
 
-      padding: "14px 34px",
+              padding: "14px 34px",
 
-      border: "1px solid rgba(255,255,255,0.75)",
-      borderRadius: "999px",
+              border: "1px solid rgba(255,255,255,0.75)",
+              borderRadius: "999px",
 
-      color: "#ffffff",
-      textDecoration: "none",
+              color: "#ffffff",
+              textDecoration: "none",
 
-      fontFamily: "var(--font-body)",
-      fontSize: "15px",
-      fontWeight: 500,
+              fontFamily: "var(--font-body)",
+              fontSize: "15px",
+              fontWeight: 500,
 
-      backdropFilter: "blur(6px)",
+              backdropFilter: "blur(6px)",
 
-      transition: "all 0.4s ease",
-    }}
-    onMouseEnter={(e) => {
-      const target = e.currentTarget;
+              transition: "all 0.4s ease",
+            }}
+            onMouseEnter={(e) => {
+              const target = e.currentTarget;
 
-      target.style.background =
-        "rgba(255,255,255,0.12)";
-      target.style.transform =
-        "translateY(-2px)";
-    }}
-    onMouseLeave={(e) => {
-      const target = e.currentTarget;
+              target.style.background =
+                "rgba(255,255,255,0.12)";
+              target.style.transform =
+                "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              const target = e.currentTarget;
 
-      target.style.background =
-        "transparent";
-      target.style.transform =
-        "translateY(0px)";
-    }}
-  >
-    About us
-    <span> <ArrowRight />
-  </span>
-  </Link>
+              target.style.background =
+                "transparent";
+              target.style.transform =
+                "translateY(0px)";
+            }}
+          >
+            About us
+            <span> <ArrowRight />
+            </span>
+          </Link>
 
-  <a
-    href="#programs"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "10px",
+          <a
+            href="#programs"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
 
-      padding: "14px 34px",
+              padding: "14px 34px",
 
-      border: "1px solid rgba(255,255,255,0.75)",
-      borderRadius: "999px",
+              border: "1px solid rgba(255,255,255,0.75)",
+              borderRadius: "999px",
 
-      color: "#ffffff",
-      textDecoration: "none",
+              color: "#ffffff",
+              textDecoration: "none",
 
-      fontFamily: "var(--font-body)",
-      fontSize: "15px",
-      fontWeight: 500,
+              fontFamily: "var(--font-body)",
+              fontSize: "15px",
+              fontWeight: 500,
 
-      backdropFilter: "blur(6px)",
+              backdropFilter: "blur(6px)",
 
-      transition: "all 0.4s ease",
-    }}
-    onMouseEnter={(e) => {
-      const target = e.currentTarget;
+              transition: "all 0.4s ease",
+            }}
+            onMouseEnter={(e) => {
+              const target = e.currentTarget;
 
-      target.style.background =
-        "rgba(255,255,255,0.12)";
-      target.style.transform =
-        "translateY(-2px)";
-    }}
-    onMouseLeave={(e) => {
-      const target = e.currentTarget;
+              target.style.background =
+                "rgba(255,255,255,0.12)";
+              target.style.transform =
+                "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              const target = e.currentTarget;
 
-      target.style.background =
-        "transparent";
-      target.style.transform =
-        "translateY(0px)";
-    }}
-  >
-    Explore Programs
-    <span> <ArrowRight /></span>
-  </a>
-</div>
-</div>
+              target.style.background =
+                "transparent";
+              target.style.transform =
+                "translateY(0px)";
+            }}
+          >
+            Explore Programs
+            <span> <ArrowRight /></span>
+          </a>
+        </div>
+      </div>
 
       {/* Subtle gold thin line at the very bottom */}
-<div
-  className="
+      <div
+        className="
     absolute
     md:bottom-30
     bottom-12
@@ -315,47 +317,47 @@ console.log("length:", heroImages.length);
     items-end
     gap-4
   "
->
-  {/* Progress Segments */}
-  <div className="flex items-center gap-4">
-    {heroImages.map((_, index) => (
-      <div
-        key={index}
-        className="
+      >
+        {/* Progress Segments */}
+        <div className="flex items-center gap-4">
+          {heroImages.map((_, index) => (
+            <div
+              key={index}
+              className="
           relative
           h-[2px]
          w-16 md:w-24 lg:w-32
           overflow-hidden
           bg-white/30
         "
-      >
-       {index === currentImage && (
-  <div
-    key={currentImage}
-    className="absolute left-0 top-0 h-full bg-[#bb8b57]"
-    style={{
-      width: "100%",
-      animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
-    }}
-  />
-)}
+            >
+              {index === currentImage && (
+                <div
+                  key={currentImage}
+                  className="absolute left-0 top-0 h-full bg-[#bb8b57]"
+                  style={{
+                    width: "100%",
+                    animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
+                  }}
+                />
+              )}
 
-        {index < currentImage && (
-          <div className="absolute inset-0 bg-[#bb8b57]" />
-        )}
+              {index < currentImage && (
+                <div className="absolute inset-0 bg-[#bb8b57]" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Counter */}
+        <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
+          {String(currentImage + 1).padStart(2, "0")} /{" "}
+          {String(heroImages.length).padStart(2, "0")}
+          <div className="text-white">
+            {/* {Math.round(progress)}% */}
+          </div>
+        </div>
       </div>
-    ))}
-  </div>
-
-  {/* Counter */}
-  <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
-    {String(currentImage + 1).padStart(2, "0")} /{" "}
-    {String(heroImages.length).padStart(2, "0")}
-    <div className="text-white">
-  {/* {Math.round(progress)}% */}
-</div>
-  </div>
-</div>
 
     </section>
   );

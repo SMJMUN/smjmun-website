@@ -249,7 +249,7 @@ console.log("length:", heroImages.length);
         "translateY(0px)";
     }}
   >
-    about us
+    About us
     <span> <ArrowRight />
   </span>
   </Link>

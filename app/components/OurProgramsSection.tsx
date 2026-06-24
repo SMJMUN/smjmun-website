@@ -249,7 +249,23 @@ border-right: 1px solid rgba(255,255,255,0.8);
         className="relative w-full overflow-hidden "
         style={{ minHeight: '70vh', backgroundColor: '#0a1520' }}
       >
+        {/* Top Gradient */}
+        <div
+          className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
+          }}
+        />
 
+        {/* Bottom Gradient */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-10"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
+          }}
+        />
         {/* ── LAYER 1: Crossfading background images ──────────── */}
         {PROGRAMS.map((prog, i) => (
           <div
@@ -341,7 +357,7 @@ border-right: 1px solid rgba(255,255,255,0.8);
               className="hidden lg:flex"
               style={{
                 flex: '0 0 auto',
-                width: 'min(600px, 100%)',
+                width: 'min(900px, 100%)',
                 maxWidth: '100%',
                 padding: '48px 100px 64px',
                 flexDirection: 'column',
@@ -398,18 +414,19 @@ border-right: 1px solid rgba(255,255,255,0.8);
                 </h2>
 
                 {/* Body — Reliance uses ~15-16px, weight 400, NOT 300 */}
-                <div style={{ maxWidth: '420px' }}>
+                <div style={{ maxWidth: '460px' }}>
                   {active.body.map((para, idx) => (
                     <p
                       key={idx}
                       style={{
-                        fontFamily: 'inter ,system-ui, sans-serif',
-                        fontSize: 'clamp(14px, 1.15vw, 16px)',
+                        // fontFamily: 'inter ,system-ui, sans-serif',
+                        fontSize: 'clamp(14px, 1.15vw, 25px)',
                         lineHeight: 1.75,
                         color: 'rgba(255,255,255,0.88)',
                         fontWeight: 400,
                         margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
                       }}
+                      className='font-montserrat!'
                     >
                       {para}
                     </p>

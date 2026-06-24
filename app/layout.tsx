@@ -6,9 +6,11 @@ import ScrollToTop from "./components/ScrollToTop";
 import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
 import SmoothScroll from "./components/SmoothScroll";
+import { montserrat } from "./fonts";
 
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
     "international relations",
   ],
   openGraph: {
-    title: "SMJ MUN — India's Premier Platform for Diplomacy & Leadership",
+    title: "SMJMUN — India's Premier Platform for Diplomacy & Leadership",
     description:
       "Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
     type: "website",
@@ -51,18 +53,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-   
+
 
   return (
     <html
       lang="en"
-      className={cn(playfair.variable, inter.variable, "font-sans", geist.variable)}
+      className={cn(playfair.variable, inter.variable, "font-sans", geist.variable, montserrat.variable)}
     >
       <body className="antialiased min-h-screen flex flex-col">
-     
+
         <div className="flex-1">
           {/* {children} */}
-             <SmoothScroll />
+          <SmoothScroll />
           <ScrollToTop />
           <LayoutWrapper>{children}</LayoutWrapper>
         </div>

@@ -16,27 +16,27 @@ import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import MomentsCollage from "./components/MomentCollage";
 import AboutHero from "./components/AboutSection";
- 
+
 
 import { useEffect, useState } from 'react';
 import { IntroLogo } from "@/components/navigation/IntroLogo";
 export default function Home() {
- const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(false);
 
-useEffect(() => {
-  const introShown = sessionStorage.getItem('smjmun-intro');
+  useEffect(() => {
+    const introShown = sessionStorage.getItem('smjmun-intro');
 
-  if (!introShown) {
-    setShowIntro(true);
+    if (!introShown) {
+      setShowIntro(true);
 
-    const timer = setTimeout(() => {
-      setShowIntro(false);
-      sessionStorage.setItem('smjmun-intro', 'true');
-    }, 2000);
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        sessionStorage.setItem('smjmun-intro', 'true');
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  }
-}, []);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   return (
     <>
       <main className="bg-[#0A0A0A]">
@@ -46,9 +46,9 @@ useEffect(() => {
         <AboutWordmark />
         <TrustSection />
         <ImpactSection />
-        
+
         <OurProgramsSection />
-        <MomentsCollage/>
+        <MomentsCollage />
         <EditorialStatement />
         <GlobalMovementSection />
 

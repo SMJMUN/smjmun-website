@@ -76,10 +76,10 @@ export default function AboutHero() {
               text-white
               md:text-5xl
             "
-          > 
-           We are SMJMUN
-           
-          
+          >
+            We are SMJMUN
+
+
           </motion.h2>
 
           {/* Description */}
@@ -102,13 +102,13 @@ export default function AboutHero() {
                 text-white/80
               "
             >
-              Since 2014, SMJMUN has empowered
+              Since 2023, SMJMUN has empowered
               thousands of students through
               Model United Nations conferences,
               leadership programs and global
               engagement initiatives.
             </p>
-            
+
           </motion.div>
         </div>
       </div>

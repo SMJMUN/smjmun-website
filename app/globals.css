@@ -16,7 +16,7 @@
   --color-charcoal: #83090e;
   --color-charcoal: #83090e;
   --color-gold: #fdf2df;
-  --color-tan:#F7F1E9;
+  --color-tan: #F7F1E9;
   --color-ivory: #f8f8f8;
   --color-blue: #18171C;
   --color-white: #ffffff;
@@ -32,6 +32,11 @@
   /* Typography */
   --font-heading: var(--font-playfair);
   --font-body: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
+
+  body {
+    font-family: var(--font-montserrat);
+  }
 
   /* Spacing scale (generous, editorial) */
   --space-section-sm: 120px;
@@ -185,6 +190,7 @@
     line-height: 1.75;
     color: var(--color-navy);
   }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -201,6 +207,10 @@
     line-height: 0.95;
     letter-spacing: -0.03em;
     font-weight: 700;
+  }
+
+  .font-montserrat {
+    font-family: var(--font-montserrat);
   }
 
   .text-display {
@@ -902,4 +912,16 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+body {
+  font-family: var(--font-montserrat);
+}
+
+@theme {
+  --font-montserrat: var(--font-montserrat);
+}
+
+body {
+  font-family: var(--font-montserrat);
 }

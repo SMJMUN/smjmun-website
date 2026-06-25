@@ -130,11 +130,12 @@ export default function FounderSection() {
                 fontSize: 'clamp(18px, 2vw, 24px)',
                 lineHeight: 1.4,
                 fontStyle: 'italic',
-                color: '#AEADAC',
+                // color: '#9F774A',
                 fontWeight: 400,
               }}
+              className="text-gold"
             >
-              &ldquo; A journey of thousand miles &rdquo;
+              &ldquo;A Journey Of  Thousand Miles.&rdquo;
             </p>
           </div>
 

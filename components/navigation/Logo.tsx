@@ -36,7 +36,7 @@ export function Logo({ isScrolled }: LogoProps) {
           src="/images/smg-mun-logo.png"
           alt="SMG MUN Logo"
           fill
-          className="object-contain"
+          className="object-conta bg-white rounded-full "
           priority
         />
       </motion.div>

@@ -7,13 +7,6 @@ import ConnectionLines from './ConnectionLines';
 // ---------------------------------------------------------------------------
 // Normalized city dataset — single source of truth.
 // x and y are percentages (0–100) of the container dimensions.
-//
-// Derived from the original 600×450 pixel layout:
-//   x% = pixelX / 600 * 100
-//   y% = pixelY / 450 * 100
-//
-// To add a new city, simply provide x and y in 0-100 space:
-//   { name: "TOKYO", x: 85.0, y: 38.9 }
 // ---------------------------------------------------------------------------
 
 type City = {
@@ -26,42 +19,48 @@ type City = {
 };
 
 const cities: City[] = [
-  //                   px→%          px→%
-  { name: 'NEW YORK',   x: 30.0, y: 48.9 },  // 180/600, 220/450
-  { name: 'LONDON',     x: 70.0, y: 33.3 },  // 420/600, 150/450
-  { name: 'DUBAI',      x: 36.7, y: 71.1, labelPosition: 'left' },  // 220/600, 320/450
-  { name: 'NEW DELHI',  x: 60.0, y: 60.0 },  // 360/600, 270/450
-  { name: 'SINGAPORE',  x: 91.7, y: 67.8, labelPosition: 'left' },  // 550/600, 305/450
+  { name: 'NEW YORK',   x: 30.0, y: 48.9 },
+  { name: 'LONDON',     x: 70.0, y: 33.3 },
+  { name: 'DUBAI',      x: 36.7, y: 71.1, labelPosition: 'left' },
+  { name: 'NEW DELHI',  x: 60.0, y: 60.0 },
+  { name: 'SINGAPORE',  x: 91.7, y: 67.8, labelPosition: 'left' },
 ];
 
-export default function NetworkMap() {
+interface NetworkMapProps {
+  /** Pass true when rendering inside the compact mobile block */
+  mobile?: boolean;
+}
+
+export default function NetworkMap({ mobile = false }: NetworkMapProps) {
   const { scrollYProgress } = useScroll();
 
   const mapY  = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const glowY = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
-    <div className="relative w-full h-[380px] md:h-[420px] lg:h-[450px]">
+    <div className={mobile ? 'relative w-full h-full' : 'relative w-full h-[380px] md:h-[420px] lg:h-[450px]'}>
 
       {/* Massive background glow */}
       <motion.div
         style={{ y: glowY }}
-        className="
+        className={`
           absolute left-1/2 top-1/2
-          h-[600px] w-[600px] md:h-[900px] md:w-[900px]
           -translate-x-1/2 -translate-y-1/2
-          rounded-full bg-[#bb8b57]/10 blur-[180px]
-        "
+          rounded-full bg-[#bb8b57]/10
+          ${mobile
+            ? 'h-[300px] w-[300px] blur-[100px]'
+            : 'h-[600px] w-[600px] md:h-[900px] md:w-[900px] blur-[180px]'}
+        `}
       />
 
       {/* Secondary glow */}
       <motion.div
         style={{ y: glowY }}
-        className="
+        className={`
           absolute left-[55%] top-[45%]
-          h-[300px] w-[300px]
-          rounded-full bg-[#bb8b57]/8 blur-[80px]
-        "
+          rounded-full bg-[#bb8b57]/8
+          ${mobile ? 'h-[150px] w-[150px] blur-[50px]' : 'h-[300px] w-[300px] blur-[80px]'}
+        `}
       />
 
       {/* World map image layers */}
@@ -93,23 +92,24 @@ export default function NetworkMap() {
             x={city.x}
             y={city.y}
             labelPosition={city.labelPosition}
+            mobile={mobile}
           />
         ))}
       </div>
 
       {/* Floating gold particles */}
       <motion.div
-        className="absolute top-[40%] h-2 w-2 rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)]"
+        className={`absolute top-[40%] rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)] ${mobile ? 'h-1.5 w-1.5' : 'h-2 w-2'}`}
         animate={{ y: [0, -20, 0], opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 4, repeat: Infinity }}
       />
       <motion.div
-        className="absolute top-[30%] h-2 w-2 rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)]"
+        className={`absolute top-[30%] rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)] ${mobile ? 'h-1.5 w-1.5' : 'h-2 w-2'}`}
         animate={{ y: [0, -25, 0], opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 5, repeat: Infinity }}
       />
       <motion.div
-        className="absolute top-[55%] h-2 w-2 rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)]"
+        className={`absolute top-[55%] rounded-full bg-[#bb8b57] shadow-[0_0_25px_rgba(187,139,87,1)] ${mobile ? 'h-1.5 w-1.5' : 'h-2 w-2'}`}
         animate={{ y: [0, -30, 0], opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 6, repeat: Infinity }}
       />

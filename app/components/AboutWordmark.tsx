@@ -75,7 +75,7 @@ export default function AboutWordmark() {
   return (
     <section
       style={{ backgroundColor: '#0A0A0A' }}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-x-hidden"
     >
       {/* Top rule */}
       <div className="w-full h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
@@ -92,10 +92,11 @@ export default function AboutWordmark() {
           style={{
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: 900,
-            fontSize: 'clamp(40px, 13.5vw, 200px)',
+            fontSize: 'clamp(42px, 16.5vw, 200px)',
             lineHeight: 0.88,
             letterSpacing: '0.1em',
             userSelect: 'none',
+            paddingBottom: '0.18em',
           }}
         >
           {/* SMJ — animated people imagery */}

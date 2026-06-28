@@ -29,6 +29,7 @@ function SMJLetters({ activeIndex }: { activeIndex: number }) {
         lineHeight: 'inherit',
         color: 'transparent',
         WebkitTextFillColor: 'transparent',
+        overflow: 'visible',
       }}
       aria-label="SMJ"
     >
@@ -92,11 +93,10 @@ export default function AboutWordmark() {
           style={{
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontWeight: 900,
-            fontSize: 'clamp(42px, 16.5vw, 200px)',
-            lineHeight: 0.88,
+            fontSize: 'clamp(42px, 19.5vw, 200px)',
+            lineHeight: 1.35,
             letterSpacing: '0.1em',
             userSelect: 'none',
-            paddingBottom: '0.18em',
           }}
         >
           {/* SMJ — animated people imagery */}

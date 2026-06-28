@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
+import { Headphones } from 'lucide-react';
+import Link from 'next/link';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { MobileDrawer } from './mobile/MobileDrawer';
 import MenuTwoLineIcon from './constants/MenuIcon';
@@ -10,7 +12,16 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex md:hidden items-center z-100">
+    <div className="flex md:hidden items-center gap-1 z-100">
+      {/* Contact Us icon — mobile */}
+      <Link
+        href="/contact"
+        aria-label="Contact Us"
+        className="p-2 text-white/70 hover:text-white transition-colors duration-200"
+      >
+        <Headphones className="w-5 h-5" strokeWidth={1.5} />
+      </Link>
+
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger  >
           <button

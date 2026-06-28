@@ -7,6 +7,7 @@ import { Logo } from './Logo';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import Link from 'next/link';
+import { Headphones } from 'lucide-react';
 
 export function Header() {
   const isScrolled = useScrolledHeader(60);
@@ -33,7 +34,22 @@ export function Header() {
         </div>
 
         {/* Right: Actions / Mobile Toggle */}
-        <div className="flex-shrink-0 flex items-center justify-end min-w-[120px]">
+        <div className="flex-shrink-0 flex items-center gap-3 justify-end min-w-[120px]">
+          {/* Contact Us — desktop only */}
+          <Link
+            href="/contact"
+            aria-label="Contact Us"
+            className={cn(
+              "hidden md:inline-flex items-center gap-2 py-2 px-3 rounded-md font-body text-[13px] font-medium tracking-wider uppercase transition-all duration-300",
+              isScrolled
+                ? "text-white/70 hover:text-white"
+                : "text-white/80 hover:text-white"
+            )}
+          >
+            <Headphones className="w-4 h-4" strokeWidth={1.6} />
+            <span>Contact</span>
+          </Link>
+
           {/* CTA is hidden on mobile, available in drawer */}
           <Link
             href="/conferences"

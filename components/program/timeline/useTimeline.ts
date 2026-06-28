@@ -40,6 +40,6 @@ export function useTimeline({ totalSteps }: UseTimelineOptions): UseTimelineRetu
     );
     setActiveStep(index);
   });
-
+  // @ts-ignore
   return { containerRef, activeStep, progress };
 }

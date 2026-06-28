@@ -55,6 +55,7 @@ export function Reveal({
   margin = "-80px",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  // @ts-ignore
   const isInView = useInView(ref, { once, margin });
 
   return (

@@ -2,58 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-interface Stat {
-  value: number;
-  suffix: string;
-  label: string;
-  size: 'hero' | 'large' | 'medium';
-  align: 'left' | 'right';
-}
-
-const stats: Stat[] = [
-  {
-    value: 11000,
-    suffix: '+',
-    label: 'Delegates Trained',
-    size: 'hero',
-    align: 'left',
-  },
-  {
-    value: 70,
-    suffix: '+',
-    label: 'National Conferences',
-    size: 'large',
-    align: 'right',
-  },
-  {
-    value: 10,
-    suffix: '+',
-    label: 'International Conferences',
-    size: 'large',
-    align: 'left',
-  },
-  {
-    value: 55,
-    suffix: '+',
-    label: 'Best Delegate Awards',
-    size: 'medium',
-    align: 'right',
-  },
-  {
-    value: 50,
-    suffix: '+',
-    label: 'Committees Chaired',
-    size: 'medium',
-    align: 'left',
-  },
-  {
-    value: 100,
-    suffix: '+',
-    label: 'Institutional Collaborations',
-    size: 'medium',
-    align: 'left',
-  },
-];
 function AnimatedNumber({ target, suffix, triggered }: { target: number; suffix: string; triggered: boolean }) {
   const [count, setCount] = useState(0);
 
@@ -82,6 +30,15 @@ function AnimatedNumber({ target, suffix, triggered }: { target: number; suffix:
   return <>{displayValue}{suffix}</>;
 }
 
+const stats = [
+  { value: 11000, suffix: '+', label: 'Delegates Trained' },
+  { value: 70,    suffix: '+', label: 'National Conferences' },
+  { value: 10,    suffix: '+', label: 'International Conferences' },
+  { value: 55,    suffix: '+', label: 'Best Delegate Awards' },
+  { value: 50,    suffix: '+', label: 'Committees Chaired' },
+  { value: 100,   suffix: '+', label: 'Institutional Collaborations' },
+];
+
 export default function ImpactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [triggered, setTriggered] = useState(false);
@@ -108,159 +65,44 @@ export default function ImpactSection() {
     <section
       ref={sectionRef}
       id="impact"
-      className="relative overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 100%)',
-        padding: '80px 0',
-      }}
+      className="relative overflow-hidden bg-[#0A0A0A] py-24"
     >
-
-      {/* Subtle laurel watermark */}
+      {/* Subtle gold circle watermark */}
       <div
-        style={{
-          position: 'absolute',
-          right: '-120px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: '420px',
-          height: '420px',
-          opacity: 0.04,
-          pointerEvents: 'none',
-        }}
+        className="pointer-events-none absolute right-[-120px] top-1/2 -translate-y-1/2 w-[420px] h-[420px] opacity-[0.03]"
+        aria-hidden
       >
         <svg viewBox="0 0 400 400" fill="none">
-          <circle
-            cx="200"
-            cy="200"
-            r="150"
-            stroke="#bb8b57"
-            strokeWidth="8"
-          />
+          <circle cx="200" cy="200" r="150" stroke="#BB8B57" strokeWidth="8" />
         </svg>
       </div>
 
-      <div
-        style={{
-          maxWidth: '1440px',
-          margin: '0 auto',
-          padding: '0 48px',
-        }}
-      >
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Label */}
-        <div
-          className="reveal"
-          style={{
-            marginBottom: '36px',
-          }}
-        >
-          <span
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '20px',
-              fontWeight: 500,
-              letterSpacing: '0.25em',
-              textTransform: 'uppercase',
-              color: '#d8b17a',
-            }}
-          >
-            Our Impact
-          </span>
+        <div className="reveal mb-12 text-center">
+          <span className="section-label">Our Impact</span>
         </div>
 
-        {/* Stats Row */}
-        {/* Stats Row */}
-        {/* Top Gradient */}
-        <div
-          className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
-          }}
-        />
-
-        {/* Bottom Gradient */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-10"
-          style={{
-            background:
-              'linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
-          }}
-        />
-        <div
-          className="
-    reveal
-    grid
-    grid-cols-2
-    md:grid-cols-3
-    lg:grid-cols-6
-  "
-        >
-          {[
-            {
-              value: 11000,
-              suffix: '+',
-              label: 'Delegates Trained',
-            },
-            {
-              value: 70,
-              suffix: '+',
-              label: 'National Conferences',
-            },
-            {
-              value: 10,
-              suffix: '+',
-              label: 'International Conferences',
-            },
-            {
-              value: 55,
-              suffix: '+',
-              label: 'Best Delegate Awards',
-            },
-            {
-              value: 50,
-              suffix: '+',
-              label: 'Committees Chaired',
-            },
-            {
-              value: 100,
-              suffix: '+',
-              label: 'Institutional Collaborations',
-            },
-          ].map((stat, index) => (
+        {/* Stats grid */}
+        <div className="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          {stats.map((stat, index) => (
             <div
               key={stat.label}
               className={`
-        px-4 py-6 md:px-6 lg:px-7
-
-        border-[#d8b17a]/25
-
-        ${index % 2 === 0
-                  ? 'border-r lg:border-r'
-                  : ''
-                }
-
-        ${index < 4
-                  ? 'border-b md:border-b'
-                  : ''
-                }
-
-        lg:border-b-0
-
-        ${index === 5
-                  ? 'lg:border-r-0'
-                  : ''
-                }
-      `}
+                px-6 py-8
+                border-[rgba(255,255,255,0.08)]
+                ${index % 2 === 0 ? 'border-r' : ''}
+                ${index < 4 ? 'border-b md:border-b' : ''}
+                lg:border-b-0
+                ${index === 5 ? 'lg:border-r-0' : ''}
+              `}
             >
               <div
+                className="font-serif mb-3"
                 style={{
-                  fontFamily:
-                    'var(--font-heading), Georgia, serif',
                   fontSize: 'clamp(36px, 4vw, 54px)',
                   lineHeight: 1,
-                  color: '#d8b17a',
-                  marginBottom: '14px',
+                  color: '#BB8B57',
                 }}
               >
                 <AnimatedNumber
@@ -271,13 +113,10 @@ export default function ImpactSection() {
               </div>
 
               <div
+                className="text-sm leading-snug"
                 style={{
-                  fontFamily:
-                    'var(--font-body), system-ui, sans-serif',
-                  fontSize: 'clamp(14px, 1.2vw, 17px)',
-                  lineHeight: 1.5,
-                  color: '#f8f8f8',
-                  opacity: 0.92,
+                  fontFamily: 'var(--font-body), system-ui, sans-serif',
+                  color: '#B8B8B8',
                 }}
               >
                 {stat.label}

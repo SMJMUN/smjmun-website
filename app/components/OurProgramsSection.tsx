@@ -1,106 +1,116 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+
 const PROGRAMS = [
   {
     id: 'conferences',
     tab: 'Conferences',
     heading: 'Conferences',
     body: [
-      `SMJMUN Conferences represent the flagship experience of the organization, bringing together students from diverse schools, colleges, and regions to engage in meaningful dialogue on global challenges.  `,
+      `SMJMUN Conferences represent the flagship experience of the organization, bringing together students from diverse schools, colleges, and regions to engage in meaningful dialogue on global challenges.`,
       `Every conference is designed to simulate the workings of international institutions, allowing delegates to step into the roles of diplomats, policymakers, and world leaders. Through committee sessions, negotiations, moderated debates, and resolution drafting, participants gain firsthand exposure to the complexities of international decision-making.`,
-
     ],
     image: '/images/smj-hero-5.jpeg',
     href: '/conferences',
   },
-
   {
     id: 'school-mun',
     tab: 'School MUN',
     heading: 'School MUN',
     body: [
-      `The School MUN Program introduces students to the world of diplomacy, public speaking, and international affairs through a structured and age-appropriate learning environment. `,
-      ` Designed specifically for school students, the program focuses on building strong foundational skills while making Model United Nations accessible, engaging, and intellectually stimulating. Participants learn research techniques, speech delivery, committee procedures, and the art of persuasive communication.`,
-
+      `The School MUN Program introduces students to the world of diplomacy, public speaking, and international affairs through a structured and age-appropriate learning environment.`,
+      `Designed specifically for school students, the program focuses on building strong foundational skills while making Model United Nations accessible, engaging, and intellectually stimulating. Participants learn research techniques, speech delivery, committee procedures, and the art of persuasive communication.`,
     ],
     image: '/images/smj-hero-7.jpeg',
     href: '/School MUN',
   },
-
   {
     id: 'training',
     tab: 'Training Cell',
     heading: 'Training Cell',
     body: [
-      `The SMJMUN Training Cell serves as the academic and developmental backbone of the organization. It is responsible for designing comprehensive learning frameworks that prepare students for excellence inside and outside committee rooms.  `,
+      `The SMJMUN Training Cell serves as the academic and developmental backbone of the organization. It is responsible for designing comprehensive learning frameworks that prepare students for excellence inside and outside committee rooms.`,
       `Through carefully structured workshops, bootcamps, research modules, and skill-development sessions, the Training Cell ensures that every participant receives world-class mentorship and guidance.`,
-
     ],
     image: '/images/student-training-2.jpeg',
     href: '/programs',
   },
-
   {
-    id: 'collage-mun',
+    id: 'college-mun',
     tab: 'College MUN',
     heading: 'College MUN',
     body: [
-      `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience. `,
-      ` These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
-
+      `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience.`,
+      `These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
     ],
     image: '/images/moment-1.jpeg',
     href: '/programs',
   },
-
   {
     id: 'partnerships',
     tab: 'Partnerships',
     heading: 'Partnerships',
     body: [
-      `Partnerships are central to SMJMUN’s mission of expanding access to quality diplomacy and leadership education. We collaborate with schools, colleges, educational organizations, corporate partners, and public institutions to create  meaningful opportunities for students across India. `,
-      ` These partnerships allow us to extend our reach, enhance our programs, and bring innovative learning experiences to diverse communities.`,
-
+      `Partnerships are central to SMJMUN's mission of expanding access to quality diplomacy and leadership education. We collaborate with schools, colleges, educational organizations, corporate partners, and public institutions to create meaningful opportunities for students across India.`,
+      `These partnerships allow us to extend our reach, enhance our programs, and bring innovative learning experiences to diverse communities.`,
     ],
     image: '/images/smj-hero-4.jpeg',
     href: '/partnerships',
   },
-
   {
     id: 'community',
     tab: 'Community',
     heading: 'Community',
     body: [
       `The SMJMUN Community is a growing network of delegates, chairs, organizers, educators, and alumni united by a shared passion for diplomacy, leadership, and lifelong learning.`,
-      ` What begins as participation in a conference often evolves into lasting relationships, mentorship opportunities, and collaborative initiatives that continue well beyond the committee room. The community serves as a space where members support, inspire, and learn from one another.`
+      `What begins as participation in a conference often evolves into lasting relationships, mentorship opportunities, and collaborative initiatives that continue well beyond the committee room.`,
     ],
     image: '/images/community.jpeg',
     href: '/conferences',
   },
 ];
 
+/* Height of each tab row — must match the rendered row height */
+const TAB_HEIGHT = 56;
+
 export default function OurProgramsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pendingIdx = useRef<number>(0);
 
+  const sectionRef    = useRef<HTMLDivElement>(null);
+  const displayedIdx  = useRef(0);
+  const hoverTimer    = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  /* ── Switch immediately — no artificial delay ───────────────────── */
   const switchTo = useCallback((index: number) => {
-    pendingIdx.current = index;
-    if (activeIndex === index) return;
-    setAnimating(true);
-    if (animTimer.current) clearTimeout(animTimer.current);
-    animTimer.current = setTimeout(() => {
-      setActiveIndex(pendingIdx.current);
-      setAnimating(false);
-    }, 200);
-  }, [activeIndex]);
+    if (displayedIdx.current === index) return;
+    displayedIdx.current = index;
+    setActiveIndex(index);
+  }, []);
 
+  /* ── Primary driver: scroll position maps to activeIndex ──────────── */
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect     = sectionRef.current.getBoundingClientRect();
+      const scrolled = -rect.top;
+      const total    = sectionRef.current.offsetHeight - window.innerHeight;
+
+      if (scrolled <= 0)     { switchTo(0);                    return; }
+      if (scrolled >= total) { switchTo(PROGRAMS.length - 1); return; }
+
+      const progress = scrolled / total;
+      const next     = Math.min(Math.floor(progress * PROGRAMS.length), PROGRAMS.length - 1);
+      switchTo(next);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [switchTo]);
+
+  /* ── Secondary: tab hover still works as a fine-grained override ──── */
   const handleTabHover = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
     hoverTimer.current = setTimeout(() => switchTo(index), 80);
@@ -114,168 +124,43 @@ export default function OurProgramsSection() {
   const active = PROGRAMS[activeIndex];
 
   return (
-    <>
-      <style>{`
-        /* ─── Read-more pill ─────────────────────────────── */
-        .prog-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: 36px;
-          padding: 12px 26px;
-          border-radius: 50px;
-          border: 1.5px solid rgba(255,255,255,0.50);
-          color: #fff;
-          font-family: inter, inter ,system-ui, sans-serif;
-          font-size: 14px;
-          letter-spacing: 0.04em;
-          text-decoration: none;
-          background: transparent;
-          position: relative;
-          overflow: hidden;
-          cursor: pointer;
-          transition: border-color 300ms ease, color 300ms ease;
-        }
-        .prog-btn::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 50px;
-          background: #bb8b57;
-          transform: scaleX(0);
-          transform-origin: left center;
-          transition: transform 320ms cubic-bezier(0.22,1,0.36,1);
-          z-index: 0;
-        }
-        .prog-btn:hover::before  { transform: scaleX(1); }
-        .prog-btn:hover          { border-color: #bb8b57; }
-        .prog-btn span,
-        .prog-btn svg            { position: relative; z-index: 1; }
-
-        /* ─── Tab button base ────────────────────────────── */
-        .prog-tab {
-          display: flex;
-          align-items: center;
-           width: min(320px, 85vw);
-          min-width: 260px;
-          padding: 20px 24px;
-          text-align: left;
-          background: transparent;
-          border: none;
-          border-bottom: 1px solid rgba(255,255,255,0.14);
-          outline: none;
-          box-sizing: border-box;
-          cursor: pointer;
-          transition: background 200ms ease;
-        }
-        .prog-tab:last-child {
-          border-bottom: none;
-        }
-        .prog-tab:not(.active):hover {
-          background: rgba(255,255,255,0.05);
-        }
-
-        /* ─── Active tab: white rect box + gold bottom ───── */
-        .prog-tab.active {
-        border-top:   1px solid rgba(255,255,255,0.8);
-border-left:  1px solid rgba(255,255,255,0.8);
-border-right: 1px solid rgba(255,255,255,0.8);
-          border-bottom: 4px solid #bb8b57;
-          background:    rgba(255,255,255,0.05);
-          transform: scale(1.10);
-           transition: transform 300ms ease;
-        }
-        .prog-tab.active:last-child {
-          border-bottom: 3px solid #bb8b57;
-        }
-
-        /* ─── Tab label ──────────────────────────────────── */
-        .prog-tab-label {
-          font-family: inter, system-ui, sans-serif;
-          font-size: clamp(12px, 1.1vw, 30px);
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          white-space: nowrap;
-          transition: color 180ms ease;
-        }
-        
-  .prog-tab-label {
-  transition: transform 300ms ease;
-}
-
-.prog-tab:hover .prog-tab-label {
-   
-}
-@media (max-width: 1024px) {
-  .prog-tab {
-   width: 85vw;
-    max-width: 320px;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.18);
-  }
-
-  .prog-tab.active {
-    transform: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 3px solid #bb8b57;
-    background: transparent;
-  }
-
-  .prog-tab-label {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-  }
-}
-  .mobile-tab-arrow {
-  animation: arrowReveal 0.3s ease;
-}
-
-@keyframes arrowReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-      `}</style>
-
-      <section
-        id="programs"
-        className="relative w-full overflow-hidden "
-        style={{ minHeight: '70vh', backgroundColor: '#0a1520' }}
+    /*
+     * Outer div is PROGRAMS.length × 100vh tall.
+     * This creates the scroll real-estate that drives the section.
+     * The inner sticky container stays pinned while user scrolls through it.
+     */
+    <div
+      ref={sectionRef}
+      id="programs"
+      style={{ height: `${PROGRAMS.length * 100}vh` }}
+      className="relative"
+    >
+      {/* ── Sticky viewport — fixed in place while outer div scrolls ── */}
+      <div
+        className="sticky top-0 overflow-hidden"
+        style={{ height: '100vh', minHeight: '700px', backgroundColor: '#0A0A0A' }}
       >
-        {/* Top Gradient */}
+        {/* Top gradient fade */}
         <div
           className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
-          }}
+          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%)' }}
         />
-
-        {/* Bottom Gradient */}
+        {/* Bottom gradient fade */}
         <div
           className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-10"
-          style={{
-            background:
-              'linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
-          }}
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%)' }}
         />
-        {/* ── LAYER 1: Crossfading background images ──────────── */}
+
+        {/* ── Crossfading background images ─────────────────────────── */}
         {PROGRAMS.map((prog, i) => (
           <div
             key={prog.id}
             aria-hidden
             className="absolute inset-0"
             style={{
-              opacity: i === activeIndex ? 1 : 0,
-              transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
-              pointerEvents: 'none',
+              opacity:        i === activeIndex ? 1 : 0,
+              transition:     'opacity 800ms cubic-bezier(0.22,1,0.36,1)',
+              pointerEvents:  'none',
             }}
           >
             <img
@@ -284,158 +169,78 @@ border-right: 1px solid rgba(255,255,255,0.8);
               className="absolute inset-0 w-full h-full"
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
             />
-
-            {/* ── Overlay stack — matches Reliance exactly ── */}
-
-            {/* 1. Uniform dark teal base — tones the whole image into editorial slate */}
-            {/* Base Editorial Overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'rgba(5,14,24,0.58)',
-              }}
-            />
-
-            {/* Left Editorial Panel */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `
-      linear-gradient(
-        to right,
-        rgba(4,10,18,0.96) 0%,
-        rgba(4,10,18,0.88) 22%,
-        rgba(4,10,18,0.52) 42%,
-        transparent 72%
-      )
-    `,
-              }}
-            />
-
-            {/* Right Panel */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `
-      linear-gradient(
-        to left,
-        rgba(4,10,18,0.78) 0%,
-        rgba(4,10,18,0.38) 25%,
-        transparent 55%
-      )
-    `,
-              }}
-            />
-
-            {/* Bottom Vignette */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
-              }}
-            />
+            <div className="absolute inset-0" style={{ background: 'rgba(5,14,24,0.58)' }} />
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(to right, rgba(4,10,18,0.96) 0%, rgba(4,10,18,0.88) 22%, rgba(4,10,18,0.52) 42%, transparent 72%)',
+            }} />
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(to left, rgba(4,10,18,0.78) 0%, rgba(4,10,18,0.38) 25%, transparent 55%)',
+            }} />
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)',
+            }} />
           </div>
         ))}
 
-        {/* ── FOREGROUND ──────────────────────────────────────── */}
-        <div
-          className="relative z-10 flex flex-col"
-          style={{ minHeight: '100vh' }}
-        >
+        {/* ── Foreground ─────────────────────────────────────────────── */}
+        <div className="relative z-10 flex flex-col h-full" style={{ minHeight: '100vh' }}>
+          <div className="flex flex-col lg:flex-row flex-1 h-full">
 
-          {/* Overline — top-left, detached */}
-
-
-          {/* Main content row */}
-          <div
-            className="flex flex-col lg:flex-row flex-1 h-full"
-          >
-
-            {/* ── LEFT: heading + body + cta ─── */}
+            {/* ── LEFT: heading + body + CTA (desktop) ──────────────── */}
             <div
-              className="hidden lg:flex"
-              style={{
-                flex: '0 0 auto',
-                width: 'min(900px, 100%)',
-                maxWidth: '100%',
-                padding: '48px 100px 64px',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
+              className="hidden lg:flex flex-col justify-center"
+              style={{ flex: '0 0 auto', width: 'min(900px, 100%)', padding: '64px 100px' }}
             >
-              <div
-                style={{
-                  opacity: animating ? 0 : 1,
-                  transform: animating ? 'translateY(12px)' : 'translateY(0)',
-                  transition: 'opacity 200ms ease, transform 200ms ease',
-                }}
-              >
-                <div
-                  className="flex items-center gap-3"
-                  style={{ marginBottom: '26px' }}
-                >
+              <div>
+                {/* Section label */}
+                <div className="flex items-center gap-3 mb-8">
                   <img
-                    src={'/images/smg-mun-logo.png'}
+                    src="/images/smg-mun-logo.png"
                     alt=""
-                    style={{
-                      width: '50px', height: '50px',
-                      // background: '#bb8b57',
-                      // transform: 'rotate(45deg)',
-                      // flexShrink: 0, display: 'inline-block',
-                    }}
+                    style={{ width: '44px', height: '44px' }}
                   />
-                  <span
-                    style={{
-                      fontFamily: 'system-ui, sans-serif',
-                      fontSize: '20px',
-                      letterSpacing: '0.26em',
-                      textTransform: 'uppercase',
-                      color: '#bb8b57',
-                      fontWeight: 600,
-                    }}
-                  >
+                  <span className="section-label" style={{ fontSize: '13px', letterSpacing: '0.22em' }}>
                     Our Programs
                   </span>
                 </div>
-                {/* Heading — Reliance size: large serif, tight tracking */}
+
+                {/* Heading */}
                 <h2
+                  className="font-serif text-white"
                   style={{
-                    fontFamily: 'Georgia, "Times New Roman", serif',
-                    fontWeight: 400,
-                    fontSize: 'clamp(64px, 7.5vw, 11px)',
-                    lineHeight: 1.0,
+                    fontWeight:    400,
+                    fontSize:      'clamp(52px, 6.5vw, 96px)',
+                    lineHeight:    1.0,
                     letterSpacing: '-0.02em',
-                    color: '#ffffff',
-                    margin: '0 0 28px 0',
+                    marginBottom:  '28px',
                   }}
                 >
                   {active.heading}
                 </h2>
 
-                {/* Body — Reliance uses ~15-16px, weight 400, NOT 300 */}
+                {/* Body */}
                 <div style={{ maxWidth: '460px' }}>
                   {active.body.map((para, idx) => (
                     <p
                       key={idx}
+                      className="text-[#B8B8B8]"
                       style={{
-                        // fontFamily: 'inter ,system-ui, sans-serif',
-                        fontSize: 'clamp(14px, 1.15vw, 25px)',
+                        fontFamily: 'var(--font-body), system-ui, sans-serif',
+                        fontSize:   'clamp(14px, 1.1vw, 17px)',
                         lineHeight: 1.75,
-                        color: 'rgba(255,255,255,0.88)',
                         fontWeight: 400,
-                        margin: idx < active.body.length - 1 ? '0 0 16px' : '0',
+                        margin:     idx < active.body.length - 1 ? '0 0 16px' : '0',
                       }}
-                      className='font-montserrat!'
                     >
                       {para}
                     </p>
                   ))}
                 </div>
 
-                <Link href={active.href} className="prog-btn">
-                  <span>read more</span>
-                  <ArrowRight size={14} />
+                {/* CTA */}
+                <Link href={active.href} className="btn-ds-secondary mt-10">
+                  <span>Read More</span>
+                  <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -443,67 +248,55 @@ border-right: 1px solid rgba(255,255,255,0.8);
             {/* Spacer */}
             <div className="hidden md:block flex-1" />
 
+            {/* ── RIGHT: tab list with sliding gold indicator ────────── */}
+            <div className="flex flex-col justify-start pt-20 lg:justify-center lg:pt-0 w-full h-screen lg:h-auto lg:w-[30vw] px-6 lg:px-0">
 
+              {/* Mobile label */}
+              <div className="flex items-center gap-3 mb-2 lg:hidden">
+                <img src="/images/smg-mun-logo.png" alt="" style={{ width: '36px', height: '36px' }} />
+                <span className="section-label" style={{ fontSize: '11px' }}>Our Programs</span>
+              </div>
 
-            {/* ── RIGHT: tab list ─────────────── */}
-            <div
-              className="
-    flex
-    flex-col
-    justify-center
-    w-full
-    h-screen
-    lg:h-auto
-    lg:w-[30vw]
-    px-4
-    lg:px-0
-  "
-              style={{
-                // background: 'rgba(4,10,18,0.65)',
-                // backdropFilter: 'blur(4px)',
-              }}
-            >
-              <div
-                className="flex items-center gap-3 md:hidden lg:hidden"
-                style={{ marginBottom: '26px' }}
-              >
-                <img
-                  src={'/images/smg-mun-logo.png'}
-                  alt=""
+              {/* Tab rows + sliding indicator */}
+              <div className="relative">
+
+                {/* ── Sliding gold indicator bar ── */}
+                <div
+                  className="absolute left-0 right-0 h-[2px] bg-[#BB8B57] pointer-events-none"
                   style={{
-                    width: '50px', height: '50px',
-                    // background: '#bb8b57',
-                    // transform: 'rotate(45deg)',
-                    // flexShrink: 0, display: 'inline-block',
+                    top:        `${(activeIndex + 1) * TAB_HEIGHT - 2}px`,
+                    transition: 'top 480ms cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
                 />
-                <span
-                  style={{
-                    fontFamily: 'system-ui, sans-serif',
-                    fontSize: '20px',
-                    letterSpacing: '0.26em',
-                    textTransform: 'uppercase',
-                    color: '#bb8b57',
-                    fontWeight: 600,
-                  }}
-                >
-                  Our Programs
-                </span>
-              </div>
-              {PROGRAMS.map((prog, i) => {
-                const isActive = i === activeIndex;
-                return (
-                  <button
-                    key={prog.id}
-                    onMouseEnter={() => handleTabHover(i)}
-                    onClick={() => handleTabClick(i)}
-                    className={`prog-tab${isActive ? ' active' : ''}`}
-                  >
-                    <div className="flex w-full items-center justify-between">
+
+                {PROGRAMS.map((prog, i) => {
+                  const isActive = i === activeIndex;
+                  return (
+                    <button
+                      key={prog.id}
+                      onMouseEnter={() => handleTabHover(i)}
+                      onClick={() => handleTabClick(i)}
+                      className="group flex items-center justify-between w-full text-left px-6"
+                      style={{
+                        height:     `${TAB_HEIGHT}px`,
+                        background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
+                        borderTop:  isActive ? '1px solid rgba(255,255,255,0.12)' : 'none',
+                        borderBottom: '1px solid rgba(255,255,255,0.10)',
+                        cursor:     'pointer',
+                        transition: 'background 200ms ease',
+                      }}
+                    >
                       <span
-                        className="prog-tab-label font-inter!"
+                        className="font-sans"
                         style={{
-                          color: '#ffffff',
+                          fontFamily:    'var(--font-body), system-ui, sans-serif',
+                          fontSize:      'clamp(12px, 1.1vw, 14px)',
+                          letterSpacing: '0.14em',
+                          textTransform: 'uppercase',
+                          color:         isActive ? '#ffffff' : '#7A7A7A',
+                          fontWeight:    isActive ? 500 : 400,
+                          transition:    'color 180ms ease',
+                          whiteSpace:    'nowrap',
                         }}
                       >
                         {prog.tab}
@@ -513,33 +306,55 @@ border-right: 1px solid rgba(255,255,255,0.8);
                         <Link
                           href={prog.href}
                           className="
-          lg:hidden
-          flex
-          items-center
-          justify-center
-          h-9
-          w-9
-          rounded-full
-          border
-          border-[#bb8b57]
-          text-[#bb8b57]
-          transition-all
-          duration-300
-        "
+                            lg:hidden flex items-center justify-center
+                            h-8 w-8 rounded-full
+                            border border-[#BB8B57] text-[#BB8B57]
+                            transition-all duration-300 hover:bg-[rgba(187,139,87,0.12)]
+                          "
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <ArrowUpRight size={18} />
+                          <ArrowUpRight size={16} />
                         </Link>
                       )}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Mobile content block — active program summary */}
+              <div className="lg:hidden mt-6 pb-8">
+                <h3
+                  className="font-serif text-white mb-3"
+                  style={{
+                    fontSize: 'clamp(22px, 6vw, 30px)',
+                    fontWeight: 400,
+                    lineHeight: 1.15,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  {active.heading}
+                </h3>
+                <p
+                  className="text-[#B8B8B8] mb-5"
+                  style={{
+                    fontFamily: 'var(--font-body), system-ui, sans-serif',
+                    fontSize: '13px',
+                    lineHeight: 1.75,
+                  }}
+                >
+                  {active.body[0]}
+                </p>
+                <Link href={active.href} className="btn-ds-secondary inline-flex" style={{ fontSize: '12px', padding: '10px 20px' }}>
+                  Read More
+                  <ArrowRight size={13} />
+                </Link>
+              </div>
+
+            </div>{/* end right panel */}
 
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

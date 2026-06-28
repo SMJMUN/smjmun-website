@@ -42,13 +42,13 @@ export default function Home() {
       <main className="bg-[#0A0A0A]">
         <IntroLogo show={showIntro} />
         <HeroSection />
-        <AboutHero />
         <AboutWordmark />
+        <AboutHero />
         <TrustSection />
         <ImpactSection />
 
         <OurProgramsSection />
-        <MomentsCollage />
+        {/* <MomentsCollage /> */}
         <EditorialStatement />
         <GlobalMovementSection />
 

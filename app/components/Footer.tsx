@@ -6,78 +6,58 @@ import {
   FaFacebookF,
 } from "react-icons/fa";
 import Link from "next/link";
+
 const conferenceLinks = [
   { label: "Committees", href: "/conferences" },
-  { label: "Agenda", href: "/conferences" },
-  { label: "Secretariat", href: "/conferences" },
-  { label: "Schedule", href: "/conferences" },
-  { label: "Venue", href: "/conferences" },
+  { label: "Agenda",     href: "/conferences" },
+  { label: "Secretariat",href: "/conferences" },
+  { label: "Schedule",   href: "/conferences" },
+  { label: "Venue",      href: "/conferences" },
 ];
 
 const delegateLinks = [
-  { label: "Registration", href: "/conferences" },
-  { label: "Delegate Guide", href: "/resources" },
-  { label: "Code of Conduct", href: "/resources" },
-  { label: "Resources", href: "/resources" },
+  { label: "Registration",   href: "/conferences" },
+  { label: "Delegate Guide", href: "/resources"   },
+  { label: "Code of Conduct",href: "/resources"   },
+  { label: "Resources",      href: "/resources"   },
 ];
 
 const organizationLinks = [
-  { label: "About SMJ MUN", href: "/about" },
-  { label: "Partners", href: "/partnerships" },
-  { label: "Sponsors", href: "/partnerships" },
-  { label: "Contact", href: "/contact" },
+  { label: "About SMJ MUN", href: "/about"        },
+  { label: "Partners",      href: "/partnerships" },
+  { label: "Sponsors",      href: "/partnerships" },
+  { label: "Contact",       href: "/contact"      },
 ];
 
 const socialLinks = [
-  {
-    icon: FaFacebookF,
-    href: "https://facebook.com",
-  },
-  {
-    icon: FaLinkedinIn,
-    href: "https://linkedin.com",
-  },
-  {
-    icon: FaInstagram,
-    href: "https://instagram.com",
-  },
-  {
-    icon: FaYoutube,
-    href: "https://youtube.com",
-  },
+  { icon: FaFacebookF,  href: "https://facebook.com"  },
+  { icon: FaLinkedinIn, href: "https://linkedin.com"  },
+  { icon: FaInstagram,  href: "https://instagram.com" },
+  { icon: FaYoutube,    href: "https://youtube.com"   },
 ];
 
 export default function Footer() {
-  const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Institutions', href: '#institutions' },
-    { label: 'Programs', href: '#leadership' },
-    { label: 'Conferences', href: '#conferences' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <footer className="bg-[#0A0A0A]  ! text-white overflow-hidden">
-      {/* Top Border */}
+    <footer className="bg-[#0A0A0A] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20">
 
         {/* MOBILE */}
         <div className="lg:hidden">
-
           <div className="grid grid-cols-2 gap-10">
-
-            {/* Conference */}
             <div>
-              <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-5">
+              <h4
+                className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-5"
+                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+              >
                 Conference
               </h4>
-
               <ul className="space-y-3">
                 {conferenceLinks.map((item) => (
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300"
+                      className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                      style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                     >
                       {item.label}
                     </Link>
@@ -86,18 +66,20 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Delegates */}
             <div>
-              <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-5">
+              <h4
+                className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-5"
+                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+              >
                 Delegates
               </h4>
-
               <ul className="space-y-3">
                 {delegateLinks.map((item) => (
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300"
+                      className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                      style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                     >
                       {item.label}
                     </Link>
@@ -107,18 +89,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Organization */}
           <div className="mt-12">
-            <h4 className="text-sm uppercase tracking-[0.18em] text-[var(--color-gold)] mb-5">
+            <h4
+              className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-5"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Organization
             </h4>
-
             <ul className="grid grid-cols-2 gap-y-3">
               {organizationLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300"
+                    className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                   >
                     {item.label}
                   </Link>
@@ -128,17 +112,16 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div className="flex justify-center gap-6 text-lg mt-12">
+          <div className="flex justify-center gap-6 text-base mt-12">
             {socialLinks.map((item, index) => {
               const Icon = item.icon;
-
               return (
                 <a
                   key={index}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
+                  className="text-[#7A7A7A] hover:text-[#BB8B57] hover:-translate-y-1 transition-all duration-300"
                 >
                   <Icon />
                 </a>
@@ -148,27 +131,27 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="mt-12">
-            <p className="text-center text-xs uppercase tracking-[0.25em] text-[var(--color-gold)] mb-4">
+            <p
+              className="text-center text-[10px] uppercase tracking-[0.28em] text-[#BB8B57] mb-4"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Stay Updated
             </p>
-
-            <div className="flex w-full border border-white/15">
+            <div className="flex w-full border border-[rgba(255,255,255,0.08)] rounded-[16px] overflow-hidden">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="
-            flex-1
-            min-w-0
-            bg-transparent
-            px-4
-            py-3
-            outline-none
-            text-sm
-            placeholder:text-white/40
-          "
+                  flex-1 min-w-0
+                  bg-transparent
+                  px-4 py-3
+                  outline-none
+                  text-sm text-white
+                  placeholder:text-[#7A7A7A]
+                "
+                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
               />
-
-              <button className="px-5 border-l border-white/15 hover:bg-white hover:text-black transition-all duration-300">
+              <button className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300">
                 →
               </button>
             </div>
@@ -176,29 +159,26 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="flex justify-center mt-10">
-            <img
-              src="/images/smg-mun-logo.png"
-              alt="SMJMUN"
-              className="w-20 opacity-80"
-            />
+            <img src="/images/smg-mun-logo.png" alt="SMJMUN" className="w-20 opacity-60" />
           </div>
         </div>
 
         {/* DESKTOP */}
         <div className="hidden lg:grid lg:grid-cols-[1.3fr_1fr_1fr_1.2fr] gap-12">
-
-          {/* Conference */}
           <div>
-            <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
+            <h4
+              className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-6"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Conference
             </h4>
-
             <ul className="space-y-4">
               {conferenceLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300"
+                    className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                   >
                     {item.label}
                   </Link>
@@ -207,18 +187,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Delegates */}
           <div>
-            <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
+            <h4
+              className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-6"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Delegates
             </h4>
-
             <ul className="space-y-4">
               {delegateLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300"
+                    className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                   >
                     {item.label}
                   </Link>
@@ -227,18 +209,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Organization */}
           <div>
-            <h4 className="text-sm uppercase tracking-[0.18em] text-gold mb-6">
+            <h4
+              className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-6"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Organization
             </h4>
-
             <ul className="space-y-4">
               {organizationLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300"
+                    className="text-[#B8B8B8] hover:text-[#BB8B57] transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                   >
                     {item.label}
                   </Link>
@@ -248,19 +232,17 @@ export default function Footer() {
           </div>
 
           {/* Right Side */}
-          <div className="border-l border-white/10 pl-12">
-
-            <div className="flex gap-5 text-xl mb-8">
+          <div className="border-l border-[rgba(255,255,255,0.08)] pl-12">
+            <div className="flex gap-5 text-lg mb-8">
               {socialLinks.map((item, index) => {
                 const Icon = item.icon;
-
                 return (
                   <a
                     key={index}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white hover:-translate-y-1 transition-all duration-300"
+                    className="text-[#7A7A7A] hover:text-[#BB8B57] hover:-translate-y-1 transition-all duration-300"
                   >
                     <Icon />
                   </a>
@@ -268,33 +250,44 @@ export default function Footer() {
               })}
             </div>
 
-            <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-gold)] mb-4">
+            <p
+              className="text-[10px] uppercase tracking-[0.28em] text-[#BB8B57] mb-4"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
               Stay Updated
             </p>
 
-            <div className="flex border border-white/15">
+            <div className="flex border border-[rgba(255,255,255,0.08)] rounded-[16px] overflow-hidden">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 min-w-0 bg-transparent px-4 py-3 outline-none placeholder:text-white/40"
+                className="
+                  flex-1 min-w-0
+                  bg-transparent px-4 py-3
+                  outline-none text-sm text-white
+                  placeholder:text-[#7A7A7A]
+                "
+                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
               />
-
-              <button className="px-5 border-l border-white/15 hover:bg-white hover:text-black transition-all duration-300">
-                <ArrowRight />
+              <button className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300">
+                <ArrowRight size={16} />
               </button>
             </div>
 
             <img
               src="/images/smg-mun-logo.png"
               alt="SMJMUN"
-              className="w-24 mt-12 opacity-80"
+              className="w-24 mt-12 opacity-60"
             />
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <p className="text-center text-sm text-white/50">
+        <div className="mt-16 pt-8 border-t border-[rgba(255,255,255,0.08)]">
+          <p
+            className="text-center text-sm text-[#7A7A7A]"
+            style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+          >
             © 2026 SMJMUN. All Rights Reserved.
           </p>
         </div>
@@ -302,13 +295,13 @@ export default function Footer() {
         {/* Watermark */}
         <div className="relative h-20 sm:h-24 md:h-32 lg:h-40 overflow-hidden">
           <h2
-            className="absolute left-1/2 -translate-x-1/2 top-0 text-[5rem] sm:text-[7rem] md:text-[9rem] lg:text-[12rem] xl:text-[15rem] font-display font-bold tracking-tighter leading-[0.85] select-none whitespace-nowrap"
+            className="absolute left-1/2 -translate-x-1/2 top-0 font-serif font-bold tracking-tighter leading-[0.85] select-none whitespace-nowrap"
             style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.015) 70%, transparent 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              fontSize: 'clamp(5rem, 14vw, 15rem)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 40%, rgba(255,255,255,0.01) 70%, transparent 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
             }}
           >
             SMJMUN
@@ -316,5 +309,6 @@ export default function Footer() {
         </div>
 
       </div>
-    </footer>);
+    </footer>
+  );
 }

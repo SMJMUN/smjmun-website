@@ -13,14 +13,30 @@
 :root {
   --color-navy: #18171C;
   --color-charcoal: #83090e;
-  --color-charcoal: #83090e;
-  --color-charcoal: #83090e;
-  --color-gold: #fdf2df;
+  --color-gold: #BB8B57;
   --color-tan: #F7F1E9;
   --color-ivory: #f8f8f8;
   --color-blue: #18171C;
   --color-white: #ffffff;
   --color-black: #0a0a0a;
+
+  /* ── Design System Tokens ─────────────────────────────── */
+  /* Single source of truth — use these in all components  */
+  --ds-bg-primary:     #0A0A0A;
+  --ds-bg-secondary:   #111111;
+  --ds-surface:        #171717;
+  --ds-text-primary:   #FFFFFF;
+  --ds-text-secondary: #B8B8B8;
+  --ds-text-muted:     #7A7A7A;
+  --ds-gold:           #BB8B57;
+  --ds-crimson:        #83090E;
+  --ds-border:         rgba(255,255,255,0.08);
+  --ds-border-hover:   #BB8B57;
+  --ds-radius-sm:      16px;
+  --ds-radius-md:      20px;
+  --ds-radius-lg:      24px;
+  --ds-ease:           cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* ──────────────────────────────────────────────────────── */
 
   /* Functional aliases */
   --color-primary: var(--color-navy);
@@ -94,7 +110,7 @@
 @theme inline {
   --color-navy: #042147;
   --color-charcoal: #83090e;
-  --color-gold: #bb8b57;
+  --color-gold: #BB8B57;
   --color-ivory: #f8f8f8;
   --color-blue: #397fb7;
   --font-sans: var(--font-sans);
@@ -389,6 +405,7 @@
      Button Styles
      ============================================ */
 
+  /* ── Legacy button classes (kept for compatibility) ─────── */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -406,10 +423,7 @@
     cursor: pointer;
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
-
-  .btn-primary:hover {
-    opacity: 0.85;
-  }
+  .btn-primary:hover { opacity: 0.85; }
 
   .btn-outline {
     display: inline-flex;
@@ -428,58 +442,11 @@
     cursor: pointer;
     transition: all var(--duration-smooth) var(--ease-editorial);
   }
-
   .btn-outline:hover {
     border-color: var(--color-white);
     background-color: rgba(255, 255, 255, 0.05);
   }
 
-  .btn-outline-dark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 40px;
-    background-color: transparent;
-    color: var(--color-navy);
-    font-family: var(--font-body), system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid rgba(4, 33, 71, 0.3);
-    cursor: pointer;
-    transition: all var(--duration-smooth) var(--ease-editorial);
-  }
-
-  .btn-outline-dark:hover {
-    border-color: var(--color-navy);
-    background-color: rgba(4, 33, 71, 0.03);
-  }
-
-  .btn-white {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 40px;
-    background-color: var(--color-white);
-    color: var(--color-charcoal);
-    font-family: var(--font-body), system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity var(--duration-smooth) var(--ease-editorial);
-  }
-
-  .btn-white:hover {
-    opacity: 0.9;
-  }
-
-  /* Text link style */
   .text-link {
     font-family: var(--font-body), system-ui, sans-serif;
     font-size: 14px;
@@ -489,10 +456,7 @@
     color: var(--color-charcoal);
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
-
-  .text-link:hover {
-    opacity: 0.7;
-  }
+  .text-link:hover { opacity: 0.7; }
 
   .text-link-white {
     font-family: var(--font-body), system-ui, sans-serif;
@@ -503,10 +467,116 @@
     color: var(--color-white);
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
+  .text-link-white:hover { opacity: 0.7; }
 
-  .text-link-white:hover {
-    opacity: 0.7;
+  /* ── Design System Buttons (canonical — use these everywhere) */
+
+  /* Primary: crimson red fill */
+  .btn-ds-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background-color: var(--ds-crimson);
+    color: #ffffff;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--ds-radius-md);
+    cursor: pointer;
+    transition: opacity 350ms var(--ds-ease), transform 350ms var(--ds-ease);
   }
+  .btn-ds-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+  }
+
+  /* Secondary: transparent + gold border */
+  .btn-ds-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 28px;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid var(--ds-gold);
+    border-radius: var(--ds-radius-md);
+    cursor: pointer;
+    transition: background-color 300ms var(--ds-ease), transform 300ms var(--ds-ease), box-shadow 300ms var(--ds-ease);
+  }
+  .btn-ds-secondary:hover {
+    background-color: rgba(187, 139, 87, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(187, 139, 87, 0.15);
+  }
+
+  /* Text link: white + arrow animation */
+  .btn-ds-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #ffffff;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 250ms var(--ds-ease);
+  }
+  .btn-ds-text:hover { color: var(--ds-gold); }
+  .btn-ds-text .btn-ds-arrow {
+    transition: transform 250ms var(--ds-ease);
+    display: inline-block;
+  }
+  .btn-ds-text:hover .btn-ds-arrow { transform: translateX(5px); }
+
+  /* ── Design System Card ────────────────────────────────── */
+  .card-ds {
+    background-color: var(--ds-surface);
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    transition: border-color 300ms var(--ds-ease), transform 350ms var(--ds-ease);
+  }
+  .card-ds:hover {
+    border-color: var(--ds-gold);
+    transform: translateY(-4px);
+  }
+
+  /* ── Section Label ─────────────────────────────────────── */
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ds-gold);
+  }
+
+  /* ── Image hover zoom ──────────────────────────────────── */
+  .img-zoom {
+    transition: transform 600ms var(--ds-ease);
+    display: block;
+  }
+  .img-zoom-wrap {
+    overflow: hidden;
+    border-radius: var(--ds-radius-md);
+  }
+  .img-zoom-wrap:hover .img-zoom { transform: scale(1.04); }
 
   /* ============================================
      Scroll-Triggered Animation

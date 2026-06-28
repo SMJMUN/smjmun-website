@@ -10,7 +10,6 @@ const heroImages = ['/images/smj-hero-6.jpeg', '/images/smj-hero-4.jpeg', '/imag
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
 
-
   const SLIDE_DURATION = 4000;
   useEffect(() => {
     const timer = setInterval(() => {
@@ -20,11 +19,8 @@ export default function HeroSection() {
     }, SLIDE_DURATION);
 
     return () => clearInterval(timer);
-
-
   }, []);
-  console.log("currentImage:", currentImage);
-  console.log("length:", heroImages.length);
+
   return (
     <section
       id="hero"
@@ -34,7 +30,7 @@ export default function HeroSection() {
         height: '100vh',
         minHeight: '700px',
         overflow: 'hidden',
-        backgroundColor: '#042147',
+        backgroundColor: '#0A0A0A',
       }}
     >
       {/* Background Images with Crossfade */}
@@ -46,15 +42,13 @@ export default function HeroSection() {
             inset: 0,
             backgroundImage: `url(${src})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center;',
+            backgroundPosition: 'center',
             opacity: index === currentImage ? 1 : 0,
             transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
             transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
           }}
-          className=" bg-cover  bg-center  "
         />
       ))}
-
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
       <div
@@ -68,7 +62,7 @@ export default function HeroSection() {
         className="absolute inset-0 z-[3]"
         style={{
           background:
-            'radial-gradient(circle at 80% 40%, rgba(184,134,11,.18), transparent 35%)',
+            'radial-gradient(circle at 80% 40%, rgba(187,139,87,.18), transparent 35%)',
         }}
       />
 
@@ -80,7 +74,7 @@ export default function HeroSection() {
           left: 0,
           right: 0,
           height: '200px',
-          background: 'linear-gradient(to top, rgba(4, 33, 71, 0.6), transparent)',
+          background: 'linear-gradient(to top, rgba(10,10,10,0.9), transparent)',
           zIndex: 2,
         }}
       />
@@ -99,51 +93,17 @@ export default function HeroSection() {
           maxWidth: '900px',
         }}
       >
-        {/* Label */}
-        {/* <div
-          style={{
-            fontFamily: 'var(--font-body), system-ui, sans-serif',
-            fontSize: '12px',
-            fontWeight: 500,
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase' as const,
-            color: '#bb8b57',
-            marginBottom: '24px',
-            opacity: 0,
-            animation: 'fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards',
-          }}
-        >
-          TAS Presents
-        </div> */}
-
         {/* Main Heading */}
-        {/* <h1
-          style={{
-            fontFamily: 'var(--font-heading), Georgia, serif',
-            fontSize: 'clamp(56px, 9vw, 120px)',
-            fontWeight: 700,
-            lineHeight: 0.92,
-            letterSpacing: '-0.03em',
-            color: '#ffffff',
-            marginBottom: '32px',
-            opacity: 0,
-            animation: 'fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards',
-          }}
-        >
-          SMJMUN
-        </h1> */}
-
-        {/* Tagline */}
         <motion.h1
           className="
-    text-5xl
-    md:text-6xl
-    lg:text-7xl
-    font-bold
-    leading-[0.85]
-    tracking-[-0.05em]
-    max-w-3xl
-  "
+            text-5xl
+            md:text-6xl
+            lg:text-7xl
+            font-bold
+            leading-[0.85]
+            tracking-[-0.05em]
+            max-w-3xl
+          "
         >
           <motion.span
             initial={{ opacity: 0, x: -80 }}
@@ -152,7 +112,7 @@ export default function HeroSection() {
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="block text-[#0603A5]"
+            className="block text-white"
           >
             DARE.
           </motion.span>
@@ -161,9 +121,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -80 }}
             animate={{
               opacity: 1, x: 0, textShadow: [
-                '0 0 0px rgba(212,164,90,0)',
-                '0 0 20px rgba(212,164,90,.35)',
-                '0 0 0px rgba(212,164,90,0)',
+                '0 0 0px rgba(187,139,87,0)',
+                '0 0 20px rgba(187,139,87,.35)',
+                '0 0 0px rgba(187,139,87,0)',
               ],
             }}
             transition={{
@@ -171,152 +131,65 @@ export default function HeroSection() {
               delay: 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="block text-gold"
+            className="block text-[#BB8B57]"
           >
             RISE.
           </motion.span>
 
           <motion.span
-            className="block text-charcoal"
-            animate={{
-
-            }}
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
+              duration: 0.8,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1],
             }}
+            className="block text-white"
           >
             IMPACT.
           </motion.span>
         </motion.h1>
-        {/* <div
-  style={{
-    width: "340px",
-    height: "2px",
-    background: "#bb8b57",
-    marginBottom: "28px",
-  }}
-  className="md:w-[400px]! lg:w-[480px]!"
-/> */}
+
+        {/* CTA Buttons */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "24px",
-            marginTop: "28px",
+            gap: "16px",
+            marginTop: "40px",
             flexWrap: "wrap",
             opacity: 0,
             animation:
               "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
           }}
         >
-          <Link
-            href="/about"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-
-              padding: "14px 34px",
-
-              border: "1px solid rgba(255,255,255,0.75)",
-              borderRadius: "999px",
-
-              color: "#ffffff",
-              textDecoration: "none",
-
-              fontFamily: "var(--font-body)",
-              fontSize: "15px",
-              fontWeight: 500,
-
-              backdropFilter: "blur(6px)",
-
-              transition: "all 0.4s ease",
-            }}
-            onMouseEnter={(e) => {
-              const target = e.currentTarget;
-
-              target.style.background =
-                "rgba(255,255,255,0.12)";
-              target.style.transform =
-                "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              const target = e.currentTarget;
-
-              target.style.background =
-                "transparent";
-              target.style.transform =
-                "translateY(0px)";
-            }}
-          >
-            About us
-            <span> <ArrowRight />
-            </span>
+          <Link href="/about" className="btn-ds-secondary">
+            About Us
+            <ArrowRight size={16} />
           </Link>
 
-          <a
-            href="#programs"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-
-              padding: "14px 34px",
-
-              border: "1px solid rgba(255,255,255,0.75)",
-              borderRadius: "999px",
-
-              color: "#ffffff",
-              textDecoration: "none",
-
-              fontFamily: "var(--font-body)",
-              fontSize: "15px",
-              fontWeight: 500,
-
-              backdropFilter: "blur(6px)",
-
-              transition: "all 0.4s ease",
-            }}
-            onMouseEnter={(e) => {
-              const target = e.currentTarget;
-
-              target.style.background =
-                "rgba(255,255,255,0.12)";
-              target.style.transform =
-                "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              const target = e.currentTarget;
-
-              target.style.background =
-                "transparent";
-              target.style.transform =
-                "translateY(0px)";
-            }}
-          >
+          <a href="#programs" className="btn-ds-secondary">
             Explore Programs
-            <span> <ArrowRight /></span>
+            <ArrowRight size={16} />
           </a>
         </div>
       </div>
 
-      {/* Subtle gold thin line at the very bottom */}
+      {/* Progress Segments — bottom right */}
       <div
         className="
-    absolute
-    md:bottom-30
-    bottom-12
-    right-6
-    md:right-12
-    lg:right-20
-    z-20
-    flex
-    flex-col
-    items-end
-    gap-4
-  "
+          absolute
+          md:bottom-30
+          bottom-12
+          right-6
+          md:right-12
+          lg:right-20
+          z-20
+          flex
+          flex-col
+          items-end
+          gap-4
+        "
       >
         {/* Progress Segments */}
         <div className="flex items-center gap-4">
@@ -324,17 +197,17 @@ export default function HeroSection() {
             <div
               key={index}
               className="
-          relative
-          h-[2px]
-         w-16 md:w-24 lg:w-32
-          overflow-hidden
-          bg-white/30
-        "
+                relative
+                h-[2px]
+                w-16 md:w-24 lg:w-32
+                overflow-hidden
+                bg-white/30
+              "
             >
               {index === currentImage && (
                 <div
                   key={currentImage}
-                  className="absolute left-0 top-0 h-full bg-[#bb8b57]"
+                  className="absolute left-0 top-0 h-full bg-[#BB8B57]"
                   style={{
                     width: "100%",
                     animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
@@ -343,7 +216,7 @@ export default function HeroSection() {
               )}
 
               {index < currentImage && (
-                <div className="absolute inset-0 bg-[#bb8b57]" />
+                <div className="absolute inset-0 bg-[#BB8B57]" />
               )}
             </div>
           ))}
@@ -353,9 +226,6 @@ export default function HeroSection() {
         <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
           {String(currentImage + 1).padStart(2, "0")} /{" "}
           {String(heroImages.length).padStart(2, "0")}
-          <div className="text-white">
-            {/* {Math.round(progress)}% */}
-          </div>
         </div>
       </div>
 

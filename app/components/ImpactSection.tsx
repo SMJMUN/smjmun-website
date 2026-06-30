@@ -68,14 +68,14 @@ export default function ImpactSection() {
       className="relative overflow-hidden bg-transparent py-12"
     >
       {/* Subtle gold circle watermark */}
-      <div
+      {/* <div
         className="pointer-events-none absolute right-[-120px] top-1/2 -translate-y-1/2 w-[420px] h-[420px] opacity-[0.03]"
         aria-hidden
       >
         <svg viewBox="0 0 400 400" fill="none">
           <circle cx="200" cy="200" r="150" stroke="#BB8B57" strokeWidth="8" />
         </svg>
-      </div>
+      </div> */}
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Label */}

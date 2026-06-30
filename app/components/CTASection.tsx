@@ -40,7 +40,7 @@ export default function CTASection() {
       </div>
 
       {/* Gold glow left */}
-      <div className="absolute -left-32 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#BB8B57]/10 blur-[140px]" />
+      <div className="absolute -left-32 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#BB8B57]/10 blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
@@ -104,7 +104,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="hidden lg:block mt-10 overflow-hidden flex-shrink-0"
+              className="hidden lg:block relative mt-10 overflow-hidden flex-shrink-0"
               style={{
                 height: 'clamp(180px, 28vh, 280px)',
                 borderRadius: '20px',
@@ -147,14 +147,15 @@ export default function CTASection() {
                 className="
                   h-12 w-full
                   rounded-[16px]
-                  border border-[rgba(255,255,255,0.08)]
-                  bg-white/[0.03]
+                  border border-[rgba(255,255,255,0.12)]
+                  bg-white/[0.06]
                   px-4
                   text-white text-sm
                   placeholder:text-[#7A7A7A]
                   outline-none
                   focus:border-[#BB8B57]
-                  transition-colors duration-200
+                  focus:bg-white/[0.08]
+                  transition-all duration-200
                 "
                 style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
               />
@@ -164,14 +165,15 @@ export default function CTASection() {
                 className="
                   h-12 w-full
                   rounded-[16px]
-                  border border-[rgba(255,255,255,0.08)]
-                  bg-white/[0.03]
+                  border border-[rgba(255,255,255,0.12)]
+                  bg-white/[0.06]
                   px-4
                   text-white text-sm
                   placeholder:text-[#7A7A7A]
                   outline-none
                   focus:border-[#BB8B57]
-                  transition-colors duration-200
+                  focus:bg-white/[0.08]
+                  transition-all duration-200
                 "
                 style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
               />
@@ -183,25 +185,25 @@ export default function CTASection() {
                   className="
                     h-12 w-full
                     rounded-[16px]
-                    border border-[rgba(255,255,255,0.08)]
-                    bg-[#0A0A0A]
+                    border border-[rgba(255,255,255,0.12)]
+                    bg-[#111111]
                     px-4
-                    text-[#7A7A7A] text-sm
+                    text-white text-sm
                     outline-none
                     focus:border-[#BB8B57]
-                    transition-colors duration-200
+                    transition-all duration-200
                     appearance-none cursor-pointer
                   "
                   style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                 >
-                  <option value="" disabled className="text-[#7A7A7A] bg-[#0A0A0A]">Inquiry type</option>
-                  <option value="school"   className="bg-[#0A0A0A] text-white">School</option>
-                  <option value="college"  className="bg-[#0A0A0A] text-white">College</option>
-                  <option value="uni"      className="bg-[#0A0A0A] text-white">University</option>
-                  <option value="student"  className="bg-[#0A0A0A] text-white">Students</option>
-                  <option value="sponsor"  className="bg-[#0A0A0A] text-white">Sponsor</option>
+                  <option value="" disabled className="text-[#7A7A7A] bg-[#111111]">Inquiry type</option>
+                  <option value="school"   className="bg-[#111111] text-white">School</option>
+                  <option value="college"  className="bg-[#111111] text-white">College</option>
+                  <option value="uni"      className="bg-[#111111] text-white">University</option>
+                  <option value="student"  className="bg-[#111111] text-white">Students</option>
+                  <option value="sponsor"  className="bg-[#111111] text-white">Sponsor</option>
                 </select>
-                <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#7A7A7A]">
+                <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/50">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 5L7 9L11 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -214,14 +216,15 @@ export default function CTASection() {
                 className="
                   w-full
                   rounded-[16px]
-                  border border-[rgba(255,255,255,0.08)]
-                  bg-white/[0.03]
+                  border border-[rgba(255,255,255,0.12)]
+                  bg-white/[0.06]
                   p-4
                   text-white text-sm
                   placeholder:text-[#7A7A7A]
                   outline-none
                   focus:border-[#BB8B57]
-                  transition-colors duration-200
+                  focus:bg-white/[0.08]
+                  transition-all duration-200
                   resize-none
                 "
                 style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}

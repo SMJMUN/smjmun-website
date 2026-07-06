@@ -26,34 +26,76 @@ const BLOCKS = [
 
 export default function DelegateExperience() {
   return (
-    <section className="section-padding-lg bg-navy text-white">
-      <div className="content-wide">
+    <section
+      className="section-padding-lg relative overflow-hidden"
+      style={{ backgroundColor: 'var(--ds-bg-primary)' }}
+    >
+      {/* Gold glow top-right */}
+      <div
+        className="absolute right-0 top-0 pointer-events-none"
+        style={{
+          width: '45%',
+          height: '60%',
+          background: 'radial-gradient(ellipse at 85% 15%, rgba(187,139,87,0.07), transparent 65%)',
+        }}
+      />
+
+      <div className="content-wide relative z-10">
+        {/* Header */}
         <div className="text-center mb-20 max-w-[800px] mx-auto">
-          <span className="font-sans text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-6 block">
-            Delegate Experience
-          </span>
-          <h2 className="text-section text-white mb-8">
+          <span className="section-label block mb-6">Delegate Experience</span>
+          <h2
+            className="font-serif text-white mb-8"
+            style={{
+              fontSize: 'clamp(30px, 4.5vw, 60px)',
+              fontWeight: 700,
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+            }}
+          >
             Beyond the Committee Room
           </h2>
           <div className="gold-rule mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        {/* Blocks grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {BLOCKS.map((block, i) => {
             const Icon = block.icon;
             return (
               <div
                 key={i}
-                className="flex flex-col border border-white/10 p-10 hover:border-gold/30 transition-colors duration-500 bg-white/[0.02]"
+                className="card-ds flex flex-col p-10 group"
+                style={{
+                  borderRadius: 'var(--ds-radius-md)',
+                  transition: 'border-color 400ms ease',
+                }}
               >
+                {/* Icon */}
                 <div className="mb-8">
-                  <Icon size={40} className="text-gold" strokeWidth={1} />
+                  <Icon
+                    size={38}
+                    strokeWidth={1}
+                    style={{ color: 'var(--ds-gold)' }}
+                    className="group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-                
-                <h3 className="font-serif text-[28px] font-bold text-white mb-4">
+
+                <h3
+                  className="font-serif text-white mb-4"
+                  style={{ fontSize: '26px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
                   {block.title}
                 </h3>
-                <p className="font-sans text-[16px] leading-[1.8] text-white/60">
+
+                <p
+                  className="font-sans leading-[1.8]"
+                  style={{
+                    fontSize: '15px',
+                    color: 'var(--ds-text-muted)',
+                    fontFamily: 'var(--font-body), system-ui, sans-serif',
+                  }}
+                >
                   {block.desc}
                 </p>
               </div>

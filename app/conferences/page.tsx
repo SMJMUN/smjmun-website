@@ -41,7 +41,7 @@ export default async function ConferencesPage() {
 
   return (
     <>
-      <main className = "bg-black">
+      <main className="bg-[#0A0A0A]">
         <ConferenceVideoHero conference={featured} />
         <FeaturedConference conference={featured} />
         <ConferenceTabs conferences={conferences} />

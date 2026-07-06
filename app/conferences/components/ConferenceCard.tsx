@@ -5,10 +5,10 @@ import { urlFor } from "@/lib/sanity/image";
 import type { Conference } from "@/lib/sanity/types";
 import { MapPin, Calendar, Users } from "lucide-react";
 
-const STATUS_LABEL: Record<string, { text: string; bg: string }> = {
-  upcoming: { text: "Upcoming", bg: "text-gold" },
-  live: { text: "Live Now", bg: "text-green-600" },
-  completed: { text: "Completed", bg: "text-navy/50" },
+const STATUS_LABEL: Record<string, { text: string; color: string }> = {
+  upcoming: { text: "Upcoming", color: 'var(--ds-gold)' },
+  live: { text: "Live Now", color: 'rgba(74,222,128,0.9)' },
+  completed: { text: "Completed", color: 'var(--ds-text-muted)' },
 };
 
 export default function ConferenceCard({ conference }: { conference: Conference }) {
@@ -26,12 +26,18 @@ export default function ConferenceCard({ conference }: { conference: Conference 
     : "TBA";
 
   return (
-    <article className="group flex flex-col bg-white rounded-md border border-navy/8 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1 h-full">
+    <article
+      className="card-ds group flex flex-col h-full"
+      style={{ borderRadius: 'var(--ds-radius-md)' }}
+    >
       {/* Image */}
       <Link
         href={`/conferences/${conference.slug.current}`}
-        className="block relative rounded-t-md overflow-hidden"
-        style={{ aspectRatio: "16 / 10" }}
+        className="block relative overflow-hidden"
+        style={{
+          aspectRatio: "16 / 10",
+          borderRadius: 'var(--ds-radius-md) var(--ds-radius-md) 0 0',
+        }}
         tabIndex={-1}
         aria-hidden="true"
       >
@@ -45,68 +51,121 @@ export default function ConferenceCard({ conference }: { conference: Conference 
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-navy to-charcoal/80 flex items-center justify-center">
-            <span className="font-serif text-gold/20 text-4xl italic">SMJ</span>
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, var(--ds-surface), rgba(187,139,87,0.06))' }}
+          >
+            <span className="font-serif italic" style={{ fontSize: 48, color: 'rgba(187,139,87,0.15)' }}>SMJ</span>
           </div>
         )}
 
-        {/* Status Badge */}
-        {conference.registrationOpen && (
-           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-sm border border-navy/10 flex items-center gap-2 shadow-sm">
-             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-             <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-navy">Open</span>
-           </div>
-        )}
+        {/* Bottom image gold rule on hover */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[2px] transition-all duration-500"
+          style={{
+            background: 'var(--ds-gold)',
+            opacity: 0,
+          }}
+        />
 
-        {/* Gold rule at bottom of image */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold/0 group-hover:bg-gold/60 transition-all duration-500" />
+        {/* Registration Open badge */}
+        {conference.registrationOpen && (
+          <div
+            className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5"
+            style={{
+              backgroundColor: 'rgba(10,10,10,0.85)',
+              border: '1px solid rgba(74,222,128,0.4)',
+              borderRadius: 'var(--ds-radius-sm)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span
+              className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase"
+              style={{ color: 'rgba(74,222,128,0.9)' }}
+            >
+              Open
+            </span>
+          </div>
+        )}
       </Link>
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-6 lg:p-7">
-        
-        {/* Top Meta: Status */}
+
+        {/* Status */}
         <div className="flex items-center gap-3 mb-4">
-          <span className={`font-sans text-[10px] font-semibold tracking-[0.18em] uppercase ${status.bg}`}>
+          <span
+            className="font-sans text-[10px] font-semibold tracking-[0.18em] uppercase"
+            style={{ color: status.color }}
+          >
             {status.text}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-4 group-hover:text-charcoal transition-colors duration-300">
-          <Link href={`/conferences/${conference.slug.current}`} className="no-underline">
+        <h3
+          className="font-serif font-bold mb-4 transition-colors duration-300 group-hover:text-[#BB8B57]"
+          style={{
+            fontSize: 'clamp(17px, 1.6vw, 21px)',
+            lineHeight: 1.25,
+            letterSpacing: '-0.01em',
+            color: '#ffffff',
+          }}
+        >
+          <Link
+            href={`/conferences/${conference.slug.current}`}
+            className="no-underline"
+            style={{ color: 'inherit' }}
+          >
             {conference.title}
           </Link>
         </h3>
 
-        {/* Meta Facts */}
+        {/* Meta */}
         <div className="flex flex-col gap-2 mb-6">
-           <div className="flex items-center gap-2 text-navy/60 font-sans text-[12px]">
-             <MapPin size={14} className="text-gold/80" />
-             <span className="tracking-[0.02em]">{conference.venue || "TBA"}</span>
-           </div>
-           <div className="flex items-center gap-2 text-navy/60 font-sans text-[12px]">
-             <Calendar size={14} className="text-gold/80" />
-             <span className="tracking-[0.02em]">{formattedDate}</span>
-           </div>
-           {conference.capacity && (
-             <div className="flex items-center gap-2 text-navy/60 font-sans text-[12px]">
-               <Users size={14} className="text-gold/80" />
-               <span className="tracking-[0.02em]">{conference.capacity}+ Delegates</span>
-             </div>
-           )}
+          <div className="flex items-center gap-2" style={{ color: 'var(--ds-text-muted)' }}>
+            <MapPin size={13} style={{ color: 'var(--ds-gold)', opacity: 0.8, flexShrink: 0 }} />
+            <span
+              className="font-sans text-[12px] tracking-[0.02em]"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
+              {conference.venue || "TBA"}
+            </span>
+          </div>
+          <div className="flex items-center gap-2" style={{ color: 'var(--ds-text-muted)' }}>
+            <Calendar size={13} style={{ color: 'var(--ds-gold)', opacity: 0.8, flexShrink: 0 }} />
+            <span
+              className="font-sans text-[12px] tracking-[0.02em]"
+              style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+            >
+              {formattedDate}
+            </span>
+          </div>
+          {conference.capacity && (
+            <div className="flex items-center gap-2" style={{ color: 'var(--ds-text-muted)' }}>
+              <Users size={13} style={{ color: 'var(--ds-gold)', opacity: 0.8, flexShrink: 0 }} />
+              <span
+                className="font-sans text-[12px] tracking-[0.02em]"
+                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+              >
+                {conference.capacity}+ Delegates
+              </span>
+            </div>
+          )}
         </div>
 
-        {/* Footer Link */}
-        <div className="mt-auto pt-5 border-t border-navy/8">
+        {/* Footer link */}
+        <div
+          className="mt-auto pt-5"
+          style={{ borderTop: '1px solid var(--ds-border)' }}
+        >
           <Link
             href={`/conferences/${conference.slug.current}`}
-            className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-charcoal no-underline group/link"
+            className="btn-ds-text no-underline"
           >
             <span>View Details</span>
-            <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
-              →
-            </span>
+            <span className="btn-ds-arrow">→</span>
           </Link>
         </div>
 

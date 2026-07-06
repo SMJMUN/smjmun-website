@@ -5,121 +5,149 @@ export default function Loading() {
       <div
         style={{
           width: "100%",
-          height: "70vh",
-          minHeight: "500px",
-          backgroundColor: "#042147",
+          height: "75vh",
+          minHeight: "520px",
+          backgroundColor: "#0A0A0A",
           position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "flex-end",
+          padding: "0 8vw 80px",
         }}
       >
+        {/* Dot grid */}
         <div
           style={{
             position: "absolute",
-            bottom: "60px",
-            left: "8vw",
-            zIndex: 2,
+            inset: 0,
+            backgroundImage: "radial-gradient(rgba(187,139,87,0.07) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            pointerEvents: "none",
           }}
-        >
+        />
+        <div style={{ maxWidth: "900px", width: "100%" }}>
+          {/* Breadcrumb */}
           <div
             style={{
-              width: "100px",
-              height: "24px",
-              backgroundColor: "rgba(187,139,87,0.3)",
-              marginBottom: "20px",
-              borderRadius: "2px",
-            }}
-          />
-          <div
-            style={{
-              width: "450px",
-              maxWidth: "70vw",
-              height: "52px",
-              backgroundColor: "rgba(255,255,255,0.1)",
-              marginBottom: "16px",
-              borderRadius: "4px",
-            }}
-          />
-          <div
-            style={{
-              width: "300px",
-              maxWidth: "50vw",
-              height: "16px",
+              width: "180px",
+              height: "10px",
               backgroundColor: "rgba(255,255,255,0.06)",
               borderRadius: "2px",
+              marginBottom: "20px",
             }}
           />
-        </div>
-      </div>
-
-      {/* Content Skeleton */}
-      <div style={{ backgroundColor: "#ffffff", padding: "100px 0" }}>
-        <div
-          style={{
-            maxWidth: "760px",
-            margin: "0 auto",
-            padding: "0 8vw",
-          }}
-        >
+          {/* Status pill */}
           <div
             style={{
-              width: "100px",
-              height: "12px",
-              backgroundColor: "rgba(187,139,87,0.2)",
-              marginBottom: "32px",
-              borderRadius: "2px",
+              width: "90px",
+              height: "26px",
+              backgroundColor: "rgba(187,139,87,0.15)",
+              borderRadius: "4px",
+              marginBottom: "20px",
             }}
           />
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={i}
-              style={{
-                width: `${85 - i * 10}%`,
-                height: "14px",
-                backgroundColor: "rgba(4,33,71,0.06)",
-                marginBottom: "16px",
-                borderRadius: "2px",
-                animation: "pulse 2s ease-in-out infinite",
-                animationDelay: `${i * 100}ms`,
-              }}
-            />
-          ))}
+          {/* Title */}
+          <div
+            style={{
+              width: "70%",
+              height: "clamp(40px,6vw,80px)",
+              backgroundColor: "rgba(255,255,255,0.07)",
+              borderRadius: "4px",
+              marginBottom: "12px",
+            }}
+          />
+          <div
+            style={{
+              width: "45%",
+              height: "clamp(40px,6vw,80px)",
+              backgroundColor: "rgba(255,255,255,0.05)",
+              borderRadius: "4px",
+              marginBottom: "28px",
+            }}
+          />
+          {/* Meta */}
+          <div
+            style={{
+              width: "320px",
+              maxWidth: "100%",
+              height: "14px",
+              backgroundColor: "rgba(255,255,255,0.05)",
+              borderRadius: "2px",
+              marginBottom: "32px",
+            }}
+          />
+          {/* Buttons */}
+          <div style={{ display: "flex", gap: "14px" }}>
+            <div style={{ width: "140px", height: "48px", backgroundColor: "rgba(187,139,87,0.25)", borderRadius: "6px" }} />
+            <div style={{ width: "140px", height: "48px", backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "6px" }} />
+          </div>
         </div>
       </div>
 
-      {/* Facts Skeleton */}
-      <div style={{ backgroundColor: "#f8f8f8", padding: "80px 0" }}>
+      {/* Quick Facts Strip Skeleton */}
+      <div
+        style={{
+          backgroundColor: "#171717",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
+          padding: "20px 8vw",
+          display: "flex",
+          gap: "32px",
+          overflowX: "hidden",
+        }}
+      >
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} style={{ display: "flex", gap: "12px", alignItems: "center", flexShrink: 0, paddingRight: "32px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
+            <div style={{ width: "18px", height: "18px", backgroundColor: "rgba(187,139,87,0.25)", borderRadius: "3px" }} />
+            <div>
+              <div style={{ width: "55px", height: "9px", backgroundColor: "rgba(255,255,255,0.07)", borderRadius: "2px", marginBottom: "8px" }} />
+              <div style={{ width: "100px", height: "14px", backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "2px" }} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Content Area Skeleton */}
+      <div style={{ backgroundColor: "#0A0A0A", padding: "80px 8vw" }}>
         <div
           style={{
-            maxWidth: "1000px",
+            maxWidth: "1280px",
             margin: "0 auto",
-            padding: "0 8vw",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "40px",
+            gridTemplateColumns: "1fr 360px",
+            gap: "48px",
           }}
         >
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i}>
+          {/* Main column */}
+          <div>
+            <div style={{ width: "110px", height: "11px", backgroundColor: "rgba(187,139,87,0.25)", borderRadius: "2px", marginBottom: "28px" }} />
+            {Array.from({ length: 5 }).map((_, i) => (
               <div
+                key={i}
                 style={{
-                  width: "80px",
-                  height: "10px",
-                  backgroundColor: "rgba(187,139,87,0.2)",
-                  marginBottom: "12px",
+                  width: `${90 - i * 8}%`,
+                  height: "15px",
+                  backgroundColor: "rgba(255,255,255,0.05)",
                   borderRadius: "2px",
-                }}
-              />
-              <div
-                style={{
-                  width: "120px",
-                  height: "20px",
-                  backgroundColor: "rgba(4,33,71,0.08)",
-                  borderRadius: "3px",
+                  marginBottom: "14px",
                   animation: "pulse 2s ease-in-out infinite",
-                  animationDelay: `${i * 150}ms`,
+                  animationDelay: `${i * 100}ms`,
                 }}
               />
-            </div>
-          ))}
+            ))}
+          </div>
+          {/* Sidebar column */}
+          <div>
+            <div
+              style={{
+                width: "100%",
+                height: "260px",
+                backgroundColor: "#171717",
+                borderRadius: "16px",
+                border: "1px solid rgba(255,255,255,0.07)",
+                animation: "pulse 2s ease-in-out infinite",
+              }}
+            />
+          </div>
         </div>
       </div>
     </>

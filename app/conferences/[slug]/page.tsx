@@ -91,8 +91,8 @@ export default async function ConferenceDetailPage({
 
   return (
     <>
-      <main style={{ backgroundColor: "var(--color-white)", position: "relative" }}>
-        
+      <main style={{ backgroundColor: "#0A0A0A", position: "relative" }}>
+
         {/* Hero */}
         <ConferenceVideoHero conference={conference} />
 
@@ -100,9 +100,9 @@ export default async function ConferenceDetailPage({
         <QuickFacts conference={conference} />
 
         {/* Two Column Layout for Desktop */}
-        <div className="content-wide">
+        <div className="content-wide" style={{ backgroundColor: '#0A0A0A' }}>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 py-12 lg:py-20 relative">
-            
+
             {/* Main Content Area */}
             <div className="space-y-12">
               <ConferenceOverview conference={conference} />

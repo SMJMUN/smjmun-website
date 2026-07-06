@@ -9,7 +9,6 @@ export default function RegistrationCTA({ conference }: { conference: Conference
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show when scrolled past 50% of the page
       const scrolled = window.scrollY;
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
@@ -38,34 +37,55 @@ export default function RegistrationCTA({ conference }: { conference: Conference
         bottom: isVisible ? "0" : "-100%",
         left: 0,
         right: 0,
-        backgroundColor: "var(--color-navy)",
-        borderTop: "2px solid var(--color-gold)",
-        padding: "20px 0",
         zIndex: 50,
         transition: "bottom 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)",
-        boxShadow: "0 -10px 30px rgba(0,0,0,0.2)",
+        backgroundColor: '#111111',
+        borderTop: '1px solid rgba(187,139,87,0.35)',
+        boxShadow: '0 -12px 40px rgba(0,0,0,0.5)',
+        padding: "18px 0",
       }}
     >
-      <div className="content-wide" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "20px" }}>
+      <div
+        className="content-wide"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "16px",
+        }}
+      >
         <div>
-          <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "24px", fontWeight: 700, color: "var(--color-white)", marginBottom: "4px" }}>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "#ffffff",
+              marginBottom: "3px",
+            }}
+          >
             Ready To Join {conference.title}?
           </h3>
           {daysRemaining !== null && (
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "var(--color-gold)" }}>
-              Registration closes in {daysRemaining} days.
+            <p
+              style={{
+                fontFamily: 'var(--font-body), system-ui, sans-serif',
+                fontSize: "13px",
+                color: 'var(--ds-gold)',
+              }}
+            >
+              Registration closes in {daysRemaining} day{daysRemaining !== 1 ? 's' : ''}.
             </p>
           )}
         </div>
-        
+
         <Link
           href={`/register/${conference.slug.current}`}
-          className="btn-white"
+          className="btn-ds-primary"
           style={{
-            padding: "16px 48px",
-            fontSize: "14px",
-            backgroundColor: "var(--color-white)",
-            color: "var(--color-navy)",
+            padding: "14px 40px",
+            fontSize: "13px",
           }}
         >
           Register Now →

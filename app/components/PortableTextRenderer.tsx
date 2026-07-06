@@ -91,7 +91,7 @@ const components: PortableTextComponents = {
           fontFamily: "var(--font-body), system-ui, sans-serif",
           fontSize: "17px",
           lineHeight: 1.8,
-          color: "var(--color-navy)",
+          color: "#ffffff",
           marginBottom: "20px",
         }}
       >

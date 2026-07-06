@@ -22,20 +22,20 @@
 
   /* ── Design System Tokens ─────────────────────────────── */
   /* Single source of truth — use these in all components  */
-  --ds-bg-primary:     #0A0A0A;
-  --ds-bg-secondary:   #111111;
-  --ds-surface:        #171717;
-  --ds-text-primary:   #FFFFFF;
+  --ds-bg-primary: #0A0A0A;
+  --ds-bg-secondary: #111111;
+  --ds-surface: #171717;
+  --ds-text-primary: #FFFFFF;
   --ds-text-secondary: #B8B8B8;
-  --ds-text-muted:     #7A7A7A;
-  --ds-gold:           #BB8B57;
-  --ds-crimson:        #83090E;
-  --ds-border:         rgba(255,255,255,0.08);
-  --ds-border-hover:   #BB8B57;
-  --ds-radius-sm:      16px;
-  --ds-radius-md:      20px;
-  --ds-radius-lg:      24px;
-  --ds-ease:           cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ds-text-muted: #7A7A7A;
+  --ds-gold: #BB8B57;
+  --ds-crimson: #83090E;
+  --ds-border: rgba(255, 255, 255, 0.08);
+  --ds-border-hover: #BB8B57;
+  --ds-radius-sm: 16px;
+  --ds-radius-md: 20px;
+  --ds-radius-lg: 24px;
+  --ds-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   /* ──────────────────────────────────────────────────────── */
 
   /* Functional aliases */
@@ -204,7 +204,7 @@
   p {
     font-family: var(--font-body), system-ui, sans-serif;
     line-height: 1.75;
-    color: var(--color-navy);
+    color: '#ffffff';
   }
 
   * {
@@ -423,7 +423,10 @@
     cursor: pointer;
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
-  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
 
   .btn-outline {
     display: inline-flex;
@@ -442,6 +445,7 @@
     cursor: pointer;
     transition: all var(--duration-smooth) var(--ease-editorial);
   }
+
   .btn-outline:hover {
     border-color: var(--color-white);
     background-color: rgba(255, 255, 255, 0.05);
@@ -456,7 +460,10 @@
     color: var(--color-charcoal);
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
-  .text-link:hover { opacity: 0.7; }
+
+  .text-link:hover {
+    opacity: 0.7;
+  }
 
   .text-link-white {
     font-family: var(--font-body), system-ui, sans-serif;
@@ -467,7 +474,10 @@
     color: var(--color-white);
     transition: opacity var(--duration-smooth) var(--ease-editorial);
   }
-  .text-link-white:hover { opacity: 0.7; }
+
+  .text-link-white:hover {
+    opacity: 0.7;
+  }
 
   /* ── Design System Buttons (canonical — use these everywhere) */
 
@@ -490,6 +500,7 @@
     cursor: pointer;
     transition: opacity 350ms var(--ds-ease), transform 350ms var(--ds-ease);
   }
+
   .btn-ds-primary:hover {
     opacity: 0.88;
     transform: translateY(-2px);
@@ -514,6 +525,7 @@
     cursor: pointer;
     transition: background-color 300ms var(--ds-ease), transform 300ms var(--ds-ease), box-shadow 300ms var(--ds-ease);
   }
+
   .btn-ds-secondary:hover {
     background-color: rgba(187, 139, 87, 0.12);
     transform: translateY(-2px);
@@ -537,12 +549,19 @@
     cursor: pointer;
     transition: color 250ms var(--ds-ease);
   }
-  .btn-ds-text:hover { color: var(--ds-gold); }
+
+  .btn-ds-text:hover {
+    color: var(--ds-gold);
+  }
+
   .btn-ds-text .btn-ds-arrow {
     transition: transform 250ms var(--ds-ease);
     display: inline-block;
   }
-  .btn-ds-text:hover .btn-ds-arrow { transform: translateX(5px); }
+
+  .btn-ds-text:hover .btn-ds-arrow {
+    transform: translateX(5px);
+  }
 
   /* ── Design System Card ────────────────────────────────── */
   .card-ds {
@@ -551,6 +570,7 @@
     border-radius: var(--ds-radius-md);
     transition: border-color 300ms var(--ds-ease), transform 350ms var(--ds-ease);
   }
+
   .card-ds:hover {
     border-color: var(--ds-gold);
     transform: translateY(-4px);
@@ -572,11 +592,15 @@
     transition: transform 600ms var(--ds-ease);
     display: block;
   }
+
   .img-zoom-wrap {
     overflow: hidden;
     border-radius: var(--ds-radius-md);
   }
-  .img-zoom-wrap:hover .img-zoom { transform: scale(1.04); }
+
+  .img-zoom-wrap:hover .img-zoom {
+    transform: scale(1.04);
+  }
 
   /* ============================================
      Scroll-Triggered Animation
@@ -696,6 +720,7 @@
 
   /* ── iPad Landscape / Large Tablets (1024px–1279px) ── */
   @media (min-width: 1024px) and (max-width: 1279px) {
+
     /*
      * Hero: The inline padding: '0 8vw' and max-width: 900px can push
      * text uncomfortably close to the edge on 1024px screens.

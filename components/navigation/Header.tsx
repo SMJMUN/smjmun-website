@@ -40,9 +40,9 @@ export function Header() {
             href="/contact"
             aria-label="Contact Us"
             className={cn(
-              "hidden lg:inline-flex items-center gap-2 py-2 px-3 rounded-md font-body text-[13px] font-medium tracking-wider uppercase transition-all duration-300",
+              "hidden lg:inline-flex items-center py-3 px-6 gap-2   rounded-md font-body text-[13px] font-medium tracking-wider uppercase transition-all duration-300",
               isScrolled
-                ? "text-white/70 hover:text-white"
+                ? "text-white/70 hover:text-white bg-primary"
                 : "text-white/80 hover:text-white"
             )}
           >

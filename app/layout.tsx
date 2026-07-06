@@ -8,6 +8,7 @@ import LayoutWrapper from "@/app/components/LayoutWrapper";
 import SmoothScroll from "./components/SmoothScroll";
 import { montserrat } from "./fonts";
 import SplashCursor from "./components/SplashCursor";
+import FloatingContactWidget from "./components/FloatingWidget";
 
 
 
@@ -77,6 +78,7 @@ export default function RootLayout({
           {/* {children} */}
           <SmoothScroll />
           <ScrollToTop />
+          <FloatingContactWidget/>
           <LayoutWrapper>{children}</LayoutWrapper>
         </div>
       </body>

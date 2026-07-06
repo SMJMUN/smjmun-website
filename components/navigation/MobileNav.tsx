@@ -23,14 +23,11 @@ export function MobileNav() {
       </Link>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger  >
-          <button
-            className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200"
-            aria-label="Open navigation menu"
-          >
+        <SheetTrigger aria-label="Open navigation menu"  className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200" >
+            
+            
           <MenuTwoLineIcon color="white" size={36} />
-          </button>
-        </SheetTrigger>
+          </SheetTrigger>
         <SheetContent
           side="right"
           className="w-full z-500 sm:w-[360px] p-0 border-none bg-[#0a0a0a] [&>button]:hidden"

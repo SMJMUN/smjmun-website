@@ -34,7 +34,7 @@ h-10 w-10
 flex items-center justify-center
 bg-[#C79A46]
 text-[#F8F4EC]
-rounded-[0_12px_0_0]
+rounded-[5px_5px_0_0]
 shadow-2xl
 transition-all duration-300
 hover:-translate-y-1

@@ -115,107 +115,43 @@ export default async function RegisterPage({
 
   return (
     <>
-      <main>
-        <section
-          style={{
-            backgroundColor: "#042147",
-            padding: "120px 0 80px",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "760px",
-              margin: "0 auto",
-              padding: "0 8vw",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-body), system-ui, sans-serif",
-                fontSize: "12px",
-                fontWeight: 500,
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "#bb8b57",
-                display: "block",
-                marginBottom: "20px",
-              }}
-            >
+      <main className="bg-[#0A0A0A] relative">
+        <section className="py-20 lg:py-32 border-b border-white/10 relative">
+          {/* Subtle gradient glow to make it match the conferences hero slightly */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111] to-[#0A0A0A] opacity-50 pointer-events-none" />
+          <div className="content-editorial mx-auto px-6 lg:px-[8vw] relative z-10">
+            <span className="section-label mb-5 block text-gold">
               Conference Registration
             </span>
-            <h1
-              style={{
-                fontFamily: "var(--font-heading), Georgia, serif",
-                fontSize: "clamp(32px, 5vw, 52px)",
-                fontWeight: 700,
-                lineHeight: 1.1,
-                color: "#ffffff",
-                marginBottom: "16px",
-                letterSpacing: "-0.02em",
-              }}
-            >
+            <h1 className="text-heading text-white mb-4">
               {conference.title}
             </h1>
             <span
-              style={{
-                display: "inline-block",
-                backgroundColor: status.bg,
-                color: "#ffffff",
-                fontFamily: "var(--font-body), system-ui, sans-serif",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                padding: "6px 16px",
-                marginBottom: "24px",
-              }}
+              className="inline-block text-white font-body text-[11px] font-semibold tracking-[0.12em] uppercase py-1.5 px-4 mb-6 rounded-sm shadow-sm"
+              style={{ backgroundColor: status.bg }}
             >
               {status.text}
             </span>
-            <div
-              style={{
-                display: "grid",
-                gap: "16px",
-                marginTop: "8px",
-              }}
-            >
+            <div className="grid gap-4 mt-2">
               {conference.venue && (
-                <p
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "15px",
-                    color: "rgba(255,255,255,0.7)",
-                  }}
-                >
-                  <span style={{ color: "#bb8b57", marginRight: "8px" }}>
+                <p className="text-body text-white/70">
+                  <span className="text-gold mr-2 font-medium">
                     Venue
                   </span>
                   {conference.venue}
                 </p>
               )}
               {conference.date && (
-                <p
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "15px",
-                    color: "rgba(255,255,255,0.7)",
-                  }}
-                >
-                  <span style={{ color: "#bb8b57", marginRight: "8px" }}>
+                <p className="text-body text-white/70">
+                  <span className="text-gold mr-2 font-medium">
                     Date
                   </span>
                   {formatDate(conference.date)}
                 </p>
               )}
               {conference.registrationFee != null && (
-                <p
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "15px",
-                    color: "rgba(255,255,255,0.7)",
-                  }}
-                >
-                  <span style={{ color: "#bb8b57", marginRight: "8px" }}>
+                <p className="text-body text-white/70">
+                  <span className="text-gold mr-2 font-medium">
                     Registration Fee
                   </span>
                   ₹{conference.registrationFee.toLocaleString("en-IN")}
@@ -225,103 +161,36 @@ export default async function RegisterPage({
           </div>
         </section>
 
-        <section
-          style={{
-            backgroundColor: "#ffffff",
-            padding: "80px 0 120px",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "760px",
-              margin: "0 auto",
-              padding: "0 8vw",
-            }}
-          >
+        <section className="bg-[#0A0A0A] py-20 lg:py-32 relative">
+          <div className="content-editorial mx-auto px-6 lg:px-[8vw] relative z-10">
             {!availability.open ? (
-              <div style={{ textAlign: "center" }}>
-                <span
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    color: "#bb8b57",
-                    display: "block",
-                    marginBottom: "20px",
-                  }}
-                >
+              <div className="text-center">
+                <span className="section-label mb-5 block text-gold">
                   Registration Closed
                 </span>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
-                    fontSize: "clamp(28px, 4vw, 38px)",
-                    fontWeight: 700,
-                    color: "#042147",
-                    marginBottom: "16px",
-                  }}
-                >
+                <h2 className="text-subheading text-white mb-4">
                   {availability.reason === "capacity"
                     ? "Conference at Capacity"
                     : "Registration Is Currently Closed"}
                 </h2>
-                <p
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "17px",
-                    lineHeight: 1.6,
-                    color: "rgba(4,33,71,0.7)",
-                    marginBottom: "32px",
-                    maxWidth: "520px",
-                    margin: "0 auto 32px",
-                  }}
-                >
+                <p className="text-body text-white/70 mb-8 max-w-[520px] mx-auto">
                   {availability.reason === "capacity"
                     ? `Registration for ${conference.title} has reached capacity. Please check back for future conferences.`
                     : `Registration for ${conference.title} is not currently open. Please visit the conference page for updates.`}
                 </p>
                 <Link
                   href={`/conferences/${slug}`}
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: "#83090e",
-                    textDecoration: "none",
-                  }}
+                  className="btn-ds-secondary"
                 >
-                  ← Back to Conference
+                  <span className="btn-ds-arrow">←</span> Back to Conference
                 </Link>
               </div>
             ) : (
               <>
-                <span
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    color: "#bb8b57",
-                    display: "block",
-                    marginBottom: "16px",
-                  }}
-                >
+                <span className="section-label mb-4 block text-gold">
                   Delegate Information
                 </span>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
-                    fontSize: "clamp(28px, 4vw, 38px)",
-                    fontWeight: 700,
-                    color: "#042147",
-                    marginBottom: "40px",
-                  }}
-                >
+                <h2 className="text-subheading text-white mb-10">
                   Complete Your Registration
                 </h2>
                 <RegistrationForm conference={conference} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { Conference } from "@/lib/sanity/types";
 import { registrationSchema } from "@/lib/validations/registration";
@@ -34,34 +34,9 @@ const INITIAL_FIELDS: FormFields = {
   dietaryRequirements: "",
 };
 
-const labelStyle: CSSProperties = {
-  fontFamily: "var(--font-body), system-ui, sans-serif",
-  fontSize: "12px",
-  fontWeight: 500,
-  letterSpacing: "0.15em",
-  textTransform: "uppercase",
-  color: "#bb8b57",
-  display: "block",
-  marginBottom: "8px",
-};
-
-const inputStyle: CSSProperties = {
-  width: "100%",
-  padding: "14px 16px",
-  fontFamily: "var(--font-body), system-ui, sans-serif",
-  fontSize: "15px",
-  color: "#042147",
-  backgroundColor: "#ffffff",
-  border: "1px solid rgba(4,33,71,0.12)",
-  outline: "none",
-};
-
-const errorStyle: CSSProperties = {
-  fontFamily: "var(--font-body), system-ui, sans-serif",
-  fontSize: "13px",
-  color: "#83090e",
-  marginTop: "6px",
-};
+const labelClass = "block text-[12px] font-medium tracking-[0.15em] uppercase text-gold mb-2 font-body transition-colors group-focus-within:text-white";
+const inputClass = "w-full py-[14px] px-[16px] font-body text-[15px] text-white bg-[#111111] border border-white/10 rounded-md outline-none focus:border-gold hover:border-white/30 focus:bg-[#151515] hover:bg-[#131313] transition-all duration-300 placeholder:text-white/30";
+const errorClass = "font-body text-[13px] text-red-400 mt-1.5 flex items-center gap-1.5";
 
 export default function RegistrationForm({ conference }: RegistrationFormProps) {
   const router = useRouter();
@@ -203,14 +178,11 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
         {formError && (
           <div
             role="alert"
-            style={{
-              ...errorStyle,
-              padding: "16px",
-              marginBottom: "32px",
-              backgroundColor: "rgba(131,9,14,0.06)",
-              border: "1px solid rgba(131,9,14,0.15)",
-            }}
+            className={`${errorClass} p-4 mb-8 bg-red-500/10 border border-red-500/20 rounded-md !text-red-400`}
           >
+            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
             {formError}
           </div>
         )}
@@ -218,16 +190,11 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
         {successMessage && (
           <div
             role="status"
-            style={{
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-              fontSize: "15px",
-              color: "#042147",
-              padding: "16px",
-              marginBottom: "32px",
-              backgroundColor: "rgba(187,139,87,0.12)",
-              border: "1px solid rgba(187,139,87,0.3)",
-            }}
+            className="font-body text-[15px] text-white p-4 mb-8 bg-gold/10 border border-gold/30 rounded-md flex items-center gap-2"
           >
+            <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
             {successMessage}
           </div>
         )}
@@ -235,26 +202,16 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
         {verifiedMessage && (
           <div
             role="status"
-            style={{
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-              fontSize: "15px",
-              color: "#042147",
-              padding: "16px",
-              marginBottom: "32px",
-              backgroundColor: "rgba(22,163,74,0.08)",
-              border: "1px solid rgba(22,163,74,0.2)",
-            }}
+            className="font-body text-[15px] text-green-400 p-4 mb-8 bg-green-500/10 border border-green-500/20 rounded-md"
           >
-            {verifiedMessage}
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {verifiedMessage}
+            </div>
             {registrationId && (
-              <span
-                style={{
-                  display: "block",
-                  marginTop: "8px",
-                  fontSize: "13px",
-                  color: "rgba(4,33,71,0.6)",
-                }}
-              >
+              <span className="block mt-2 ml-7 text-[13px] text-green-400/70">
                 Registration ID: {registrationId}
               </span>
             )}
@@ -263,23 +220,11 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
 
         <fieldset
           disabled={formDisabled}
-          style={{
-            border: "none",
-            padding: 0,
-            margin: 0,
-            opacity: formDisabled ? 0.6 : 1,
-          }}
+          className={`border-none p-0 m-0 ${formDisabled ? "opacity-60" : "opacity-100"}`}
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "24px",
-              marginBottom: "24px",
-            }}
-          >
-            <div>
-              <label htmlFor="firstName" style={labelStyle}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 mb-6">
+            <div className="group">
+              <label htmlFor="firstName" className={labelClass}>
                 First Name *
               </label>
               <input
@@ -289,15 +234,16 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 autoComplete="given-name"
                 value={fields.firstName}
                 onChange={(e) => updateField("firstName", e.target.value)}
-                style={inputStyle}
+                className={inputClass}
+                placeholder="John"
               />
               {fieldErrors.firstName && (
-                <p style={errorStyle}>{fieldErrors.firstName}</p>
+                <p className={errorClass}>{fieldErrors.firstName}</p>
               )}
             </div>
 
-            <div>
-              <label htmlFor="lastName" style={labelStyle}>
+            <div className="group">
+              <label htmlFor="lastName" className={labelClass}>
                 Last Name *
               </label>
               <input
@@ -307,16 +253,17 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 autoComplete="family-name"
                 value={fields.lastName}
                 onChange={(e) => updateField("lastName", e.target.value)}
-                style={inputStyle}
+                className={inputClass}
+                placeholder="Doe"
               />
               {fieldErrors.lastName && (
-                <p style={errorStyle}>{fieldErrors.lastName}</p>
+                <p className={errorClass}>{fieldErrors.lastName}</p>
               )}
             </div>
           </div>
 
-          <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="email" style={labelStyle}>
+          <div className="mb-6 group">
+            <label htmlFor="email" className={labelClass}>
               Email *
             </label>
             <input
@@ -326,13 +273,14 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               autoComplete="email"
               value={fields.email}
               onChange={(e) => updateField("email", e.target.value)}
-              style={inputStyle}
+              className={inputClass}
+              placeholder="john.doe@example.com"
             />
-            {fieldErrors.email && <p style={errorStyle}>{fieldErrors.email}</p>}
+            {fieldErrors.email && <p className={errorClass}>{fieldErrors.email}</p>}
           </div>
 
-          <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="phone" style={labelStyle}>
+          <div className="mb-6 group">
+            <label htmlFor="phone" className={labelClass}>
               Phone *
             </label>
             <input
@@ -343,13 +291,13 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               placeholder="10-digit mobile number"
               value={fields.phone}
               onChange={(e) => updateField("phone", e.target.value)}
-              style={inputStyle}
+              className={inputClass}
             />
-            {fieldErrors.phone && <p style={errorStyle}>{fieldErrors.phone}</p>}
+            {fieldErrors.phone && <p className={errorClass}>{fieldErrors.phone}</p>}
           </div>
 
-          <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="institution" style={labelStyle}>
+          <div className="mb-6 group">
+            <label htmlFor="institution" className={labelClass}>
               Institution *
             </label>
             <input
@@ -359,15 +307,16 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               autoComplete="organization"
               value={fields.institution}
               onChange={(e) => updateField("institution", e.target.value)}
-              style={inputStyle}
+              className={inputClass}
+              placeholder="University or High School Name"
             />
             {fieldErrors.institution && (
-              <p style={errorStyle}>{fieldErrors.institution}</p>
+              <p className={errorClass}>{fieldErrors.institution}</p>
             )}
           </div>
 
-          <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="city" style={labelStyle}>
+          <div className="mb-6 group">
+            <label htmlFor="city" className={labelClass}>
               City
             </label>
             <input
@@ -377,14 +326,15 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               autoComplete="address-level2"
               value={fields.city}
               onChange={(e) => updateField("city", e.target.value)}
-              style={inputStyle}
+              className={inputClass}
+              placeholder="New Delhi"
             />
-            {fieldErrors.city && <p style={errorStyle}>{fieldErrors.city}</p>}
+            {fieldErrors.city && <p className={errorClass}>{fieldErrors.city}</p>}
           </div>
 
           {conference.committees && conference.committees.length > 0 && (
-            <div style={{ marginBottom: "24px" }}>
-              <label htmlFor="committeePreference" style={labelStyle}>
+            <div className="mb-6 group">
+              <label htmlFor="committeePreference" className={labelClass}>
                 Committee Preference
               </label>
               <select
@@ -394,33 +344,30 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 onChange={(e) =>
                   updateField("committeePreference", e.target.value)
                 }
+                className={`${inputClass} appearance-none bg-no-repeat pr-10`}
                 style={{
-                  ...inputStyle,
-                  appearance: "none",
                   backgroundImage:
-                    "linear-gradient(45deg, transparent 50%, #042147 50%), linear-gradient(135deg, #042147 50%, transparent 50%)",
+                    "linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.7) 50%), linear-gradient(135deg, rgba(255,255,255,0.7) 50%, transparent 50%)",
                   backgroundPosition:
                     "calc(100% - 20px) calc(50% - 3px), calc(100% - 14px) calc(50% - 3px)",
                   backgroundSize: "6px 6px, 6px 6px",
-                  backgroundRepeat: "no-repeat",
-                  paddingRight: "40px",
                 }}
               >
-                <option value="">Select a committee (optional)</option>
+                <option value="" className="bg-[#111111]">Select a committee (optional)</option>
                 {conference.committees.map((committee) => (
-                  <option key={committee.name} value={committee.name}>
+                  <option key={committee.name} value={committee.name} className="bg-[#111111]">
                     {committee.name}
                   </option>
                 ))}
               </select>
               {fieldErrors.committeePreference && (
-                <p style={errorStyle}>{fieldErrors.committeePreference}</p>
+                <p className={errorClass}>{fieldErrors.committeePreference}</p>
               )}
             </div>
           )}
 
-          <div style={{ marginBottom: "40px" }}>
-            <label htmlFor="dietaryRequirements" style={labelStyle}>
+          <div className="mb-10 group">
+            <label htmlFor="dietaryRequirements" className={labelClass}>
               Dietary Requirements
             </label>
             <textarea
@@ -431,29 +378,33 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               onChange={(e) =>
                 updateField("dietaryRequirements", e.target.value)
               }
-              style={{
-                ...inputStyle,
-                resize: "vertical",
-                minHeight: "120px",
-              }}
+              placeholder="Any allergies or dietary restrictions? (Optional)"
+              className={`${inputClass} resize-y min-h-[120px]`}
             />
             {fieldErrors.dietaryRequirements && (
-              <p style={errorStyle}>{fieldErrors.dietaryRequirements}</p>
+              <p className={errorClass}>{fieldErrors.dietaryRequirements}</p>
             )}
           </div>
 
           {!showOtpStep && !registrationId && (
             <button
               type="submit"
-              className="btn-primary"
+              className="btn-ds-primary w-full disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
               disabled={isSubmitting}
-              style={{
-                width: "100%",
-                opacity: isSubmitting ? 0.7 : 1,
-                cursor: isSubmitting ? "not-allowed" : "pointer",
-              }}
             >
-              {isSubmitting ? "Submitting..." : "Continue Registration"}
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  "Continue Registration"
+                )}
+              </span>
             </button>
           )}
         </fieldset>
@@ -463,55 +414,29 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
         <form
           onSubmit={handleVerifyOtp}
           noValidate
-          style={{
-            marginTop: showOtpStep ? "48px" : 0,
-            paddingTop: "48px",
-            borderTop: "1px solid rgba(4,33,71,0.08)",
-          }}
+          className={`pt-12 border-t border-white/10 ${showOtpStep ? "mt-12" : "mt-0"}`}
         >
-          <span
-            style={{
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-              fontSize: "12px",
-              fontWeight: 500,
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              color: "#bb8b57",
-              display: "block",
-              marginBottom: "16px",
-            }}
-          >
+          <span className="section-label mb-4 block text-gold">
             Verify Your Email
           </span>
-          <h3
-            style={{
-              fontFamily: "var(--font-heading), Georgia, serif",
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#042147",
-              marginBottom: "24px",
-            }}
-          >
+          <h3 className="text-subheading text-white mb-6 text-[24px]">
             Enter Verification Code
           </h3>
 
           {otpError && (
             <div
               role="alert"
-              style={{
-                ...errorStyle,
-                padding: "16px",
-                marginBottom: "24px",
-                backgroundColor: "rgba(131,9,14,0.06)",
-                border: "1px solid rgba(131,9,14,0.15)",
-              }}
+              className={`${errorClass} p-4 mb-6 bg-red-500/10 border border-red-500/20 rounded-md !text-red-400`}
             >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
               {otpError}
             </div>
           )}
 
-          <div style={{ marginBottom: "32px" }}>
-            <label htmlFor="otp" style={labelStyle}>
+          <div className="mb-8 group">
+            <label htmlFor="otp" className={labelClass}>
               Verification Code *
             </label>
             <input
@@ -527,27 +452,29 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 setOtp(e.target.value.replace(/\D/g, "").slice(0, 6));
                 setOtpError(null);
               }}
-              style={{
-                ...inputStyle,
-                letterSpacing: "0.3em",
-                fontSize: "20px",
-                textAlign: "center",
-              }}
+              className={`${inputClass} tracking-[0.3em] text-[20px] text-center`}
               disabled={isVerifying}
             />
           </div>
 
           <button
             type="submit"
-            className="btn-primary"
+            className="btn-ds-primary w-full disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
             disabled={isVerifying}
-            style={{
-              width: "100%",
-              opacity: isVerifying ? 0.7 : 1,
-              cursor: isVerifying ? "not-allowed" : "pointer",
-            }}
           >
-            {isVerifying ? "Verifying..." : "Verify OTP"}
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              {isVerifying ? (
+                <>
+                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Verifying...
+                </>
+              ) : (
+                "Verify OTP"
+              )}
+            </span>
           </button>
         </form>
       )}

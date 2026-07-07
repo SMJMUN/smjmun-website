@@ -90,6 +90,7 @@ export interface GalleryImage {
 
 /** Gallery section */
 export interface GalleryData {
+  id?:string;
   label?: string;
   title: string;
   subtitle?: string;

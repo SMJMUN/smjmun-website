@@ -15,7 +15,7 @@ export const schoolMunProgram: ProgramData = {
     description:
       "A comprehensive educational initiative designed to help schools provide students with a world-class Model United Nations experience — without the complexities of organising and managing an event independently.",
     videoSrc: "/conf-hero-vid.mp4",
-    imageSrc: "/images/student-training.jpeg",
+    imageSrc: "/images/program-image-2.png",
     primaryCTA: {
       label: "Partner With Us",
       href: "/partnerships",
@@ -47,7 +47,7 @@ export const schoolMunProgram: ProgramData = {
       title: "Phase II — Main Conference",
       description:
         "Students participate in a professionally organised Model United Nations conference conducted exclusively for their institution. The conference replicates the experience of leading international conferences while remaining accessible and engaging for school students. The experience includes committee sessions, structured debate, negotiation and collaboration, resolution drafting, leadership opportunities, opening and closing ceremonies, and an awards and recognition ceremony.",
-      image: "/images/hero-3.png",
+      image: "/images/program-image-1.png",
       imageAlt: "SMJMUN conference in session",
       badge: "3-Day Conference",
       caption: "A complete international-standard conference experience.",
@@ -56,7 +56,7 @@ export const schoolMunProgram: ProgramData = {
       title: "Conference Management & Advisory",
       description:
         "Already planning your own Model United Nations conference? Our team can support your institution through complete conference management and advisory services — including registration management, committee design, executive board support, delegate handling, conference operations, awards management, and on-ground execution. Whether you require full management or strategic guidance, SMJMUN can help deliver a professional and impactful conference experience.",
-      image: "/images/SHCOOL-PHOTO.png",
+      image: "/images/ceremony-2.png",
       imageAlt: "Conference management team in action",
       badge: "Advisory Services",
       cta: {
@@ -151,10 +151,10 @@ export const schoolMunProgram: ProgramData = {
   },
 
   stats: [
-    { value: 5000, suffix: "+", label: "Delegates Trained" },
+    { value: 11000, suffix: "+", label: "Delegates Trained" },
     { value: 150, suffix: "+", label: "Partner Schools" },
     { value: 30, suffix: "+", label: "Cities Reached" },
-    { value: 10, suffix: "+", label: "Years of Impact" },
+    { value: 5, suffix: "+", label: "Years of Impact" },
   ],
 
   gallery: {
@@ -164,12 +164,12 @@ export const schoolMunProgram: ProgramData = {
       "Dare to participate. Rise through learning. Create meaningful impact.",
     images: [
       {
-        src: "/images/hero-1.png",
+        src: "/images/smg-hero-7.jpeg",
         alt: "SMJMUN conference opening ceremony",
         aspect: "wide",
       },
       {
-        src: "/images/SHCOOL-PHOTO-1.png",
+        src: "/images/moment-1.jpeg",
         alt: "Student delegates in committee session",
         aspect: "normal",
       },
@@ -180,7 +180,7 @@ export const schoolMunProgram: ProgramData = {
         aspect: "tall",
       },
       {
-        src: "/images/hero-2.png",
+        src: "/images/ceremony-4.png",
         alt: "Award ceremony",
         aspect: "normal",
       },

@@ -188,3 +188,41 @@ model ExecutiveBoardApplication {
 
   @@index([email])
 }
+
+// ─── Newsletter ────────────────────────────────────────────────────
+
+enum SubscriptionSource {
+  FOOTER
+  BLOG
+  CONTACT
+  HOMEPAGE
+  CONFERENCE
+  PARTNERSHIP
+  POPUP
+  OTHER
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  UNSUBSCRIBED
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+
+  email     String   @unique
+
+  source    SubscriptionSource
+  status    SubscriptionStatus @default(ACTIVE)
+
+  ipAddress String?
+  userAgent String?
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  unsubscribedAt DateTime?
+
+  @@index([email])
+  @@index([status])
+  @@index([source])
+}

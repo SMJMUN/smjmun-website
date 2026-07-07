@@ -40,7 +40,6 @@ export function ConferencesMenu() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Overline label */}
             <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
               Featured Conference
             </p>

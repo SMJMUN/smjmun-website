@@ -1,3 +1,4 @@
+ 
 import { cn } from "@/lib/utils";
 
 interface SectionProps {
@@ -35,3 +36,4 @@ export function Section({
     </section>
   );
 }
+ 

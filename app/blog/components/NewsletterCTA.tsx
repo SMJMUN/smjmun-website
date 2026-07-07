@@ -4,13 +4,43 @@ import { useState } from "react";
 
 export default function NewsletterCTA() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "already" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
-    // Newsletter logic is intentionally left to the platform integration.
-    setSubmitted(true);
+    const trimmed = email.trim();
+    if (!trimmed) return;
+
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed, source: "BLOG" }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(data.message || "Something went wrong.");
+        return;
+      }
+
+      if (data.alreadySubscribed) {
+        setStatus("already");
+        setMessage(data.message);
+      } else {
+        setStatus("success");
+        setMessage(data.message);
+        setEmail("");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Network error. Please try again.");
+    }
   };
 
   return (
@@ -77,14 +107,16 @@ export default function NewsletterCTA() {
           </p>
 
           {/* Form */}
-          {submitted ? (
+          {status === "success" || status === "already" ? (
             <div className="flex flex-col items-center gap-4">
               <div className="gold-rule mx-auto" />
               <p className="font-serif text-[20px] italic text-gold/90">
-                Thank you for subscribing.
+                {status === "success"
+                  ? "Thank you for subscribing."
+                  : "You\u2019re already subscribed."}
               </p>
               <p className="font-sans text-[13px] text-white/40">
-                You&apos;ll hear from us soon.
+                {message}
               </p>
             </div>
           ) : (
@@ -103,6 +135,7 @@ export default function NewsletterCTA() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
+                disabled={status === "loading"}
                 aria-required="true"
                 className="
                   flex-1 font-sans text-[14px] text-white
@@ -111,25 +144,35 @@ export default function NewsletterCTA() {
                   placeholder:text-white/30
                   focus:outline-none focus:border-gold/50
                   transition-colors duration-300
+                  disabled:opacity-50
                 "
               />
               <button
                 type="submit"
+                disabled={status === "loading"}
                 className="
                   flex-shrink-0 font-sans text-[12px] font-500 tracking-[0.15em] uppercase
                   bg-gold text-navy px-8 py-4 border border-gold
                   cursor-pointer
                   hover:bg-gold/90 active:bg-gold/80
                   transition-colors duration-300
+                  disabled:opacity-50 disabled:cursor-not-allowed
                 "
               >
-                Subscribe
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
           )}
 
+          {/* Error message */}
+          {status === "error" && (
+            <p className="font-sans text-[13px] text-red-400 mt-4">
+              {message}
+            </p>
+          )}
+
           {/* Privacy note */}
-          {!submitted && (
+          {status !== "success" && status !== "already" && (
             <p className="font-sans text-[11px] text-white/25 mt-4 tracking-wide">
               No spam. Unsubscribe anytime.
             </p>

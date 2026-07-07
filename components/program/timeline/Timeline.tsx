@@ -14,19 +14,19 @@ import type { TimelineData } from "../types";
  * Two different images so they don't repeat the same frame.
  */
 const BG_IMAGES = [
-  "/images/hero-1.png",
-  "/images/hero-3.png",
-  "/images/SHCOOL-PHOTO.png",
-  "/images/hero-2.png",
+  "/images/ceremony-1.png",
+  "/images/ceremony-2.png",
+  "/images/ceremony-3.png",
+  "/images/ceremony-4.png",
   "/images/community.jpeg",
 ];
 
 const CARD_IMAGES = [
   "/images/student-training.jpeg",
-  "/images/SHCOOL-PHOTO.png",
-  "/images/student-training.jpeg",
-  "/images/hero-1.png",
-  "/images/hero-3.png",
+  "/images/student-training-2.jpeg",
+  "/images/moment-1.jpeg",
+  "/images/perparestudent.jpeg",
+  "/images/moment-2.jpeg",
 ];
 
 interface TimelineProps {

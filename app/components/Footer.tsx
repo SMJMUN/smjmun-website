@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import {
   FaInstagram,
@@ -36,6 +37,102 @@ const socialLinks = [
   { icon: FaInstagram,  href: "https://instagram.com" },
   { icon: FaYoutube,    href: "https://youtube.com"   },
 ];
+
+function FooterNewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "already" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!trimmed) return;
+
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed, source: "FOOTER" }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(data.message || "Something went wrong.");
+        return;
+      }
+
+      if (data.alreadySubscribed) {
+        setStatus("already");
+        setMessage(data.message);
+      } else {
+        setStatus("success");
+        setMessage(data.message);
+        setEmail("");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Network error. Please try again.");
+    }
+  };
+
+  if (status === "success" || status === "already") {
+    return (
+      <p
+        className="text-sm text-[#BB8B57] mt-1"
+        style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+      >
+        {message}
+      </p>
+    );
+  }
+
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="flex border border-[rgba(255,255,255,0.08)] rounded-[16px] overflow-hidden"
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+          disabled={status === "loading"}
+          className="
+            flex-1 min-w-0
+            bg-transparent px-4 py-3
+            outline-none text-sm text-white
+            placeholder:text-[#7A7A7A]
+            disabled:opacity-50
+          "
+          style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+        />
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300 disabled:opacity-50"
+        >
+          {status === "loading" ? (
+            <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          ) : (
+            <ArrowRight size={16} />
+          )}
+        </button>
+      </form>
+      {status === "error" && (
+        <p
+          className="text-xs text-red-400 mt-2"
+          style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
+        >
+          {message}
+        </p>
+      )}
+    </>
+  );
+}
 
 export default function Footer() {
     const scrollToHero = () => {
@@ -143,24 +240,7 @@ export default function Footer() {
             >
               Stay Updated
             </p>
-            <div className="flex w-full border border-[rgba(255,255,255,0.08)] rounded-[16px] overflow-hidden">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="
-                  flex-1 min-w-0
-                  bg-transparent
-                  px-4 py-3
-                  outline-none
-                  text-sm text-white
-                  placeholder:text-[#7A7A7A]
-                "
-                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
-              />
-              <button className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300">
-                →
-              </button>
-            </div>
+            <FooterNewsletterForm />
           </div>
 
           {/* Logo */}
@@ -263,22 +343,7 @@ export default function Footer() {
               Stay Updated
             </p>
 
-            <div className="flex border border-[rgba(255,255,255,0.08)] rounded-[16px] overflow-hidden">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="
-                  flex-1 min-w-0
-                  bg-transparent px-4 py-3
-                  outline-none text-sm text-white
-                  placeholder:text-[#7A7A7A]
-                "
-                style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
-              />
-              <button className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300">
-                <ArrowRight size={16} />
-              </button>
-            </div>
+            <FooterNewsletterForm />
          <Link href= "/" onClick={scrollToHero} >
             <img
               src="/images/smg-mun-logo.png"

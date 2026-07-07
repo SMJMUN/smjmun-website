@@ -67,13 +67,13 @@ export function ProgramLanding({ data }: ProgramLandingProps) {
 
       {data.timeline && <Timeline data={data.timeline} />}
 
-      {data.benefits && <Benefits data={data.benefits} />}
+      {/* {data.benefits && <Benefits data={data.benefits} />} */}
 
       {data.stats && data.stats.length > 0 && <Stats data={data.stats} />}
 
       {data.gallery && <Gallery data={data.gallery} />}
 
-      {data.testimonials && <Testimonials data={data.testimonials} />}
+      {/* {data.testimonials && <Testimonials data={data.testimonials} />} */}
 
       {data.faq && <FAQ data={data.faq} />}
 

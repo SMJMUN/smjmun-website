@@ -8,6 +8,7 @@ import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import Link from 'next/link';
 import { Headphones } from 'lucide-react';
+import { InstallButton } from '@/components/pwa/InstallButton';
 
 export function Header() {
   const isScrolled = useScrolledHeader(60);
@@ -36,19 +37,22 @@ export function Header() {
         {/* Right: Actions / Mobile Toggle */}
         <div className="flex-shrink-0 flex items-center gap-3 justify-end min-w-[120px]">
           {/* Contact Us — desktop only */}
+                    <InstallButton isScrolled={isScrolled} />
+
       <Link
   href="/contact"
   aria-label="Contact Us"
   className={cn(
-    "hidden lg:inline-flex rounded-md items-center justify-center py-3 px-6 gap-2 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
+    "hidden lg:inline-flex rounded-md items-center justify-center p-3 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
     isScrolled
       ? "bg-primary text-white hover:text-black hover:bg-white hover:-translate-y-0.5 shadow-sm"
       : "bg-white text-primary border border-transparent hover:-translate-y-0.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.05)]"
   )}
 >
+  
   <Headphones className="w-4 h-4" strokeWidth={1.6} />
-  <span>Contact</span>
 </Link>
+
           {/* CTA is hidden on mobile, available in drawer */}
           <Link
             href="/conferences"
@@ -61,6 +65,7 @@ export function Header() {
           >
             Register Now
           </Link>
+          
 
           <MobileNav />
         </div>

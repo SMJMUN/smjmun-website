@@ -9,6 +9,7 @@ import { MAIN_NAVIGATION, CALL_TO_ACTION } from '../constants/navigation';
 import { MobileConferencesAccordion } from './MobileConferencesAccordion';
 import { MobileProgramsAccordion } from './MobileProgramsAccordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { InstallButton } from '@/components/pwa/InstallButton';
 
 interface MobileDrawerProps {
   onClose: () => void;
@@ -72,7 +73,7 @@ export function MobileDrawer({ onClose }: MobileDrawerProps) {
       </ScrollArea>
 
       {/* Footer CTA */}
-      <div className="px-6 pb-8 pt-6 border-t border-white/10">
+      <div className="px-6 pb-8 pt-6 border-t border-white/10 flex flex-col gap-3">
         <Link
           href={CALL_TO_ACTION.href}
           onClick={onClose}
@@ -88,6 +89,7 @@ export function MobileDrawer({ onClose }: MobileDrawerProps) {
         >
           {CALL_TO_ACTION.label}
         </Link>
+        <InstallButton variant="mobile-drawer" />
       </div>
 
     </div>

@@ -9,6 +9,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import { montserrat } from "./fonts";
 import SplashCursor from "./components/SplashCursor";
 import FloatingContactWidget from "./components/FloatingWidget";
+import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 
 
 
@@ -103,8 +104,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/smg-mun-logo.png",
-    shortcut: "/smg-mun-logo.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
@@ -152,6 +153,7 @@ export default function RootLayout({
           <FloatingContactWidget/>
           <LayoutWrapper>{children}</LayoutWrapper>
         </div>
+        <ServiceWorkerRegister />
       </body>
     </html>
   );

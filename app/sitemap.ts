@@ -31,21 +31,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Dynamic routes
-  const conferenceRoutes = conferences.map((conf) => ({
+  const conferenceRoutes = conferences.map((conf: { slug: string; _updatedAt: string }) => ({
     url: `${baseUrl}/conferences/${conf.slug}`,
     lastModified: conf._updatedAt ? new Date(conf._updatedAt) : new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  const blogRoutes = blogs.map((blog) => ({
+  const blogRoutes = blogs.map((blog: { slug: string; _updatedAt: string }) => ({
     url: `${baseUrl}/blog/${blog.slug}`,
     lastModified: blog._updatedAt ? new Date(blog._updatedAt) : new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  const galleryRoutes = galleries.map((gallery) => ({
+  const galleryRoutes = galleries.map((gallery: { slug: string; _updatedAt: string }) => ({
     url: `${baseUrl}/gallery/${gallery.slug}`,
     lastModified: gallery._updatedAt ? new Date(gallery._updatedAt) : new Date(),
     changeFrequency: "monthly" as const,

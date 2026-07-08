@@ -47,7 +47,7 @@ export const collegeMunProgram: ProgramData = {
       title: "Phase II — International-Standard Conference",
       description:
         "Participants engage in a professionally managed conference designed to simulate real-world discussions and decision-making environments. The conference includes committee sessions, policy deliberations, structured debate, negotiation and collaboration, resolution drafting, leadership opportunities, opening and closing ceremonies, and awards and recognition. Students gain exposure to policy analysis, strategic thinking, communication, and collaborative problem-solving.",
-      image: "/images/hero-3.png",
+      image: "/images/program-image-1.png",
       imageAlt: "SMJMUN college conference in session",
       badge: "3-Day Conference",
       caption: "Simulating real-world decision-making environments.",
@@ -56,7 +56,7 @@ export const collegeMunProgram: ProgramData = {
       title: "Conference Management & Advisory",
       description:
         "Institutions planning their own conferences can also partner with SMJMUN for complete conference management and advisory support. Our team assists with registration management, delegate coordination, executive board management, committee design, study guides, awards and recognition, conference operations, on-ground execution, and strategic advisory. From concept to closing ceremony, SMJMUN can serve as your conference partner.",
-      image: "/images/SHCOOL-PHOTO.png",
+      image: "/images/program-image-2.png",
       imageAlt: "Conference advisory and management",
       badge: "Advisory Services",
       cta: {
@@ -164,12 +164,12 @@ export const collegeMunProgram: ProgramData = {
       "Dare to challenge ideas. Rise through knowledge and leadership. Create meaningful impact through responsible action.",
     images: [
       {
-        src: "/images/hero-2.png",
+        src: "/images/program-image-3.png",
         alt: "SMJMUN college conference",
         aspect: "wide",
       },
       {
-        src: "/images/hero-1.png",
+        src: "/images/program-image-2.png",
         alt: "College delegates in session",
         aspect: "normal",
       },
@@ -180,7 +180,7 @@ export const collegeMunProgram: ProgramData = {
         aspect: "tall",
       },
       {
-        src: "/images/hero-3.png",
+        src: "/images/program-image-1.png",
         alt: "Conference deliberations",
         aspect: "normal",
       },

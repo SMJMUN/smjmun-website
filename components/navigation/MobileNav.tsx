@@ -8,8 +8,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from 
 import { MobileDrawer } from './mobile/MobileDrawer';
 import MenuTwoLineIcon from './constants/MenuIcon';
 import { InstallButton } from '@/components/pwa/InstallButton';
+import { NavigationData } from '@/lib/sanity/navigation/types';
 
-export function MobileNav() {
+interface MobileNavProps {
+  navigationData: NavigationData;
+}
+
+export function MobileNav({ navigationData }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -40,7 +45,7 @@ export function MobileNav() {
             <SheetDescription>Main navigation for the SMJ MUN website</SheetDescription>
           </div>
 
-          <MobileDrawer onClose={() => setOpen(false)} />
+          <MobileDrawer onClose={() => setOpen(false)} navigationData={navigationData} />
         </SheetContent>
       </Sheet>
     </div>

@@ -1,13 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Header } from "@/components/navigation/Header";
+// Header is passed as a prop from layout.tsx because it is a Server Component
 import Footer from "@/app/components/Footer";
 
 export default function LayoutWrapper({
   children,
+  header,
 }: {
   children: React.ReactNode;
+  header: React.ReactNode;
 }) {
   const pathname = usePathname();
 
@@ -15,7 +17,7 @@ export default function LayoutWrapper({
 
   return (
     <>
-      {!isStudio && <Header />}
+      {!isStudio && header}
       {children}
     </>
   );

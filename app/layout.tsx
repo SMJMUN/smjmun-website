@@ -10,7 +10,7 @@ import { montserrat } from "./fonts";
 import SplashCursor from "./components/SplashCursor";
 import FloatingContactWidget from "./components/FloatingWidget";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
-
+import { Header } from "@/components/navigation/Header";
 
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
@@ -151,7 +151,7 @@ export default function RootLayout({
           <SmoothScroll />
           <ScrollToTop />
           <FloatingContactWidget/>
-          <LayoutWrapper>{children}</LayoutWrapper>
+          <LayoutWrapper header={<Header />}>{children}</LayoutWrapper>
         </div>
         <ServiceWorkerRegister />
       </body>

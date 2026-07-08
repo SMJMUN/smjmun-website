@@ -7,10 +7,14 @@ import {
   MapPin,
   Calendar,
 } from 'lucide-react';
-import { CONFERENCES_DATA } from '../constants/navigation';
+import { NavigationData } from '@/lib/sanity/navigation/types';
 
-export function ConferencesMenu() {
-  const { featured } = CONFERENCES_DATA;
+interface ConferencesMenuProps {
+  navigationData: NavigationData;
+}
+
+export function ConferencesMenu({ navigationData }: ConferencesMenuProps) {
+  const { featuredConference, upcomingConferences } = navigationData;
 
   return (
     <motion.div
@@ -47,51 +51,61 @@ export function ConferencesMenu() {
             <div className="h-px bg-white/10 mb-7" />
 
             <div className="space-y-5">
-              <h4 className="font-heading text-[28px] font-normal leading-snug text-white">
-                {featured.title}
-              </h4>
+              {featuredConference ? (
+                <>
+                  <h4 className="font-heading text-[28px] font-normal leading-snug text-white">
+                    {featuredConference.title}
+                  </h4>
 
-              <div className="space-y-3 pt-1">
-                <div className="flex items-start gap-3 text-white/50">
-                  <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#bb8b57]" />
-                  <span className="font-body text-[13px] leading-relaxed tracking-wide">
-                    {featured.venue}
-                  </span>
+                  <div className="space-y-3 pt-1">
+                    <div className="flex items-start gap-3 text-white/50">
+                      <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#bb8b57]" />
+                      <span className="font-body text-[13px] leading-relaxed tracking-wide">
+                        {featuredConference.venue}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-white/50">
+                      <Calendar className="w-3.5 h-3.5 shrink-0 text-[#bb8b57]" />
+                      <span className="font-body text-[13px] tracking-wide">
+                        {featuredConference.date}
+                      </span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href={`/conferences/${featuredConference.slug}`}
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      text-[#bb8b57]
+                      text-[13px]
+                      tracking-[0.06em]
+                      uppercase
+                      hover:gap-3.5
+                      transition-all
+                      duration-300
+                      ease-[cubic-bezier(0.22,1,0.36,1)]
+                      pt-2
+                    "
+                  >
+                    View Conference
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </>
+              ) : (
+                <div className="py-4">
+                  <h4 className="font-heading text-[20px] font-normal leading-snug text-white/40">
+                    No Featured Conference Available
+                  </h4>
                 </div>
-
-                <div className="flex items-center gap-3 text-white/50">
-                  <Calendar className="w-3.5 h-3.5 shrink-0 text-[#bb8b57]" />
-                  <span className="font-body text-[13px] tracking-wide">
-                    {featured.date}
-                  </span>
-                </div>
-              </div>
-
-              <Link
-                href={featured.href}
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  text-[#bb8b57]
-                  text-[13px]
-                  tracking-[0.06em]
-                  uppercase
-                  hover:gap-3.5
-                  transition-all
-                  duration-300
-                  ease-[cubic-bezier(0.22,1,0.36,1)]
-                  pt-2
-                "
-              >
-                View Conference
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              )}
             </div>
           </motion.div>
         </div>
 
-        {/* COLUMN 02 — Conference Opportunities */}
+        {/* COLUMN 02 — Upcoming Conferences */}
         <div className="col-span-4">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -99,53 +113,64 @@ export function ConferencesMenu() {
             transition={{ delay: 0.1, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="font-body text-[10px] uppercase tracking-[0.22em] text-[#bb8b57] mb-4">
-              Conference Opportunities
+              Upcoming Conferences
             </p>
 
             <div className="h-px bg-white/10 mb-7" />
 
-            <div className="space-y-4">
-              {[
-                'International Conferences',
-                'National Conferences',
-                'School Conferences',
-                'College Conferences',
-                'Delegate Training',
-                ].map((item) => (
+            <div className="space-y-0">
+              {upcomingConferences.slice(0, 3).map((conf, idx) => (
+                <div key={conf.slug}>
+                  <Link
+                    href={`/conferences/${conf.slug}`}
+                    className="
+                      block
+                      group
+                      py-3
+                    "
+                  >
+                    <div className="flex flex-col gap-1">
+                      <span className="font-body text-[15px] font-normal text-white/80 group-hover:text-white transition-colors duration-300">
+                        {conf.title}
+                      </span>
+                      <span className="font-body text-[12px] text-white/40">
+                        {conf.date}
+                      </span>
+                    </div>
+                  </Link>
+                  {idx < 2 && idx < upcomingConferences.length - 1 && (
+                    <div className="h-px bg-white/5 my-1" />
+                  )}
+                </div>
+              ))}
+              
+              {upcomingConferences.length === 0 && (
+                <p className="font-body text-[13px] text-white/40 py-2">
+                  No upcoming conferences scheduled.
+                </p>
+              )}
+
+              <div className="pt-5">
                 <Link
-                  key={item}
                   href="/conferences"
                   className="
-                    block
-                    group
-                    font-body
-                    text-[15px]
-                    font-normal
+                    inline-flex
+                    items-center
+                    gap-2
                     text-white/60
                     hover:text-white
+                    text-[12px]
+                    tracking-[0.06em]
+                    uppercase
                     transition-colors
                     duration-300
+                    group
                   "
                 >
-                  <span className="relative inline-block">
-                    {item}
-                    <span
-                      className="
-                        absolute
-                        left-0
-                        -bottom-0.5
-                        h-px
-                        w-0
-                        bg-[#bb8b57]
-                        transition-all
-                        duration-300
-                        ease-[cubic-bezier(0.22,1,0.36,1)]
-                        group-hover:w-full
-                      "
-                    />
-                  </span>
+                  View All Conferences
+                  <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </Link>
-              ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -165,9 +190,6 @@ export function ConferencesMenu() {
 
             <div className="space-y-4">
               {[
-                // { label: 'Register Delegation', href: '/register' },
-                // { label: 'Conference Archive', href: '/conferences' },
-                // { label: 'Download Brochure', href: '/conferences' },
                 { label: 'Partner With Us', href: '/partnerships' },
                 { label: 'Contact Secretariat', href: '/contact' },
               ].map((item) => (

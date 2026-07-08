@@ -16,8 +16,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { NavigationData } from '@/lib/sanity/navigation/types';
 
-export function DesktopNav() {
+interface DesktopNavProps {
+  navigationData: NavigationData;
+}
+
+export function DesktopNav({ navigationData }: DesktopNavProps) {
   const pathname = usePathname();
 
   return (
@@ -70,7 +75,11 @@ export function DesktopNav() {
     bg-transparent
   "
                 >
-                  <MenuComponent />
+                  {item.label === 'Conferences' ? (
+                    <ConferencesMenu navigationData={navigationData} />
+                  ) : (
+                    <ProgramsMenu />
+                  )}
                 </NavigationMenuContent>
               </NavigationMenuItem>
             );

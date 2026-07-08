@@ -18,14 +18,17 @@ export async function sanityFetch<T>({
   query,
   params = {},
   revalidate = 60,
+  tags,
 }: {
   query: string;
   params?: QueryParams;
   revalidate?: number | false;
+  tags?: string[];
 }): Promise<T> {
   return client.fetch<T>(query, params, {
     next: {
       revalidate: revalidate === false ? undefined : revalidate,
+      tags,
     },
   });
 }

@@ -11,11 +11,14 @@ import { MobileProgramsAccordion } from './MobileProgramsAccordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { InstallButton } from '@/components/pwa/InstallButton';
 
+import { NavigationData } from '@/lib/sanity/navigation/types';
+
 interface MobileDrawerProps {
   onClose: () => void;
+  navigationData: NavigationData;
 }
 
-export function MobileDrawer({ onClose }: MobileDrawerProps) {
+export function MobileDrawer({ onClose, navigationData }: MobileDrawerProps) {
   const pathname = usePathname();
 
   return (
@@ -40,7 +43,7 @@ export function MobileDrawer({ onClose }: MobileDrawerProps) {
         <nav className="flex flex-col px-6 py-4">
           {MAIN_NAVIGATION.map((item) => {
             if (item.label === 'Conferences') {
-              return <MobileConferencesAccordion key={item.label} onLinkClick={onClose} />;
+              return <MobileConferencesAccordion key={item.label} onLinkClick={onClose} navigationData={navigationData} />;
             }
             if (item.label === 'Programs') {
               return <MobileProgramsAccordion key={item.label} onLinkClick={onClose} />;

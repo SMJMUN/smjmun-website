@@ -23,14 +23,6 @@ export const CALL_TO_ACTION = {
 
 // Data for the Conferences Mega Menu
 export const CONFERENCES_DATA = {
-  featured: {
-    title: 'SMJ MUN Global Summit 2026',
-    venue: 'United Nations Headquarters, New York',
-    date: 'August 14 - 17, 2026',
-    registrationStatus: 'Registration Open',
-    href: '/conferences/smj-mun-global-summit-2026',
-    image: '/images/hero-1.png', // Fallback to an existing image
-  },
   links: [
     { label: 'All Conferences', href: '/conferences' },
     // If we had sub-routes we'd add them here, but we only have /conferences

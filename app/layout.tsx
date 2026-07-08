@@ -103,8 +103,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/smg-mun-logo.png",
+    shortcut: "/smg-mun-logo.png",
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",

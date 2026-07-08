@@ -20,8 +20,8 @@ const conferenceLinks = [
 const delegateLinks = [
   // { label: "Registration", href: "/conferences" },
   { label: "delegate", href: "/programs/training-cell" },
-  { label: "school",href: "/programs/school-mun-association"   },
-  { label: "collage ",href: "/programs/collage-mun-association"   },
+  { label: "school", href: "/programs/school-mun-association" },
+  { label: "collage ", href: "/programs/collage-mun-association" },
   // { label: "Resources",      href: "/resources"   },
 ];
 
@@ -279,7 +279,7 @@ export default function Footer() {
               className="text-xs uppercase tracking-[0.22em] text-[#BB8B57] mb-6"
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
-              Delegates
+              Programs
             </h4>
             <ul className="space-y-4">
               {delegateLinks.map((item) => (

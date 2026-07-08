@@ -1,10 +1,88 @@
 "use client";
 
-import Image from "next/image";
-import TrustSection from "../components/TrustSection";
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState } from "react";
+import { HeroVideo } from "@/components/program/hero/HeroVideo";
+import { EditorialIntro } from "@/components/program/intro/EditorialIntro";
+import { EditorialSection } from "@/components/program/editorial/EditorialSection";
+import { Timeline } from "@/components/program/timeline/Timeline";
+import type { HeroData, EditorialIntroData, EditorialSectionData, TimelineData } from "@/components/program/types";
+
+const heroData: HeroData = {
+  badge: "Partnerships & Collaborations",
+  heading: "Building Institutions That Build Leaders.",
+  description:
+    "We partner with schools, universities and educational organisations that believe leadership is cultivated through character, dialogue and responsibility—not merely taught in classrooms. Together, we create experiences that prepare young people to engage thoughtfully with an unfinished world.",
+  imageSrc: "/images/smj-hero-5.jpeg",
+  primaryCTA: {
+    label: "Begin A Partnership",
+    href: "#contact-form",
+  },
+};
+
+const introData: EditorialIntroData = {
+  label: "A Shared Vision",
+
+  heading:
+    "Partnerships Are Not Sponsorships. They Are Shared Commitments To Developing The Next Generation Of Responsible Leaders.",
+
+  body:
+    "Every institution shapes the lives of the students it serves. At SMJMUN, we collaborate with organisations that believe education should extend beyond academic excellence. Together we cultivate curiosity, diplomacy, ethical leadership and the confidence to contribute meaningfully to society. Every partnership is built on trust, shared purpose and a long-term commitment to student growth.",
+};
+
+const sectionsData: EditorialSectionData[] = [
+  {
+    title: "School Partnerships",
+    description: "We help schools build enduring Model United Nations ecosystems through delegate development, faculty mentoring, institutional training and annual conference support. Rather than organising isolated events, we create sustainable cultures of leadership, critical thinking and global citizenship.",
+    image: "/images/smj-hero-4.jpeg",
+    cta: { label: "Learn More", href: "/programs/school-mun-association" },
+  },
+  {
+    title: "College Partnerships",
+    description: "We work alongside universities and student societies to strengthen existing MUN communities, establish new initiatives and mentor executive boards. Our focus is not simply on organising conferences but on helping institutions cultivate confident, responsible student leaders.",
+    image: "/images/program-image-2.png",
+    cta: { label: "Learn More", href: "/programs/collage-mun-association" },
+  },
+  // {
+  //   title: "Educational Organisations",
+  //   description: "We collaborate with educational trusts, NGOs, foundations and mission-driven organisations to expand access to diplomacy, leadership education and civic engagement through thoughtfully designed programmes and strategic initiatives.",
+  //   image: "/images/hero-3.png",
+  //   cta: { label: "Learn More", href: "/partnerships/educational-organisations" },
+  // },
+  // {
+  //   title: "Strategic Sponsors",
+  //   description: "We partner with organisations that believe investing in education creates lasting social impact. Together we design initiatives that strengthen communities while supporting the growth of future leaders through meaningful educational experiences.",
+  //   image: "/images/strategic-partner.png",
+  //   cta: { label: "Learn More", href: "/partnerships/strategic-sponsors" },
+  // },
+];
+
+const timelineData: TimelineData = {
+  label: "Our Partnership Process",
+  title: "From A Conversation To A Lasting Partnership.",
+  subtitle: "Every institution has its own vision, culture and aspirations. Our partnership process begins by listening carefully, understanding your goals and designing a collaboration that creates meaningful, long-term value for your students and your community.",
+  steps: [
+    {
+      number: "01",
+      title: "Listen",
+      description: "We begin by understanding your institution, your students and the vision you have for their future.",
+    },
+    {
+      number: "02",
+      title: "Design",
+      description: "Together we design a partnership that reflects your educational philosophy, objectives and long-term aspirations.",
+    },
+    {
+      number: "03",
+      title: "Collaborate",
+      description: "We work closely with your team to prepare programmes, resources and experiences that are thoughtfully tailored to your institution.",
+    },
+    {
+      number: "04",
+      title: "Create Impact",
+      description: "Our partnership extends beyond the event itself, supporting a culture of leadership, responsibility and meaningful student development.",
+    },
+  ],
+};
 
 export default function PartnershipsPage() {
   const [formData, setFormData] = useState({
@@ -47,991 +125,157 @@ export default function PartnershipsPage() {
       setErrorMessage(err.message);
     }
   };
-      return (
-       <main className="!bg-[#f8f8f8] !text-black">
 
-  {/* HERO */}
-  <section className="!relative !h-[75vh] !overflow-hidden">
-    <div className="!absolute !inset-0">
-      <Image
-        src="/images/partnerships-image.png"
-        alt="SMJ MUN Partnerships"
-        fill
-        className="!object-cover" 
-                    sizes="(max-width: 768px) 100vw, 600px"
+  const bgImage = heroData.imageSrc;
 
-      />
-      <div className="!absolute !inset-0 !bg-black/65" />
-    </div>
+  return (
+    <main className="bg-[#0B0B0B] text-white">
+      {/* Hero */}
+      <HeroVideo data={heroData} />
 
-    <div className="!relative !z-10 !max-w-7xl !mx-auto !h-full !px-8 !flex !items-center">
-      <div className="!max-w-3xl">
-        <p className="!uppercase !tracking-[0.25em] !text-[#bb8b57] !text-sm !mb-6">
-          Partnerships & Collaborations
-        </p>
+      {/* Editorial intro */}
+      <EditorialIntro data={introData} />
 
-        <h1 className="!font-serif !text-white !text-6xl md:!text-8xl !leading-[0.95] !mb-8">
-          Building Long-Term Educational Partnerships.
-        </h1>
-
-        <p className="!text-white/80 !text-lg !max-w-xl !mb-10">
-          We collaborate with schools, colleges and educational
-          organisations to create meaningful leadership experiences.
-        </p>
-
-        <button className="!bg-[#83090e] !text-white !px-8 !py-4 !uppercase !tracking-wider !text-sm">
-          Request Consultation
-        </button>
-      </div>
-    </div>
-  </section>
-        <TrustSection />
-
-  {/* EDITORIAL STATEMENT */}
-<section className="!relative !py-48 !overflow-hidden !bg-[#f8f8f8]">
-
-  {/* LEFT FLORAL */}
-  <img
-    src="/images/floral-left.svg"
-    alt=""
-    aria-hidden="true"
-    className="
-      !absolute
-      !left-0
-      !top-1/2
-      -translate-y-1/2
-      !w-[240px]
-      !opacity-[0.08]
-      !pointer-events-none
-      !select-none
-    "
-  />
-
-  {/* RIGHT FLORAL */}
-  <img
-    src="/images/floral-right.svg"
-    alt=""
-    aria-hidden="true"
-    className="
-      !absolute
-      !right-0
-      !top-1/2
-      -translate-y-1/2
-      !w-[240px]
-      !opacity-[0.08]
-      !pointer-events-none
-      !select-none
-    "
-  />
-
-  <div className="!relative !z-10 !max-w-6xl !mx-auto !px-8">
-
-    {/* Gold Label */}
-    <div className="!text-center !mb-12">
-      <p
-        className="
-          !uppercase
-          !tracking-[0.35em]
-          !text-[#bb8b57]
-          !text-sm
-        "
-      >
-        A Shared Vision
-      </p>
-    </div>
-
-    {/* Main Statement */}
-    <div className="!text-center">
-
-      <h2
-        className="
-          !font-serif
-          !text-3xl
-          md:!text-5xl
-          xl:!text-7xl
-          !leading-[1.05]
-          !max-w-5xl
-          !mx-auto
-          !mb-12
-        "
-      >
-        We Partner With Institutions
-        To Create Meaningful Leadership
-        Experiences That Last A Lifetime.
-      </h2>
-
-      {/* Gold Divider */}
+      {/* Editorial sections with fixed parallax background */}
       <div
-        className="
-          !w-24
-          !h-px
-          !bg-[#bb8b57]
-          !mx-auto
-          !mb-12
-        "
-      />
-
-      <p
-        className="
-          !max-w-3xl
-          !mx-auto
-          !text-xl
-          !leading-relaxed
-          !text-black/70
-        "
+        className="relative"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        Our partnerships are built on trust,
-        shared values and a vision for holistic
-        student development. Together, we nurture
-        confident communicators, compassionate
-        leaders and globally minded changemakers.
-      </p>
+        <div className="absolute inset-0 bg-black/50" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-black/70"
+        />
 
-    </div>
+        <div className="relative z-10">
+          {sectionsData.map((section, i) => (
+            <EditorialSection key={i} data={section} index={i} />
+          ))}
+        </div>
+      </div>
 
-  </div>
+      {/* Timeline */}
+      {/* <Timeline data={timelineData} /> */}
 
-</section>
+      {/* CTA / Contact Form Section */}
+      <section id="contact-form" className="bg-black text-white py-32">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid lg:grid-cols-[420px_1fr] gap-20">
+            {/* LEFT SIDE */}
+            <div>
+              <h2 className="font-serif text-[#bb8b57]  text-3xl md:text-5xl leading-[0.95] mb-8">
+                Begin
+                <br />
+                A Meaningful
+                <br />
+                Partnership.
+              </h2>
+              <div className="w-20 h-[2px] bg-[#bb8b57] mb-8" />
+              <div className="text-[#bb8b57]  max-w-sm  leading-relaxed mb-10 space-y-4">
+                <p>Every institution has a unique vision for its students.</p>
+                <p>
+                  Tell us about your goals, your community and the impact you hope to create. We'll work with you to design a partnership that reflects your values and helps your students grow into thoughtful, globally minded leaders.
+                </p>
+              </div>
+              <img
+                src="/images/smg-mun-logo.png"
+                alt=""
+                className="h-[20vh] object-contain  mix-blend-screen"
+              />
+            </div>
 
-  {/* PARTNERSHIP MODELS */}
-  <section className="!pb-40">
-    <div className="!space-y-16">
-
-  {/* 01 */}
-  <div className="!border-t !pt-10 !px-4 !grid md:!grid-cols-[120px_1fr_500px] !gap-12 !items-start">
-    <span className="!text-[#bb8b57] !text-4xl !font-serif">01</span>
-
-    <div className="!border-l !border-black/10 !pl-10">
-      <h3 className="!font-serif !text-4xl !mb-4">
-        School Partnerships
-      </h3>
- 
-      <p className="!max-w-xl  !text-black/70 !leading-relaxed">
-        End-to-end Model UN ecosystem development for schools including
-        MUN associations, delegate training, annual programs and faculty support.
-      </p>
-      
-      <Link
-                href="/partnerships/school-partnerships"
-                className="
-    group!
-    inline-flex items-center gap-2!
-    border border-white/30!
-    px-5! py-3!
-    text-white!
-    bg-black! 
-    mt-2!
-    uppercase!
-    tracking-[0.15em]!
-    text-xs!
-    hover:bg-[#83090e]!
-    hover:text-black!
-    transition-all!
-  "
-              >
-                learn more
-
-                <ArrowRight
-                  size={18}
-                  className=" 
-    transition-transform!
-    duration-300!
-    ease-out!
-    group-hover:translate-x-1.5!
-  "
+            {/* RIGHT SIDE */}
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  placeholder="Institution Name *"
+                  required
+                  value={formData.institutionName}
+                  onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
+                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
                 />
-              </Link>
-    </div>
-
-    <div className="!h-[240px]  !overflow-hidden">
-      <img
-        src="/images/hero-1.png"
-        alt=""
-        className="!w-full !h-full !object-cover"
-      />
-    </div>
-  </div>
-
-  {/* 02 */}
-  <div className="!border-t !px-4 !pt-10 !grid md:!grid-cols-[120px_500px_1fr] !gap-12   !items-start">
-    <span className="!text-[#bb8b57] !text-4xl !font-serif">02</span>
-
-    <div className="!h-[240px] !overflow-hidden">
-      <img
-        src="/images/founder-2.jpeg"
-        alt=""
-        className="!w-full !h-full !object-cover"
-      />
-    </div>
-
-    <div className="!border-l !border-black/10 !pl-10">
-      <h3 className="!font-serif !text-4xl !mb-4">
-        College Partnerships
-      </h3>
-
-      <p className="!max-w-xl !text-black/70 !leading-relaxed">
-        Building thriving MUN ecosystems through society development,
-        conference consulting and executive board mentoring.
-      </p>
-      
-      <Link
-                href="/partnerships/college-partnerships"
-                className="
-    group!
-    inline-flex items-center gap-2!
-    border border-white/30!
-    px-5! py-3!
-    text-white!
-    bg-black! 
-    mt-2!
-    uppercase!
-    tracking-[0.15em]!
-    text-xs!
-    hover:bg-[#83090e]!
-    hover:text-black!
-    transition-all!
-  "
-              >
-                learn more
-
-                <ArrowRight
-                  size={18}
-                  className=" 
-    transition-transform!
-    duration-300!
-    ease-out!
-    group-hover:translate-x-1.5!
-  "
+                <input
+                  placeholder="Contact Person *"
+                  required
+                  value={formData.contactPerson}
+                  onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
                 />
-              </Link>
-    </div>
-  </div>
+              </div>
 
-  {/* 03 */}
-  <div className="!border-t !px-4 !pt-10 !grid md:!grid-cols-[120px_1fr_500px] !gap-12 !items-start">
-    <span className="!text-[#bb8b57] !text-4xl !font-serif">03</span>
-
-    <div className="!border-l !border-black/10 !pl-10">
-      <h3 className="!font-serif !text-4xl !mb-4">
-        Educational Organisations
-      </h3>
-
-      <p className="!max-w-xl !text-black/70 !leading-relaxed">
-        Collaborating with NGOs, institutions and educational bodies
-        to create impactful diplomacy and leadership initiatives.
-      </p>
-      <Link
-                href="/partnerships/educational-organisations"
-                className="
-    group!
-    inline-flex items-center gap-2!
-    border border-white/30!
-    px-5! py-3!
-    text-white!
-    bg-black! 
-    mt-2!
-    uppercase!
-    tracking-[0.15em]!
-    text-xs!
-    hover:bg-[#83090e]!
-    hover:text-black!
-    transition-all!
-  "
-              >
-                learn more
-
-                <ArrowRight
-                  size={18}
-                  className=" 
-    transition-transform!
-    duration-300!
-    ease-out!
-    group-hover:translate-x-1.5!
-  "
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  placeholder="Phone Number *"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
                 />
-              </Link>
-    </div>
-
-    <div className="!h-[240px] !overflow-hidden">
-      <img
-        src="/images/hero-3.png"
-        alt=""
-        className="!w-full !h-full !object-cover"
-      />
-    </div>
-  </div>
-
-  {/* 04 */}
-  <div className="!border-t !px-4 !border-b !pb-10 !pt-10 !grid md:!grid-cols-[120px_500px_1fr] !gap-12 !items-start">
-    <span className="!text-[#bb8b57] !text-4xl !font-serif">04</span>
-
-    <div className="!h-[240px] !overflow-hidden">
-      <img
-        src="/images/strategic-partner.png "
-        alt=""
-        className="!w-full !h-full !object-cover"
-      />
-    </div>
-
-    <div className="!border-l !border-black/10 !pl-10">
-      <h3 className="!font-serif !text-4xl !mb-4">
-        Strategic Sponsors
-      </h3>
-
-      <p className="!max-w-xl !text-black/70 !leading-relaxed">
-        Align your organisation with future leaders through meaningful
-        educational initiatives, conferences and long-term partnerships.
-      </p>
-      <Link
-                href="/partnerships/strategic-sponsors"
-                className="
-    group!
-    inline-flex items-center gap-2!
-    border border-white/30!
-    px-5! py-3!
-    text-white!
-    bg-black! 
-    mt-2!
-    uppercase!
-    tracking-[0.15em]!
-    text-xs!
-    hover:bg-[#83090e]!
-    hover:text-black!
-    transition-all!
-  "
-              >
-                learn more
-
-                <ArrowRight
-                  size={18}
-                  className=" 
-    transition-transform!
-    duration-300!
-    ease-out!
-    group-hover:translate-x-1.5!
-  "
+                <input
+                  placeholder="Email Address *"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
                 />
-              </Link>
-    </div>
-  </div>
+              </div>
 
-</div>
-  </section>
+              <div className="grid md:grid-cols-1 gap-4">
+                <select
+                  value={formData.institutionType}
+                  onChange={(e) => setFormData({ ...formData, institutionType: e.target.value })}
+                  className="w-full bg-[#83090e] border border-white/20 px-5 py-4 text-white focus:outline-none focus:border-[#bb8b57] appearance-none"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 1rem center',
+                    backgroundSize: '1em'
+                  }}
+                >
+                  <option value="" disabled>Institution Type</option>
+                  <option value="School">School</option>
+                  <option value="College">College</option>
+                  <option value="University">University</option>
+                  <option value="NGO">NGO</option>
+                  <option value="Corporate">Corporate</option>
+                </select>
+              </div>
 
-  {/* PROCESS */}
-  <section className="!bg-[#f8f8f8] !py-40">
-  <div className="!max-w-7xl !mx-auto">
+              <textarea
+                rows={5}
+                placeholder="Message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
+              />
 
-    {/* Header */}
-    <div className="!text-center !mb-20">
+              {status === "error" && (
+                <div className="text-red-500 text-sm mt-2">{errorMessage}</div>
+              )}
+              {status === "success" && (
+                <div className="text-green-500 text-sm mt-2">Thank you! Your inquiry has been submitted.</div>
+              )}
 
-      <p
-        className="
-          !uppercase
-          !tracking-[0.3em]
-          !text-[#bb8b57]
-          !text-sm
-          !mb-6
-        "
-      >
-        Our Partnership Process
-      </p>
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full bg-[#bb8b57] text-white uppercase tracking-[0.2em] py-5 hover:opacity-90 transition-all hover:bg-black disabled:opacity-50 mt-2"
+              >
+                {status === "loading" ? "Submitting..." : "Start The Conversation →"}
+              </button>
 
-      <h2
-        className="
-          !font-serif
-          !text-5xl
-          md:!text-7xl
-          !leading-[1]
-          !text-[#042147]
-          !mb-8
-        "
-      >
-        From First Conversation
-        <br />
-        to Lasting Impact.
-      </h2>
-
-      <div
-        className="
-          !w-20
-          !h-px
-          !bg-[#bb8b57]
-          !mx-auto
-          !mb-8
-        "
-      />
-
-      <p
-        className="
-          !max-w-3xl
-          !mx-auto
-          !text-xl
-          !leading-relaxed
-          !text-black/65
-        "
-      >
-        We believe meaningful partnerships are built on trust,
-        clarity and a shared vision. Our process is designed to
-        be collaborative, transparent and focused on creating
-        long-term value for your institution.
-      </p>
-
-    </div>
-
-    {/* Visual Story Strip */}
-    <div
-      className="
-        !grid
-        md:!grid-cols-4
-        !overflow-hidden
-        !mb-24
-      "
-    >
-
-      {/* Card 1 */}
-      <div className="!relative">
-
-        <img
-          src="/images/founder-2.jpeg"
-          alt=""
-          className="
-            !w-full
-            !h-[320px]
-            !object-cover
-          "
-        />
-
-        <div
-          className="
-            !absolute
-            !bottom-0
-            !left-0
-            !right-0
-            !bg-[#042147]
-            !text-white
-            !p-6
-          "
-        >
-          <h4 className="!text-2xl text-white! !font-medium">
-            Understanding
-            <br />
-            Your Goals
-          </h4>
+              <p className="text-center text-sm text-white/50 mt-4">
+                Your enquiry will be reviewed personally by our partnerships team. We use your information solely to respond to your request and never share it with third parties.
+              </p>
+            </form>
+          </div>
         </div>
-
-      </div>
-
-      {/* Card 2 */}
-      <div className="!relative">
-
-        <img
-          src="/images/hero-1.png"
-          alt=""
-          className="
-            !w-full
-            !h-[320px]
-            !object-cover
-          "
-        />
-
-        <div
-          className="
-            !absolute
-            !bottom-0
-            !left-0
-            !right-0
-            !bg-[#042147]
-            !text-white
-            !p-6
-          "
-        >
-          <h4 className="!text-2xl text-white! !font-medium">
-            Designing The
-            <br />
-            Right Program
-          </h4>
-        </div>
-
-      </div>
-
-      {/* Card 3 */}
-      <div className="!relative">
-
-        <img
-          src="/images/SHCOOL-PHOTO-1.png"
-          alt=""
-          className="
-            !w-full
-            !h-[320px]
-            !object-cover
-          "
-        />
-
-        <div
-          className="
-            !absolute
-            !bottom-0
-            !left-0
-            !right-0
-            !bg-[#042147]
-            !text-white
-            !p-6
-          "
-        >
-          <h4 className="!text-2xl  text-white! !font-medium">
-            Tailored
-            <br />
-            Proposal & Plan
-          </h4>
-        </div>
-
-      </div>
-
-      {/* Card 4 */}
-      <div className="!relative">
-
-        <img
-          src="/images/hero-3.png"
-          alt=""
-          className="
-            !w-full
-            !h-[320px]
-            !object-cover
-          "
-        />
-
-        <div
-          className="
-            !absolute
-            !bottom-0
-            !left-0
-            !right-0
-            !bg-[#042147]
-            !text-white
-            !p-6
-          "
-        >
-          <h4 className="!text-2xl text-white! !font-medium">
-            Launching &
-            <br />
-            Creating Impact
-          </h4>
-        </div>
-
-      </div>
-
-    </div>
-
-    {/* Process Timeline */}
-    <div
-      className="
-        !grid
-        lg:!grid-cols-4
-        !gap-12
-      "
-    >
-
-      {/* 01 */}
-      <div className="!relative">
-
-        <h3
-          className="
-            !font-serif
-            !text-6xl
-            !text-[#bb8b57]
-            !mb-2
-          "
-        >
-          01
-        </h3>
-
-        <h4
-          className="
-            !font-serif
-            !text-4xl
-            !text-[#042147]
-            !mb-4
-          "
-        >
-          Discussion
-        </h4>
-
-        <div
-          className="
-            !w-10
-            !h-px
-            !bg-[#bb8b57]
-            !mb-6
-          "
-        />
-
-        <p className="!text-black/70 !leading-relaxed">
-          We understand your goals and explore opportunities
-          for collaboration.
-        </p>
-
-      </div>
-
-      {/* 02 */}
-      <div>
-
-        <h3
-          className="
-            !font-serif
-            !text-6xl
-            !text-[#bb8b57]
-            !mb-2
-          "
-        >
-          02
-        </h3>
-
-        <h4
-          className="
-            !font-serif
-            !text-4xl
-            !text-[#042147]
-            !mb-4
-          "
-        >
-          Consultation
-        </h4>
-
-        <div
-          className="
-            !w-10
-            !h-px
-            !bg-[#bb8b57]
-            !mb-6
-          "
-        />
-
-        <p className="!text-black/70 !leading-relaxed">
-          A detailed consultation to design the right program
-          for your institution.
-        </p>
-
-      </div>
-
-      {/* 03 */}
-      <div>
-
-        <h3
-          className="
-            !font-serif
-            !text-6xl
-            !text-[#bb8b57]
-            !mb-2
-          "
-        >
-          03
-        </h3>
-
-        <h4
-          className="
-            !font-serif
-            !text-4xl
-            !text-[#042147]
-            !mb-4
-          "
-        >
-          Proposal
-        </h4>
-
-        <div
-          className="
-            !w-10
-            !h-px
-            !bg-[#bb8b57]
-            !mb-6
-          "
-        />
-
-        <p className="!text-black/70 !leading-relaxed">
-          We share a tailored proposal aligned with your
-          vision and objectives.
-        </p>
-
-      </div>
-
-      {/* 04 */}
-      <div>
-
-        <h3
-          className="
-            !font-serif
-            !text-6xl
-            !text-[#bb8b57]
-            !mb-2
-          "
-        >
-          04
-        </h3>
-
-        <h4
-          className="
-            !font-serif
-            !text-4xl
-            !text-[#042147]
-            !mb-4
-          "
-        >
-          Launch
-        </h4>
-
-        <div
-          className="
-            !w-10
-            !h-px
-            !bg-[#bb8b57]
-            !mb-6
-          "
-        />
-
-        <p className="!text-black/70 !leading-relaxed">
-          We work together to implement programs and create
-          lasting impact.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>  
-
-      {/* 
-      
-  {/* CTA */}
-
-<section className="!bg-[#83090e] !text-white !py-32">
-  <div className="!max-w-7xl !mx-auto !px-8">
-
-    <div className="!grid lg:!grid-cols-[420px_1fr] !gap-20">
-
-      {/* LEFT SIDE */}
-      <div>
-        <h2
-          className="
-            !font-serif
-            !text-6xl
-            md:!text-7xl
-            !leading-[0.95]
-            !mb-8
-          "
-        >
-          Let's Build
-          <br />
-          The Future
-          <br />
-          Together.
-        </h2>
-
-        <div
-          className="
-            !w-20
-            !h-[2px]
-            !bg-[#bb8b57]
-            !mb-8
-          "
-        />
-
-        <p
-          className="
-            !text-white/70
-            !max-w-sm
-            !leading-relaxed
-          "
-        >
-          Fill in your details and our team will connect
-          with you to explore partnership opportunities.
-        </p>
-         <img
-        src="/images/smg-mun-logo.png"
-        alt=""
-        className="h-[30vh] !object-cover"
-      />
-      </div>
-
-      {/* RIGHT SIDE */}
-      <form className="!space-y-5" onSubmit={handleSubmit}>
-
-        <div className="!grid md:!grid-cols-2 !gap-4">
-
-          <input
-            placeholder="Institution Name *"
-            required
-            value={formData.institutionName}
-            onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-          <input
-            placeholder="Contact Person *"
-            required
-            value={formData.contactPerson}
-            onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-        </div>
-
-        <div className="!grid md:!grid-cols-2 !gap-4">
-
-          <input
-            placeholder="Phone Number *"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-          <input
-            placeholder="Email Address *"
-            type="email"
-            required
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="
-              !w-full
-              !bg-transparent
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-              !text-white
-              placeholder:!text-white/50
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          />
-
-        </div>
-
-        <div className="!grid md:!grid-cols-1 !gap-4">
-
-          <select
-            value={formData.institutionType}
-            onChange={(e) => setFormData({ ...formData, institutionType: e.target.value })}
-            className="
-              !w-full
-              !bg-black
-              !border
-              !border-white/20
-              !px-5
-              !py-4
-            
-              !text-white
-              focus:!outline-none
-              focus:!border-[#bb8b57]
-            "
-          >
-            <option value="">Institution Type</option>
-            <option value="School">School</option>
-            <option value="College">College</option>
-            <option value="University">University</option>
-            <option value="NGO">NGO</option>
-            <option value="Corporate">Corporate</option>
-          </select>
-
-        </div>
-
-        <textarea
-          rows={5}
-          placeholder="Message"
-          value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="
-            !w-full
-            !bg-transparent
-            !border
-            !border-white/20
-            !px-5
-            !py-4
-            !text-white
-            placeholder:!text-white/50
-            focus:!outline-none
-            focus:!border-[#bb8b57]
-          "
-        />
-
-        {status === "error" && (
-          <div className="text-red-500 text-sm mt-2">{errorMessage}</div>
-        )}
-        {status === "success" && (
-          <div className="text-green-500 text-sm mt-2">Thank you! Your inquiry has been submitted.</div>
-        )}
-
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="
-            !w-full
-            !bg-[#bb8b57]
-            !text-white
-            !uppercase
-            !tracking-[0.2em]
-            !py-5
-            hover:!opacity-90
-            !transition-all
-            hover:!bg-black
-            
-          "
-        >
-          Request Partnership Discussion →
-        </button>
-
-        <p
-          className="
-            !text-center
-            !text-sm
-            !text-white/50
-          "
-        >
-          We respect your privacy. Your information will only
-          be used to respond to your inquiry.
-        </p>
-
-      </form>
-
-    </div>
-  </div>
-</section>
-</main>
-
-      );
-  
-  }
+      </section>
+    </main>
+  );
+}

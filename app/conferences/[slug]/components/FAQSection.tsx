@@ -22,7 +22,21 @@ const FAQS = [
   },
 ];
 
+import { JsonLd } from "@/components/seo/JsonLd";
+
 export default function FAQSection() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

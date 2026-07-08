@@ -15,23 +15,25 @@ import GalleryPageClient from "./components/GalleryPageClient";
 import GalleryCTA from "./components/GalleryCTA";
 
 export const metadata: Metadata = {
-  title: "Gallery — SMJ MUN Conference Archive",
+  title: "Gallery | SMJMUN",
   description:
-    "A visual archive of SMJ MUN conferences — capturing moments of diplomacy, leadership, and global engagement from India's premier Model United Nations platform.",
-  alternates: { canonical: "/gallery" },
+    "A visual archive of SMJMUN conferences — capturing moments of diplomacy, leadership, and global engagement from India's premier Model United Nations platform.",
+  alternates: { canonical: "https://smjmun.com/gallery" },
   openGraph: {
-    title: "Gallery — SMJ MUN Conference Archive",
+    title: "Gallery | SMJMUN",
     description:
-      "Capturing moments of diplomacy, leadership, and global engagement from SMJ MUN conferences.",
+      "Capturing moments of diplomacy, leadership, and global engagement from SMJMUN conferences.",
     type: "website",
-    url: "/gallery",
+    url: "https://smjmun.com/gallery",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SMJ MUN Gallery",
-    description: "A visual archive of SMJ MUN conferences across India and beyond.",
+    title: "Gallery | SMJMUN",
+    description: "Capturing moments of diplomacy, leadership, and global engagement.",
   },
 };
+
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export default async function GalleryPage() {
   const [galleries, featuredGallery] = await Promise.all([
@@ -39,8 +41,28 @@ export default async function GalleryPage() {
     sanityFetch<Gallery | null>({ query: FEATURED_GALLERY_QUERY }),
   ]);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://smjmun.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Gallery",
+        item: "https://smjmun.com/gallery",
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <main>
         {/* 1. Hero */}
         <GalleryHero />

@@ -14,33 +14,54 @@ import DelegateJourney from "./components/DelegateJourney";
 import ConferenceCTA from "./components/ConferenceCTA";
 
 export const metadata: Metadata = {
-  title: "Conferences — SMJ MUN",
+  title: "Conferences | SMJMUN",
   description:
-    "Explore upcoming, live, and past SMJ MUN conferences. Join India's premier platform for diplomacy, leadership, and global engagement.",
-  alternates: { canonical: "/conferences" },
+    "Explore upcoming, live, and past SMJMUN conferences. Join India's premier platform for diplomacy, leadership, and global engagement.",
+  alternates: { canonical: "https://smjmun.com/conferences" },
   openGraph: {
-    title: "Conferences — SMJ MUN",
-    description: "Explore upcoming, live, and past SMJ MUN conferences.",
+    title: "Conferences | SMJMUN",
+    description: "Explore upcoming, live, and past SMJMUN conferences.",
     type: "website",
-    url: "/conferences",
+    url: "https://smjmun.com/conferences",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conferences — SMJ MUN",
-    description: "Explore upcoming, live, and past SMJ MUN conferences.",
+    title: "Conferences | SMJMUN",
+    description: "Explore upcoming, live, and past SMJMUN conferences.",
   },
 };
+
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export default async function ConferencesPage() {
   const conferences = await sanityFetch<Conference[]>({
     query: CONFERENCES_QUERY,
   });
 
-  // Featured conference: The latest upcoming one, or just the first featured one
   const featured = conferences.find(c => c.featured && c.status !== "completed") || conferences.find(c => c.status === "upcoming") || conferences[0];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://smjmun.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Conferences",
+        item: "https://smjmun.com/conferences",
+      },
+    ],
+  };
 
   return (
     <>
+      <JsonLd data={jsonLd} />
       <main className="bg-[#0A0A0A]">
         <ConferenceVideoHero conference={featured} />
         <FeaturedConference conference={featured} />

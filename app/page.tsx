@@ -1,80 +1,76 @@
-'use client'
-import HeroSection from "./components/HeroSection";
-import TrustSection from "./components/TrustSection";
-import AboutWordmark from "./components/AboutWordmark";
-import OurProgramsSection from "./components/OurProgramsSection";
-import ImpactSection from "./components/ImpactSection";
-import EditorialStatement from "./components/EditorialStatement";
-import JournalCinematicSection from "./components/JournalCinematicSection";
-import FounderSection from "./components/FounderSection";
-import GlobalMovementSection from "./components/GlobalMovementSection";
-import InstitutionServices from "./components/InstitutionServices";
-import LeadershipJourney from "./components/LeadershipJourney";
-import ConferencesSection from "./components/ConferencesSection";
-import TestimonialsSection from "./components/TestimonialsSection";
-import MediaSection from "./components/MediaSection";
-import CTASection from "./components/CTASection";
-import Footer from "./components/Footer";
-import MomentsCollage from "./components/MomentCollage";
-import AboutHero from "./components/AboutSection";
+import type { Metadata } from "next";
+import HomeClient from "./components/HomeClient";
+import { JsonLd } from "@/components/seo/JsonLd";
 
+export const metadata: Metadata = {
+  title: "Model United Nations India | SMJMUN",
+  description: "India's premier platform for diplomacy, leadership & global engagement. Join the best Model United Nations conferences.",
+  alternates: {
+    canonical: "https://smjmun.com",
+  },
+  openGraph: {
+    title: "Model United Nations India | SMJMUN",
+    description: "India's premier platform for diplomacy, leadership & global engagement.",
+    url: "https://smjmun.com",
+  },
+};
 
-import { useEffect, useState } from 'react';
-import { IntroLogo } from "@/components/navigation/IntroLogo";
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(false);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "EducationalOrganization"],
+        "@id": "https://smjmun.com/#organization",
+        name: "SMJMUN",
+        url: "https://smjmun.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://smjmun.com/images/smg-mun-logo.png",
+        },
+        sameAs: [
+          "https://instagram.com/smjmun",
+          "https://linkedin.com/company/smjmun",
+          "https://facebook.com/smjmun",
+          "https://youtube.com/@smjmun",
+        ],
+        publisher: {
+          "@id": "https://smjmun.com/#organization",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://smjmun.com/#website",
+        url: "https://smjmun.com",
+        name: "SMJMUN",
+        publisher: {
+          "@id": "https://smjmun.com/#organization",
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://smjmun.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://smjmun.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://smjmun.com/",
+          },
+        ],
+      },
+    ],
+  };
 
-  useEffect(() => {
-    const introShown = sessionStorage.getItem('smjmun-intro');
-
-    if (!introShown) {
-      setShowIntro(true);
-
-      const timer = setTimeout(() => {
-        setShowIntro(false);
-        sessionStorage.setItem('smjmun-intro', 'true');
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
   return (
     <>
-      <main className="bg-[#0A0A0A] relative">
-        {/* Fixed dot grid background for the entire landing page */}
-        <div 
-          className="fixed inset-0 pointer-events-none z-0" 
-          style={{
-            backgroundImage: 'radial-gradient(rgba(187,139,87, 0.15) 1px, transparent 1px)',
-            backgroundSize: '32px 32px'
-          }} 
-        />
-        <div className="relative z-10 flex flex-col">
-          <IntroLogo show={showIntro} />
-        <HeroSection />
-        <AboutWordmark />
-        <AboutHero />
-        <TrustSection />
-        <ImpactSection />
-
-        <OurProgramsSection />
-        {/* <MomentsCollage /> */}
-        {/* <EditorialStatement />
-         */}
-        <GlobalMovementSection />
-
-        <JournalCinematicSection />
-
-        <FounderSection />
-        {/* <InstitutionServices /> */}
-        {/* <LeadershipJourney /> */}
-        {/* <ConferencesSection /> */}
-        {/* <TestimonialsSection /> */}
-        {/* <MediaSection /> */}
-        <CTASection />
-        </div>
-      </main>
-      <Footer />
+      <JsonLd data={jsonLd} />
+      <HomeClient />
     </>
   );
 }

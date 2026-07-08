@@ -75,6 +75,8 @@ export async function generateMetadata({
   };
 }
 
+import { JsonLd } from "@/components/seo/JsonLd";
+
 // ─── Page ──────────────────────────────────────────────────────────
 export default async function ConferenceDetailPage({
   params,
@@ -89,8 +91,63 @@ export default async function ConferenceDetailPage({
 
   if (!conference) notFound();
 
+  const baseUrl = "https://smjmun.com";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Event",
+        name: conference.title,
+        description: conference.seoDescription || "Model United Nations Conference",
+        startDate: conference.date || new Date().toISOString(),
+        endDate: conference.date || new Date().toISOString(),
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: conference.venue || "TBA",
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "IN",
+          },
+        },
+        image: conference.heroImage ? urlFor(conference.heroImage).url() : undefined,
+        url: `${baseUrl}/conferences/${conference.slug.current}`,
+        organizer: {
+          "@type": "Organization",
+          name: "SMJMUN",
+          url: baseUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Conferences",
+            item: `${baseUrl}/conferences`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: conference.title,
+            item: `${baseUrl}/conferences/${conference.slug.current}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <main style={{ backgroundColor: "#0A0A0A", position: "relative" }}>
 
         {/* Hero */}

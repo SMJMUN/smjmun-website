@@ -52,12 +52,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `https://smjmun.com/blog/${slug}` },
     openGraph: {
       title,
       description,
       type: "article",
-      url: `/blog/${slug}`,
+      url: `https://smjmun.com/blog/${slug}`,
       publishedTime: post.publishedAt,
       authors: post.author ? [post.author] : undefined,
       tags: post.tags,
@@ -71,6 +71,8 @@ export async function generateMetadata({
     },
   };
 }
+
+import { JsonLd } from "@/components/seo/JsonLd";
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 export default async function BlogPostPage({
@@ -95,8 +97,63 @@ export default async function BlogPostPage({
     ? urlFor(post.coverImage).width(1400).height(600).quality(85).url()
     : null;
 
+  const baseUrl = "https://smjmun.com";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: post.title,
+        description: post.seoDescription || post.excerpt,
+        image: coverUrl || undefined,
+        datePublished: post.publishedAt,
+        author: post.author
+          ? {
+              "@type": "Person",
+              name: post.author,
+            }
+          : {
+              "@type": "Organization",
+              name: "SMJMUN",
+            },
+        publisher: {
+          "@type": "Organization",
+          name: "SMJMUN",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://smjmun.com/images/smg-mun-logo.png",
+          },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Journal & Insights",
+            item: `${baseUrl}/blog`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `${baseUrl}/blog/${post.slug.current}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <main>
         {/* Section 1: Article Hero */}
         <ArticleHero post={post} />

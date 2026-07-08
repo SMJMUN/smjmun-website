@@ -91,7 +91,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/register/${slug}` },
+    alternates: { canonical: `https://smjmun.com/register/${slug}` },
     robots: { index: false, follow: false },
   };
 }

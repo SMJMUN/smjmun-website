@@ -55,12 +55,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/gallery/${slug}` },
+    alternates: { canonical: `https://smjmun.com/gallery/${slug}` },
     openGraph: {
       title,
       description,
       type: "website",
-      url: `/gallery/${slug}`,
+      url: `https://smjmun.com/gallery/${slug}`,
       ...(imageUrl && { images: [{ url: imageUrl, width: 1200, height: 630 }] }),
     },
     twitter: {
@@ -71,6 +71,8 @@ export async function generateMetadata({
     },
   };
 }
+
+import { JsonLd } from "@/components/seo/JsonLd";
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 export default async function GalleryCollectionPage({
@@ -95,8 +97,46 @@ export default async function GalleryCollectionPage({
 
   const hasImages = gallery.images && gallery.images.length > 0;
 
+  const baseUrl = "https://smjmun.com";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ImageGallery",
+        name: gallery.title,
+        description: gallery.description || `Gallery for ${gallery.title}`,
+        url: `${baseUrl}/gallery/${gallery.slug.current}`,
+        image: gallery.coverImage ? urlFor(gallery.coverImage).url() : undefined,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Gallery",
+            item: `${baseUrl}/gallery`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: gallery.title,
+            item: `${baseUrl}/gallery/${gallery.slug.current}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Header />
       <main>
         {/* 1. Hero — large cover image with key stats */}

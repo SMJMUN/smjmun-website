@@ -7,21 +7,21 @@ import { urlFor } from "@/lib/sanity/image";
 import type { Media } from "@/lib/sanity/types";
 
 export const metadata: Metadata = {
-  title: "Media & Press — SMJ MUN",
+  title: "Media & Press | SMJMUN",
   description:
-    "SMJ MUN in the press. Read media coverage and news articles featuring India's premier Model United Nations platform.",
-  alternates: { canonical: "/media" },
+    "SMJMUN in the press. Read media coverage and news articles featuring India's premier Model United Nations platform.",
+  alternates: { canonical: "https://smjmun.com/media" },
   openGraph: {
-    title: "Media & Press — SMJ MUN",
+    title: "Media & Press | SMJMUN",
     description:
       "Media coverage and press articles featuring India's premier MUN platform.",
     type: "website",
-    url: "/media",
+    url: "https://smjmun.com/media",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Media & Press — SMJ MUN",
-    description: "SMJ MUN in the press — media coverage and news.",
+    title: "Media & Press | SMJMUN",
+    description: "SMJMUN in the press — media coverage and news.",
   },
 };
 

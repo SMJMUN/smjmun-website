@@ -28,8 +28,16 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: import("next").Viewport = {
+  themeColor: "#0A0A0A",
+};
+
 export const metadata: Metadata = {
-  title: "SMJ MUN — Shri Seth Mangilalji Sahu International Model United Nations",
+  metadataBase: new URL("https://smjmun.com"),
+  title: {
+    default: "SMJ MUN — Shri Seth Mangilalji Sahu International Model United Nations",
+    template: "%s | SMJMUN",
+  },
   description:
     "India's premier platform for diplomacy, leadership & global engagement. Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
   keywords: [
@@ -41,11 +49,74 @@ export const metadata: Metadata = {
     "student conferences",
     "international relations",
   ],
+  applicationName: "SMJMUN",
+  creator: "SMJMUN",
+  publisher: "SMJMUN",
+  authors: [{ name: "SMJMUN" }],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-IN": "/",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     title: "SMJMUN — India's Premier Platform for Diplomacy & Leadership",
     description:
       "Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
+    url: "/",
+    siteName: "SMJMUN",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SMJMUN - Model United Nations",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SMJMUN — India's Premier Platform for Diplomacy & Leadership",
+    description:
+      "Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
+    creator: "@smjmun",
+    site: "@smjmun",
+    images: ["/images/og-default.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "placeholder-google-site-verification-id",
+    yandex: "placeholder-yandex-verification-id",
+    yahoo: "placeholder-yahoo-verification-id",
+    other: {
+      me: ["info@smjmun.com"],
+      "msvalidate.01": ["placeholder-bing-verification-id"],
+      "p:domain_verify": ["placeholder-pinterest-verification-id"],
+    },
   },
 };
 

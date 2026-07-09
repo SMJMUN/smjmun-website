@@ -29,4 +29,20 @@ export interface Conference {
   gallery?: SanityImage[];
   seoTitle?: string;
   seoDescription?: string;
+  eligibility?: string;
+  eligibilityRichText?: PortableTextBlock[];
+  dressCode?: string;
+  reportingTime?: string;
+  accommodationAvailable?: boolean;
+  foodProvided?: boolean;
+  transportAvailable?: boolean;
+  parkingAvailable?: boolean;
+  certificateProvided?: boolean;
+  delegateKitIncluded?: boolean;
+  awards?: string[];
+  resources?: any[];
+  refundPolicy?: string;
+  cancellationPolicy?: string;
+  codeOfConduct?: string;
+  contact?: any;
 }

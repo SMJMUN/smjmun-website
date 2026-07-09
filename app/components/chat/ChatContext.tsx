@@ -21,6 +21,7 @@ export function ChatProvider({
   greetingMessage?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [sessionId] = useState(() => Math.random().toString(36).substring(2, 15) + Date.now().toString(36));
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "initial-greeting",
@@ -64,7 +65,7 @@ export function ChatProvider({
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: content }),
+        body: JSON.stringify({ question: content, sessionId }),
       });
 
       const data = await response.json();

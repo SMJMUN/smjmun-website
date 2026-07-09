@@ -16,6 +16,32 @@ export enum Intent {
 export interface RoutedIntent {
   intent: Intent;
   matchedKeywords: string[];
+  entityQuery?: string;
+  retrievalStrategy?: ConferenceRetrievalStrategy;
+  confidence?: number;
+  isFollowUp?: boolean;
+}
+
+export enum ConferenceRetrievalStrategy {
+  SINGLE = "SINGLE",
+  SEARCH = "SEARCH",
+  FEATURED = "FEATURED",
+  UPCOMING = "UPCOMING",
+  ALL = "ALL",
+  BY_CITY = "BY_CITY",
+  BY_VENUE = "BY_VENUE",
+  BY_COMMITTEE = "BY_COMMITTEE",
+  BY_STATUS = "BY_STATUS",
+  COMPARE = "COMPARE",
+}
+
+export interface RetrievalResult<T> {
+  status: "SUCCESS" | "NOT_FOUND" | "AMBIGUOUS";
+  confidence: number;
+  strategy: ConferenceRetrievalStrategy;
+  data: T[];
+  suggestions?: { slug: string; title: string }[];
+  message?: string;
 }
 
 export interface ChatContext {

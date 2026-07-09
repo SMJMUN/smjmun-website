@@ -1,39 +1,8 @@
 import { defineQuery } from "next-sanity";
 
-export const CONFERENCES_QUERY = defineQuery(
-  `*[_type == "conference" && status != "draft"] | order(date desc){
-    _id,
-    _type,
-    title,
-    slug,
-    heroImage,
-    venue,
-    date,
-    registrationFee,
-    capacity,
-    registrationOpen,
-    status,
-    featured
-  }`
-);
-
-export const FEATURED_CONFERENCES_QUERY = defineQuery(
-  `*[_type == "conference" && featured == true && status != "draft"] | order(date desc){
-    _id,
-    _type,
-    title,
-    slug,
-    heroImage,
-    venue,
-    date,
-    registrationFee,
-    status,
-    featured
-  }`
-);
-
-export const CONFERENCE_BY_SLUG_QUERY = defineQuery(
-  `*[_type == "conference" && slug.current == $slug][0]{
+// We keep the old ones for website if needed, but rename them to be explicit, or just update them all
+// Let's create a FULL projection string to reuse
+const FULL_CONFERENCE_PROJECTION = `
     _id,
     _type,
     title,
@@ -52,7 +21,40 @@ export const CONFERENCE_BY_SLUG_QUERY = defineQuery(
     agenda,
     gallery,
     seoTitle,
-    seoDescription
+    seoDescription,
+    eligibility,
+    eligibilityRichText,
+    dressCode,
+    reportingTime,
+    accommodationAvailable,
+    foodProvided,
+    transportAvailable,
+    parkingAvailable,
+    certificateProvided,
+    delegateKitIncluded,
+    awards,
+    resources,
+    refundPolicy,
+    cancellationPolicy,
+    codeOfConduct,
+    contact
+`;
+
+export const CONFERENCES_QUERY = defineQuery(
+  `*[_type == "conference" && status != "draft"] | order(date desc){
+    ${FULL_CONFERENCE_PROJECTION}
+  }`
+);
+
+export const FEATURED_CONFERENCES_QUERY = defineQuery(
+  `*[_type == "conference" && featured == true && status != "draft"] | order(date desc){
+    ${FULL_CONFERENCE_PROJECTION}
+  }`
+);
+
+export const CONFERENCE_BY_SLUG_QUERY = defineQuery(
+  `*[_type == "conference" && slug.current == $slug][0]{
+    ${FULL_CONFERENCE_PROJECTION}
   }`
 );
 
@@ -62,5 +64,23 @@ export const CONFERENCE_BY_ID_QUERY = defineQuery(
     title,
     venue,
     date
+  }`
+);
+
+export const SEARCH_CONFERENCES_QUERY = defineQuery(
+  `*[_type == "conference" && status != "draft"] | order(date desc){
+    ${FULL_CONFERENCE_PROJECTION}
+  }`
+);
+
+export const UPCOMING_CONFERENCES_QUERY = defineQuery(
+  `*[_type == "conference" && status == "upcoming"] | order(date asc){
+    ${FULL_CONFERENCE_PROJECTION}
+  }`
+);
+
+export const FULL_CONFERENCE_QUERY = defineQuery(
+  `*[_type == "conference" && slug.current == $slug][0]{
+    ${FULL_CONFERENCE_PROJECTION}
   }`
 );

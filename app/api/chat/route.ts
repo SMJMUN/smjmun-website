@@ -4,7 +4,7 @@ import { ChatbotService } from "@/lib/chatbot/service";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { question } = body;
+    const { question, sessionId = "default-session" } = body;
 
     if (!question || typeof question !== "string") {
       return NextResponse.json(
@@ -13,8 +13,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Call the deterministic pipeline we built in Phases 1-4
-    const result = await ChatbotService.generateAnswer(question);
+    // Call the deterministic pipeline we built in Phases 1-5
+    const result = await ChatbotService.generateAnswer(question, sessionId);
 
     // Identify which provider is active for analytics
     const provider = process.env.GEMINI_API_KEY ? "gemini" : (process.env.GROQ_API_KEY ? "groq" : "unknown");

@@ -129,7 +129,7 @@ export function ChatToggleButton() {
             className="text-[#BB8B57]"
           /> */}
 
-          Ask SMJ AI
+          Ask SMJMUN AI
         </span>
 
         {/* Premium shine */}

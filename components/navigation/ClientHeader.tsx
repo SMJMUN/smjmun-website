@@ -48,7 +48,7 @@ export function ClientHeader({ navigationData }: ClientHeaderProps) {
   href="/contact"
   aria-label="Contact Us"
   className={cn(
-    "hidden lg:inline-flex rounded-md items-center justify-center p-3 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
+    "hidden lg:inline-flex rounded-md items-center justify-center p-3.5 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
     isScrolled
       ? "bg-primary text-white hover:text-black hover:bg-white hover:-translate-y-0.5 shadow-sm"
       : "bg-white text-primary border border-transparent hover:-translate-y-0.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.05)]"

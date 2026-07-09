@@ -124,10 +124,10 @@ export function ChatToggleButton() {
             text-white
           "
         >
-          <Sparkles
+          {/* <Sparkles
             size={13}
             className="text-[#BB8B57]"
-          />
+          /> */}
 
           Ask SMJ AI
         </span>

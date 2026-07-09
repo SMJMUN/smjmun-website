@@ -151,10 +151,10 @@ export default function RootLayout({
           {/* {children} */}
           <SmoothScroll />
           <ScrollToTop />
-          <FloatingContactWidget/>
+          {/* <FloatingContactWidget/> */}
           <LayoutWrapper header={<Header />}>{children}</LayoutWrapper>
           <GlobalChat />
-          
+
         </div>
         <ServiceWorkerRegister />
       </body>

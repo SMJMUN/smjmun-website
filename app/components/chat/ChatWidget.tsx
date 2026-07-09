@@ -17,7 +17,7 @@ export function ChatWidget() {
       <div
         className={`
           fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[400px] h-[600px] max-h-[calc(100vh-8rem)]
-          bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl z-40
+          bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl z-2000
           flex flex-col overflow-hidden transition-all duration-300 ease-out origin-bottom-right
           ${isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 pointer-events-none translate-y-4"}
         `}

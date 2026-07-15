@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const heroImages = ['/images/ceremony-4.png' ,  '/images/ceremony-2.png', '/images/ceremony-3.png', ];
+const heroImages = ['/images/ceremony-4.png', '/images/ceremony-2.png', '/images/ceremony-3.png',];
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -174,8 +174,8 @@ export default function HeroSection() {
               "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
           }}
         >
-          <Link href="/conferences" className="btn-ds-primary">
-            Register for a Conference
+          <Link href="/about" className="btn-ds-primary">
+            about us
             <ArrowRight size={16} />
           </Link>
 

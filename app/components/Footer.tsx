@@ -33,10 +33,10 @@ const organizationLinks = [
 ];
 
 const socialLinks = [
-  { icon: FaFacebookF, href: "https://facebook.com" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com" },
+  // { icon: FaFacebookF, href: "https://facebook.com" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/theaarushsahu" },
   { icon: FaInstagram, href: "https://www.instagram.com/smjmun" },
-  { icon: FaYoutube, href: "https://youtube.com" },
+  // { icon: FaYoutube, href: "https://youtube.com" },
 ];
 
 function FooterNewsletterForm() {

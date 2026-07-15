@@ -156,7 +156,7 @@ export default function FounderSection() {
 
             {/* Bio (Progress range: 0.0 to 0.6) */}
             <AnimatedParagraph
-              text="Aarushh Sahu founded SMJMUN with a single conviction: that world-class diplomatic education should not be the privilege of a few schools in a few cities. What began as one conference has grown into a national platform — 11,000+ delegates trained, 70+ national conferences delivered, 100+ institutional partners. As a delegate, he won 55+ Best Delegate awards and chaired 50+ committees across national and international circuits; as a founder, he builds the rooms he once competed in."
+              text="Aarushh Sahu founded SMJMUN with a single conviction: that world-class diplomatic education should not be the privilege of a few schools in a few cities. What began as one conference has grown into a national platform — 11,000+ delegates trained, 70+ national conferences delivered, 10+ institutional partners. As a delegate, he won 55+ Best Delegate awards and chaired 50+ committees across national and international circuits; as a founder, he builds the rooms he once competed in."
               progress={maxProgress}
               range={[0.0, 0.55]}
               className="mb-10 leading-[1.8]"

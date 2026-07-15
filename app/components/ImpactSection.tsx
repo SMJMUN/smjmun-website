@@ -32,8 +32,11 @@ function AnimatedNumber({ target, suffix, triggered }: { target: number; suffix:
 
 const stats = [
   { value: 11000, suffix: '+', label: 'Delegates Trained' },
-  { value: 70,    suffix: '+', label: 'National Conferences' },
-  { value: 100,   suffix: '+', label: 'Institutional Collaborations' },
+  { value: 70, suffix: '+', label: 'National Conferences' },
+  { value: 10, suffix: '+', label: 'Institutional Collaborations' },
+  { value: 5, suffix: '+', label: 'Countries' },
+  { value: 20, suffix: '+', label: 'States' },
+  { value: 60, suffix: '+', label: 'Cities' },
 ];
 
 export default function ImpactSection() {

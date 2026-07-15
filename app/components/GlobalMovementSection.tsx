@@ -9,7 +9,7 @@ export default function GlobalMovementSection() {
       {/* Noise texture */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        // style={{ backgroundImage: "url('/images/noise.png')" }}
+      // style={{ backgroundImage: "url('/images/noise.png')" }}
       />
 
       {/* Gold glow — right side */}
@@ -40,7 +40,7 @@ export default function GlobalMovementSection() {
             style={{ fontSize: 'clamp(22px, 6vw, 30px)', fontWeight: 700, letterSpacing: '-0.02em' }}
           >
             One platform. 70+ cities.{' '}
-            <span className="text-[#BB8B57]">20+ countries.</span>
+            <span className="text-[#BB8B57]">5+ countries.</span>
           </motion.h2>
 
           {/* Stats row */}
@@ -50,7 +50,7 @@ export default function GlobalMovementSection() {
               <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Delegates</p>
             </div>
             <div>
-              <p className="font-serif text-[#BB8B57] text-2xl font-bold leading-none">20+</p>
+              <p className="font-serif text-[#BB8B57] text-2xl font-bold leading-none">5+</p>
               <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Countries</p>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function GlobalMovementSection() {
               <br />
               70+ cities.
               <br />
-              20+ countries.
+              5+ countries.
             </motion.h2>
 
             <motion.p
@@ -143,7 +143,7 @@ export default function GlobalMovementSection() {
                   className="font-serif text-[#BB8B57]"
                   style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
-                  20+
+                  5+
                 </p>
                 <p
                   className="mt-2 text-[#7A7A7A] text-sm"

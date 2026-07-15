@@ -40,7 +40,7 @@ const sectionsData: EditorialSectionData[] = [
     title: "College Partnerships",
     description: "We work alongside universities and student societies to strengthen existing MUN communities, establish new initiatives and mentor executive boards. Our focus is not simply on organising conferences but on helping institutions cultivate confident, responsible student leaders.",
     image: "/images/program-image-2.png",
-    cta: { label: "Learn More", href: "/programs/collage-mun-association" },
+    cta: { label: "Learn More", href: "/programs/college-mun-association" },
   },
   // {
   //   title: "Educational Organisations",
@@ -160,7 +160,7 @@ export default function PartnershipsPage() {
       </div>
 
       {/* Timeline */}
-      {/* <Timeline data={timelineData} /> */}
+      <Timeline data={timelineData} />
 
       {/* CTA / Contact Form Section */}
       <section id="contact-form" className="bg-black text-white py-32">

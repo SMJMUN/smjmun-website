@@ -4,13 +4,13 @@ export const collegeMunProgram: ProgramData = {
   slug: "college-mun-association",
 
   meta: {
-    title: "College & University Association Program — SMJMUN",
+    title: "College & University Association Programme — SMJMUN",
     description:
-      "Transforming students into confident communicators, thinkers, and leaders through a 5-day experiential learning program combining training and an international-standard conference.",
+      "Transforming students into confident communicators, thinkers, and leaders through a 5-day experiential learning programme combining training and an international-standard conference.",
   },
 
   hero: {
-    badge: "College & University Association Program",
+    badge: "College & University Association Programme",
     heading: "Transforming Students into Confident Communicators, Thinkers, and Leaders.",
     description:
       "Designed for institutions seeking to provide students with meaningful experiential learning opportunities beyond traditional academic frameworks.",
@@ -30,7 +30,7 @@ export const collegeMunProgram: ProgramData = {
     label: "Beyond the Classroom",
     heading:
       "Whether Pursuing Management, Law, Engineering, or Any Discipline — Students Benefit Immensely from the Ability to Communicate Effectively.",
-    body: "The SMJMUN College & University Association Program is designed for institutions that seek to provide students with meaningful experiential learning opportunities beyond traditional academic frameworks. Through a combination of professional training and an international-standard conference experience, students develop the communication, analytical, negotiation, leadership, and problem-solving skills required in today's interconnected world.\n\nWhether pursuing Management, Law, Engineering, Medicine, Commerce, Humanities, Science, or any other discipline, students benefit immensely from the ability to communicate effectively, engage with diverse perspectives, and contribute constructively to complex discussions.",
+    body: "The SMJMUN College & University Association Programme is designed for institutions that seek to provide students with meaningful experiential learning opportunities beyond traditional academic frameworks. Through a combination of professional training and an international-standard conference experience, students develop the communication, analytical, negotiation, leadership, and problem-solving skills required in today's interconnected world.\n\nWhether pursuing Management, Law, Engineering, Medicine, Commerce, Humanities, Science, or any other discipline, students benefit immensely from the ability to communicate effectively, engage with diverse perspectives, and contribute constructively to complex discussions.",
   },
 
   sections: [
@@ -151,10 +151,10 @@ export const collegeMunProgram: ProgramData = {
   },
 
   stats: [
-    { value: 11000, suffix: "+", label: "College Delegates" },
-    { value: 50, suffix: "+", label: "Partner Institutions" },
-    { value: 20, suffix: "+", label: "Cities" },
-    { value: 10, suffix: "+", label: "Years" },
+    { value: 11000, suffix: "+", label: "Delegates Trained" },
+    { value: 10, suffix: "+", label: "Partner Institutions" },
+    { value: 40, suffix: "+", label: "Cities" },
+    { value: 5, suffix: "+", label: "Years" },
   ],
 
   gallery: {
@@ -246,21 +246,21 @@ export const collegeMunProgram: ProgramData = {
 
   related: [
     {
-      title: "School Association Program",
+      title: "School Association Programme",
       slug: "school-mun-association",
       image: "/images/hero-1.png",
       description:
         "Bringing international-standard MUN experiences to school campuses across India.",
     },
     {
-      title: "Training Programs",
+      title: "Training Programmes",
       slug: "training-cell",
       image: "/images/student-training.jpeg",
       description:
         "Structured delegate preparation and executive board development programs.",
     },
     {
-      title: "Partnership Program",
+      title: "Partnership Programme",
       slug: "partnership-program",
       image: "/images/partnerships-image.png",
       description:

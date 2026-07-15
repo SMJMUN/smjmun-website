@@ -91,11 +91,11 @@ export default function JournalCinematicSection() {
               marginBottom: 24,
             }}
           >
-            Every story
+            The conversation
             <br />
-            deserves
+            continues after
             <br />
-            to be shared.
+            the closing gavel.
           </h2>
 
           {/* Gold rule */}
@@ -112,9 +112,9 @@ export default function JournalCinematicSection() {
               marginBottom: 32,
             }}
           >
-            Read the ideas, experiences &amp; perspectives
+            Ideas, arguments, and perspectives
             <br className="hidden md:block" />
-            that continue long after the closing gavel.
+            from the SMJMUN community.
           </p>
 
           {/* CTA */}

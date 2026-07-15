@@ -152,8 +152,8 @@ export const schoolMunProgram: ProgramData = {
 
   stats: [
     { value: 11000, suffix: "+", label: "Delegates Trained" },
-    { value: 150, suffix: "+", label: "Partner Schools" },
-    { value: 30, suffix: "+", label: "Cities Reached" },
+    { value: 10, suffix: "+", label: "Partner Schools" },
+    { value: 70, suffix: "+", label: "Cities Reached" },
     { value: 5, suffix: "+", label: "Years of Impact" },
   ],
 
@@ -259,21 +259,21 @@ export const schoolMunProgram: ProgramData = {
 
   related: [
     {
-      title: "College & University Program",
+      title: "College & University Programme",
       slug: "college-mun-association",
       image: "/images/hero-2.png",
       description:
         "Transforming students into confident communicators, thinkers, and leaders through experiential learning.",
     },
     {
-      title: "Training Programs",
+      title: "Training Programmes",
       slug: "training-cell",
       image: "/images/student-training.jpeg",
       description:
         "Structured delegate preparation and executive board development for institutions and students.",
     },
     {
-      title: "Partnership Program",
+      title: "Partnership Programme",
       slug: "partnership-program",
       image: "/images/partnerships-image.png",
       description:

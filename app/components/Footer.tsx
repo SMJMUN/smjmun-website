@@ -19,14 +19,14 @@ const conferenceLinks = [
 
 const delegateLinks = [
   // { label: "Registration", href: "/conferences" },
-  { label: "delegate", href: "/programs/training-cell" },
-  { label: "school", href: "/programs/school-mun-association" },
-  { label: "collage ", href: "/programs/collage-mun-association" },
+  { label: "Delegate Training", href: "/programs/training-cell" },
+  { label: "School MUN Association", href: "/programs/school-mun-association" },
+  { label: "College MUN Association", href: "/programs/college-mun-association" },
   // { label: "Resources",      href: "/resources"   },
 ];
 
 const organizationLinks = [
-  { label: "About SMJ MUN", href: "/about" },
+  { label: "About SMJMUN", href: "/about" },
   { label: "Partners", href: "/partnerships" },
   { label: "Sponsors", href: "/partnerships" },
   { label: "Contact", href: "/contact" },
@@ -361,7 +361,7 @@ export default function Footer() {
             className="text-center text-sm text-[#7A7A7A]"
             style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
           >
-            © 2026 SMJMUN. All Rights Reserved.
+            © {new Date().getFullYear()} SMJMUN. All Rights Reserved.
           </p>
         </div>
 

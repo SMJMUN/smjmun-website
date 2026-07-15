@@ -4,13 +4,13 @@ export const trainingCellProgram: ProgramData = {
   slug: "training-cell",
 
   meta: {
-    title: "Training Programs — SMJMUN",
+    title: "Training Programmes — SMJMUN",
     description:
-      "Building exceptional delegates and future committee leaders through structured delegate preparation and executive board development programs.",
+      "Building exceptional delegates and future committee leaders through structured delegate preparation and executive board development programmes.",
   },
 
   hero: {
-    badge: "Training Programs",
+    badge: "Training Programmes",
     heading: "Building Exceptional Delegates and Future Committee Leaders.",
     description:
       "Structured preparation for institutions and students seeking to excel in Model United Nations — whether preparing first-time delegates or developing future Executive Board members.",
@@ -29,7 +29,7 @@ export const trainingCellProgram: ProgramData = {
     label: "The SMJMUN Difference",
     heading:
       "Communication Must Be Supported by Knowledge. Leadership Must Be Guided by Responsibility. Confidence Must Be Rooted in Character.",
-    body: "SMJMUN's training programs are designed for institutions and students seeking structured preparation before participating in Model United Nations conferences. Whether preparing first-time delegates or developing future Executive Board members, our programs provide practical knowledge, confidence, and leadership development through expert-led sessions. All training programs are conducted by experienced MUN professionals and may be delivered independently or alongside conference partnerships.\n\nAt SMJMUN, training extends beyond procedures and technical knowledge. We believe that the world is not handed to you complete — it is handed to you in progress. Our role is to help students develop the skills, perspective, and confidence required to contribute meaningfully to that world.",
+    body: "SMJMUN's training programmes are designed for institutions and students seeking structured preparation before participating in Model United Nations conferences. Whether preparing first-time delegates or developing future Executive Board members, our programmes provide practical knowledge, confidence, and leadership development through expert-led sessions. All training programmes are conducted by experienced MUN professionals and may be delivered independently or alongside conference partnerships.\n\nAt SMJMUN, training extends beyond procedures and technical knowledge. We believe that the world is not handed to you complete — it is handed to you in progress. Our role is to help students develop the skills, perspective, and confidence required to contribute meaningfully to that world.",
   },
 
   sections: [
@@ -54,7 +54,7 @@ export const trainingCellProgram: ProgramData = {
     {
       title: "Flexible Training Options",
       description:
-        "Institutions may choose from multiple formats tailored to their specific needs — the Delegate Excellence Program, Executive Board Development Program, combined training programs, customised institutional workshops, and online or offline delivery options. Whether you need a single focused session or a comprehensive multi-day program, SMJMUN adapts to your institution's requirements, schedule, and student demographics.",
+        "Institutions may choose from multiple formats tailored to their specific needs — the Delegate Excellence Programme, Executive Board Development Programme, combined training programmes, customised institutional workshops, and online or offline delivery options. Whether you need a single focused session or a comprehensive multi-day programme, SMJMUN adapts to your institution's requirements, schedule, and student demographics.",
       image: "/images/SHCOOL-PHOTO.png",
       imageAlt: "Customised training workshop",
       badge: "Custom Programs",
@@ -66,10 +66,10 @@ export const trainingCellProgram: ProgramData = {
   ],
 
   timeline: {
-    label: "Delegate Excellence Program",
+    label: "Delegate Excellence Programme",
     title: "Learn How to Participate with Confidence",
     subtitle:
-      "A two-day structured program covering everything a delegate needs to know.",
+      "A two-day structured programme covering everything a delegate needs to know.",
     steps: [
       {
         number: "01",
@@ -108,7 +108,7 @@ export const trainingCellProgram: ProgramData = {
     label: "What Students Learn",
     title: "Skills That Last a Lifetime",
     subtitle:
-      "Our training programs build capabilities that extend far beyond Model United Nations.",
+      "Our training programmes build capabilities that extend far beyond Model United Nations.",
     items: [
       {
         icon: "Mic2",
@@ -152,8 +152,8 @@ export const trainingCellProgram: ProgramData = {
   stats: [
     { value: 11000, suffix: "+", label: "Delegates Trained" },
     { value: 200, suffix: "+", label: "Training Sessions" },
-    { value: 150, suffix: "+", label: "Institutions" },
-    { value: 30, suffix: "+", label: "Cities" },
+    { value: 10, suffix: "+", label: "Institutions" },
+    { value: 40, suffix: "+", label: "Cities" },
   ],
 
   gallery: {
@@ -230,21 +230,21 @@ export const trainingCellProgram: ProgramData = {
 
   related: [
     {
-      title: "School Association Program",
+      title: "School Association Programme",
       slug: "school-mun-association",
       image: "/images/hero-1.png",
       description:
         "Bringing international-standard MUN experiences to school campuses across India.",
     },
     {
-      title: "College & University Program",
+      title: "College & University Programme",
       slug: "college-mun-association",
       image: "/images/hero-2.png",
       description:
         "Transforming students into confident communicators, thinkers, and leaders.",
     },
     {
-      title: "Partnership Program",
+      title: "Partnership Programme",
       slug: "partnership-program",
       image: "/images/partnerships-image.png",
       description:

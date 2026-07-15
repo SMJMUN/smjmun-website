@@ -40,7 +40,7 @@ export default function AboutHero() {
             transition={{ duration: 0.9 }}
             className="font-serif text-3xl font-semibold leading-tight text-white md:text-5xl"
           >
-            We are SMJMUN
+            MUN teaches you how to speak.<br/> We exist to give you something worth saying.
           </motion.h2>
 
           {/* Description */}
@@ -51,11 +51,7 @@ export default function AboutHero() {
             className="mt-10 border-l-2 border-[#BB8B57] pl-6"
           >
             <p className="max-w-xl text-lg leading-8 text-[#B8B8B8]">
-              Since 2023, SMJMUN has empowered
-              thousands of students through
-              Model United Nations conferences,
-              leadership programs and global
-              engagement initiatives.
+              Since 2023, SMJMUN has trained thousands of delegates through conferences, institutional programmes, and leadership training — building not just confident speakers, but thoughtful, responsible young leaders.
             </p>
           </motion.div>
         </div>

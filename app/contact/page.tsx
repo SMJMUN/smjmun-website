@@ -410,42 +410,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Institution Address ──────────────────────────────────────────── */}
-      <section className="pb-28 px-6 md:px-10">
-        <motion.a
-          href={MAPS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ y: -4 }}
-          className="group max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 rounded-[28px] bg-[#101010] p-10 md:p-12 border border-transparent hover:border-white/10 transition-all duration-500"
-        >
-          <div className="flex items-start gap-5">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 bg-[#BB8B57]/14">
-              <MapPin className="w-6 h-6 text-[#BB8B57]" strokeWidth={1.6} />
-            </div>
-            <div>
-              <Eyebrow>Office</Eyebrow>
-              <p className="font-serif text-white font-semibold mt-3" style={{ fontSize: '22px' }}>
-                {ADDRESS_LINE_1}
-              </p>
-              <p className="text-[#7A7A7A] mt-1" style={{ fontSize: '15px', ...BODY_FONT }}>
-                {ADDRESS_LINE_2}
-              </p>
-            </div>
-          </div>
-          <span
-            className="flex items-center gap-2 text-sm font-medium shrink-0 text-[#BB8B57] group-hover:gap-3 transition-all duration-300"
-            style={BODY_FONT}
-          >
-            Open in Google Maps
-            <ArrowRight className="w-4 h-4" strokeWidth={2} />
-          </span>
-        </motion.a>
-      </section>
 
       {/* ── WhatsApp Hero CTA ─────────────────────────────────────────────── */}
       <section className="pb-28 px-6 md:px-10">

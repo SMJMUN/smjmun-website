@@ -37,15 +37,15 @@ export const viewport: import("next").Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://smjmun.com"),
   title: {
-    default: "SMJ MUN — Shri Seth Mangilalji Sahu International Model United Nations",
+    default: "SMJMUN — Shri Seth Mangilalji Sahu International Model United Nations",
     template: "%s | SMJMUN",
   },
   description:
-    "India's premier platform for diplomacy, leadership & global engagement. Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
+    "India's fastest-growing platform for diplomacy, leadership & global engagement. Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
   keywords: [
     "Model United Nations",
     "MUN India",
-    "SMJ MUN",
+    "SMJMUN",
     "diplomacy",
     "leadership",
     "student conferences",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "SMJMUN — India's Premier Platform for Diplomacy & Leadership",
+    title: "SMJMUN — India's Fastest-Growing Platform for Diplomacy & Leadership",
     description:
       "Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
     url: "/",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SMJMUN — India's Premier Platform for Diplomacy & Leadership",
+    title: "SMJMUN — India's Fastest-Growing Platform for Diplomacy & Leadership",
     description:
       "Partnering with leading educational institutions to build future diplomats, negotiators & global leaders.",
     creator: "@smjmun",

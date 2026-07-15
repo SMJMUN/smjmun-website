@@ -150,6 +150,16 @@ export default function HeroSection() {
           </motion.span>
         </motion.h1>
 
+        {/* Supporting Line */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white/80 text-lg md:text-xl mt-6 max-w-2xl"
+        >
+          SMJMUN — where India's students learn to think, speak, and lead on the world's stage.
+        </motion.p>
+
         {/* CTA Buttons */}
         <div
           className="hero-cta-tablet-sm"
@@ -164,15 +174,15 @@ export default function HeroSection() {
               "fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards",
           }}
         >
-          <Link href="/about" className="btn-ds-secondary">
-            About Us
+          <Link href="/conferences" className="btn-ds-primary">
+            Register for a Conference
             <ArrowRight size={16} />
           </Link>
 
-          <a href="#programs" className="btn-ds-secondary">
-            Explore Programs
+          <Link href="/partnerships" className="btn-ds-secondary">
+            Partner With Us
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
 

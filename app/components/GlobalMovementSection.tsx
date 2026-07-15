@@ -39,8 +39,8 @@ export default function GlobalMovementSection() {
             className="font-serif text-white leading-tight"
             style={{ fontSize: 'clamp(22px, 6vw, 30px)', fontWeight: 700, letterSpacing: '-0.02em' }}
           >
-            Connecting young minds.{' '}
-            <span className="text-[#BB8B57]">Inspiring dialogue.</span>
+            One platform. 70+ cities.{' '}
+            <span className="text-[#BB8B57]">20+ countries.</span>
           </motion.h2>
 
           {/* Stats row */}
@@ -97,11 +97,11 @@ export default function GlobalMovementSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Connecting young minds.
+              One platform.
               <br />
-              Inspiring dialogue.
+              70+ cities.
               <br />
-              Creating global impact.
+              20+ countries.
             </motion.h2>
 
             <motion.p
@@ -112,8 +112,7 @@ export default function GlobalMovementSection() {
               className="mt-4 text-[#B8B8B8] text-sm leading-relaxed"
               style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
             >
-              Our reach extends beyond borders, bringing together future leaders
-              from across continents.
+              SMJMUN connects young leaders across borders — and brings the world into every committee room.
             </motion.p>
 
             <motion.div whileHover={{ x: 4 }} className="mt-5">

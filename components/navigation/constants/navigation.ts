@@ -6,6 +6,7 @@ export type NavigationItemType = {
 
 export const MAIN_NAVIGATION: NavigationItemType[] = [
   { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   // Conferences and Programs are dropdowns, handled separately in the UI, but here are their base paths
   { label: 'Conferences', href: '/conferences' },
   { label: 'Programs', href: '/programs' }, // The route itself might not exist, but it's a structural item

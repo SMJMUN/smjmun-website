@@ -175,7 +175,7 @@ export default function HeroSection() {
           }}
         >
           <Link href="/about" className="btn-ds-primary">
-            about us
+            About us
             <ArrowRight size={16} />
           </Link>
 

@@ -16,31 +16,31 @@ export function Logo({ isScrolled }: LogoProps) {
   return (
     <Link
       href="/"
-      className="flex items-center  group relative z-50"
+      className="flex items-center gap-3 md:gap-4 group relative z-50"
       onClick={scrollToHero}
     >
       {/* Logo */}
       <motion.div
         layoutId="smjmun-logo"
         animate={{
-          width: isScrolled ? 100 : 200,
-          height: isScrolled ? 100 : 200,
-          // backgroundColor: isScrolled ? 'transparent' : 'transparent',
-          // padding: isScrolled ? 4 : 0,
+          width: isScrolled ? 48 : 99,
+          height: isScrolled ? 48 : 99,
+          backgroundColor: isScrolled ? '#ffffff' : 'transparent',
+          padding: isScrolled ? 4 : 0,
         }}
         transition={{
           duration: 1,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="relative shrink-0  overflow-hidden"
+        className="relative shrink-0 rounded-full overflow-hidden"
       >
         <Image
-          src="/images/logo-10.png"
+          src="/images/smg-mun-logo.png"
           alt="SMG MUN Logo"
           fill
           sizes="(max-width: 768px) 120px, 180px"
 
-          className="object-contain  rounded-full"
+          className="object-contain rounded-full"
           priority
         />
       </motion.div>

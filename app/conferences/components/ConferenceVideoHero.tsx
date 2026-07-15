@@ -11,17 +11,22 @@ export default function ConferenceVideoHero({ conference }: { conference?: Confe
     : null;
 return (
   <section className="relative h-screen min-h-[700px] overflow-hidden" style={{ backgroundColor: 'var(--ds-bg-primary)' }}>
-    {/* Video */}
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      className="absolute inset-0 h-full w-full object-cover scale-[1.02]"
-    >
-      <source src="/conf-hero-vid.mp4" type="video/mp4" />
-    </video>
+    {/* Background Image */}
+    {bgUrl ? (
+      <Image
+        src={bgUrl}
+        alt={conference?.title || "Conference"}
+        fill
+        priority
+        unoptimized
+        className="object-cover scale-[1.02]"
+      />
+    ) : (
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(135deg, #111111, rgba(187,139,87,0.06))' }}
+      />
+    )}
 
     {/* Dark Editorial Overlay */}
     <div

@@ -105,6 +105,13 @@ export default async function ConferenceDetailPage({
           name: "SMJMUN",
           url: baseUrl,
         },
+        offers: {
+          "@type": "Offer",
+          url: `${baseUrl}/conferences/${conference.slug.current}#register`,
+          price: "0",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        },
       },
       {
         "@type": "BreadcrumbList",

@@ -42,12 +42,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `https://smjmun.com/blog/${slug}` },
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title,
       description,
       type: "article",
-      url: `https://smjmun.com/blog/${slug}`,
+      url: `/blog/${slug}`,
       publishedTime: post.publishedAt,
       authors: post.author ? [post.author] : undefined,
       tags: post.tags,

@@ -248,7 +248,7 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="flex justify-center mt-10">
-            <Image src="/images/smg-mun-logo.webp" alt="SMJMUN" className="w-20 opacity-60"  width={80} height={80} />
+            <Image src="/images/SMJMUNLOGOFILE.png" alt="SMJMUN" className="w-20 "  width={80} height={80} />
           </div>
         </div>
 

@@ -18,16 +18,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
 
   // Static routes
+  const staticDate = new Date("2025-01-01T00:00:00Z");
   const staticRoutes = [
-    { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 1.0 },
-    { url: `${baseUrl}/conferences`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${baseUrl}/programs`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/gallery`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/media`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.6 },
-    { url: `${baseUrl}/partnerships`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
+    { url: `${baseUrl}`, lastModified: staticDate, changeFrequency: "daily" as const, priority: 1.0 },
+    { url: `${baseUrl}/conferences`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${baseUrl}/programs`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/blog`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/gallery`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.7 },
+    { url: `${baseUrl}/about`, lastModified: staticDate, changeFrequency: "monthly" as const, priority: 0.6 },
+    { url: `${baseUrl}/media`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.6 },
+    { url: `${baseUrl}/partnerships`, lastModified: staticDate, changeFrequency: "monthly" as const, priority: 0.6 },
+    { url: `${baseUrl}/contact`, lastModified: staticDate, changeFrequency: "monthly" as const, priority: 0.5 },
   ];
 
   // Dynamic routes

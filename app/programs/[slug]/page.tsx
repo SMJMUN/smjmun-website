@@ -20,12 +20,12 @@ export async function generateMetadata({
   return {
     title: program.meta.title,
     description: program.meta.description,
-    alternates: { canonical: `https://smjmun.com/programs/${slug}` },
+    alternates: { canonical: `/programs/${slug}` },
     openGraph: {
       title: program.meta.title,
       description: program.meta.description,
       type: "website",
-      url: `https://smjmun.com/programs/${slug}`,
+      url: `/programs/${slug}`,
     },
   };
 }

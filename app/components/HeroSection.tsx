@@ -36,7 +36,7 @@ const HeroSlider = () => {
         >
           <Image
             src={src}
-            alt={`Hero background ${index + 1}`}
+            alt={`Students participating in SMJMUN diplomatic conference - moment ${index + 1}`}
             fill
             priority={index === 0}
             sizes="100vw"

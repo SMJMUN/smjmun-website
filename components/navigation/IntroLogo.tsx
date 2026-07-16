@@ -187,7 +187,7 @@ export function IntroLogo({ show }: IntroLogoProps) {
   md:w-[65vh]  "
                         >
                             <Image
-                                src="/images/smg-mun-logo.png"
+                                src="/images/SMJMUNLOGOFILE.png"
                                 alt="SMJMUN"
                                 fill
                                 priority

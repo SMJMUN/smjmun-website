@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function JournalCinematicSection() {
   return (
-    <section id="journal-cinematic" aria-label="SMJ MUN Journal" className="py-16 md:py-24 px-4 md:px-6 journal-section-tablet">
+    <section id="journal-cinematic" className="py-16 md:py-24 px-4 md:px-6 journal-section-tablet">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

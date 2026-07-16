@@ -4,7 +4,7 @@ const CACHE_NAME = 'smjmun-cache-v1';
 const urlsToCache = [
   '/',
   '/site.webmanifest',
-  '/images/smg-mun-logo.png'
+  '/images/SMJMUNLOGOFILE.png'
 ];
 
 self.addEventListener('install', (event) => {

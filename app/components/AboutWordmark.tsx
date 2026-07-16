@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 
 // ─── SMJ: people, delegates, community ──────────────────────────────────────
 const SMJ_IMAGES = [
-  '/images/community.jpeg',
-  '/images/smj-hero-6.jpeg',
+  '/images/community.webp',
+  '/images/smj-hero-6.webp',
   '/images/community-2.jpeg',
   '/images/smj-hero-9.jpeg',
 ];
@@ -40,7 +40,6 @@ function SMJLetters() {
         WebkitTextFillColor: 'transparent',
         overflow: 'visible',
       }}
-      aria-label="SMJ"
     >
       {/* Stack all images; only active one is visible */}
       {SMJ_IMAGES.map((src, i) => (

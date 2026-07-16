@@ -18,7 +18,7 @@ const BG_IMAGES = [
   "/images/ceremony-2.webp",
   "/images/ceremony-3.webp",
   "/images/ceremony-4.webp",
-  "/images/community.jpeg",
+  "/images/community.webp",
 ];
 
 const CARD_IMAGES = [

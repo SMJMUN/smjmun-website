@@ -250,7 +250,9 @@ export default function CTASection() {
 
                 {/* Inquiry type select */}
                 <div className="relative">
+                  <label htmlFor="subject" className="sr-only">Inquiry Type</label>
                   <select
+                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}

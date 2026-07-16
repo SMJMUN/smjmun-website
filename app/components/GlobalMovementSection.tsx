@@ -1,7 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import NetworkMap from './NetworkMap';
+import dynamic from 'next/dynamic';
+
+const NetworkMap = dynamic(() => import('./NetworkMap'), { ssr: false });
 
 export default function GlobalMovementSection() {
   return (

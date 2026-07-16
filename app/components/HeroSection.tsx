@@ -39,7 +39,8 @@ const HeroSlider = () => {
             alt={`Students participating in SMJMUN diplomatic conference - moment ${index + 1}`}
             fill
             priority={index === 0}
-            sizes="100vw"
+            fetchPriority={index === 0 ? "high" : "auto"}
+            sizes="(max-width: 768px) 100vw, 100vw"
             quality={85}
             style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
@@ -155,8 +156,8 @@ export default function HeroSection() {
           "
         >
           <motion.span
-            initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 1, x: -80, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
@@ -167,9 +168,9 @@ export default function HeroSection() {
           </motion.span>
 
           <motion.span
-            initial={{ opacity: 0, x: -80 }}
+            initial={{ opacity: 1, x: -80, filter: "blur(10px)" }}
             animate={{
-              opacity: 1, x: 0, textShadow: [
+              opacity: 1, x: 0, filter: "blur(0px)", textShadow: [
                 '0 0 0px rgba(187,139,87,0)',
                 '0 0 20px rgba(187,139,87,.35)',
                 '0 0 0px rgba(187,139,87,0)',
@@ -186,8 +187,8 @@ export default function HeroSection() {
           </motion.span>
 
           <motion.span
-            initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 1, x: -80, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{
               duration: 0.8,
               delay: 0.4,
@@ -201,8 +202,8 @@ export default function HeroSection() {
 
         {/* Supporting Line */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 1, y: 20, filter: "blur(5px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-white/80 text-lg md:text-xl mt-6 max-w-2xl"
         >

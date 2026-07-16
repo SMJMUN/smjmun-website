@@ -70,7 +70,7 @@ const PROGRAMS = [
       `The SMJMUN Community is a growing network of delegates, chairs, organizers, educators, and alumni united by a shared passion for diplomacy, leadership, and lifelong learning.`,
       `What begins as participation in a conference often evolves into lasting relationships, mentorship opportunities, and collaborative initiatives that continue well beyond the committee room.`,
     ],
-    image: '/images/community.jpeg',
+    image: '/images/community.webp',
     href: '/conferences',
   },
 ];
@@ -270,7 +270,7 @@ export default function OurProgramsSection() {
 
                 {/* CTA */}
                 <Link href={active.href} className="btn-ds-secondary mt-10">
-                  <span>Read More</span>
+                  <span>Read more about {active.heading}</span>
                   <ArrowRight size={15} />
                 </Link>
               </div>
@@ -376,7 +376,7 @@ export default function OurProgramsSection() {
                   {active.body[0]}
                 </p>
                 <Link href={active.href} className="btn-ds-secondary inline-flex" style={{ fontSize: '12px', padding: '10px 20px' }}>
-                  Read More
+                  Read more about {active.heading}
                   <ArrowRight size={13} />
                 </Link>
               </div>

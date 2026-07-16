@@ -184,7 +184,7 @@ export const trainingCellProgram: ProgramData = {
         aspect: "normal",
       },
       {
-        src: "/images/community.jpeg",
+        src: "/images/community.webp",
         alt: "SMJMUN training community",
         aspect: "normal",
       },

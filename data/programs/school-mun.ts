@@ -185,7 +185,7 @@ export const schoolMunProgram: ProgramData = {
         aspect: "normal",
       },
       {
-        src: "/images/community.jpeg",
+        src: "/images/community.webp",
         alt: "SMJMUN community gathering",
         aspect: "normal",
       },

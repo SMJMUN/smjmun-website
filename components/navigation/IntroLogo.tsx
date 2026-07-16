@@ -35,7 +35,7 @@ export function IntroLogo({ show }: IntroLogoProps) {
                             duration: 1,
                             ease: [0.22, 1, 0.36, 1],
                         }}
-     className="
+                        className="
   absolute
 
   top-[58%]
@@ -75,7 +75,7 @@ export function IntroLogo({ show }: IntroLogoProps) {
                             duration: 1,
                             ease: [0.22, 1, 0.36, 1],
                         }}
-               className="
+                        className="
   absolute
 
   top-[68%]
@@ -115,7 +115,7 @@ export function IntroLogo({ show }: IntroLogoProps) {
                             duration: 1,
                             ease: [0.22, 1, 0.36, 1],
                         }}
-                 className="
+                        className="
   absolute
 
   top-[78%]
@@ -140,8 +140,8 @@ export function IntroLogo({ show }: IntroLogoProps) {
                     </motion.div>
 
                     {/* Logo */}
-                <div
-  className="
+                    <div
+                        className="
     absolute
     top-[20%]
     left-1/2
@@ -152,51 +152,51 @@ export function IntroLogo({ show }: IntroLogoProps) {
     md:-translate-x-1/2
     md:-translate-y-1/2
   "
->
-                    <motion.div
-                        layoutId="smjmun-logo"
-                        initial={{
-                            opacity: 0,
-                            scale: 0.8,
-                        }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            filter: [
-                                'drop-shadow(0 0 0px rgba(187,139,87,0))',
-                                'drop-shadow(0 0 40px rgba(187,139,87,.35))',
-                                'drop-shadow(0 0 20px rgba(187,139,87,.15))',
-                            ],
-                        }}
-                        transition={{
-                            opacity: {
-                                duration: 1,
-                            },
-                            scale: {
-                                duration: 1.2,
-                                ease: [0.22, 1, 0.36, 1],
-                            },
-                            filter: {
-                                duration: 2,
-                            },
-                        }}
-                        className="relative   h-[42vw]
+                    >
+                        <motion.div
+                            layoutId="smjmun-logo"
+                            initial={{
+                                opacity: 0,
+                                scale: 0.8,
+                            }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                filter: [
+                                    'drop-shadow(0 0 0px rgba(187,139,87,0))',
+                                    'drop-shadow(0 0 40px rgba(187,139,87,.35))',
+                                    'drop-shadow(0 0 20px rgba(187,139,87,.15))',
+                                ],
+                            }}
+                            transition={{
+                                opacity: {
+                                    duration: 1,
+                                },
+                                scale: {
+                                    duration: 1.2,
+                                    ease: [0.22, 1, 0.36, 1],
+                                },
+                                filter: {
+                                    duration: 2,
+                                },
+                            }}
+                            className="relative   h-[42vw]
   w-[42vw]
 
   md:h-[65vh]
   md:w-[65vh]  "
-                    >
-                        <Image
-                            src="/images/smg-mun-logo.png"
-                            alt="SMJMUN"
-                            fill
-                            priority
-                            className="object-contain"
-                        />
-                    </motion.div>
+                        >
+                            <Image
+                                src="/images/smg-mun-logo.png"
+                                alt="SMJMUN"
+                                fill
+                                priority
+                                className="object-contain"
+                            />
+                        </motion.div>
                     </div>
                 </motion.div>
-                
+
             )}
         </AnimatePresence>
     );

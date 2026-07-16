@@ -22,10 +22,11 @@ export function Logo({ isScrolled }: LogoProps) {
       {/* Logo */}
       <motion.div
         layoutId="smjmun-logo"
+        style={{ width: 99, height: 99 }}
         animate={{
           width: isScrolled ? 48 : 99,
           height: isScrolled ? 48 : 99,
-          backgroundColor: isScrolled ? '#ffffff' : 'transparent',
+          backgroundColor: isScrolled ? '#ffffff' : 'rgba(255,255,255,0)',
           padding: isScrolled ? 4 : 0,
         }}
         transition={{

@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
 import SmoothScroll from "./components/SmoothScroll";
 import { montserrat } from "./fonts";
-import SplashCursor from "./components/SplashCursor";
 import FloatingContactWidget from "./components/FloatingWidget";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { Header } from "@/components/navigation/Header";
 import { GlobalChat } from "./components/chat/GlobalChat";
+import SplashCursor from "./components/SplashCursorWrapper";
 
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });

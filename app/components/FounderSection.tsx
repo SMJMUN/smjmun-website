@@ -1,5 +1,7 @@
 'use client';
 
+
+import Image from 'next/image';
 import { useRef } from 'react';
 import {
   motion,
@@ -122,12 +124,12 @@ export default function FounderSection() {
         >
           {/* Portrait */}
           <div className="w-full md:w-[45%] md:flex-shrink-0 relative h-[45vh] md:h-auto md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none founder-portrait-tablet tablet-founder-img">
-            <img
+            <Image
               src="/images/founder-2.jpeg"
               alt="Aarushh Sahu — Founder of SMJMUN"
               className="img-zoom w-full h-full object-cover md:absolute md:inset-0"
               style={{ borderRadius: '0 20px 20px 0' }}
-            />
+             fill sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
 
           {/* Text block */}

@@ -108,7 +108,7 @@ export default async function BlogPostPage({
           name: "SMJMUN",
           logo: {
             "@type": "ImageObject",
-            url: "https://smjmun.com/images/smg-mun-logo.png",
+            url: "https://smjmun.com/images/smg-mun-logo.webp",
           },
         },
       },

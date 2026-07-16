@@ -1,5 +1,7 @@
 "use client";
 
+
+import Image from 'next/image';
 import { motion } from "framer-motion";
 
 export default function AboutHero() {
@@ -7,11 +9,11 @@ export default function AboutHero() {
     <section className="relative h-screen overflow-hidden bg-[#0A0A0A]">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/images/community-3.png"
           alt="Founder"
           className="h-full w-full object-cover object-center md:object-right"
-        />
+         fill sizes="(max-width: 768px) 100vw, 50vw" />
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60" />

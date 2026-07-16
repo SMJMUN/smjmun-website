@@ -26,7 +26,7 @@ export default function Home() {
         url: "https://smjmun.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://smjmun.com/images/smg-mun-logo.png",
+          url: "https://smjmun.com/images/smg-mun-logo.webp",
         },
         sameAs: [
           "https://instagram.com/smjmun",

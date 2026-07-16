@@ -14,7 +14,7 @@ export default function ConferenceSidebar({ conference }: { conference: Conferen
       >
         <div className="flex items-center gap-4 mb-6">
           <Image
-            src="/images/smg-mun-logo.png"
+            src="/images/smg-mun-logo.webp"
             alt="SMJ MUN Logo"
             width={44}
             height={44}

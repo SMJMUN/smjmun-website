@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -77,7 +78,7 @@ const PROGRAMS = [
 /* Viewport-height units consumed per program step.
  * 60vh per step → 360vh total for 6 programs.
  * Reducing from 100vh makes each step trigger with less physical scrolling. */
-const SCROLL_VH_PER_STEP = 60;
+const SCROLL_VH_PER_STEP = 30;
 
 /* Height of each tab row — must match the rendered row height */
 const TAB_HEIGHT = 56;
@@ -184,10 +185,13 @@ export default function OurProgramsSection() {
               pointerEvents: 'none',
             }}
           >
-            <img
+            <Image
               src={prog.image}
-              alt=""
-              className="absolute inset-0 w-full h-full"
+              alt={prog.heading}
+              fill
+              sizes="100vw"
+              quality={80}
+              className="absolute inset-0"
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
             />
             <div className="absolute inset-0" style={{ background: 'rgba(5,14,24,0.58)' }} />
@@ -215,9 +219,11 @@ export default function OurProgramsSection() {
               <div>
                 {/* Section label */}
                 <div className="flex items-center gap-3 mb-8">
-                  <img
-                    src="/images/smg-mun-logo.png"
+                  <Image
+                    src="/images/smg-mun-logo.webp"
                     alt=""
+                    width={44}
+                    height={44}
                     style={{ width: '44px', height: '44px' }}
                   />
                   <span className="section-label" style={{ fontSize: '13px', letterSpacing: '0.22em' }}>
@@ -274,7 +280,7 @@ export default function OurProgramsSection() {
 
               {/* Mobile label */}
               <div className="flex items-center gap-3 mb-2 lg:hidden">
-                <img src="/images/smg-mun-logo.png" alt="" style={{ width: '36px', height: '36px' }} />
+                <Image src="/images/smg-mun-logo.webp" alt="" width={36} height={36} style={{ width: '36px', height: '36px' }} />
                 <span className="section-label" style={{ fontSize: '11px' }}>Our Programs</span>
               </div>
 

@@ -1,5 +1,7 @@
 'use client';
 
+
+import Image from 'next/image';
 export default function MediaSection() {
   return (
     <section
@@ -58,8 +60,8 @@ export default function MediaSection() {
                 marginBottom: '24px',
               }}
             >
-              <img
-                src="/images/hero-1.png"
+              <Image
+                src="/images/hero-1.webp"
                 alt="SMJ MUN featured in national media"
                 style={{
                   width: '100%',
@@ -68,7 +70,7 @@ export default function MediaSection() {
                   display: 'block',
                   transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
               {/* Overlapping headline bar */}
               <div
                 style={{
@@ -142,8 +144,8 @@ export default function MediaSection() {
                   marginBottom: '16px',
                 }}
               >
-                <img
-                  src="/images/training.png"
+                <Image
+                  src="/images/training.webp"
                   alt="Delegate training workshop"
                   style={{
                     width: '100%',
@@ -152,7 +154,7 @@ export default function MediaSection() {
                     display: 'block',
                     transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                   }}
-                />
+                 fill sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <span
                 style={{
@@ -195,8 +197,8 @@ export default function MediaSection() {
                   marginBottom: '16px',
                 }}
               >
-                <img
-                  src="/images/hero-3.png"
+                <Image
+                  src="/images/hero-3.webp"
                   alt="International conference coverage"
                   style={{
                     width: '100%',
@@ -205,7 +207,7 @@ export default function MediaSection() {
                     display: 'block',
                     transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                   }}
-                />
+                 fill sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <span
                 style={{

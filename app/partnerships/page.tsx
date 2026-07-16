@@ -1,5 +1,7 @@
 "use client";
 
+
+import Image from 'next/image';
 import { useState } from "react";
 import { HeroVideo } from "@/components/program/hero/HeroVideo";
 import { EditorialIntro } from "@/components/program/intro/EditorialIntro";
@@ -39,19 +41,19 @@ const sectionsData: EditorialSectionData[] = [
   {
     title: "College Partnerships",
     description: "We work alongside universities and student societies to strengthen existing MUN communities, establish new initiatives and mentor executive boards. Our focus is not simply on organising conferences but on helping institutions cultivate confident, responsible student leaders.",
-    image: "/images/program-image-2.png",
+    image: "/images/program-image-2.webp",
     cta: { label: "Learn More", href: "/programs/college-mun-association" },
   },
   // {
   //   title: "Educational Organisations",
   //   description: "We collaborate with educational trusts, NGOs, foundations and mission-driven organisations to expand access to diplomacy, leadership education and civic engagement through thoughtfully designed programmes and strategic initiatives.",
-  //   image: "/images/hero-3.png",
+  //   image: "/images/hero-3.webp",
   //   cta: { label: "Learn More", href: "/partnerships/educational-organisations" },
   // },
   // {
   //   title: "Strategic Sponsors",
   //   description: "We partner with organisations that believe investing in education creates lasting social impact. Together we design initiatives that strengthen communities while supporting the growth of future leaders through meaningful educational experiences.",
-  //   image: "/images/strategic-partner.png",
+  //   image: "/images/strategic-partner.webp",
   //   cta: { label: "Learn More", href: "/partnerships/strategic-sponsors" },
   // },
 ];
@@ -182,11 +184,11 @@ export default function PartnershipsPage() {
                   Tell us about your goals, your community and the impact you hope to create. We'll work with you to design a partnership that reflects your values and helps your students grow into thoughtful, globally minded leaders.
                 </p>
               </div>
-              <img
-                src="/images/smg-mun-logo.png"
+              <Image
+                src="/images/smg-mun-logo.webp"
                 alt=""
                 className="h-[20vh] object-contain  mix-blend-screen"
-              />
+               width={80} height={80} />
             </div>
 
             {/* RIGHT SIDE */}

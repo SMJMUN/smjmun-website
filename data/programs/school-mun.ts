@@ -15,7 +15,7 @@ export const schoolMunProgram: ProgramData = {
     description:
       "A comprehensive educational initiative designed to help schools provide students with a world-class Model United Nations experience — without the complexities of organising and managing an event independently.",
     videoSrc: "/conf-hero-vid.mp4",
-    imageSrc: "/images/program-image-2.png",
+    imageSrc: "/images/program-image-2.webp",
     primaryCTA: {
       label: "Partner With Us",
       href: "/partnerships",
@@ -47,7 +47,7 @@ export const schoolMunProgram: ProgramData = {
       title: "Phase II — Main Conference",
       description:
         "Students participate in a professionally organised Model United Nations conference conducted exclusively for their institution. The conference replicates the experience of leading international conferences while remaining accessible and engaging for school students. The experience includes committee sessions, structured debate, negotiation and collaboration, resolution drafting, leadership opportunities, opening and closing ceremonies, and an awards and recognition ceremony.",
-      image: "/images/program-image-1.png",
+      image: "/images/program-image-1.webp",
       imageAlt: "SMJMUN conference in session",
       badge: "3-Day Conference",
       caption: "A complete international-standard conference experience.",
@@ -56,7 +56,7 @@ export const schoolMunProgram: ProgramData = {
       title: "Conference Management & Advisory",
       description:
         "Already planning your own Model United Nations conference? Our team can support your institution through complete conference management and advisory services — including registration management, committee design, executive board support, delegate handling, conference operations, awards management, and on-ground execution. Whether you require full management or strategic guidance, SMJMUN can help deliver a professional and impactful conference experience.",
-      image: "/images/ceremony-2.png",
+      image: "/images/ceremony-2.webp",
       imageAlt: "Conference management team in action",
       badge: "Advisory Services",
       cta: {
@@ -180,7 +180,7 @@ export const schoolMunProgram: ProgramData = {
         aspect: "tall",
       },
       {
-        src: "/images/ceremony-4.png",
+        src: "/images/ceremony-4.webp",
         alt: "Award ceremony",
         aspect: "normal",
       },
@@ -275,7 +275,7 @@ export const schoolMunProgram: ProgramData = {
     {
       title: "Partnership Programme",
       slug: "partnership-program",
-      image: "/images/partnerships-image.png",
+      image: "/images/partnerships-image.webp",
       description:
         "Strategic institutional partnerships for long-term MUN ecosystem development.",
     },
@@ -293,6 +293,6 @@ export const schoolMunProgram: ProgramData = {
       label: "Contact Us",
       href: "/partnerships#contact",
     },
-    backgroundImage: "/images/hero-1.png",
+    backgroundImage: "/images/hero-1.webp",
   },
 };

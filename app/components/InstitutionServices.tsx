@@ -1,5 +1,7 @@
 'use client';
 
+
+import Image from 'next/image';
 export default function InstitutionServices() {
   return (
     <section id="institutions" style={{ overflow: 'hidden' }}>
@@ -34,8 +36,8 @@ export default function InstitutionServices() {
                 overflow: 'hidden',
               }}
             >
-              <img
-                src="/images/institution.png"
+              <Image
+                src="/images/institution.webp"
                 alt="Leading educational institution partnering with SMJ MUN"
                 style={{
                   width: '100%',
@@ -43,7 +45,7 @@ export default function InstitutionServices() {
                   objectFit: 'cover',
                   display: 'block',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
 
             {/* Overlapping content panel */}
@@ -149,8 +151,8 @@ export default function InstitutionServices() {
             className="service-img"
           >
             <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
-              <img
-                src="/images/hero-1.png"
+              <Image
+                src="/images/hero-1.webp"
                 alt="School MUN Association session in progress"
                 style={{
                   width: '100%',
@@ -159,7 +161,7 @@ export default function InstitutionServices() {
                   display: 'block',
                   transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
           </div>
 
@@ -272,7 +274,7 @@ export default function InstitutionServices() {
             className="service-img"
           >
             <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
-              <img
+              <Image
                 src="/images/founder-2.jpeg"
                 alt="College MUN Association delegates in committee session"
                 style={{
@@ -283,7 +285,7 @@ export default function InstitutionServices() {
                   
                   transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
           </div>
 
@@ -395,8 +397,8 @@ export default function InstitutionServices() {
             className="service-img"
           >
             <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
-              <img
-                src="/images/hero-3.png"
+              <Image
+                src="/images/hero-3.webp"
                 alt="Full-scale conference execution by SMJ MUN"
                 style={{
                   width: '100%',
@@ -405,7 +407,7 @@ export default function InstitutionServices() {
                   display: 'block',
                   transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
           </div>
 

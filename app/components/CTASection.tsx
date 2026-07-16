@@ -1,5 +1,7 @@
 "use client";
 
+
+import Image from 'next/image';
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
@@ -108,7 +110,7 @@ export default function CTASection() {
             style={{ borderRadius: '20px' }}
           >
             {/* Background image fills the entire column */}
- <img
+ <Image
   src="/images/perparestudent.jpeg"
   alt="SMJMUN"
   className="
@@ -118,7 +120,7 @@ export default function CTASection() {
     scale-100
     lg:object-[50%_25%]
   "
-/>
+ fill sizes="(max-width: 768px) 100vw, 50vw" />
 
             {/* Overlay for legibility — darker toward the bottom where copy sits */}
             <div

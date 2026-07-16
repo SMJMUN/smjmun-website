@@ -14,10 +14,10 @@ import type { TimelineData } from "../types";
  * Two different images so they don't repeat the same frame.
  */
 const BG_IMAGES = [
-  "/images/ceremony-1.png",
-  "/images/ceremony-2.png",
-  "/images/ceremony-3.png",
-  "/images/ceremony-4.png",
+  "/images/ceremony-1.webp",
+  "/images/ceremony-2.webp",
+  "/images/ceremony-3.webp",
+  "/images/ceremony-4.webp",
   "/images/community.jpeg",
 ];
 

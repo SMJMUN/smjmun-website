@@ -25,6 +25,7 @@ export function HeroVideo({ data }: HeroVideoProps) {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 h-full w-full object-cover opacity-[0.85]"
           poster={data.imageSrc}
         >

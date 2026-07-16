@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import CityNode from './CityNode';
 import ConnectionLines from './ConnectionLines';
@@ -45,13 +46,17 @@ interface NetworkMapProps {
 }
 
 export default function NetworkMap({ mobile = false }: NetworkMapProps) {
-  const { scrollYProgress } = useScroll();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
   const mapY  = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const glowY = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
-    <div className={mobile ? 'relative w-full h-full' : 'relative w-full h-[380px] md:h-[420px] lg:h-[450px]'}>
+    <div ref={containerRef} className={mobile ? 'relative w-full h-full' : 'relative w-full h-[380px] md:h-[420px] lg:h-[450px]'}>
 
       {/* Massive background glow */}
       <motion.div

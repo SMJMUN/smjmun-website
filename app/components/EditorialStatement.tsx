@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export default function EditorialStatement() {
   return (
     <section
@@ -9,11 +10,11 @@ export default function EditorialStatement() {
         {/* Image */}
         <div className="w-full md:w-[45%] flex justify-center">
           <div className="img-zoom-wrap w-full max-w-[500px]">
-            <img
+            <Image
               src="/images/perparestudent.jpeg"
               alt="Students participating in SMJ MUN"
               className="img-zoom w-full h-auto object-cover block"
-            />
+             fill sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>
 

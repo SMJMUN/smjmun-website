@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
   serverExternalPackages: [
@@ -8,6 +9,7 @@ const nextConfig: NextConfig = {
     "expresscheckout-nodejs",
   ],
   images: {
+    qualities: [25, 50, 75, 80, 85, 100],
     remotePatterns: [
       {
         protocol: "https",
@@ -16,6 +18,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: [
+      "react-icons",
+      "lodash-es",
+      "date-fns",
+      "lucide-react"
+    ],
+  },
 };
 
-export default nextConfig;
+const analyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+export default analyzer(nextConfig);

@@ -11,13 +11,22 @@ const SMJ_IMAGES = [
 ];
 
 // ─── MUN: institutional, formal, legacy ─────────────────────────────────────
-const MUN_IMAGE = '/images/tree-colour-5.png';
+const MUN_IMAGE = '/images/tree-colour-5.webp';
 
 const INTERVAL_MS = 1000;
 const FADE_MS = 800;
 
 // ─── SMJLetters: stacks all images, crossfades between them ─────────────────
-function SMJLetters({ activeIndex }: { activeIndex: number }) {
+function SMJLetters() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % SMJ_IMAGES.length);
+    }, INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <span
       className="relative inline-block"
@@ -64,14 +73,7 @@ function SMJLetters({ activeIndex }: { activeIndex: number }) {
 }
 
 export default function AboutWordmark() {
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((i) => (i + 1) % SMJ_IMAGES.length);
-    }, INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <section
@@ -99,8 +101,7 @@ export default function AboutWordmark() {
             userSelect: 'none',
           }}
         >
-          {/* SMJ — animated people imagery */}
-          <SMJLetters activeIndex={activeIndex} />
+          <SMJLetters />
 
           {/* MUN — static institutional imagery */}
           <span

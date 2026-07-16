@@ -1,25 +1,89 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const heroImages = ['/images/ceremony-4.png', '/images/ceremony-2.png', '/images/ceremony-3.png',];
+const heroImages = ['/images/ceremony-4.webp', '/images/ceremony-2.webp', '/images/ceremony-3.webp',];
 
-export default function HeroSection() {
+const HeroSlider = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const SLIDE_DURATION = 4000;
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImage(
-        (prev) => (prev + 1) % heroImages.length
-      );
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
     }, SLIDE_DURATION);
 
     return () => clearInterval(timer);
   }, []);
+
+  return (
+    <>
+      {/* Background Images with Crossfade */}
+      {heroImages.map((src, index) => (
+        <div
+          key={src}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: index === currentImage ? 1 : 0,
+            transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
+          }}
+        >
+          <Image
+            src={src}
+            alt={`Hero background ${index + 1}`}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            quality={85}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </div>
+      ))}
+
+      {/* Progress Segments — bottom right */}
+      <div className="absolute md:bottom-30 bottom-12 right-6 md:right-12 lg:right-20 z-20 flex flex-col items-end gap-4">
+        {/* Progress Segments */}
+        <div className="flex items-center gap-4">
+          {heroImages.map((_, index) => (
+            <div
+              key={index}
+              className="relative h-[2px] w-16 md:w-24 lg:w-32 overflow-hidden bg-white/30"
+            >
+              {index === currentImage && (
+                <div
+                  key={currentImage}
+                  className="absolute left-0 top-0 h-full bg-[#BB8B57]"
+                  style={{
+                    width: "100%",
+                    animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
+                  }}
+                />
+              )}
+
+              {index < currentImage && (
+                <div className="absolute inset-0 bg-[#BB8B57]" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Counter */}
+        <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
+          {String(currentImage + 1).padStart(2, "0")} /{" "}
+          {String(heroImages.length).padStart(2, "0")}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default function HeroSection() {
 
   return (
     <section
@@ -33,22 +97,7 @@ export default function HeroSection() {
         backgroundColor: '#0A0A0A',
       }}
     >
-      {/* Background Images with Crossfade */}
-      {heroImages.map((src, index) => (
-        <div
-          key={src}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url(${src})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: index === currentImage ? 1 : 0,
-            transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
-            transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
-          }}
-        />
-      ))}
+      <HeroSlider />
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
       <div
@@ -183,60 +232,6 @@ export default function HeroSection() {
             Partner With Us
             <ArrowRight size={16} />
           </Link>
-        </div>
-      </div>
-
-      {/* Progress Segments — bottom right */}
-      <div
-        className="
-          absolute
-          md:bottom-30
-          bottom-12
-          right-6
-          md:right-12
-          lg:right-20
-          z-20
-          flex
-          flex-col
-          items-end
-          gap-4
-        "
-      >
-        {/* Progress Segments */}
-        <div className="flex items-center gap-4">
-          {heroImages.map((_, index) => (
-            <div
-              key={index}
-              className="
-                relative
-                h-[2px]
-                w-16 md:w-24 lg:w-32
-                overflow-hidden
-                bg-white/30
-              "
-            >
-              {index === currentImage && (
-                <div
-                  key={currentImage}
-                  className="absolute left-0 top-0 h-full bg-[#BB8B57]"
-                  style={{
-                    width: "100%",
-                    animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
-                  }}
-                />
-              )}
-
-              {index < currentImage && (
-                <div className="absolute inset-0 bg-[#BB8B57]" />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Counter */}
-        <div className="text-xs md:text-sm tracking-[0.25em] text-white/90">
-          {String(currentImage + 1).padStart(2, "0")} /{" "}
-          {String(heroImages.length).padStart(2, "0")}
         </div>
       </div>
 

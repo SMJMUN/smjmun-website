@@ -1,5 +1,7 @@
 'use client';
 
+
+import Image from 'next/image';
 import { useRef } from 'react';
 
 interface Conference {
@@ -16,28 +18,28 @@ const conferences: Conference[] = [
     location: 'New Delhi, India',
     date: 'March 2025',
     description: 'India\'s flagship conference bringing 500+ delegates from across the nation.',
-    image: '/images/hero-1.png',
+    image: '/images/hero-1.webp',
   },
   {
     title: 'SMJ MUN International',
     location: 'Dubai, UAE',
     date: 'November 2024',
     description: 'Our premier international conference with delegates from 15+ countries.',
-    image: '/images/hero-3.png',
+    image: '/images/hero-3.webp',
   },
   {
     title: 'SMJ MUN Leadership Summit',
     location: 'Singapore',
     date: 'August 2024',
     description: 'An intensive diplomatic leadership summit for Asia-Pacific delegates.',
-    image: '/images/institution.png',
+    image: '/images/institution.webp',
   },
   {
     title: 'SMJ MUN National',
     location: 'Mumbai, India',
     date: 'January 2025',
     description: 'Western India\'s largest Model United Nations conference.',
-    image: '/images/hero-2.png',
+    image: '/images/hero-2.webp',
   },
 ];
 
@@ -121,7 +123,7 @@ export default function ConferencesSection() {
 
 
             >
-              <img
+              <Image
                 src={conf.image}
                 alt={conf.title}
                 style={{
@@ -131,7 +133,7 @@ export default function ConferencesSection() {
                   display: 'block',
                   transition: 'filter 0.4s ease',
                 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
 
             {/* Gold rule separator */}

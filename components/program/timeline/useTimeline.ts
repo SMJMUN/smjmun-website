@@ -23,7 +23,6 @@ interface UseTimelineReturn {
 export function useTimeline({ totalSteps }: UseTimelineOptions): UseTimelineReturn {
   const containerRef = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -31,15 +30,15 @@ export function useTimeline({ totalSteps }: UseTimelineOptions): UseTimelineRetu
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setProgress(latest);
     // Map 0–1 scroll progress to 0–(totalSteps-1) step index
     const stepSize = 1 / totalSteps;
     const index = Math.min(
       Math.floor(latest / stepSize),
       totalSteps - 1
     );
+    // React automatically bails out if the state is the same
     setActiveStep(index);
   });
   // @ts-ignore
-  return { containerRef, activeStep, progress };
+  return { containerRef, activeStep };
 }

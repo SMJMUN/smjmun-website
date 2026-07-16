@@ -1,4 +1,6 @@
 "use client";
+
+import Image from 'next/image';
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import {
@@ -246,7 +248,7 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="flex justify-center mt-10">
-            <img src="/images/smg-mun-logo.png" alt="SMJMUN" className="w-20 opacity-60" />
+            <Image src="/images/smg-mun-logo.webp" alt="SMJMUN" className="w-20 opacity-60"  width={80} height={80} />
           </div>
         </div>
 
@@ -346,11 +348,11 @@ export default function Footer() {
 
             <FooterNewsletterForm />
             <Link href="/" onClick={scrollToHero} >
-              <img
-                src="/images/smg-mun-logo.png"
+              <Image
+                src="/images/smg-mun-logo.webp"
                 alt="SMJMUN"
                 className="w-24 mt-12 opacity-60"
-              />
+               width={80} height={80} />
             </Link>
           </div>
         </div>

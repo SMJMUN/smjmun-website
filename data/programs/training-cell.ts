@@ -55,7 +55,7 @@ export const trainingCellProgram: ProgramData = {
       title: "Flexible Training Options",
       description:
         "Institutions may choose from multiple formats tailored to their specific needs — the Delegate Excellence Programme, Executive Board Development Programme, combined training programmes, customised institutional workshops, and online or offline delivery options. Whether you need a single focused session or a comprehensive multi-day programme, SMJMUN adapts to your institution's requirements, schedule, and student demographics.",
-      image: "/images/SHCOOL-PHOTO.png",
+      image: "/images/SHCOOL-PHOTO.webp",
       imageAlt: "Customised training workshop",
       badge: "Custom Programs",
       cta: {
@@ -168,7 +168,7 @@ export const trainingCellProgram: ProgramData = {
         aspect: "wide",
       },
       {
-        src: "/images/SHCOOL-PHOTO-1.png",
+        src: "/images/SHCOOL-PHOTO-1.webp",
         alt: "Delegates in practice session",
         aspect: "normal",
       },
@@ -179,7 +179,7 @@ export const trainingCellProgram: ProgramData = {
         aspect: "tall",
       },
       {
-        src: "/images/hero-1.png",
+        src: "/images/hero-1.webp",
         alt: "Conference preparation",
         aspect: "normal",
       },
@@ -232,7 +232,7 @@ export const trainingCellProgram: ProgramData = {
     {
       title: "School Association Programme",
       slug: "school-mun-association",
-      image: "/images/hero-1.png",
+      image: "/images/hero-1.webp",
       description:
         "Bringing international-standard MUN experiences to school campuses across India.",
     },
@@ -246,7 +246,7 @@ export const trainingCellProgram: ProgramData = {
     {
       title: "Partnership Programme",
       slug: "partnership-program",
-      image: "/images/partnerships-image.png",
+      image: "/images/partnerships-image.webp",
       description:
         "Strategic institutional partnerships for long-term MUN ecosystem development.",
     },

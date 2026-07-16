@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function JournalCinematicSection() {
   return (
@@ -31,12 +32,21 @@ export default function JournalCinematicSection() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: "url('/images/ceremony-1.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            transform: 'scale(1.06)',
           }}
-        />
+        >
+          <Image
+            src="/images/ceremony-1.webp"
+            alt="Ceremony Background"
+            fill
+            priority
+            quality={85}
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+              transform: 'scale(1.06)',
+            }}
+          />
+        </div>
         {/* Dark overlay for legibility */}
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'rgba(8, 8, 8, 0.65)' }} />
         {/* Noise grain */}

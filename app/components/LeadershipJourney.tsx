@@ -1,5 +1,7 @@
 'use client';
 
+
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 interface Milestone {
@@ -15,35 +17,35 @@ const milestones: Milestone[] = [
     number: '01',
     title: 'Delegate Training',
     description: 'Master the fundamentals of parliamentary procedure, resolution drafting, and committee dynamics that form the foundation of every great diplomat.',
-    image: '/images/training.png',
+    image: '/images/training.webp',
     layout: 'full-overlay',
   },
   {
     number: '02',
     title: 'Public Speaking',
     description: 'Develop the presence, clarity, and conviction to command any room — from intimate negotiations to packed general assemblies.',
-    image: '/images/hero-2.png',
+    image: '/images/hero-2.webp',
     layout: 'image-right',
   },
   {
     number: '03',
     title: 'Leadership',
     description: 'Learn to lead with empathy, build coalitions, and drive consensus on the most complex global challenges.',
-    image: '/images/hero-1.png',
+    image: '/images/hero-1.webp',
     layout: 'charcoal-band',
   },
   {
     number: '04',
     title: 'Diplomacy',
     description: 'Navigate the art of strategic compromise — finding solutions where others see only deadlock.',
-    image: '/images/hero-3.png',
+    image: '/images/hero-3.webp',
     layout: 'image-left',
   },
   {
     number: '05',
     title: 'Negotiation',
     description: 'Transform conflict into opportunity. Master the frameworks used by the world\'s most effective negotiators.',
-    image: '/images/institution.png',
+    image: '/images/institution.webp',
     layout: 'full-gradient',
   },
 ];
@@ -126,11 +128,11 @@ export default function LeadershipJourney() {
                 overflow: 'hidden',
               }}
             >
-              <img
+              <Image
                 src={milestone.image}
                 alt={milestone.title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(4,33,71,0.85) 0%, rgba(4,33,71,0.4) 60%, transparent 100%)' }} />
               {/* Decorative number */}
               <span
@@ -184,7 +186,7 @@ export default function LeadershipJourney() {
                 </div>
                 <div style={{ flex: '0 0 50%', maxWidth: '50%', overflow: 'hidden' }} className="journey-img">
                   <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
-                    <img src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <Image src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}  fill sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                 </div>
               </div>
@@ -202,7 +204,7 @@ export default function LeadershipJourney() {
               <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 8vw', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' as const }}>
                 <div style={{ flex: '0 0 45%', maxWidth: '45%', overflow: 'hidden' }} className="journey-img">
                   <div style={{ aspectRatio: '3 / 2', overflow: 'hidden' }}>
-                    <img src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <Image src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}  fill sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                 </div>
                 <div style={{ flex: '1', minWidth: '280px' }}>
@@ -242,7 +244,7 @@ export default function LeadershipJourney() {
                 </div>
                 <div style={{ flex: '0 0 50%', maxWidth: '50%', overflow: 'hidden' }} className="journey-img">
                   <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
-                    <img src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <Image src={milestone.image} alt={milestone.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}  fill sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                 </div>
               </div>
@@ -259,11 +261,11 @@ export default function LeadershipJourney() {
                 overflow: 'hidden',
               }}
             >
-              <img
+              <Image
                 src={milestone.image}
                 alt={milestone.title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
-              />
+               fill sizes="(max-width: 768px) 100vw, 50vw" />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(4,33,71,0.9) 0%, rgba(4,33,71,0.5) 50%, rgba(4,33,71,0.2) 100%)' }} />
               <span
                 style={{

@@ -24,8 +24,10 @@ export function Logo({ isScrolled }: LogoProps) {
         layoutId="smjmun-logo"
         style={{ width: 99, height: 99 }}
         animate={{
-          width: isScrolled ? 48 : 99,
-          height: isScrolled ? 48 : 99,
+          width: isScrolled ? 60 : 120,
+          
+          height: isScrolled ? 60 : 120,
+          
           backgroundColor: isScrolled ? '#ffffff' : 'rgba(255,255,255,0)',
           padding: isScrolled ? 4 : 0,
         }}
@@ -33,10 +35,10 @@ export function Logo({ isScrolled }: LogoProps) {
           duration: 1,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="relative shrink-0 rounded-full overflow-hidden"
+        className={`relative shrink-0 rounded-full overflow-hidden ${isScrolled ? '' : 'mt-8'}`}
       >
         <Image
-          src="/images/smg-mun-logo.png"
+          src="/images/SMJMUNLOGOFILE.png"
           alt="SMG MUN Logo"
           fill
           sizes="(max-width: 768px) 120px, 180px"

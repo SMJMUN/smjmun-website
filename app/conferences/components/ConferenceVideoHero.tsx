@@ -9,24 +9,19 @@ export default function ConferenceVideoHero({ conference }: { conference?: Confe
   const bgUrl = conference?.heroImage
     ? urlFor(conference.heroImage).width(1920).height(1080).quality(85).url()
     : null;
-return (
-  <section className="relative h-screen min-h-[700px] overflow-hidden" style={{ backgroundColor: 'var(--ds-bg-primary)' }}>
-    {/* Background Image */}
-    {bgUrl ? (
+  const finalBgUrl = bgUrl || '/images/student-training-2.jpeg';
+
+  return (
+    <section className="relative h-screen min-h-[700px] overflow-hidden" style={{ backgroundColor: 'var(--ds-bg-primary)' }}>
+      {/* Background Image */}
       <Image
-        src={'/images/student-training-2.jpeg'}
+        src={finalBgUrl}
         alt={conference?.title || "Conference"}
         fill
         priority
-        unoptimized
+        unoptimized={finalBgUrl.startsWith('/')}
         className="object-cover scale-[1.02]"
       />
-    ) : (
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, #111111, rgba(187,139,87,0.06))' }}
-      />
-    )}
 
     {/* Dark Editorial Overlay */}
     <div

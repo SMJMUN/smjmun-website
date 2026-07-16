@@ -35,10 +35,10 @@ const organizationLinks = [
 ];
 
 const socialLinks = [
-  // { icon: FaFacebookF, href: "https://facebook.com" },
-  { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/theaarushsahu" },
-  { icon: FaInstagram, href: "https://www.instagram.com/smjmun" },
-  // { icon: FaYoutube, href: "https://youtube.com" },
+  // { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/theaarushsahu", label: "LinkedIn" },
+  { icon: FaInstagram, href: "https://www.instagram.com/smjmun", label: "Instagram" },
+  // { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
 ];
 
 function FooterNewsletterForm() {
@@ -103,6 +103,7 @@ function FooterNewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
+          aria-label="Email address"
           disabled={status === "loading"}
           className="
             flex-1 min-w-0
@@ -115,6 +116,7 @@ function FooterNewsletterForm() {
         />
         <button
           type="submit"
+          aria-label="Subscribe to newsletter"
           disabled={status === "loading"}
           className="px-5 border-l border-[rgba(255,255,255,0.08)] text-white hover:bg-[#BB8B57] hover:border-[#BB8B57] transition-all duration-300 disabled:opacity-50"
         >
@@ -227,6 +229,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={item.label}
                   className="text-[#7A7A7A] hover:text-[#BB8B57] hover:-translate-y-1 transition-all duration-300"
                 >
                   <Icon />
@@ -331,6 +334,7 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={item.label}
                     className="text-[#7A7A7A] hover:text-[#BB8B57] hover:-translate-y-1 transition-all duration-300"
                   >
                     <Icon />

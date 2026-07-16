@@ -33,6 +33,7 @@ export function ChatInput() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type your message..."
+          aria-label="Type your message"
           disabled={isLoading}
           className="w-full bg-zinc-900 border border-zinc-700 text-zinc-100 text-sm rounded-full pl-4 pr-12 py-3 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/50 disabled:opacity-50 transition-all placeholder:text-zinc-500"
         />

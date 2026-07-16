@@ -32,7 +32,7 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
       {/* Background Image with Ken Burns */}
       {bgUrl ? (
         <Image
-          src={bgUrl}
+          src={'/images/students-training-2.jpeg'}
           alt={conference.title}
           fill
           priority

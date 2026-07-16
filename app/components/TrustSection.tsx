@@ -46,7 +46,7 @@ const partners = [
   },
   {
     name: 'VIT',
-    logo: '/images/vit-logo.png',
+    logo: '/images/vit-logo-2.png',
   },
 ];
 

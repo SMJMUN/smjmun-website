@@ -14,7 +14,7 @@ return (
     {/* Background Image */}
     {bgUrl ? (
       <Image
-        src={bgUrl}
+        src={'/images/student-training-2.jpeg'}
         alt={conference?.title || "Conference"}
         fill
         priority

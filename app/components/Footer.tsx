@@ -251,7 +251,7 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="flex justify-center mt-10">
-            <Image src="/images/SMJMUNLOGOFILE.png" alt="SMJMUN" className="w-20 "  width={80} height={80} />
+            <Image src="/images/SMJMUNLOGOFILE.png" alt="SMJMUN" className="w-20 " width={80} height={80} />
           </div>
         </div>
 
@@ -353,10 +353,10 @@ export default function Footer() {
             <FooterNewsletterForm />
             <Link href="/" onClick={scrollToHero} >
               <Image
-                src="/images/smg-mun-logo.webp"
+                src="/images/SMJMUNLOGOFILE.png"
                 alt="SMJMUN"
                 className="w-24 mt-12 opacity-60"
-               width={80} height={80} />
+                width={80} height={80} />
             </Link>
           </div>
         </div>

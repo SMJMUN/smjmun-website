@@ -12,7 +12,7 @@ export const MAIN_NAVIGATION: NavigationItemType[] = [
   { label: 'Programs', href: '/programs' }, // The route itself might not exist, but it's a structural item
   // { label: 'Media', href: '/media' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Blogs', href: '/blogs' },
   // Contact is rendered as the headphone icon button in the header actions area
 ];
 
@@ -69,3 +69,5 @@ export const PROGRAMS_MENU = {
     // }
   ]
 };
+
+

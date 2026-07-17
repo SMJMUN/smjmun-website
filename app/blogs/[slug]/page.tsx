@@ -42,12 +42,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `/blogs/${slug}` },
     openGraph: {
       title,
       description,
       type: "article",
-      url: `/blog/${slug}`,
+      url: `/blogs/${slug}`,
       publishedTime: post.publishedAt,
       authors: post.author ? [post.author] : undefined,
       tags: post.tags,
@@ -125,13 +125,13 @@ export default async function BlogPostPage({
             "@type": "ListItem",
             position: 2,
             name: "Journal & Insights",
-            item: `${baseUrl}/blog`,
+            item: `${baseUrl}/blogs`,
           },
           {
             "@type": "ListItem",
             position: 3,
             name: post.title,
-            item: `${baseUrl}/blog/${post.slug.current}`,
+            item: `${baseUrl}/blogs/${post.slug.current}`,
           },
         ],
       },
@@ -161,3 +161,5 @@ export default async function BlogPostPage({
     </>
   );
 }
+
+

@@ -77,7 +77,7 @@ export default function ArticleContent({ post }: ArticleContentProps) {
                 <div className="mt-12 pt-8 border-t border-navy/8">
                   <ShareButtons
                     title={post.title}
-                    url={`/blog/${post.slug.current}`}
+                    url={`/blogs/${post.slug.current}`}
                   />
                 </div>
               )}
@@ -100,3 +100,4 @@ export default function ArticleContent({ post }: ArticleContentProps) {
     </section>
   );
 }
+

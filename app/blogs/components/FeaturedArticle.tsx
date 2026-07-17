@@ -24,7 +24,7 @@ export default function FeaturedArticle({ post }: FeaturedArticleProps) {
 
   return (
     <Link
-      href={`/blog/${post.slug.current}`}
+      href={`/blogs/${post.slug.current}`}
       className="group block border-[0.5px] border-gold rounded-sm p-2 no-underline h-full"
       aria-label={`Featured story: ${post.title}`}
     >
@@ -106,3 +106,5 @@ export default function FeaturedArticle({ post }: FeaturedArticleProps) {
     </Link>
   );
 }
+
+

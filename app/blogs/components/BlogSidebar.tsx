@@ -46,7 +46,7 @@ function SidebarPostItem({ post, index }: { post: Blog; index?: number }) {
 
   return (
     <Link
-      href={`/blog/${post.slug.current}`}
+      href={`/blogs/${post.slug.current}`}
       className="group flex gap-3 items-start no-underline py-3.5 border-b border-navy/8 last:border-0"
     >
       {/* Thumbnail or number */}
@@ -143,3 +143,5 @@ export default function BlogSidebar({
     </aside>
   );
 }
+
+

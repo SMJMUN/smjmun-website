@@ -129,7 +129,7 @@ export default function JournalCinematicSection() {
 
           {/* CTA */}
           <Link
-            href="/blog"
+            href="/blogs"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -166,3 +166,4 @@ export default function JournalCinematicSection() {
     </section>
   );
 }
+

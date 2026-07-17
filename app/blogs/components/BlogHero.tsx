@@ -40,7 +40,7 @@ export default function BlogHero({ featuredPost, searchValue, onSearch }: BlogHe
           {/* ── Left Column: Journal Identity ─────────────────────── */}
           <div className="flex flex-col justify-center lg:py-4">
             {/* Overline label */}
-            <p className="text-label text-gold mb-5">SMJ MUN Publication</p>
+            <p className="text-label text-gold mb-5">SMJMUN Publication</p>
 
             {/* Thin gold rule */}
             <div className="gold-rule mb-6" />
@@ -50,7 +50,7 @@ export default function BlogHero({ featuredPost, searchValue, onSearch }: BlogHe
               className="font-serif text-white font-bold leading-[0.97] tracking-[-0.025em] mb-6"
               style={{ fontSize: "clamp(44px, 6.5vw, 82px)" }}
             >
-              SMJ MUN
+              SMJMUN
               <br />
               <em className="not-italic text-gold/85">Journal</em>
             </h1>

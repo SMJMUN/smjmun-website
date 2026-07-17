@@ -34,7 +34,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
   if (variant === "compact") {
     return (
       <Link
-        href={`/blog/${post.slug.current}`}
+        href={`/blogs/${post.slug.current}`}
         className="group flex gap-4 items-start no-underline"
         aria-label={`Read: ${post.title}`}
       >
@@ -77,7 +77,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
     <article className="group flex flex-col bg-white rounded-md border-navy/8 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1">
       {/* Image */}
       <Link
-        href={`/blog/${post.slug.current}`}
+        href={`/blogs/${post.slug.current}`}
         className="block relative rounded-md overflow-hidden"
         style={{ aspectRatio: "16 / 10" }}
         tabIndex={-1}
@@ -117,7 +117,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
 
         {/* Title */}
         <h3 className="flex-1 font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-3 group-hover:text-charcoal transition-colors duration-300">
-          <Link href={`/blog/${post.slug.current}`} className="no-underline">
+          <Link href={`/blogs/${post.slug.current}`} className="no-underline">
             {post.title}
           </Link>
         </h3>
@@ -145,7 +145,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
 
         {/* Read more link */}
         <Link
-          href={`/blog/${post.slug.current}`}
+          href={`/blogs/${post.slug.current}`}
           className="mt-4 inline-flex items-center gap-2 font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-charcoal no-underline group/link"
         >
           <span>Read Article</span>
@@ -157,3 +157,5 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
     </article>
   );
 }
+
+

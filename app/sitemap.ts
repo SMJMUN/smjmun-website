@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}`, lastModified: staticDate, changeFrequency: "daily" as const, priority: 1.0 },
     { url: `${baseUrl}/conferences`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${baseUrl}/programs`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/blog`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/blogs`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/gallery`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${baseUrl}/about`, lastModified: staticDate, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${baseUrl}/media`, lastModified: staticDate, changeFrequency: "weekly" as const, priority: 0.6 },
@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const blogRoutes = blogs.map((blog: { slug: string; _updatedAt: string }) => ({
-    url: `${baseUrl}/blog/${blog.slug}`,
+    url: `${baseUrl}/blogs/${blog.slug}`,
     lastModified: blog._updatedAt ? new Date(blog._updatedAt) : new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -70,3 +70,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...galleryRoutes,
   ];
 }
+
+
+

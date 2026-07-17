@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: "Journal & Insights | SMJMUN",
   description:
     "Insights, stories, and perspectives from India's premier Model United Nations platform. Explore articles on diplomacy, leadership, and global affairs.",
-  alternates: { canonical: "https://smjmun.com/blog" },
+  alternates: { canonical: "https://smjmun.com/blogs" },
   openGraph: {
     title: "Journal & Insights | SMJMUN",
     description:
       "Insights, stories, and perspectives on diplomacy, leadership, and global affairs.",
     type: "website",
-    url: "https://smjmun.com/blog",
+    url: "https://smjmun.com/blogs",
   },
   twitter: {
     card: "summary_large_image",
@@ -44,7 +44,7 @@ export default async function BlogPage() {
         "@type": "ListItem",
         position: 2,
         name: "Journal & Insights",
-        item: "https://smjmun.com/blog",
+        item: "https://smjmun.com/blogs",
       },
     ],
   };
@@ -59,3 +59,6 @@ export default async function BlogPage() {
     </>
   );
 }
+
+
+

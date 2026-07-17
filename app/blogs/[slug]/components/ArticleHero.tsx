@@ -53,7 +53,7 @@ export default function ArticleHero({ post }: ArticleHeroProps) {
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 font-sans text-[11px] tracking-[0.1em] uppercase text-white/30 list-none">
             <li>
-              <a href="/blog" className="hover:text-gold/70 transition-colors duration-200 no-underline">
+              <a href="/blogs" className="hover:text-gold/70 transition-colors duration-200 no-underline">
                 Blog
               </a>
             </li>
@@ -137,3 +137,4 @@ export default function ArticleHero({ post }: ArticleHeroProps) {
     </header>
   );
 }
+

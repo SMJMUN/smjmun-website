@@ -70,7 +70,7 @@ export default function RelatedArticles({
             </h2>
           </div>
           <Link
-            href="/blog"
+            href="/blogs"
             className="font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-navy/35 no-underline hover:text-navy transition-colors duration-300 flex items-center gap-1.5"
           >
             View All
@@ -93,7 +93,7 @@ export default function RelatedArticles({
               >
                 {/* Image */}
                 <Link
-                  href={`/blog/${post.slug.current}`}
+                  href={`/blogs/${post.slug.current}`}
                   className="block relative overflow-hidden rounded-lg"
                   style={{ aspectRatio: "3 / 2" }}
                   tabIndex={-1}
@@ -121,7 +121,7 @@ export default function RelatedArticles({
                     {category}
                   </p>
                   <h3 className="font-serif text-[16px] font-bold leading-[1.3] text-navy mb-2 line-clamp-2 group-hover:text-charcoal transition-colors duration-300">
-                    <Link href={`/blog/${post.slug.current}`} className="no-underline">
+                    <Link href={`/blogs/${post.slug.current}`} className="no-underline">
                       {post.title}
                     </Link>
                   </h3>
@@ -133,7 +133,7 @@ export default function RelatedArticles({
                       {formatDate(post.publishedAt)}
                     </time>
                     <Link
-                      href={`/blog/${post.slug.current}`}
+                      href={`/blogs/${post.slug.current}`}
                       className="font-sans text-[10px] font-500 tracking-[0.12em] uppercase text-charcoal no-underline flex items-center gap-1 group/link"
                     >
                       Read
@@ -149,3 +149,4 @@ export default function RelatedArticles({
     </section>
   );
 }
+

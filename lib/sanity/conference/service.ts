@@ -32,8 +32,8 @@ export class ConferenceService {
     });
   }
 
-  static async getConferenceById(id: string): Promise<Pick<Conference, "_id" | "title" | "venue" | "date"> | null> {
-    return sanityFetch<Pick<Conference, "_id" | "title" | "venue" | "date"> | null>({
+  static async getConferenceById(id: string): Promise<Conference | null> {
+    return sanityFetch<Conference | null>({
       query: CONFERENCE_BY_ID_QUERY,
       params: { id },
       tags: ["conference", `conference:${id}`],

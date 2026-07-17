@@ -1,0 +1,40 @@
+[
+  {
+    "query": "confrecw",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET",
+      "planner": "ConferenceService",
+      "responseType": "answer"
+    }
+  },
+  {
+    "query": "price",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET",
+      "field": "fee",
+      "planner": "Clarification",
+      "responseType": "clarification"
+    }
+  },
+  {
+    "query": "how much money",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET",
+      "field": "fee",
+      "planner": "Clarification",
+      "responseType": "clarification"
+    }
+  },
+  {
+    "query": "Compare Delhi and Indore",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "COMPARE",
+      "planner": "ConferenceService",
+      "responseType": "answer"
+    }
+  }
+]

@@ -60,10 +60,7 @@ export const CONFERENCE_BY_SLUG_QUERY = defineQuery(
 
 export const CONFERENCE_BY_ID_QUERY = defineQuery(
   `*[_type == "conference" && _id == $id][0]{
-    _id,
-    title,
-    venue,
-    date
+    ${FULL_CONFERENCE_PROJECTION}
   }`
 );
 

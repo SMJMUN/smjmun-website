@@ -27,14 +27,14 @@ export async function generateMetadata({
   const post = await BlogService.getBlogPostBySlug(slug);
 
   if (!post) {
-    return { title: "Post Not Found — SMJ MUN Journal" };
+    return { title: "Post Not Found — SMJMUN Journal" };
   }
 
-  const title = post.seoTitle || `${post.title} — SMJ MUN Journal`;
+  const title = post.seoTitle || `${post.title} — SMJMUN Journal`;
   const description =
     post.seoDescription ||
     post.excerpt ||
-    `Read "${post.title}" on the SMJ MUN Journal.`;
+    `Read "${post.title}" on the SMJMUN Journal.`;
   const imageUrl = post.coverImage
     ? urlFor(post.coverImage).width(1200).height(630).url()
     : undefined;

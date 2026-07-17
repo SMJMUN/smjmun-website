@@ -1,0 +1,240 @@
+[
+  {
+    "query": "hi",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "hello",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "hey",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "greetings",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "thanks",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "thank you",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "bye",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "goodbye",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "faq",
+    "expected": {
+      "intent": "FAQ",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "help",
+    "expected": {
+      "intent": "FAQ",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "contact",
+    "expected": {
+      "intent": "CONTACT",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "support",
+    "expected": {
+      "intent": "CONTACT",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "price",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "cost",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "fee",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "fees",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "delegate fee",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "charges",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "registration fee",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "amount",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "payment",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "venue",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "location",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "place",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "where",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "deadline",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "last date",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "closing date",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "due date",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "schedule",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "itinerary",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "timetable",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "dates",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "when",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  }
+]

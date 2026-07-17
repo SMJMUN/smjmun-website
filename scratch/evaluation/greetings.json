@@ -1,0 +1,29 @@
+[
+  {
+    "query": "hello",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET",
+      "planner": "DirectMatch",
+      "responseType": "answer"
+    }
+  },
+  {
+    "query": "thanks",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET",
+      "planner": "DirectMatch",
+      "responseType": "answer"
+    }
+  },
+  {
+    "query": "bye",
+    "expected": {
+      "intent": "GREETING",
+      "action": "GET",
+      "planner": "DirectMatch",
+      "responseType": "answer"
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "query": "confrecw",
+    "expected": { "intent": "CONFERENCE", "action": "GET" }
+  },
+  {
+    "query": "price",
+    "expected": { "intent": "CONFERENCE", "action": "GET" }
+  },
+  {
+    "query": "Compare Delhi and Indore",
+    "expected": { "intent": "CONFERENCE", "action": "COMPARE" }
+  },
+  {
+    "query": "hello",
+    "expected": { "intent": "GREETING", "action": "GET" }
+  },
+  {
+    "query": "what is the refund policy?",
+    "expected": { "intent": "FAQ", "action": "GET" }
+  },
+  {
+    "query": "how do i contact support?",
+    "expected": { "intent": "CONTACT", "action": "GET" }
+  },
+  {
+    "query": "tell me about the training cell program",
+    "expected": { "intent": "PROGRAM", "action": "GET" }
+  },
+  {
+    "query": "what is smjmun?",
+    "expected": { "intent": "ORGANIZATION", "action": "GET" }
+  },
+  {
+    "query": "all upcoming conferences",
+    "expected": { "intent": "CONFERENCE", "action": "LIST" }
+  },
+  {
+    "query": "where is the next event?",
+    "expected": { "intent": "CONFERENCE", "action": "GET" }
+  }
+]

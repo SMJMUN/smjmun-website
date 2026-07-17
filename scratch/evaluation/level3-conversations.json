@@ -1,0 +1,57 @@
+[
+  {
+    "scenario": "Conference follow-ups",
+    "turns": [
+      {
+        "query": "Tell me about SMJMUN 2026",
+        "expected": {
+          "intent": "CONFERENCE",
+          "action": "GET"
+        },
+        "expectedState": {
+          "currentEntity": "SMJMUN 2026",
+          "currentTopic": "CONFERENCE"
+        }
+      },
+      {
+        "query": "price",
+        "expected": {
+          "intent": "CONFERENCE",
+          "action": "GET",
+          "field": "registrationFee"
+        },
+        "expectedState": {
+          "currentEntity": "SMJMUN 2026",
+          "currentTopic": "CONFERENCE"
+        }
+      },
+      {
+        "query": "venue",
+        "expected": {
+          "intent": "CONFERENCE",
+          "action": "GET",
+          "field": "venue"
+        },
+        "expectedState": {
+          "currentEntity": "SMJMUN 2026",
+          "currentTopic": "CONFERENCE"
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "Comparisons",
+    "turns": [
+      {
+        "query": "Compare Delhi and Indore",
+        "expected": {
+          "intent": "CONFERENCE",
+          "action": "COMPARE"
+        },
+        "expectedState": {
+          "currentTopic": "CONFERENCE"
+        }
+      }
+    ]
+  }
+]

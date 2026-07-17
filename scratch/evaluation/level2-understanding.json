@@ -1,0 +1,93 @@
+[
+  {
+    "query": "confrecw",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "what is the refund policy?",
+    "expected": {
+      "intent": "FAQ",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "tell me about the training cell program",
+    "expected": {
+      "intent": "PROGRAM",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "what is smjmun?",
+    "expected": {
+      "intent": "ORGANIZATION",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "all upcoming conferences",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "LIST"
+    }
+  },
+  {
+    "query": "where is the next event?",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "Compare Delhi and Indore",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "COMPARE"
+    }
+  },
+  {
+    "query": "I want to complain",
+    "expected": {
+      "intent": "CONTACT",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "Who started this?",
+    "expected": {
+      "intent": "ORGANIZATION",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "How much is the registration fee for Indore?",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "Can my parents attend the MUN?",
+    "expected": {
+      "intent": "FAQ",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "I need help with my committee assignment",
+    "expected": {
+      "intent": "CONTACT",
+      "action": "GET"
+    }
+  },
+  {
+    "query": "What is the deadline?",
+    "expected": {
+      "intent": "CONFERENCE",
+      "action": "GET"
+    }
+  }
+]

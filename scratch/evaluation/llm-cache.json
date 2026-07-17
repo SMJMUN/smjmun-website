@@ -1,0 +1,130 @@
+{
+  "conference": {
+    "intent": "CONFERENCE",
+    "action": "UNKNOWN",
+    "confidence": 0.8,
+    "rawQuery": "confrecw",
+    "normalizedQuery": "conference"
+  },
+  "what is the refund policy?": {
+    "intent": "FAQ",
+    "action": "GET",
+    "confidence": 1,
+    "rawQuery": "what is the refund policy?",
+    "normalizedQuery": "what is the refund policy?"
+  },
+  "tell me about the training cell program": {
+    "intent": "CONFERENCE",
+    "action": "GET",
+    "entity": "training cell program",
+    "confidence": 1,
+    "rawQuery": "tell me about the training cell program",
+    "normalizedQuery": "tell me about the training cell program",
+    "semanticHints": {
+      "concept": "program",
+      "possibleIntent": "PROGRAM",
+      "confidence": 0.85,
+      "source": "synonym"
+    }
+  },
+  "what is smjmun?": {
+    "intent": "GREETING",
+    "action": "UNKNOWN",
+    "confidence": 1,
+    "rawQuery": "what is smjmun?",
+    "normalizedQuery": "what is smjmun?",
+    "semanticHints": {
+      "concept": "organization",
+      "possibleIntent": "ORGANIZATION",
+      "confidence": 0.85,
+      "source": "synonym"
+    }
+  },
+  "all upcoming conferences": {
+    "intent": "CONFERENCE",
+    "action": "LIST",
+    "confidence": 1,
+    "rawQuery": "all upcoming conferences",
+    "normalizedQuery": "all upcoming conferences"
+  },
+  "where is the next event?": {
+    "intent": "CONFERENCE",
+    "action": "LIST",
+    "field": "venue",
+    "confidence": 0.8,
+    "rawQuery": "where is the next event?",
+    "normalizedQuery": "where is the next event?",
+    "semanticHints": {
+      "field": "venue",
+      "confidence": 0.82,
+      "source": "synonym"
+    }
+  },
+  "compare delhi and indore": {
+    "intent": "CONFERENCE",
+    "action": "COMPARE",
+    "entity": "delhi",
+    "confidence": 0.5,
+    "rawQuery": "Compare Delhi and Indore",
+    "normalizedQuery": "compare delhi and indore"
+  },
+  "i want to complain": {
+    "intent": "UNKNOWN",
+    "action": "UNKNOWN",
+    "confidence": 0.5,
+    "rawQuery": "I want to complain",
+    "normalizedQuery": "i want to complain",
+    "semanticHints": {
+      "concept": "support",
+      "possibleIntent": "CONTACT",
+      "confidence": 0.85,
+      "source": "synonym"
+    }
+  },
+  "who started this?": {
+    "intent": "GREETING",
+    "action": "UNKNOWN",
+    "confidence": 0.5,
+    "rawQuery": "Who started this?",
+    "normalizedQuery": "who started this?",
+    "semanticHints": {
+      "concept": "founder",
+      "possibleIntent": "ORGANIZATION",
+      "confidence": 0.85,
+      "source": "synonym"
+    }
+  },
+  "how much is the registration fee for indore?": {
+    "intent": "UNKNOWN",
+    "action": "UNKNOWN",
+    "confidence": 0.1,
+    "rawQuery": "How much is the registration fee for Indore?",
+    "normalizedQuery": "how much is the registration fee for indore?",
+    "semanticHints": {
+      "field": "registrationFee",
+      "confidence": 0.82,
+      "source": "synonym"
+    }
+  },
+  "can my parents attend the mun?": {
+    "intent": "UNKNOWN",
+    "action": "UNKNOWN",
+    "confidence": 0.1,
+    "rawQuery": "Can my parents attend the MUN?",
+    "normalizedQuery": "can my parents attend the mun?"
+  },
+  "i need help with my committee assignment": {
+    "intent": "UNKNOWN",
+    "action": "UNKNOWN",
+    "confidence": 0.1,
+    "rawQuery": "I need help with my committee assignment",
+    "normalizedQuery": "i need help with my committee assignment"
+  },
+  "what is the deadline?": {
+    "intent": "UNKNOWN",
+    "action": "UNKNOWN",
+    "confidence": 0.1,
+    "rawQuery": "What is the deadline?",
+    "normalizedQuery": "what is the deadline?"
+  }
+}

@@ -2,6 +2,7 @@
 
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import {
   motion,
@@ -189,12 +190,25 @@ export default function FounderSection() {
               text="His mission extends beyond conferences — building institutional partnerships that embed diplomatic thinking into the fabric of Indian education."
               progress={maxProgress}
               range={[0.7, 1.0]}
-              className="mb-12 leading-[1.75]"
+              className="mb-8 leading-[1.75]"
               style={{
                 fontFamily: 'var(--font-body), system-ui, sans-serif',
                 fontSize: '15px',
               }}
             />
+
+            {/* Read His Story CTA */}
+            <div className="mb-12">
+              <Link
+                href="/founder"
+                className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-white hover:text-[#BB8B57] transition-colors duration-300"
+              >
+                <span>Read His Story</span>
+                <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#BB8B57] transition-colors duration-300 relative">
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-r border-b border-current -rotate-45 transform translate-x-1/2" />
+                </span>
+              </Link>
+            </div>
 
             {/* Social Icons (Static) */}
             <div className="flex gap-5 items-center">

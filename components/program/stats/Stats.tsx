@@ -18,7 +18,7 @@ function StatCounter({ item }: { item: StatItem }) {
     <div className="text-center">
       <span
         ref={ref as React.Ref<HTMLSpanElement>}
-        className="block font-[family-name:var(--font-playfair)] text-2xl font-bold text-[#BB8B57] md:text-3xl lg:text-4xl"
+        className="block font-[family-name:var(--font-sora)] text-2xl font-bold text-[#BB8B57] md:text-3xl lg:text-4xl"
       >
         {display}
       </span>

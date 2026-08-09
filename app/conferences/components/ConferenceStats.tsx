@@ -2,7 +2,7 @@ import React from "react";
 
 const STATS = [
   { value: "11000+", label: "Delegates Hosted" },
-  { value: "5+", label: "Partner Schools" },
+  { value: "10+", label: "Partner Schools" },
   { value: "20+", label: "Conferences Held" },
   { value: "200+", label: "Countries Represented" },
 ];

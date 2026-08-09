@@ -41,7 +41,13 @@ export function MobileDrawer({ onClose, navigationData }: MobileDrawerProps) {
       {/* Navigation Links */}
       <ScrollArea className="flex-1 h-full">
         <nav className="flex flex-col px-6 py-4">
-          {MAIN_NAVIGATION.map((item) => {
+          {MAIN_NAVIGATION.flatMap((item) => {
+            const items = [item];
+            if (item.label === 'About') {
+              items.push({ label: 'About Founder', href: '/founder' });
+            }
+            return items;
+          }).map((item) => {
             if (item.label === 'Conferences') {
               return <MobileConferencesAccordion key={item.label} onLinkClick={onClose} navigationData={navigationData} />;
             }

@@ -6,7 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
 import SmoothScroll from "./components/SmoothScroll";
-import { montserrat } from "./fonts";
+import { montserrat, sora } from "./fonts";
 import FloatingContactWidget from "./components/FloatingWidget";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { Header } from "@/components/navigation/Header";
@@ -133,7 +133,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(playfair.variable, inter.variable, "font-sans", geist.variable, montserrat.variable)}
+      className={cn(playfair.variable, inter.variable, "font-sans", geist.variable, montserrat.variable, sora.variable)}
     >
       <body className="antialiased min-h-screen flex flex-col">
         <SplashCursor

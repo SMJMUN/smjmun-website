@@ -76,18 +76,20 @@ export default function ImpactStatsClient() {
             className={`
               px-6 py-8
               border-[rgba(255,255,255,0.08)]
-              ${index % 2 === 0 ? 'border-r' : ''}
-              ${index < 4 ? 'border-b md:border-b' : ''}
+              ${index % 2 === 0 ? 'border-r' : ''} 
+              md:${index % 3 !== 2 ? 'border-r' : 'border-r-0'} 
+              lg:${index !== 5 ? 'border-r' : 'border-r-0'} 
+              ${index < 4 ? 'border-b' : ''} 
+              md:${index < 3 ? 'border-b' : 'border-b-0'} 
               lg:border-b-0
-              ${index === 5 ? 'lg:border-r-0' : ''}
             `}
           >
             <div
-              className=" mb-3"
+              className="mb-3 tracking-tight"
               
               style={{
-                fontSize: 'clamp(36px, 4vw, 54px)',
-                 fontFamily: 'var(--font-body), system-ui, sans-serif',
+                fontSize: 'clamp(32px, 3vw, 48px)',
+                 fontFamily: 'var(--font-sora), sans-serif',
                 lineHeight: 1,
                 color: '#BB8B57',
               }}

@@ -20,9 +20,9 @@ export async function sendEmail({
   html,
   type,
 }: SendEmailOptions): Promise<SendEmailResult> {
-  const mode = process.env.EMAIL_MODE || 'test';
-  const from = process.env.EMAIL_FROM || 'onboarding@resend.dev';
-  const replyTo = process.env.EMAIL_REPLY_TO || 'test@example.com';
+  const mode = process.env.EMAIL_MODE || (process.env.NODE_ENV === 'development' ? 'test' : 'production');
+  const from = process.env.EMAIL_FROM || 'SMJMUN <info@smjmun.com>';
+  const replyTo = process.env.EMAIL_REPLY_TO || 'info@smjmun.com';
   
   const toList = Array.isArray(to) ? to : [to];
 

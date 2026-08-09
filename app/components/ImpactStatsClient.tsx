@@ -64,8 +64,8 @@ export default function ImpactStatsClient() {
   return (
     <div ref={containerRef} className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12">
       {/* Label */}
-      <div className="reveal mb-12 text-center">
-        <span className="section-label">Our Impact</span>
+      <div className="reveal  mb-12 text-center">
+        <span className="section-label text-2xl">Our Impact</span>
       </div>
 
       {/* Stats grid */}

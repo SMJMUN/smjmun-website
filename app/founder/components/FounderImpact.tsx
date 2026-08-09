@@ -18,7 +18,7 @@ function StatCounter({ stat }: { stat: typeof impactStats[0] }) {
     <div className="flex flex-col flex-1 w-full text-center md:text-left">
       <span 
         ref={ref as React.Ref<HTMLSpanElement>}
-        className="font-[family-name:var(--font-playfair)] font-bold text-[#BB8B57] leading-none mb-4"
+        className="font-[family-name:var(--font-sora)] font-bold text-[#BB8B57] leading-none mb-4"
         style={{ fontSize: 'clamp(48px, 5vw, 64px)' }}
       >
         {display}

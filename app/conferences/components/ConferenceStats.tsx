@@ -1,10 +1,10 @@
 import React from "react";
 
 const STATS = [
-  { value: "5000+", label: "Delegates Hosted" },
-  { value: "100+", label: "Partner Schools" },
+  { value: "11000+", label: "Delegates Hosted" },
+  { value: "5+", label: "Partner Schools" },
   { value: "20+", label: "Conferences Held" },
-  { value: "30+", label: "Countries Represented" },
+  { value: "200+", label: "Countries Represented" },
 ];
 
 export default function ConferenceStats() {
@@ -32,8 +32,9 @@ export default function ConferenceStats() {
             <div key={i} className="text-center group">
               {/* Number */}
               <div
-                className="font-serif font-bold transition-colors duration-500"
+                className="font-bold transition-colors duration-500"
                 style={{
+                  fontFamily: 'var(--font-sora), sans-serif',
                   fontSize: 'clamp(40px, 5vw, 64px)',
                   lineHeight: 0.95,
                   letterSpacing: '-0.02em',

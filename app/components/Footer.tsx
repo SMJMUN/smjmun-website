@@ -38,7 +38,7 @@ const socialLinks = [
   { icon: FaFacebookF, href: "https://www.facebook.com/SMJMUN/", label: "Facebook" },
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/theaarushsahu", label: "LinkedIn" },
   { icon: FaInstagram, href: "https://www.instagram.com/smjmun", label: "Instagram" },
-  { icon: FaYoutube, href: "https://youtube.com/@smjmun?si=LAWMr1cIJTOjb4kW", label: "YouTube" },
+  { icon: FaYoutube, href: "https://www.youtube.com/@smjmun", label: "YouTube" },
 ];
 
 function FooterNewsletterForm() {

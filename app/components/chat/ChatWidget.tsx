@@ -31,7 +31,7 @@ export function ChatWidget() {
               </svg>
             </div>
             <div>
-              <h3 className="font-semibold text-sm text-zinc-100 tracking-wide">SMJMUN AI Assistant</h3>
+              <h3 className="font-semibold text-sm text-zinc-100 tracking-wide">AI Tejas</h3>
               <p className="text-xs text-yellow-500/80">Always here to help</p>
             </div>
           </div>

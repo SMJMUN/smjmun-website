@@ -78,7 +78,7 @@ export function ChatInput() {
 </button>
       </div>
       <div className="text-center mt-2">
-        <p className="text-[10px] text-zinc-600">SMJMUN AI Assistant can make mistakes.</p>
+        <p className="text-[10px] text-zinc-600">AI Tejas can make mistakes.</p>
       </div>
     </div>
   );

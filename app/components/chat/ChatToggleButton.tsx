@@ -51,7 +51,7 @@ export function ChatToggleButton() {
           >
             <div className="relative bg-white text-black p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-black/5">
               <p className="text-sm font-medium leading-relaxed text-black">
-                Questions about committees, registration, or schedules? Ask the AI.
+                Questions about committees, registration, or schedules? Ask AI Tejas.
               </p>
               {/* Triangle pointer */}
               <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white rotate-45 border-r border-b border-black/5" />
@@ -62,7 +62,7 @@ export function ChatToggleButton() {
 
       <motion.button
         onClick={handleMainFabClick}
-        aria-label="Ask SMJMUN AI"
+        aria-label="Ask AI Tejas"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="group relative flex items-center h-14 rounded-full bg-[rgba(10,10,10,0.85)] backdrop-blur-xl border border-[#BB8B57]/30 shadow-[0_12px_40px_rgba(0,0,0,.45)] transition-all duration-300 hover:border-[#BB8B57]/60"
@@ -75,7 +75,7 @@ export function ChatToggleButton() {
               exit={{ opacity: 0, width: 0, padding: 0 }}
               className="overflow-hidden whitespace-nowrap pl-5 pr-2 font-body text-[13px] tracking-[0.1em] uppercase text-white"
             >
-              Ask AI
+              Ask AI Tejas
             </motion.span>
           )}
         </AnimatePresence>

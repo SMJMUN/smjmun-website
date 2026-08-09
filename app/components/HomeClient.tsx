@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import IntroWrapper from "./IntroWrapper";
 
 const OurProgramsSection = dynamic(() => import("./OurProgramsSection"));
+const HighlightsSection = dynamic(() => import("./HighlightsSection"));
 const AboutHero = dynamic(() => import("./AboutSection"));
 const GlobalMovementSection = dynamic(() => import("./GlobalMovementSection"));
 const JournalCinematicSection = dynamic(() => import("./JournalCinematicSection"));
@@ -31,6 +32,7 @@ export default function HomeClient() {
           <AboutHero />
           <TrustSection />
           <ImpactSection />
+          <HighlightsSection />
           <OurProgramsSection />
           <GlobalMovementSection />
           <JournalCinematicSection />

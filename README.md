@@ -91,7 +91,7 @@ A quick guide to navigating the codebase:
 ## 🗄️ Database Schemas (Prisma)
 
 Our PostgreSQL database is managed via Prisma. Here are the core models every developer should know when working on the backend:
-
+ 
 ### 1. Registration (`Registration`)
 The core model tracking a user's conference registration.
 - **Key Fields**: `email`, `firstName`, `lastName`, `conferenceId`, `conferenceFee`

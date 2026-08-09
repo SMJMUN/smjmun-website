@@ -55,7 +55,7 @@ export function ChatToggleButton() {
                   e.stopPropagation();
                   handleDismissTooltip();
                 }}
-                className="absolute top-2 right-2 p-1 text-gray-400 hover:text-gray-600 transition-colors rounded-full"
+                className="absolute top-2 right-2 p-1 text-gray-800 hover:text-gray-600 transition-colors rounded-full"
                 aria-label="Close tooltip"
               >
                 <X size={14} />

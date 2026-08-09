@@ -21,7 +21,7 @@ export default function YoutubeCard({ urls }: YoutubeCardProps) {
         return (
           <div 
             key={`${videoId}-${index}`} 
-            className="relative w-full h-[65vh] md:h-[50vh] overflow-hidden rounded-2xl bg-black/40 border border-white/10 shadow-xl"
+            className="relative w-full aspect-[9/16] md:aspect-auto md:h-[50vh] overflow-hidden rounded-2xl bg-black/40 border border-white/10 shadow-xl"
           >
             <iframe
               src={`https://www.youtube.com/embed/${videoId}?autoplay=0&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`}

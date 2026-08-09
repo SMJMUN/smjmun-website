@@ -49,7 +49,17 @@ export function ChatToggleButton() {
             transition={{ delay: 1.2, duration: 0.3 }}
             className="absolute bottom-20 right-0 mb-2 w-[240px] sm:w-[260px]"
           >
-            <div className="relative bg-white text-black p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-black/5">
+            <div className="relative bg-white text-black p-4 pr-10 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-black/5">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDismissTooltip();
+                }}
+                className="absolute top-2 right-2 p-1 text-gray-400 hover:text-gray-600 transition-colors rounded-full"
+                aria-label="Close tooltip"
+              >
+                <X size={14} />
+              </button>
               <p className="text-sm font-medium leading-relaxed text-black">
                 Questions about committees, registration, or schedules? Ask AI Tejas.
               </p>

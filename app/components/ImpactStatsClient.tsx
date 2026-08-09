@@ -83,9 +83,11 @@ export default function ImpactStatsClient() {
             `}
           >
             <div
-              className="font-serif mb-3"
+              className=" mb-3"
+              
               style={{
                 fontSize: 'clamp(36px, 4vw, 54px)',
+                 fontFamily: 'var(--font-body), system-ui, sans-serif',
                 lineHeight: 1,
                 color: '#BB8B57',
               }}

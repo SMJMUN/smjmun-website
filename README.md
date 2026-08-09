@@ -1,822 +1,148 @@
-# SMJ MUN Platform
+# SMJMUN Platform - Developer Onboarding Guide
 
-A premium international Model United Nations platform built with Next.js, Sanity CMS, PostgreSQL, Prisma, HDFC SmartGateway, and Resend Email Automation.
-
----
-
-## Overview
-
-SMJ MUN is designed as a modern conference and educational platform that allows students, schools, delegates, executive board members, and institutional partners to interact through a unified system.
-
-The platform combines:
-
-* Conference Management
-* Content Publishing
-* Student Registration
-* OTP Verification
-* Payment Processing
-* Email Automation
-* Partnership Inquiries
-* Contact Management
-* Media & Gallery Management
+Welcome to the SMJMUN Platform! This document serves as the primary onboarding guide for new developers joining the team. It covers everything from local setup to the core architecture and schemas you need to understand to start contributing.
 
 ---
 
-# Tech Stack
+## 🚀 Getting Started (Local Development)
 
-## Frontend
+To run the project locally, follow these steps:
 
-* Next.js 16
-* React
-* TypeScript
-* Tailwind CSS
-* App Router
+### 1. Prerequisites
+- **Node.js** (v18+)
+- **PostgreSQL** (or a Neon database instance)
+- **Sanity CMS** account/project access
 
----
-
-## CMS
-
-* Sanity CMS v3
-* Embedded Studio
-* GROQ Queries
-* Portable Text
-
-Studio Route:
-
+### 2. Installation
+Clone the repository and install dependencies:
 ```bash
-/studio
+npm install
 ```
 
----
-
-## Database
-
-* PostgreSQL (Neon)
-* Prisma ORM 7.8
-* PrismaPg Adapter
-
----
-
-## Payments
-
-* HDFC SmartGateway
-* Juspay SDK
-
----
-
-## Email
-
-* Resend
-
----
-
-# Project Architecture
-
-```txt
-Frontend
-   │
-   ▼
-Sanity CMS
-   │
-   ▼
-Registration System
-   │
-   ▼
-OTP Verification
-   │
-   ▼
-Payment Processing
-   │
-   ▼
-Email Automation
-   │
-   ▼
-PostgreSQL Database
-```
-
----
-
-# CMS Content Structure
-
-## Conferences
-
-Used for:
-
-```txt
-/conferences
-/conferences/[slug]
-```
-
-Fields:
-
-```txt
-title
-slug
-status
-venue
-date
-registrationFee
-registrationOpen
-registrationCloseDate
-capacity
-committees[]
-agenda
-gallery
-seoTitle
-seoDescription
-featuredImage
-overview
-```
-
----
-
-## Blog
-
-Used for:
-
-```txt
-/blog
-/blog/[slug]
-```
-
-Fields:
-
-```txt
-title
-slug
-excerpt
-coverImage
-author
-publishedAt
-body
-tags
-seoTitle
-seoDescription
-```
-
----
-
-## Media
-
-Used for:
-
-```txt
-/media
-```
-
-Fields:
-
-```txt
-title
-image
-externalUrl
-description
-```
-
----
-
-## Gallery
-
-Used for:
-
-```txt
-/gallery
-```
-
-Fields:
-
-```txt
-title
-images[]
-description
-```
-
----
-
-# Dynamic Routes
-
-## Conferences
-
-```txt
-/conferences
-/conferences/[slug]
-```
-
----
-
-## Registration
-
-```txt
-/register/[slug]
-```
-
----
-
-## Blog
-
-```txt
-/blog
-/blog/[slug]
-```
-
----
-
-## Media
-
-```txt
-/media
-```
-
----
-
-## Gallery
-
-```txt
-/gallery
-```
-
----
-
-## Partnerships
-
-```txt
-/partnerships
-```
-
----
-
-# Database Models
-
-## RegistrationStatus
-
-```txt
-PENDING_OTP
-PENDING_PAYMENT
-PAID
-PAYMENT_FAILED
-CANCELLED
-REFUNDED
-```
-
----
-
-## InquiryStatus
-
-```txt
-NEW
-CONTACTED
-CLOSED
-```
-
----
-
-## Registration
-
-Stores:
-
-```txt
-Student Information
-Conference Snapshot
-Payment References
-Registration Status
-```
-
-Important fields:
-
-```txt
-email
-firstName
-lastName
-phone
-institution
-conferenceId
-conferenceTitle
-conferenceDate
-conferenceFee
-committeePreference
-status
-hdfcOrderId
-paymentId
-paidAt
-```
-
-Unique:
-
-```txt
-(email + conferenceId)
-```
-
----
-
-## RegistrationDraft
-
-Temporary storage before OTP verification.
-
-Fields:
-
-```txt
-email
-firstName
-lastName
-phone
-institution
-city
-committeePreference
-dietaryRequirements
-conferenceId
-```
-
-Deleted after successful OTP verification.
-
----
-
-## OtpVerification
-
-Fields:
-
-```txt
-email
-otpHash
-expiresAt
-verified
-attempts
-createdAt
-```
-
-Security:
-
-```txt
-OTP never stored in plaintext
-Only SHA-256 hash stored
-```
-
----
-
-## PartnershipInquiry
-
-Stores institutional partnership requests.
-
----
-
-## ContactInquiry
-
-Stores contact form requests.
-
----
-
-## VolunteerApplication
-
-Volunteer recruitment.
-
----
-
-## ExecutiveBoardApplication
-
-Executive Board recruitment.
-
----
-
-# Registration Flow
-
-```txt
-Student Opens Conference
-          │
-          ▼
-Register Now
-          │
-          ▼
-/register/[slug]
-          │
-          ▼
-Submit Form
-          │
-          ▼
-Registration Draft
-          │
-          ▼
-Generate OTP
-          │
-          ▼
-Hash OTP
-          │
-          ▼
-OtpVerification Record
-          │
-          ▼
-Send OTP Email
-          │
-          ▼
-Verify OTP
-          │
-          ▼
-Create Registration
-          │
-          ▼
-PENDING_PAYMENT
-          │
-          ▼
-Payment Page
-```
-
----
-
-# OTP System
-
-Implemented in Phase 5.
-
-Security:
-
-```txt
-6-digit OTP
-10 minute expiry
-SHA-256 hash
-3 attempt limit
-```
-
-OTP is:
-
-* Never stored raw
-* Never logged
-* Never exposed through APIs
-
----
-
-# Payment Architecture
-
-Provider:
-
-```txt
-HDFC SmartGateway
-(Juspay)
-```
-
-Flow:
-
-```txt
-OTP Verified
-        │
-        ▼
-Registration Created
-        │
-        ▼
-PENDING_PAYMENT
-        │
-        ▼
-Create HDFC Order
-        │
-        ▼
-Redirect To HDFC
-        │
-        ▼
-User Pays
-        │
-        ▼
-Return To Platform
-        │
-        ▼
-Verify With HDFC
-        │
-        ▼
-CHARGED
-        │
-        ▼
-PAID
-        │
-        ▼
-Send Confirmation Email
-```
-
----
-
-# Payment Security Rules
-
-Frontend NEVER marks payments successful.
-
-Only backend verification can update:
-
-```txt
-Registration.status = PAID
-```
-
-Verification checks:
-
-```txt
-Order ID
-Amount
-Registration
-HDFC Status
-```
-
-Only:
-
-```txt
-CHARGED
-```
-
-can mark registration as:
-
-```txt
-PAID
-```
-
----
-
-# HDFC Service Layer
-
-## lib/hdfc
-
-```txt
-client.ts
-create-order.ts
-check-order-status.ts
-types.ts
-strip-http.ts
-```
-
----
-
-## lib/payment
-
-```txt
-create-payment-session.ts
-verify-payment.ts
-generate-order-id.ts
-errors.ts
-log-payment-event.ts
-```
-
----
-
-# Email System
-
-Provider:
-
-```txt
-Resend
-```
-
----
-
-## Email Types
-
-### OTP Email
-
-Triggered after OTP generation.
-
----
-
-### Registration Confirmation
-
-Triggered after:
-
-```txt
-Registration.status = PAID
-```
-
----
-
-### Partnership Confirmation
-
-Triggered after inquiry submission.
-
----
-
-### Contact Confirmation
-
-Triggered after contact form submission.
-
----
-
-# Email Architecture
-
-```txt
-lib/email/
-│
-├── client.ts
-├── send-email.ts
-├── send-otp-email.ts
-├── send-registration-email.ts
-├── send-partnership-email.ts
-├── send-contact-email.ts
-│
-└── templates/
-    ├── otp-template.ts
-    ├── registration-template.ts
-    ├── partnership-template.ts
-    └── contact-template.ts
-```
-
----
-
-# Email Modes
-
-## Test Mode
-
+### 3. Environment Variables
+Create a `.env.local` file in the root directory. Ask the team lead for the exact values, but the structure should be:
 ```env
-EMAIL_MODE=test
+# Database (PostgreSQL / Neon)
+DATABASE_URL=your_postgres_url
+
+# Sanity CMS
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2023-05-03
+SANITY_API_TOKEN=your_sanity_token
+
+# Resend Email
+RESEND_API_KEY=your_resend_key
 EMAIL_FROM=onboarding@resend.dev
-```
+EMAIL_REPLY_TO=contact@yourdomain.com
+EMAIL_MODE=test # Set to test for local development
 
-Used during development.
-
----
-
-## Production Mode
-
-```env
-EMAIL_MODE=production
-EMAIL_FROM=noreply@smjmun.com
-```
-
-Uses verified domain.
-
-No code changes required.
-
----
-
-# Environment Variables
-
-## Sanity
-
-```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=
-NEXT_PUBLIC_SANITY_API_VERSION=
-SANITY_API_TOKEN=
-```
-
----
-
-## Database
-
-```env
-DATABASE_URL=
-```
-
----
-
-## Email
-
-```env
-RESEND_API_KEY=
-EMAIL_FROM=
-EMAIL_REPLY_TO=
-EMAIL_MODE=
-```
-
----
-
-## HDFC
-
-```env
+# HDFC Payments
 HDFC_MERCHANT_ID=
 HDFC_KEY_UUID=
 HDFC_PAYMENT_PAGE_CLIENT_ID=
-HDFC_PUBLIC_KEY_PATH=
-HDFC_PRIVATE_KEY_PATH=
-HDFC_BASE_URL=
-APP_URL=
+HDFC_BASE_URL=https://smartgateway.hdfcbank.com
+APP_URL=http://localhost:3000
 ```
+
+### 4. Database Setup
+Generate the Prisma client and push the schema to your local/dev database:
+```bash
+npm run db:generate
+npm run db:push
+```
+
+*(Note: Use `npm run db:studio` to open a local UI to view your database records)*
+
+### 5. Run the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+You can access the embedded Sanity Studio at [http://localhost:3000/studio](http://localhost:3000/studio).
 
 ---
 
-# Completed Phases
+## 🛠 Tech Stack
 
-## Phase 1
-
-Sanity CMS Setup
-
-Status:
-
-```txt
-COMPLETED
-```
-
----
-
-## Phase 2
-
-Dynamic CMS Integration
-
-Status:
-
-```txt
-COMPLETED
-```
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript, React 19
+- **Styling**: Tailwind CSS v4, Framer Motion
+- **Database**: PostgreSQL (hosted on Neon)
+- **ORM**: Prisma v7.8
+- **CMS**: Sanity v3 (Embedded Studio)
+- **Payments**: HDFC SmartGateway / Juspay SDK
+- **Email Automation**: Resend
 
 ---
 
-## Phase 3
+## 📂 Project Structure
 
-Prisma + PostgreSQL
+A quick guide to navigating the codebase:
 
-Status:
-
-```txt
-COMPLETED
-```
-
----
-
-## Phase 4
-
-Registration Foundation
-
-Status:
-
-```txt
-COMPLETED
-```
+- `/app`: Contains all Next.js App Router routes (`/conferences`, `/register`, `/blogs`, etc.). Also houses the `/api` endpoints and `/(studio)` embedded CMS routes.
+- `/components`: Reusable UI components (buttons, forms, layouts).
+- `/lib`: Core backend logic. This is where the heavy lifting happens: HDFC payment integrations, Resend email logic, Prisma client initialization, and OTP verification logic.
+- `/prisma`: Contains `schema.prisma` which defines our PostgreSQL database structure.
+- `/sanity`: Configuration and schema definitions for Sanity CMS.
 
 ---
 
-## Phase 5
+## 🗄️ Database Schemas (Prisma)
 
-OTP Verification
+Our PostgreSQL database is managed via Prisma. Here are the core models every developer should know when working on the backend:
 
-Status:
+### 1. Registration (`Registration`)
+The core model tracking a user's conference registration.
+- **Key Fields**: `email`, `firstName`, `lastName`, `conferenceId`, `conferenceFee`
+- **Status Enum**: `PENDING_OTP`, `PENDING_PAYMENT`, `PAID`, `PAYMENT_FAILED`, `CANCELLED`
+- **Payment Fields**: `hdfcOrderId`, `paymentId` (Updated securely by the backend, never trust frontend status)
+- **Constraint**: Unique on `[email, conferenceId]` so users can't register twice for the same event.
 
-```txt
-COMPLETED
-```
+### 2. Registration Draft (`RegistrationDraft`)
+Temporary storage for users who have submitted the form but haven't verified their email yet. Deleted once the OTP is verified.
 
----
+### 3. OTP Verification (`OtpVerification`)
+Handles email verification during the registration process.
+- **Key Fields**: `email`, `otpHash` (SHA-256), `expiresAt`, `attempts`
+- **Security**: Raw OTPs are **never** stored in the database. We only store the hash.
 
-## Phase 6B
-
-HDFC Payment Architecture
-
-Status:
-
-```txt
-COMPLETED
-```
-
-Waiting for:
-
-```txt
-HDFC Credentials
-```
+### 4. Forms & Inquiries
+We have several models for handling user submissions:
+- `ContactInquiry`: General contact form submissions (`NEW`, `CONTACTED`, `CLOSED`).
+- `PartnershipInquiry`: Institutional partnership requests.
+- `VolunteerApplication` & `ExecutiveBoardApplication`: Recruitment forms.
+- `NewsletterSubscriber`: Newsletter signups tracking the `source` (Footer, Blog, Popup, etc).
 
 ---
 
-## Phase 7
+## 🗃️ CMS Structure (Sanity)
 
-Email Automation
+Sanity manages all dynamic content on the platform.
 
-Status:
-
-```txt
-COMPLETED
-```
+- **Conferences**: Stores dates, venues, capacity, committees, fees, and the conference agenda. 
+- **Blogs**: Portable Text content for news and strategies.
+- **Media & Gallery**: Image assets and external press links.
 
 ---
 
-# Current Focus
+## 🔄 Core Architecture Flows
 
-UI Sprint
+### 1. The Registration & OTP Flow
+1. User submits registration at `/register/[slug]`.
+2. Data saved temporarily to `RegistrationDraft`.
+3. 6-digit OTP generated, hashed via SHA-256, saved to `OtpVerification`, and emailed to the user via Resend.
+4. User enters OTP. System validates hash and expiration limits.
+5. If valid, data moves from `RegistrationDraft` to the main `Registration` table with status `PENDING_PAYMENT`.
 
-Priority Areas:
-
-```txt
-Landing Page
-Conference Listing Page
-Conference Detail Page
-Blog Experience
-Registration Experience
-```
-
-Goals:
-
-```txt
-Premium UI
-Luxury Academic Design
-Better Mobile Experience
-Better Accessibility
-Higher Registration Conversion
-```
+### 2. The Payment Flow (HDFC)
+1. User with `PENDING_PAYMENT` initiates checkout.
+2. Backend (`/lib/hdfc`) generates an HDFC Order ID and redirects the user to HDFC SmartGateway.
+3. User completes payment.
+4. User returns to platform. *Crucially, the frontend **does not** mark the user as paid.*
+5. Backend verifies the order status securely with the HDFC API. If the status is `CHARGED`, the Registration status updates to `PAID`.
+6. Automated confirmation email sent via Resend.
 
 ---
 
-# Project Status
-
-```txt
-CMS                ✅ Complete
-Database           ✅ Complete
-Registration       ✅ Complete
-OTP Verification   ✅ Complete
-Payments           ✅ Complete (Awaiting Credentials)
-Email Automation   ✅ Complete
-UI Polish          🚧 In Progress
-```
-
----
-   
-
-Stack:
-
-Next.js + TypeScript + Sanity + Prisma + PostgreSQL + HDFC + Resend
-
-Mission:
-
-Empower future leaders through diplomacy, collaboration, and global dialogue.
+This guide should give you the high-level understanding needed to start contributing. Welcome to the team!

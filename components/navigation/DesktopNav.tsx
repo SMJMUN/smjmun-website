@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION } from './constants/navigation';
 import { ConferencesMenu } from './dropdowns/ConferencesMenu';
 import { ProgramsMenu } from './dropdowns/ProgramsMenu';
+import { AboutMenu } from './dropdowns/AboutMenu';
 import { NavigationItem } from './NavigationItem';
 import {
   NavigationMenu,
@@ -40,9 +41,8 @@ export function DesktopNav({ navigationData }: DesktopNavProps) {
         {MAIN_NAVIGATION.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 
-          // Special handling for Conferences and Programs to render the Mega Menu
-          if (item.label === 'Conferences' || item.label === 'Programs') {
-            const MenuComponent = item.label === 'Conferences' ? ConferencesMenu : ProgramsMenu;
+          // Special handling for Conferences, Programs, and About to render the Mega Menu
+          if (item.label === 'Conferences' || item.label === 'Programs' || item.label === 'About') {
             return (
               <NavigationMenuItem key={item.label}>
                 <NavigationMenuTrigger
@@ -75,10 +75,14 @@ export function DesktopNav({ navigationData }: DesktopNavProps) {
     bg-transparent
   "
                 >
-                  {item.label === 'Conferences' ? (
+                  {item.label === 'Conferences' && (
                     <ConferencesMenu navigationData={navigationData} />
-                  ) : (
+                  )}
+                  {item.label === 'Programs' && (
                     <ProgramsMenu />
+                  )}
+                  {item.label === 'About' && (
+                    <AboutMenu />
                   )}
                 </NavigationMenuContent>
               </NavigationMenuItem>

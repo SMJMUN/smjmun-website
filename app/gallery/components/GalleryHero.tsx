@@ -1,16 +1,54 @@
-export default function GalleryHero() {
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity/image";
+import type { Gallery } from "@/lib/sanity/gallery/types";
+
+interface GalleryHeroProps {
+  featuredGallery?: Gallery | null;
+}
+
+export default function GalleryHero({ featuredGallery }: GalleryHeroProps) {
+  const coverUrl = featuredGallery?.coverImage
+    ? urlFor(featuredGallery.coverImage).width(1600).height(900).quality(85).url()
+    : null;
+
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden flex flex-col justify-center"
       style={{
         backgroundColor: "#18171C",
-        paddingTop: "clamp(140px, 16vw, 200px)",
-        paddingBottom: "clamp(80px, 9vw, 120px)",
+        minHeight: "70vh",
+        paddingTop: "clamp(120px, 14vw, 160px)",
+        paddingBottom: "clamp(60px, 7vw, 90px)",
       }}
     >
+      {/* Background Image */}
+      {coverUrl && (
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={coverUrl}
+            alt="Moments That Define SMJMUN"
+            fill
+            priority
+            unoptimized
+            sizes="100vw"
+            className="object-cover opacity-40"
+          />
+        </div>
+      )}
+
+      {/* Rich gradient overlay */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(24,23,28,1) 0%, rgba(24,23,28,0.5) 50%, rgba(24,23,28,0.3) 100%)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Subtle gold grid texture */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 z-[1] pointer-events-none opacity-[0.03]"
         aria-hidden="true"
         style={{
           backgroundImage: `
@@ -21,25 +59,11 @@ export default function GalleryHero() {
         }}
       />
 
-      {/* Large watermark text */}
-      <div
-        className="absolute bottom-0 right-0 translate-x-[5%] translate-y-[20%] pointer-events-none select-none"
-        aria-hidden="true"
-      >
-        <span
-          className="font-serif font-bold text-white/[0.025]"
-          style={{ fontSize: "clamp(120px, 20vw, 280px)", lineHeight: 1 }}
-        >
-          Archive
-        </span>
-      </div>
-
       <div className="content-wide relative z-10">
         <div className="max-w-[800px]">
           {/* Eyebrow */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-10 h-[1px] bg-gold/60" />
-            <p className="text-label text-gold">SMJ MUN Archive</p>
+            <p className="text-label text-gold uppercase tracking-[0.2em] font-semibold text-[11px]">SMJ MUN Archive</p>
           </div>
 
           {/* Heading */}
@@ -47,32 +71,22 @@ export default function GalleryHero() {
             className="font-serif text-white font-bold leading-[0.97] tracking-[-0.025em] mb-8"
             style={{ fontSize: "clamp(52px, 7.5vw, 100px)" }}
           >
-            Conference
+            Moments That
             <br />
-            <em className="not-italic text-gold/80">Gallery</em>
+            Define <em className="not-italic text-gold">SMJ MUN</em>
           </h1>
 
           {/* Thin gold rule */}
-          <div className="gold-rule mb-8" />
+          <div className="w-12 h-[2px] bg-gold mb-8" />
 
           {/* Subtitle */}
           <p
-            className="font-sans text-white/55 leading-[1.7]"
-            style={{ fontSize: "clamp(16px, 1.6vw, 19px)", maxWidth: "520px" }}
+            className="font-sans text-white/70 leading-[1.7]"
+            style={{ fontSize: "clamp(15px, 1.6vw, 18px)", maxWidth: "480px" }}
           >
-            Capturing moments of diplomacy, leadership, and global engagement.
-            A visual archive of every conference, committee session, and ceremony.
+            A visual record of diplomacy, leadership, debate and community.
+            Explore the journey of ideas that continue to shape tomorrow.
           </p>
-
-          {/* Bottom meta */}
-          <div className="flex items-center gap-6 mt-10">
-            <div className="flex items-center gap-3">
-              <div className="w-5 h-[1px] bg-gold/40" />
-              <p className="font-sans text-[11px] tracking-[0.12em] text-white/30 uppercase">
-                Est. 2024 · Diplomacy &amp; Leadership
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

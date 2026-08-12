@@ -22,22 +22,24 @@ export default function FeaturedGallery({ gallery }: FeaturedGalleryProps) {
     : null;
 
   return (
-    <section className="section-padding-sm bg-white">
-      <div className="content-editorial text-center mb-16">
-        <p className="text-label text-gold mb-5">Featured Collection</p>
-        <h2 className="text-heading text-navy">Archive Spotlight</h2>
-        <div className="gold-rule mx-auto mt-6" />
+    <section className="section-padding-sm bg-[#111111] border-b border-white/5">
+      <div className="content-wide mb-10">
+        <div className="flex flex-col items-start px-2 lg:px-3">
+          <p className="text-label text-gold mb-4 uppercase tracking-[0.2em]">Featured Collection</p>
+          <h2 className="text-heading text-white text-left font-serif text-[clamp(40px,5vw,56px)] leading-[1.1] tracking-[-0.02em]">Archive Spotlight</h2>
+          <div className="w-16 h-[2px] bg-gold/60 mt-6" />
+        </div>
       </div>
 
       <div className="content-wide">
         <Link
           href={`/gallery/${gallery.slug.current}`}
-          className="group block border border-gold/25 p-2 lg:p-3 no-underline transition-colors duration-500 hover:border-gold"
+          className="group block rounded-2xl border border-white/10 p-2 lg:p-3 no-underline transition-all duration-500 hover:border-gold/50 bg-[#1A1A1A] hover:bg-[#1E1E1E]"
           aria-label={`View collection: ${gallery.title}`}
         >
-          <article className="relative overflow-hidden bg-white flex flex-col lg:flex-row min-h-[480px] border border-stone-100">
+          <article className="relative overflow-hidden rounded-xl bg-[#111111] flex flex-col lg:flex-row-reverse min-h-[360px] border border-white/5">
             {/* Image Side */}
-            <div className="relative w-full lg:w-1/2 aspect-[4/3] lg:aspect-auto overflow-hidden">
+            <div className="relative w-full lg:w-[45%] aspect-[4/3] lg:aspect-auto overflow-hidden">
               {coverUrl ? (
                 <Image
                   src={coverUrl}
@@ -45,7 +47,7 @@ export default function FeaturedGallery({ gallery }: FeaturedGalleryProps) {
                   fill
                   priority
                   unoptimized
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                 />
               ) : (
@@ -55,19 +57,19 @@ export default function FeaturedGallery({ gallery }: FeaturedGalleryProps) {
               )}
 
               {/* Gradient for mobile legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-70 lg:hidden" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 lg:hidden" />
 
               {/* Featured badge */}
-              <div className="absolute top-6 left-6 z-10">
-                <span className="font-sans text-[10px] font-semibold tracking-[0.18em] uppercase text-gold bg-white border border-gold/30 px-4 py-2">
-                  Featured Collection
+              <div className="absolute top-5 left-5 z-10">
+                <span className="font-sans text-[10px] font-semibold tracking-[0.18em] uppercase text-white bg-gold/90 backdrop-blur-sm rounded-full px-4 py-2">
+                  Featured
                 </span>
               </div>
 
               {/* Photo count badge */}
               {gallery.photoCount !== undefined && (
-                <div className="absolute bottom-6 right-6 z-10">
-                  <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-white bg-navy/70 backdrop-blur-sm border border-white/10 px-3 py-1.5">
+                <div className="absolute bottom-5 right-5 z-10">
+                  <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-white bg-black/60 backdrop-blur-md rounded-full border border-white/10 px-3 py-1.5">
                     {gallery.photoCount} Photos
                   </span>
                 </div>
@@ -75,29 +77,29 @@ export default function FeaturedGallery({ gallery }: FeaturedGalleryProps) {
             </div>
 
             {/* Content Side */}
-            <div className="relative z-10 w-full lg:w-1/2 p-10 lg:p-14 flex flex-col justify-center bg-white">
-              <p className="font-sans text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-6">
+            <div className="relative z-10 w-full lg:w-[55%] p-8 lg:p-12 flex flex-col justify-center">
+              <p className="font-sans text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
                 Conference Archive
               </p>
 
               <h3
-                className="font-serif font-bold leading-[1.1] tracking-[-0.02em] text-navy mb-6 group-hover:text-gold transition-colors duration-500"
-                style={{ fontSize: "clamp(28px, 3vw, 44px)" }}
+                className="font-serif font-bold leading-[1.1] tracking-[-0.02em] text-white mb-5 group-hover:text-gold transition-colors duration-500"
+                style={{ fontSize: "clamp(26px, 2.5vw, 40px)" }}
               >
                 {gallery.title}
               </h3>
 
               {/* Meta */}
-              <div className="flex flex-col gap-3 mb-8 font-sans text-[13px] tracking-[0.08em] uppercase font-medium text-navy/55">
+              <div className="flex flex-col gap-2.5 mb-6 font-sans text-[12px] tracking-[0.08em] uppercase font-medium text-white/50">
                 {gallery.location && (
                   <div className="flex items-center gap-3">
-                    <span className="text-gold text-[14px]">📍</span>
+                    <span className="text-gold/70 text-[13px]">📍</span>
                     {gallery.location}
                   </div>
                 )}
                 {gallery.eventDate && (
                   <div className="flex items-center gap-3">
-                    <span className="text-gold text-[14px]">📅</span>
+                    <span className="text-gold/70 text-[13px]">📅</span>
                     {formatEventDate(gallery.eventDate)}
                   </div>
                 )}
@@ -105,15 +107,15 @@ export default function FeaturedGallery({ gallery }: FeaturedGalleryProps) {
 
               {/* Description */}
               {gallery.description && (
-                <p className="font-sans text-[15px] leading-[1.75] text-stone-500 mb-10 line-clamp-3">
+                <p className="font-sans text-[14px] leading-[1.7] text-white/60 mb-8 line-clamp-3 max-w-lg">
                   {gallery.description}
                 </p>
               )}
 
               <div className="mt-auto">
-                <span className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-gold group-hover:gap-4 transition-all duration-300">
+                <span className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-black bg-gold rounded-full px-6 py-3 group-hover:bg-white transition-all duration-300">
                   View Collection
-                  <span className="text-[16px]">→</span>
+                  <span className="text-[14px] group-hover:translate-x-1 transition-transform">→</span>
                 </span>
               </div>
             </div>

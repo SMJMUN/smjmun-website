@@ -39,7 +39,7 @@ export default function GalleryPageClient({
   return (
     <>
       {/* Filters */}
-      <div className="pt-10 pb-6" style={{ borderBottom: "1px solid rgba(4,33,71,0.06)" }}>
+      <div className="pt-10 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="content-wide">
           <nav aria-label="Filter galleries by year" className="w-full">
             <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-1">
@@ -56,8 +56,8 @@ export default function GalleryPageClient({
                       px-5 py-2.5 border transition-all duration-300 cursor-pointer whitespace-nowrap
                       ${
                         isActive
-                          ? "bg-navy text-white border-navy"
-                          : "bg-transparent text-navy/50 border-navy/15 hover:border-navy/40 hover:text-navy"
+                          ? "bg-white text-navy border-white"
+                          : "bg-transparent text-white/50 border-white/15 hover:border-white/40 hover:text-white"
                       }
                     `}
                   >

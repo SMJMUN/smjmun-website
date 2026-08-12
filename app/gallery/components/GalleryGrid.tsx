@@ -10,10 +10,10 @@ export default function GalleryGrid({ galleries }: GalleryGridProps) {
     return (
       <div className="py-24 text-center">
         <div className="gold-rule mx-auto mb-8" />
-        <p className="font-serif text-[22px] italic text-navy/40">
+        <p className="font-serif text-[22px] italic text-white/40">
           No collections found.
         </p>
-        <p className="font-sans text-[13px] text-navy/30 mt-3">
+        <p className="font-sans text-[13px] text-white/30 mt-3">
           Try selecting a different filter above.
         </p>
       </div>

@@ -28,7 +28,7 @@ export default function GalleryCard({ gallery }: GalleryCardProps) {
   const date = gallery.eventDate ? formatEventDate(gallery.eventDate) : null;
 
   return (
-    <article className="group flex flex-col bg-white border border-navy/8 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1 h-full">
+    <article className="group flex flex-col bg-[#1A1A1A] border border-white/10 rounded-2xl overflow-hidden hover:border-gold/50 transition-all duration-500 hover:-translate-y-1 h-full">
       {/* Image */}
       <Link
         href={`/gallery/${gallery.slug.current}`}
@@ -55,7 +55,7 @@ export default function GalleryCard({ gallery }: GalleryCardProps) {
         {/* Year badge */}
         {year && (
           <div className="absolute top-4 left-4">
-            <span className="font-sans text-[9px] font-bold tracking-[0.2em] uppercase text-gold bg-navy/80 backdrop-blur-sm border border-gold/20 px-2.5 py-1">
+            <span className="font-sans text-[9px] font-bold tracking-[0.2em] uppercase text-black bg-gold/90 backdrop-blur-sm rounded-full px-3 py-1">
               {year}
             </span>
           </div>
@@ -64,14 +64,14 @@ export default function GalleryCard({ gallery }: GalleryCardProps) {
         {/* Photo count badge */}
         {gallery.photoCount !== undefined && (
           <div className="absolute top-4 right-4">
-            <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-white bg-navy/70 backdrop-blur-sm border border-white/10 px-2.5 py-1">
+            <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-white bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1">
               {gallery.photoCount} Photos
             </span>
           </div>
         )}
 
         {/* Gold rule hover */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold/0 group-hover:bg-gold/60 transition-all duration-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold/0 group-hover:bg-gold/80 transition-all duration-500" />
       </Link>
 
       {/* Content */}
@@ -84,39 +84,39 @@ export default function GalleryCard({ gallery }: GalleryCardProps) {
         )}
 
         {/* Title */}
-        <h3 className="font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-4 group-hover:text-charcoal transition-colors duration-300">
+        <h3 className="font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-white mb-4 group-hover:text-gold transition-colors duration-300">
           <Link href={`/gallery/${gallery.slug.current}`} className="no-underline">
             {gallery.title}
           </Link>
         </h3>
 
         {/* Meta */}
-        <div className="flex flex-col gap-2 mb-6">
+        <div className="flex flex-col gap-2.5 mb-6">
           {gallery.location && (
-            <div className="flex items-center gap-2 text-navy/55 font-sans text-[12px]">
-              <MapPin size={13} className="text-gold/70 flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-white/50 font-sans text-[12px]">
+              <MapPin size={13} className="text-gold/80 flex-shrink-0" />
               <span>{gallery.location}</span>
             </div>
           )}
           {date && (
-            <div className="flex items-center gap-2 text-navy/55 font-sans text-[12px]">
-              <Calendar size={13} className="text-gold/70 flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-white/50 font-sans text-[12px]">
+              <Calendar size={13} className="text-gold/80 flex-shrink-0" />
               <span>{date}</span>
             </div>
           )}
           {gallery.photoCount !== undefined && (
-            <div className="flex items-center gap-2 text-navy/55 font-sans text-[12px]">
-              <Images size={13} className="text-gold/70 flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-white/50 font-sans text-[12px]">
+              <Images size={13} className="text-gold/80 flex-shrink-0" />
               <span>{gallery.photoCount} photographs</span>
             </div>
           )}
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-auto pt-5 border-t border-navy/8">
+        <div className="mt-auto pt-5 border-t border-white/10">
           <Link
             href={`/gallery/${gallery.slug.current}`}
-            className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-charcoal no-underline group/link"
+            className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-white no-underline group/link transition-colors duration-300"
             aria-label={`View collection: ${gallery.title}`}
           >
             <span>View Collection</span>

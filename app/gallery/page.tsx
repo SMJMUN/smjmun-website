@@ -8,6 +8,7 @@ import GalleryStats from "./components/GalleryStats";
 import FeaturedGallery from "./components/FeaturedGallery";
 import GalleryPageClient from "./components/GalleryPageClient";
 import GalleryCTA from "./components/GalleryCTA";
+import GalleryMasonry from "@/components/gallery/GalleryMasonry";
 
 export const metadata: Metadata = {
   title: "Gallery | SMJMUN",
@@ -60,7 +61,7 @@ export default async function GalleryPage() {
       <JsonLd data={jsonLd} />
       <main>
         {/* 1. Hero */}
-        <GalleryHero />
+        <GalleryHero featuredGallery={featuredGallery} />
 
         {/* 2. Stats */}
         <GalleryStats />
@@ -68,10 +69,27 @@ export default async function GalleryPage() {
         {/* 3. Featured Collection */}
         <FeaturedGallery gallery={featuredGallery} />
 
+        {/* 4. Moments From The Archive (if featured gallery has photos) */}
+        {featuredGallery?.images && featuredGallery.images.length > 0 && (
+          <section className="bg-[#18171C] pt-16 pb-12 px-4 lg:px-8 border-b border-white/5">
+            <div className="content-editorial text-center mb-10">
+              <div className="flex items-center justify-center gap-4 mb-5">
+                <div className="w-12 h-[1px] bg-gold/40" />
+                <p className="text-[10px] font-semibold tracking-[0.25em] text-gold uppercase">Moments From The Archive</p>
+                <div className="w-12 h-[1px] bg-gold/40" />
+              </div>
+            </div>
+            
+            <div className="max-w-[1400px] mx-auto">
+              <GalleryMasonry images={featuredGallery.images} />
+            </div>
+          </section>
+        )}
+
         {/* 4. Filters + Grid (client) */}
         <section
           aria-labelledby="gallery-collections-heading"
-          style={{ backgroundColor: "var(--color-ivory)" }}
+          style={{ backgroundColor: "#18171C" }}
         >
           <div
             className="content-wide"
@@ -80,15 +98,12 @@ export default async function GalleryPage() {
               paddingBottom: "0",
             }}
           >
-            <div className="text-center mb-14">
-              <p className="text-label text-gold mb-5">Archive</p>
-              <h2
-                id="gallery-collections-heading"
-                className="text-heading text-navy"
-              >
-                All Collections
-              </h2>
-              <div className="gold-rule mx-auto mt-6" />
+            <div className="content-editorial text-center mb-10">
+              <div className="flex items-center justify-center gap-4 mb-5">
+                <div className="w-12 h-[1px] bg-gold/40" />
+                <p className="text-[10px] font-semibold tracking-[0.25em] text-gold uppercase">Explore The Archive</p>
+                <div className="w-12 h-[1px] bg-gold/40" />
+              </div>
             </div>
           </div>
 

@@ -28,6 +28,13 @@ export const FEATURED_GALLERY_QUERY = defineQuery(`
     eventDate,
     location,
     featured,
+    images[0...20]{
+      _key,
+      asset,
+      alt,
+      caption,
+      category
+    },
     "photoCount": count(images),
     "conferenceTitle": relatedConference->title,
     "conferenceSlug": relatedConference->slug.current

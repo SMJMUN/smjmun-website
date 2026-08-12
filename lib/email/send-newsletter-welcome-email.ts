@@ -6,7 +6,7 @@ export async function sendNewsletterWelcomeEmail({ to }: { to: string }) {
 
   return sendEmail({
     to,
-    subject: 'Welcome to the SMJ MUN Newsletter',
+    subject: 'Welcome to the SMJMUN Newsletter',
     html,
     type: 'NEWSLETTER_WELCOME',
   });

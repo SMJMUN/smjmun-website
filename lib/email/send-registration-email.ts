@@ -26,7 +26,7 @@ export async function sendRegistrationEmail({
 
   return sendEmail({
     to,
-    subject: 'Registration Confirmed — SMJ MUN',
+    subject: 'Registration Confirmed — SMJMUN',
     html,
     type: 'REGISTRATION_CONFIRMATION',
   });

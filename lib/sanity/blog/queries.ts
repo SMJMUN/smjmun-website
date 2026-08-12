@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 
 export const BLOG_POSTS_QUERY = defineQuery(
-  `*[_type == "blog"] | order(publishedAt desc){
+  `*[_type == "blog" && (isQueuedForAutoPublish != true) && publishedAt <= now()] | order(publishedAt desc){
     _id,
     _type,
     title,
@@ -16,7 +16,7 @@ export const BLOG_POSTS_QUERY = defineQuery(
 );
 
 export const FEATURED_BLOG_POSTS_QUERY = defineQuery(
-  `*[_type == "blog" && featured == true] | order(publishedAt desc){
+  `*[_type == "blog" && featured == true && (isQueuedForAutoPublish != true) && publishedAt <= now()] | order(publishedAt desc){
     _id,
     _type,
     title,

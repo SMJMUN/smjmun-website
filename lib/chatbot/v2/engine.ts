@@ -13,18 +13,31 @@ import { LLMGenerator } from "./services/llm-generator";
 import { SiteSettingsService } from "../../sanity/siteSettings/service";
 import { CONVERSATION_STYLE_GUIDE } from "./prompts/system";
 import { AssistantResponse, ConversationState, Intent, Action, ExecutionStep, ExecutionPlan, Suggestion } from "./types";
+import { ChatLogger } from "../utils/logger";
 
 export class V2Engine {
   // Simple in-memory mock for now. In production, this would be Redis/DB.
   private static mockMemory: Record<string, ConversationState> = {};
 
   static async process(query: string, sessionId: string): Promise<AssistantResponse> {
+    const requestId = `req-${Math.random().toString(36).substring(2, 9)}`;
+    const logger = new ChatLogger(sessionId, requestId);
+    logger.logIncoming(query);
+
     const state = this.mockMemory[sessionId] || { history: [] };
 
     // 1. Pipeline: Normalization & Understanding
+    const t0 = performance.now();
     const normalized = QueryNormalizer.normalize(query);
+    logger.logPipelineStage('QueryNormalizer', { normalized }, performance.now() - t0);
+
+    const t1 = performance.now();
     const semantic = SemanticMapper.map(normalized);
+    logger.logPipelineStage('SemanticMapper', { semantic }, performance.now() - t1);
+
+    const t2 = performance.now();
     let parsedQuery = FastMatcher.match(query, normalized);
+    logger.logPipelineStage('FastMatcher', { parsedQuery }, performance.now() - t2);
     
     if (!parsedQuery) {
       if (semantic?.source === "exact") {
@@ -37,7 +50,9 @@ export class V2Engine {
           normalizedQuery: normalized
         };
       } else {
+        const t3 = performance.now();
         parsedQuery = await UnderstandingLayer.understand(query, normalized);
+        logger.logPipelineStage('UnderstandingLayer', { parsedQuery }, performance.now() - t3);
       }
     }
 
@@ -53,7 +68,7 @@ export class V2Engine {
     // 1.5 Entity Resolution (Data-Driven)
     if (parsedQuery.entity && parsedQuery.intent === Intent.CONFERENCE) {
       const service = new ConferenceService();
-      const candidates = await service.searchCandidates(parsedQuery.entity);
+      const candidates = await service.searchCandidates(parsedQuery.entity, logger);
       const resolution = EntityResolver.resolve({
         query: parsedQuery.entity,
         candidates,
@@ -70,19 +85,31 @@ export class V2Engine {
         parsedQuery.entity = resolution.entity.title; // Canonical name
         // Store the resolved ID for getById later
         (parsedQuery as any).resolvedId = resolution.entity._id;
+        logger.logPipelineStage('EntityResolver', { resolved: true, resolution });
       } else if (resolution.confidence >= 0.60) {
-        return ResponseComposer.compose(`Did you mean **${resolution.entity.title}**?`, "clarification", {
+        logger.logPipelineStage('EntityResolver', { resolved: false, needsClarification: true, resolution });
+        const res = ResponseComposer.compose(`Did you mean **${resolution.entity.title}**?`, "clarification", {
           service: "conference",
           chips: [{ label: "Yes", action: `Yes, ${resolution.entity.title}` }, { label: "No", action: "No" }]
         });
+        logger.logResponse('clarification', res.text.length);
+        return res;
       } else {
-        return ResponseComposer.compose(`I couldn't find a conference matching "${parsedQuery.entity}".`, "error", { service: "conference", chips: [] });
+        logger.logPipelineStage('EntityResolver', { resolved: false, error: 'no match', resolution });
+        const res = ResponseComposer.compose(`I couldn't find a conference matching "${parsedQuery.entity}".`, "error", { service: "conference", chips: [] });
+        logger.logResponse('error', res.text.length);
+        return res;
       }
     }
 
     // 2. Context Resolution & Planning
+    const t4 = performance.now();
     const context = ContextResolver.resolve(parsedQuery, state);
+    logger.logPipelineStage('ContextResolver', { context }, performance.now() - t4);
+
+    const t5 = performance.now();
     const plan = ExecutionPlanner.plan(context);
+    logger.logPipelineStage('ExecutionPlanner', { plan }, performance.now() - t5);
 
     // 3. Execution (Domain Services)
     let text = "I'm not sure how to answer that yet.";
@@ -95,6 +122,7 @@ export class V2Engine {
       const clarif = ClarificationEngine.ask(context);
       state.pendingClarification = true;
       this.mockMemory[sessionId] = state;
+      logger.logResponse('clarification', clarif.text.length);
       return clarif;
     }
 
@@ -131,11 +159,11 @@ export class V2Engine {
       
       let fullConference = null;
       if (resolvedId) {
-        fullConference = await service.getById(resolvedId);
+        fullConference = await service.getById(resolvedId, logger);
         domainData = { data: [fullConference] };
       } else {
         // Fallback if no specific entity was resolved (e.g. LIST)
-        const candidates = await service.searchCandidates("");
+        const candidates = await service.searchCandidates("", logger);
         domainData = { data: candidates };
       }
       
@@ -162,7 +190,7 @@ Use the following context to answer the user's question.
 Context: ${JSON.stringify(domainData.data)}
 
 User Question: ${query}`;
-        text = await LLMGenerator.generate(prompt);
+        text = await LLMGenerator.generate(prompt, logger);
         if (query.toLowerCase().includes("participate") || query.toLowerCase().includes("register")) {
           text += "\n\nWhat would you like to know next?";
           customChips = [
@@ -184,7 +212,7 @@ Answer the user's question about SMJMUN (Shri Seth Mangilal Ji Sahu Internationa
 If you do not know the answer, gently direct them to contact@smjmun.com.
 
 User Question: ${query}`;
-      text = await LLMGenerator.generate(prompt);
+      text = await LLMGenerator.generate(prompt, logger);
     }
 
     // 4. Response Composition
@@ -202,6 +230,7 @@ User Question: ${query}`;
     }
     this.mockMemory[sessionId] = state;
 
+    logger.logResponse(responseType, finalResponse.text.length);
     return finalResponse;
   }
 }

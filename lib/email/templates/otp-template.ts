@@ -1,22 +1,27 @@
+import { getBaseEmailWrapper } from "./base-email-wrapper";
+
 export function otpTemplate({
   firstName,
   otp,
-  expiresInMinutes,
+  expiresInMinutes = 10,
 }: {
-  firstName: string;
+  firstName?: string;
   otp: string;
-  expiresInMinutes: number;
+  expiresInMinutes?: number;
 }): string {
-  return `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-      <h2>SMJ MUN Verification Code</h2>
-      <p>Hello ${firstName},</p>
-      <p>Your verification code is:</p>
-      <h3 style="font-size: 24px; letter-spacing: 2px; padding: 10px; background-color: #f4f4f4; display: inline-block; border-radius: 4px;">${otp}</h3>
-      <p>This code expires in ${expiresInMinutes} minutes.</p>
-      <p>If you did not request this code, please ignore this email.</p>
-      <br />
-      <p>Best regards,<br />SMJ MUN</p>
+  const greeting = firstName ? `Hi ${firstName},` : 'Hello,';
+  const content = `
+    <h2 style="margin-bottom: 16px;">SMJMUN Verification Code</h2>
+    <p>${greeting}</p>
+    <p>Please use the following code to verify your email address. This code is valid for ${expiresInMinutes} minutes.</p>
+    
+    <div style="text-align: center; margin: 30px 0;">
+      <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #A97C50; background-color: #f8fafc; padding: 15px 30px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        ${otp}
+      </span>
     </div>
+
+    <p style="margin-top: 20px;">If you didn't request this code, you can safely ignore this email.</p>
   `;
+  return getBaseEmailWrapper(content, "Your SMJMUN Verification Code");
 }

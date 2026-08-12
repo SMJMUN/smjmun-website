@@ -97,6 +97,19 @@ export const blog = defineType({
       description: "Meta description for search engines",
       group: "seo",
     }),
+    defineField({
+      name: "isQueuedForAutoPublish",
+      title: "Queued for Auto-Publish",
+      type: "boolean",
+      description: "If checked, this blog will be automatically published by the scheduling system.",
+      initialValue: false,
+      hidden: ({ document }) => {
+        if (document?.publishedAt && !document?.isQueuedForAutoPublish) {
+          return new Date(document.publishedAt as string) <= new Date();
+        }
+        return false;
+      },
+    }),
   ],
   groups: [
     { name: "seo", title: "SEO", icon: () => "🔍" },

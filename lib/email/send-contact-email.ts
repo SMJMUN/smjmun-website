@@ -6,7 +6,7 @@ export async function sendContactEmail({ to }: { to: string }) {
 
   return sendEmail({
     to,
-    subject: 'We received your message',
+    subject: 'Thank You for Contacting SMJMUN',
     html,
     type: 'CONTACT_INQUIRY',
   });

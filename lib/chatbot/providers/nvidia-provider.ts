@@ -16,7 +16,7 @@ export class NvidiaProvider implements AIProvider {
     });
 
     // Choose any NVIDIA NIM hosted model
-    this.model = "meta/llama-3.1-8b-instruct";
+    this.model = "openai/gpt-oss-20b";
     // Other examples:
     // "meta/llama-3.1-8b-instruct"
     // "deepseek-ai/deepseek-v3"

@@ -6,7 +6,7 @@ export async function sendPartnershipEmail({ to }: { to: string }) {
 
   return sendEmail({
     to,
-    subject: 'Thank you for contacting SMJ MUN',
+    subject: 'Thank you for contacting SMJMUN',
     html,
     type: 'PARTNERSHIP_INQUIRY',
   });

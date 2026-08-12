@@ -40,7 +40,7 @@ export default function TrustSection() {
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 md:px-8 lg:px-20">
         {/* Label */}
         <Reveal delay={0.3} className="mb-14 text-center">
-          <span className="section-label">Trusted By Leading Institutions</span>
+          <span className="section-label text-xl">Trusted By Leading Institutions</span>
         </Reveal>
 
         {/* Logos Container */}

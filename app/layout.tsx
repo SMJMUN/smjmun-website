@@ -1,18 +1,12 @@
-
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Geist } from "next/font/google";
 import "./globals.css";
-import ScrollToTop from "./components/ScrollToTop";
 import { cn } from "@/lib/utils";
 import LayoutWrapper from "@/app/components/LayoutWrapper";
-import SmoothScroll from "./components/SmoothScroll";
 import { montserrat, sora } from "./fonts";
-import FloatingContactWidget from "./components/FloatingWidget";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { Header } from "@/components/navigation/Header";
 import { GlobalChat } from "./components/chat/GlobalChat";
-import SplashCursor from "./components/SplashCursorWrapper";
-
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -122,39 +116,21 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html
       lang="en"
       className={cn(playfair.variable, inter.variable, "font-sans", geist.variable, montserrat.variable, sora.variable)}
     >
       <body className="antialiased min-h-screen flex flex-col">
-        <SplashCursor
-          DENSITY_DISSIPATION={3.2}
-          VELOCITY_DISSIPATION={2.4}
-          PRESSURE={0.12}
-          CURL={2.8}
-          SPLAT_RADIUS={0.18}
-          SPLAT_FORCE={2200}
-          COLOR_UPDATE_SPEED={8}
-          SHADING
-          RAINBOW_MODE={false}
-          COLOR="#A97C50" />
         <div className="flex-1">
-          {/* {children} */}
-          <SmoothScroll />
-          <ScrollToTop />
-          {/* <FloatingContactWidget/> */}
-          <LayoutWrapper header={<Header />}>{children}</LayoutWrapper>
-          <GlobalChat />
-
+          <LayoutWrapper header={<Header />} globalChat={<GlobalChat />}>
+            {children}
+          </LayoutWrapper>
         </div>
         <ServiceWorkerRegister />
       </body>

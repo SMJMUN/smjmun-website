@@ -1,11 +1,10 @@
+import { getBaseEmailWrapper } from "./base-email-wrapper";
+
 export function partnershipTemplate(): string {
-  return `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-      <h2>Thank you for contacting SMJ MUN</h2>
-      <p>We have received your partnership inquiry and will respond shortly.</p>
-      <p>Our team is reviewing your details and will get back to you within 1-2 business days.</p>
-      <br />
-      <p>Best regards,<br />SMJ MUN</p>
-    </div>
+  const content = `
+    <h2 style="margin-bottom: 16px;">Thank you for contacting SMJMUN</h2>
+    <p>We have received your partnership inquiry. Our institutional relations team is reviewing your message and will reach out to you shortly to discuss potential collaborations.</p>
+    <p style="margin-top: 16px;">We greatly value partnerships with leading institutions to build future global leaders.</p>
   `;
+  return getBaseEmailWrapper(content, "Your Partnership Inquiry - SMJMUN");
 }

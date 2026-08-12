@@ -152,7 +152,7 @@ export default async function BlogPostPage({
         <ArticleContent post={post} />
 
         {/* Section 4: Author Card */}
-        {post.author && <AuthorCard author={post.author} />}
+        {/* {post.author && <AuthorCard author={post.author} />} */}
 
         {/* Section 5: Related Articles */}
         <RelatedArticles currentPost={post} allPosts={allPosts} />

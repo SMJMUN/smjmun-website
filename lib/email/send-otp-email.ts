@@ -16,7 +16,7 @@ export async function sendOtpEmail({
   
   return sendEmail({
     to,
-    subject: 'SMJ MUN Verification Code',
+    subject: 'SMJMUN Verification Code',
     html,
     type: 'OTP',
   });

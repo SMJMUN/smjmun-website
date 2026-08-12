@@ -175,30 +175,9 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
   return (
     <>
       <form onSubmit={handleSubmit} noValidate>
-        {formError && (
-          <div
-            role="alert"
-            className={`${errorClass} p-4 mb-8 bg-red-500/10 border border-red-500/20 rounded-md !text-red-400`}
-          >
-            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            {formError}
-          </div>
-        )}
 
-        {successMessage && (
-          <div
-            role="status"
-            className="font-body text-[15px] text-white p-4 mb-8 bg-gold/10 border border-gold/30 rounded-md flex items-center gap-2"
-          >
-            <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {successMessage}
-          </div>
-        )}
 
+     
         {verifiedMessage && (
           <div
             role="status"
@@ -235,7 +214,7 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 value={fields.firstName}
                 onChange={(e) => updateField("firstName", e.target.value)}
                 className={inputClass}
-                placeholder="John"
+                placeholder="Sameer"
               />
               {fieldErrors.firstName && (
                 <p className={errorClass}>{fieldErrors.firstName}</p>
@@ -254,7 +233,7 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
                 value={fields.lastName}
                 onChange={(e) => updateField("lastName", e.target.value)}
                 className={inputClass}
-                placeholder="Doe"
+                placeholder="Patel"
               />
               {fieldErrors.lastName && (
                 <p className={errorClass}>{fieldErrors.lastName}</p>
@@ -274,7 +253,7 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               value={fields.email}
               onChange={(e) => updateField("email", e.target.value)}
               className={inputClass}
-              placeholder="john.doe@example.com"
+              placeholder="sameer@example.com"
             />
             {fieldErrors.email && <p className={errorClass}>{fieldErrors.email}</p>}
           </div>
@@ -385,6 +364,30 @@ export default function RegistrationForm({ conference }: RegistrationFormProps) 
               <p className={errorClass}>{fieldErrors.dietaryRequirements}</p>
             )}
           </div>
+
+        {formError && (
+          <div
+            role="alert"
+            className={`${errorClass} p-4 mb-8 bg-red-500/10 border border-red-500/20 rounded-md !text-red-400`}
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            {formError}
+          </div>
+        )}
+             {successMessage && (
+          <div
+            role="status"
+            className="font-body text-[15px] text-white p-4 mb-8 bg-gold/10 border border-gold/30 rounded-md flex items-center gap-2"
+          >
+            <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {successMessage}
+          </div>
+        )}
+
 
           {!showOtpStep && !registrationId && (
             <button

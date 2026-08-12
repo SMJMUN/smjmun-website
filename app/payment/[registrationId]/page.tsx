@@ -271,7 +271,7 @@ export default async function PaymentPage({
                 </dt>
                 <dd
                   style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
+                    fontFamily: "var(--font-sora), Georgia, serif",
                     fontSize: "28px",
                     fontWeight: 700,
                     color: "#042147",

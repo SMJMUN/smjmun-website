@@ -64,33 +64,28 @@ export const gallery = defineType({
       name: "images",
       title: "Images",
       type: "array",
+      options: {
+        layout: "grid",
+      },
       of: [
         defineField({
           name: "galleryImage",
           title: "Gallery Image",
-          type: "object",
+          type: "image",
+          options: {
+            hotspot: true,
+          },
           fields: [
-            defineField({
-              name: "image",
-              title: "Image",
-              type: "image",
-              options: {
-                hotspot: true,
-              },
-            }),
-
             defineField({
               name: "alt",
               title: "Alt Text",
               type: "string",
             }),
-
             defineField({
               name: "caption",
               title: "Caption",
               type: "string",
             }),
-
             defineField({
               name: "category",
               title: "Category",
@@ -107,11 +102,10 @@ export const gallery = defineType({
               },
             }),
           ],
-
           preview: {
             select: {
               title: "caption",
-              media: "image",
+              media: "asset",
             },
           },
         }),

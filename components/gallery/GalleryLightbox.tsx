@@ -33,8 +33,8 @@ export default function GalleryLightbox({
   const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   const currentImage = images[current];
-  const imageUrl = currentImage?.image
-    ? urlFor(currentImage.image).width(1600).quality(90).url()
+  const imageUrl = currentImage?.asset
+    ? urlFor(currentImage).width(1600).quality(90).url()
     : null;
 
   // ── Navigation ────────────────────────────────────────────────────
@@ -224,8 +224,8 @@ export default function GalleryLightbox({
           aria-label="Image thumbnails"
         >
           {images.map((img, i) => {
-            const thumbUrl = img.image
-              ? urlFor(img.image).width(120).height(80).quality(70).url()
+            const thumbUrl = img.asset
+              ? urlFor(img).width(120).height(80).quality(70).url()
               : null;
             const isActive = i === current;
             return (

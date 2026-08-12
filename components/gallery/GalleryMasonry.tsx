@@ -72,8 +72,8 @@ export default function GalleryMasonry({
         <div className="masonry-grid w-full" style={{ columns: "2", columnGap: "8px" }}>
           {filtered.map((img, index) => {
             const isLarge = index % 7 === 0 || index % 11 === 0;
-            const imageUrl = img.image
-              ? urlFor(img.image)
+            const imageUrl = img.asset
+              ? urlFor(img)
                   .width(isLarge ? 900 : 600)
                   .quality(82)
                   .url()

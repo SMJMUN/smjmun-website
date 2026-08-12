@@ -17,11 +17,8 @@ export const GALLERY_CATEGORY_LABELS: Record<GalleryImageCategory, string> = {
   other: "Other",
 };
 
-export interface GalleryImage {
+export interface GalleryImage extends SanityImage {
   _key?: string;
-  image: SanityImage;
-  alt?: string;
-  caption?: string;
   category?: GalleryImageCategory;
 }
 

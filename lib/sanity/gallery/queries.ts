@@ -47,7 +47,7 @@ export const GALLERY_BY_SLUG_QUERY = defineQuery(`
     featured,
     images[]{
       _key,
-      image,
+      asset,
       alt,
       caption,
       category

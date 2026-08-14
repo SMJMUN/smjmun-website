@@ -48,11 +48,11 @@ export default function GlobalMovementSection() {
           {/* Stats row */}
           <div className="mt-4 flex gap-8">
             <div>
-              <p className="font-serif text-[#BB8B57] text-2xl font-bold leading-none">50K+</p>
+              <p className="text-[#BB8B57] text-2xl font-bold leading-none" style={{ fontFamily: 'var(--font-sora)' }}>50K+</p>
               <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Delegates</p>
             </div>
             <div>
-              <p className="font-serif text-[#BB8B57] text-2xl font-bold leading-none">5+</p>
+              <p className="text-[#BB8B57] text-2xl font-bold leading-none" style={{ fontFamily: 'var(--font-sora)' }}>5+</p>
               <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Countries</p>
             </div>
           </div>
@@ -127,8 +127,8 @@ export default function GlobalMovementSection() {
             <div className="mt-6 flex gap-10">
               <div>
                 <p
-                  className="font-serif text-[#BB8B57]"
-                  style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
+                  className="text-[#BB8B57]"
+                  style={{ fontFamily: 'var(--font-sora)', fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
                   11K+
                 </p>
@@ -142,8 +142,8 @@ export default function GlobalMovementSection() {
 
               <div>
                 <p
-                  className="font-serif text-[#BB8B57]"
-                  style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
+                  className="text-[#BB8B57]"
+                  style={{ fontFamily: 'var(--font-sora)', fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
                   5+
                 </p>

@@ -41,8 +41,8 @@ export default function CollectionStats({ gallery }: CollectionStatsProps) {
           {stats.map((stat, i) => (
             <div key={i} className="text-center group">
               <div
-                className="font-serif font-bold tracking-[-0.02em] text-navy mb-2 group-hover:text-gold transition-colors duration-500"
-                style={{ fontSize: "clamp(36px,4.5vw,60px)", lineHeight: 1 }}
+                className="font-bold tracking-[-0.02em] text-navy mb-2 group-hover:text-gold transition-colors duration-500"
+                style={{ fontFamily: "var(--font-sora)", fontSize: "clamp(36px,4.5vw,60px)", lineHeight: 1 }}
               >
                 {stat.value}
               </div>

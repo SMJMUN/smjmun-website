@@ -82,8 +82,7 @@ export default function VenueSection({ conference }: { conference: Conference })
               ].map((s, i) => (
                 <div key={i}>
                   <div
-                    className="font-serif"
-                    style={{ fontSize: '38px', fontWeight: 700, color: 'var(--ds-gold)', lineHeight: 1 }}
+                    style={{ fontFamily: 'var(--font-sora)', fontSize: '38px', fontWeight: 700, color: 'var(--ds-gold)', lineHeight: 1 }}
                   >
                     {s.v}
                   </div>

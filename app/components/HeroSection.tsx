@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const heroImages = ['/images/ceremony-4.webp', '/images/ceremony-2.webp', '/images/ceremony-3.webp',];
+const heroImages = ['/images/hero-image-updated-2.webp', '/images/ceremony-2.webp', '/images/hero-image-updated-1.jpeg',];
 
 const HeroSlider = () => {
   const [currentImage, setCurrentImage] = useState(0);

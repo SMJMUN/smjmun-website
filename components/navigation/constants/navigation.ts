@@ -34,11 +34,11 @@ export const CONFERENCES_DATA = {
 export const PROGRAMS_MENU = {
   associations: [
     {
-      title: "School MUN Association",
+      title: "School Conference Association",
       href: "/programs/school-mun-association"
     },
     {
-      title: "College MUN Association",
+      title: "College Conference Association",
       href: "/programs/college-mun-association"
     }
   ],

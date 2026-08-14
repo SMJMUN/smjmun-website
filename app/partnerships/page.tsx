@@ -14,7 +14,7 @@ const heroData: HeroData = {
   heading: "Building Institutions That Build Leaders.",
   description:
     "We partner with schools, universities and educational organisations that believe leadership is cultivated through character, dialogue and responsibility—not merely taught in classrooms. Together, we create experiences that prepare young people to engage thoughtfully with an unfinished world.",
-  imageSrc: "/images/smj-hero-5.jpeg",
+  imageSrc: "/images/hero-image-updated-2.webp",
   primaryCTA: {
     label: "Begin A Partnership",
     href: "#contact-form",

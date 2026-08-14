@@ -63,7 +63,7 @@ export default function GalleryHero({ featuredGallery }: GalleryHeroProps) {
         <div className="max-w-[800px]">
           {/* Eyebrow */}
           <div className="flex items-center gap-4 mb-6">
-            <p className="text-label text-gold uppercase tracking-[0.2em] font-semibold text-[11px]">SMJ MUN Archive</p>
+            <p className="text-label text-gold uppercase tracking-[0.2em] font-semibold text-[11px]">SMJMUN Archive</p>
           </div>
 
           {/* Heading */}
@@ -73,7 +73,7 @@ export default function GalleryHero({ featuredGallery }: GalleryHeroProps) {
           >
             Moments That
             <br />
-            Define <em className="not-italic text-gold">SMJ MUN</em>
+            Define <em className="not-italic text-gold">SMJMUN</em>
           </h1>
 
           {/* Thin gold rule */}

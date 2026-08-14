@@ -6,6 +6,7 @@ export type SendEmailOptions = {
   subject: string;
   html: string;
   type: string;
+  replyTo?: string;
 };
 
 export type SendEmailResult = {
@@ -19,10 +20,11 @@ export async function sendEmail({
   subject,
   html,
   type,
+  replyTo,
 }: SendEmailOptions): Promise<SendEmailResult> {
   const mode = process.env.EMAIL_MODE || (process.env.NODE_ENV === 'development' ? 'test' : 'production');
   const from = process.env.EMAIL_FROM || 'SMJMUN <info@smjmun.com>';
-  const replyTo = process.env.EMAIL_REPLY_TO || 'info@smjmun.com';
+  const actualReplyTo = replyTo || process.env.EMAIL_REPLY_TO || 'info@smjmun.com';
   
   const toList = Array.isArray(to) ? to : [to];
 
@@ -48,7 +50,7 @@ export async function sendEmail({
     const data = await resend.emails.send({
       from,
       to: toList,
-      replyTo: replyTo,
+      replyTo: actualReplyTo,
       subject,
       html,
     });

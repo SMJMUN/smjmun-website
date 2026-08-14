@@ -13,8 +13,8 @@ import { FadeIn } from '@/components/program/shared/FadeIn';
 import { ContactCard, FaqList, AudienceLink, HeroWhatsAppCTA, StatItem } from './ContactInteractive';
 
 // ─── Contact details — edit these ────────────────────────────────────────────
-const PHONE_NUMBER = '+91 93024 70974';
-const PHONE_DISPLAY = '+91 93024 70974';
+const PHONE_NUMBER = '+91 9685497294';
+const PHONE_DISPLAY = '+91 9685497294';
 const EMAIL = 'info@smjmun.com';
 const PHONE_DIGITS = PHONE_NUMBER.replace(/\D/g, '');
 
@@ -195,16 +195,17 @@ export default function ContactPage() {
       {/* ── Contact Cards ─────────────────────────────────────────────────── */}
       <section className="pb-28 px-6 md:px-10">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ContactCard
-            href={WHATSAPP_URL}
-            icon={<MessageCircle className="w-6 h-6" strokeWidth={1.6} />}
-            label="WhatsApp"
-            value={PHONE_DISPLAY}
-            cta="Open chat"
-            note="Typically replies within 15 minutes"
-            accent="#25D366"
-            delay={0}
+            <ContactCard
+            href={MAIL_URL}
+            icon={<Mail className="w-6 h-6" strokeWidth={1.6} />}
+            label="Email"
+            value={EMAIL}
+            cta="Send email"
+            note="Comprehensive reply within 24 hours"
+            accent="#6e8ef7"
+            delay={0.2}
           />
+        
           <ContactCard
             href={CALL_URL}
             icon={<Phone className="w-6 h-6" strokeWidth={1.6} />}
@@ -215,16 +216,17 @@ export default function ContactPage() {
             accent={GOLD}
             delay={0.1}
           />
-          <ContactCard
-            href={MAIL_URL}
-            icon={<Mail className="w-6 h-6" strokeWidth={1.6} />}
-            label="Email"
-            value={EMAIL}
-            cta="Send email"
-            note="Comprehensive reply within 24 hours"
-            accent="#6e8ef7"
-            delay={0.2}
+            <ContactCard
+            href={WHATSAPP_URL}
+            icon={<MessageCircle className="w-6 h-6" strokeWidth={1.6} />}
+            label="WhatsApp"
+            value={PHONE_DISPLAY}
+            cta="Open chat"
+            note="Typically replies within 15 minutes"
+            accent="#25D366"
+            delay={0}
           />
+        
         </div>
       </section>
 

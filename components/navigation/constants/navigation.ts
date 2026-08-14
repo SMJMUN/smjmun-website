@@ -53,7 +53,7 @@ export const PROGRAMS_MENU = {
     },
    
     {
-      title: "Public Speaking & Diplomacy",
+      title: "Public Speaking",
       href: "/programs/training-cell"
       
     }

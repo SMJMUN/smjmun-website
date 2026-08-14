@@ -6,11 +6,11 @@ import { ProgramColumn } from "./ProgramColumn";
 export const ABOUT_MENU = {
   links: [
     {
-      title: "About SMJMUN",
+      title: "About The SMJMUN",
       href: "/about"
     },
     {
-      title: "About Founder",
+      title: "About The Founder",
       href: "/founder"
     }
   ]

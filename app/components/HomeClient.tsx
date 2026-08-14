@@ -34,9 +34,9 @@ export default function HomeClient() {
           <ImpactSection />
           <HighlightsSection />
           <OurProgramsSection />
-          <GlobalMovementSection />
           <JournalCinematicSection />
           <FounderSection />
+          <GlobalMovementSection />
           <CTASection />
         </div>
       </main>

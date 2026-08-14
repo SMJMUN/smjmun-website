@@ -172,7 +172,7 @@ export default function FounderSection() {
             {/* Pull Quote (Progress range: 0.55 to 0.7) */}
             <div className="mb-10 pl-6" style={{ borderLeft: '3px solid #BB8B57' }}>
               <AnimatedParagraph
-                text="“A journey of a thousand miles begins with a single step.”"
+                text="“A Journey Of A Thousand Miles Begins With A Single Step.”"
                 progress={maxProgress}
                 range={[0.55, 0.7]}
                 isGold={true}

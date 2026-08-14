@@ -6,9 +6,9 @@ import { Reveal } from '@/components/program/shared/Reveal';
 
 const HIGHLIGHTS_URLS = [
   'https://www.youtube.com/shorts/DT_ZeQR_lZo',
-  'https://www.youtube.com/shorts/1rgii5EyWnk',
+  'https://www.youtube.com/shorts/KC1vhEubL-4',
   'https://www.youtube.com/shorts/sVZM_XzMfTM',
-  'https://www.youtube.com/shorts/dQH-an3FYAI',
+  'https://www.youtube.com/shorts/hxQSbC-nPFs',
 ];
 
 export default function HighlightsSection() {

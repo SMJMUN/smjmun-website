@@ -15,14 +15,22 @@ export default function FounderMessage() {
 
         <Reveal delay={0.1}>
           <div className="space-y-6 text-white/80 font-light text-lg leading-[1.8]">
-            <p>
-              When we hosted the very first SMJMUN conference, our goal was simple: to create a space where students could debate freely, think critically, and step out of their comfort zones. We had no idea it would spark a movement.
+            <p className="font-bold text-white uppercase tracking-widest text-sm mb-8">
+              TO EVERYONE WHO WALKS INTO AN SMJMUN ROOM
             </p>
-            <p>
-              Today, watching thousands of delegates transform from hesitant speakers into commanding diplomats is the greatest privilege of my life. But this journey has never been about me, or even just about SMJMUN. It's about the incredible potential of Indian youth when given the right platform, the right mentorship, and the right opportunities.
-            </p>
-            <p>
-              To every delegate, educator, and partner who has joined us on this journey: thank you. The future belongs to those who are bold enough to debate it, and I am incredibly excited to continue building that future alongside all of you.
+            <p>I still remember what it felt like to enter a committee room as a delegate.</p>
+            <p>You may know your research. You may have prepared your opening speech. You may even know exactly what you want to say.</p>
+            <p>And yet, when the room becomes quiet and it is finally your turn to speak, there is always that moment of hesitation.</p>
+            <p>That moment matters. Because leadership often begins there.</p>
+            <p>Not when everything is perfect. Not when you are completely confident. But when you decide to speak anyway.</p>
+            <p>My journey through Model United Nations taught me far more than committee procedure or international affairs. It taught me how to listen, how to disagree without disrespect, how to prepare, how to recover from failure and how to stand behind an idea.</p>
+            <p>Over time, I realised that the greatest part of the journey was not the awards. It was watching other people discover their own voices.</p>
+            <p>That is one of the reasons SMJMUN exists. We want to create rooms where students can challenge themselves, meet different perspectives, learn from experienced people and discover abilities they may not have known they possessed.</p>
+            <p>And our ambition goes beyond a three-day conference. We want to work with institutions to make leadership, communication and global awareness a meaningful part of a student's educational journey.</p>
+            <p>To every delegate who walks into an SMJMUN conference:</p>
+            <p>Do not come only to win. Come to learn. Come to listen. Come to challenge yourself. And leave with something that stays with you long after the final gavel.</p>
+            <p className="font-[family-name:var(--font-playfair)] italic text-xl text-[#BB8B57] mt-8">
+              Dare to enter the room. Rise through the experience. Impact the world beyond it.
             </p>
           </div>
         </Reveal>

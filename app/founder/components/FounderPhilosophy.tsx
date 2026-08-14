@@ -20,13 +20,13 @@ export default function FounderPhilosophy() {
             className="font-[family-name:var(--font-playfair)] font-bold text-[#042147] italic relative z-10 mb-12"
             style={{ fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.3 }}
           >
-            A journey of a thousand miles begins with a single step.
+            “A platform does not create a leader by itself. It simply gives someone the courage to discover that they can become one.”
           </blockquote>
           
-          <div className="w-16 h-[2px] bg-[#BB8B57] mx-auto mb-12" />
+          <div className="w-16 h-[2px] bg-[#BB8B57] mx-auto mb-6" />
           
-          <p className="text-[#042147]/80 text-lg md:text-xl font-light leading-relaxed max-w-[700px] mx-auto">
-            True leadership isn't born in the grand halls of international summits, but in the small, courageous decisions young people make every day. By providing a platform for these first steps, we aren't just simulating the United Nations — we are building the foundation for tomorrow's reality.
+          <p className="text-[#042147]/80 text-lg md:text-xl font-bold max-w-[700px] mx-auto">
+            — Aarushh Sahu
           </p>
         </Reveal>
       </div>

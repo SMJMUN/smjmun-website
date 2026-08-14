@@ -5,28 +5,24 @@ import { Reveal } from '@/components/program/shared/Reveal';
 
 const journeySteps = [
   {
-    title: "Early MUN Experience",
-    description: "Started the journey as a passionate delegate, immersing in debate, foreign policy, and diplomacy."
+    title: "The Delegate",
+    description: "The journey began with participation. Learning committee procedure, researching countries, understanding international issues and discovering the confidence that comes from standing behind an argument."
   },
   {
-    title: "Leadership & Chairing",
-    description: "Transitioned to the Executive Board, shaping committee dynamics and moderating high-level discourse."
+    title: "The Competitor",
+    description: "Experience turned into excellence. Years of conferences, preparation and continuous learning resulted in 55+ Best Delegate awards across national and international platforms."
   },
   {
-    title: "Training & Mentorship",
-    description: "Began training junior delegates, realizing the profound need for structured, accessible diplomatic education."
+    title: "The Executive Board Member",
+    description: "The perspective changed from being inside the committee to helping shape it. Chairing committees brought a deeper understanding of moderation, leadership, conflict management and creating meaningful debate."
   },
   {
-    title: "National Conference Experience",
-    description: "Traveled across the country, participating in 70+ national conferences and building a robust network of future leaders."
+    title: "The Trainer",
+    description: "The experience became something to share. Training delegates revealed one of the most rewarding parts of the journey — watching students who initially hesitate to speak gradually find confidence in their own voice."
   },
   {
-    title: "Founding SMJMUN",
-    description: "Launched the first SMJMUN conference to democratize access to world-class Model United Nations experiences."
-  },
-  {
-    title: "Building Institutional Partnerships",
-    description: "Expanding the vision beyond a single event, partnering with schools to embed diplomatic thinking into mainstream education."
+    title: "The Founder",
+    description: "Eventually, the goal became bigger than individual achievement. SMJMUN was created to build the kind of platform Aarushh believed young people deserved."
   }
 ];
 

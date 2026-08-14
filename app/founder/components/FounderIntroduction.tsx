@@ -17,19 +17,41 @@ export default function FounderIntroduction() {
         <div className="space-y-8 text-lg md:text-xl font-light text-white/80 leading-[1.8] md:leading-[2]">
           <Reveal delay={0.1}>
             <p>
-              Aarushh Sahu founded SMJMUN with a singular conviction: that world-class diplomatic education should not remain the exclusive privilege of a select few schools in major metropolitan cities. Recognizing the transformative power of discourse and leadership at a young age, he envisioned a platform that could bring the authentic Model United Nations experience to students across the nation, regardless of their background.
+              Aarushh Sahu is the Founder and President of SMJMUN and a passionate advocate for experiential youth education.
             </p>
           </Reveal>
-
           <Reveal delay={0.2}>
             <p>
-              His journey began on the debate floor. As a passionate delegate, he quickly immersed himself in the MUN circuit, developing a profound understanding of international relations, public policy, and crisis management. This early exposure fostered a deep appreciation for the art of negotiation and the importance of youth voices in global conversations. 
+              His journey with Model United Nations began as a delegate. What started as participation gradually became a deeper pursuit of understanding — of international affairs, public policy, structured debate, negotiation and leadership.
             </p>
           </Reveal>
-
           <Reveal delay={0.3}>
             <p>
-              Over time, his role evolved. The transition from a competitive participant to an executive board member and trainer allowed him to observe the systemic gaps in MUN accessibility and quality. He didn't just want to win awards; he wanted to elevate the standard of debate for everyone. Today, as a founder, he builds the very rooms he once competed in, dedicating his expertise to shaping a generation of informed, empathetic, and capable leaders.
+              Over the years, Mr. Sahu participated in 70+ national and 10+ international Model United Nations conferences, earning 55+ Best Delegate awards and serving on the Executive Board of 50+ committees.
+            </p>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <p>
+              The experience eventually moved beyond competition. As an Executive Board member and trainer, he began working with younger delegates and observing the difference that structured mentorship could make.
+            </p>
+          </Reveal>
+          <Reveal delay={0.5}>
+            <p>
+              That experience changed the question. It was no longer simply: <br/><br/>
+              <em>“How can I become a better delegate?”</em><br/><br/>
+              It became:<br/><br/>
+              <em>“How can I create better opportunities for others?”</em><br/><br/>
+              That question became the foundation of SMJMUN.
+            </p>
+          </Reveal>
+          <Reveal delay={0.6}>
+            <p>
+              Today, Aarushh works toward creating platforms where students can develop the confidence to speak, the discipline to prepare, the curiosity to understand and the courage to lead.
+            </p>
+          </Reveal>
+          <Reveal delay={0.7}>
+            <p>
+              His vision for SMJMUN extends beyond conferences. He aims to build long-term relationships with educational institutions and create a stronger ecosystem for youth leadership and experiential learning.
             </p>
           </Reveal>
         </div>

@@ -4,11 +4,11 @@ import { Reveal } from '@/components/program/shared/Reveal';
 const partners = [
   {
     name: 'IPS',
-    logo: '/images/ips-logo.jpeg',
+    logo: '/images/ips-logo-updated.png',
   },
   {
     name: 'VIT',
-    logo: '/images/vit-logo-2.webp',
+    logo: '/images/vit-logo-2-nobg.webp',
   },
 ];
 
@@ -51,8 +51,8 @@ export default function TrustSection() {
                 src={partner.logo}
                 alt={partner.name}
                 width={150}
-                height={46}
-                className="object-contain opacity-90 h-[46px] w-auto"
+                height={66}
+                className="object-contain opacity-90 h-[66px] w-auto"
               />
               <span
                 className="text-[12px] md:text-[13px] font-medium uppercase tracking-[0.06em] text-[#B8B8B8] whitespace-nowrap"

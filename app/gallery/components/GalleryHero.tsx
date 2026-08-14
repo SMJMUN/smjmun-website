@@ -84,7 +84,7 @@ export default function GalleryHero({ featuredGallery }: GalleryHeroProps) {
             className="font-sans text-white/70 leading-[1.7]"
             style={{ fontSize: "clamp(15px, 1.6vw, 18px)", maxWidth: "480px" }}
           >
-            A visual record of diplomacy, leadership, debate and community.
+            A visual record of leadership, debate and community.
             Explore the journey of ideas that continue to shape tomorrow.
           </p>
         </div>

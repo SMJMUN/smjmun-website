@@ -70,9 +70,9 @@ const FAQS = [
 // ─── Trust indicators ─────────────────────────────────────────────────────────
 const STATS = [
   { value: '20+', label: 'Conferences Hosted' },
-  { value: '5,000+', label: 'Delegates Represented' },
-  { value: '100+', label: 'Partner Institutions' },
-  { value: '15+', label: 'Countries Reached' },
+  { value: '11,000+', label: 'Delegates Represented' },
+  { value: '10+', label: 'Partner Institutions' },
+  { value: '5+', label: 'Countries Reached' },
 ];
 
 // ─── Section label ────────────────────────────────────────────────────────────
@@ -174,7 +174,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6 max-w-xl mx-auto">
               <div>
                 <Eyebrow color="#7A7A7A">Available</Eyebrow>
-                <p className="text-white mt-3" style={{ fontSize: '17px', ...BODY_FONT }}>
+                <p className="text-white mt-3" style={{ fontSize: '17px', fontFamily: 'var(--font-sora)' }}>
                   Monday &mdash; Saturday
                   <br />
                   10:00 AM &mdash; 6:00 PM IST
@@ -182,7 +182,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <Eyebrow color="#7A7A7A">Average Response</Eyebrow>
-                <p className="text-white mt-3" style={{ fontSize: '17px', ...BODY_FONT }}>
+                <p className="text-white mt-3" style={{ fontSize: '17px', fontFamily: 'var(--font-sora)' }}>
                   Within 24 hours
                 </p>
               </div>

@@ -57,7 +57,7 @@ export function ContactCard({
         <p className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: accent, ...BODY_FONT }}>
           {label}
         </p>
-        <p className="font-serif text-white font-semibold leading-tight tracking-tight mt-3" style={{ fontSize: '22px' }}>
+        <p className="text-white font-semibold leading-tight tracking-tight mt-3" style={{ fontSize: '22px', fontFamily: 'var(--font-sora)' }}>
           {value}
         </p>
       </div>
@@ -238,8 +238,9 @@ export function StatItem({ value, label, delay = 0 }: { value: string; label: st
       className="text-center"
     >
       <p
-        className="font-serif font-bold"
+        className="font-bold"
         style={{
+          fontFamily: 'var(--font-sora)',
           fontSize: 'clamp(30px, 4vw, 44px)',
           background: 'linear-gradient(135deg, #BB8B57 0%, #e8b97a 100%)',
           WebkitBackgroundClip: 'text',

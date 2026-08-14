@@ -72,7 +72,7 @@ export function ChatToggleButton() {
 
       <motion.button
         onClick={handleMainFabClick}
-        aria-label="Ask AI Tejas"
+        aria-label="Ask Tejas AI"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="group relative flex items-center h-14 rounded-full bg-[rgba(10,10,10,0.85)] backdrop-blur-xl border border-[#BB8B57]/30 shadow-[0_12px_40px_rgba(0,0,0,.45)] transition-all duration-300 hover:border-[#BB8B57]/60"
@@ -85,7 +85,7 @@ export function ChatToggleButton() {
               exit={{ opacity: 0, width: 0, padding: 0 }}
               className="overflow-hidden whitespace-nowrap pl-5 pr-2 font-body text-[13px] tracking-[0.1em] uppercase text-white"
             >
-              Ask AI Tejas
+              Ask Tejas AI
             </motion.span>
           )}
         </AnimatePresence>

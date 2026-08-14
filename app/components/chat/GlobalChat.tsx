@@ -10,7 +10,7 @@ export async function GlobalChat() {
   return (
     <ChatProvider
       initialSuggestedQuestions={aiSettings?.suggestedQuestions || []}
-      greetingMessage={aiSettings?.greeting || "Hello! I am AI Tejas. How can I help you today?"}
+      greetingMessage={aiSettings?.greeting || "Hello! I am Tejas AI . How can I help you today?"}
     >
       <ChatWidget />
     </ChatProvider>

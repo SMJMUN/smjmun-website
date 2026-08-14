@@ -127,7 +127,7 @@ export class V2Engine {
     }
 
     if (context.query.intent === Intent.GREETING) {
-      text = "👋 Welcome to **SMJMUN**!\n\nI'm AI Tejas and I can help you with:\n* 🌍 What is Model United Nations?\n* 🏛 Learn about SMJMUN\n* 📅 Upcoming conferences\n* 📝 Registration & eligibility\n* 🏛 Committees & agendas\n* ❓ Frequently asked questions\n\nWhat would you like to explore?";
+      text = "👋 Welcome to **SMJMUN**!\n\nI'm Tejas AI and I can help you with:\n* 🌍 What is Model United Nations?\n* 🏛 Learn about SMJMUN\n* 📅 Upcoming conferences\n* 📝 Registration & eligibility\n* 🏛 Committees & agendas\n* ❓ Frequently asked questions\n\nWhat would you like to explore?";
       customChips = [
         { label: "What is MUN?", action: "What is MUN?" },
         { label: "Upcoming Conferences", action: "Upcoming Conferences" },

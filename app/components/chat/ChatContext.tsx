@@ -14,7 +14,7 @@ const ChatContext = createContext<ChatContextValue | undefined>(undefined);
 export function ChatProvider({
   children,
   initialSuggestedQuestions = [],
-  greetingMessage = "Hello! I am AI Tejas. How can I help you today?",
+  greetingMessage = "Hello! I am Tejas AI. How can I help you today?",
 }: {
   children: ReactNode;
   initialSuggestedQuestions?: string[];

@@ -246,23 +246,23 @@ export const collegeMunProgram: ProgramData = {
 
   related: [
     {
-      title: "School Association Programme",
+      title: "School Conference Programme",
       slug: "school-mun-association",
-      image: "/images/hero-1.webp",
+      image: "/images/school-partnership-1.jpg",
       description:
         "Bringing international-standard MUN experiences to school campuses across India.",
     },
-    {
+   {
       title: "Training Programmes",
       slug: "training-cell",
-      image: "/images/student-training.jpeg",
+      image: "/images/training-updated-6.jpg",
       description:
-        "Structured delegate preparation and executive board development programs.",
+        "Structured delegate preparation and executive board development for institutions and students.",
     },
-    {
+       {
       title: "Partnership Programme",
       slug: "partnership-program",
-      image: "/images/partnerships-image.webp",
+      image: "/images/smj-hero-4.jpeg",
       description:
         "Strategic institutional partnerships for long-term MUN ecosystem development.",
     },
@@ -280,6 +280,6 @@ export const collegeMunProgram: ProgramData = {
       label: "Contact Us",
       href: "/partnerships#contact",
     },
-    backgroundImage: "/images/hero-2.png",
+    backgroundImage: "/images/collage-aud3.jpg",
   },
 };

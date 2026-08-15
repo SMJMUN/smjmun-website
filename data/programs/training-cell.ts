@@ -14,7 +14,7 @@ export const trainingCellProgram: ProgramData = {
     heading: "Building Exceptional Delegates and Future Committee Leaders.",
     description:
       "Structured preparation for institutions and students seeking to excel in Model United Nations — whether preparing first-time delegates or developing future Executive Board members.",
-    imageSrc: "/images/student-training.jpeg",
+    imageSrc: "/images/training-updated-1.jpeg",
     primaryCTA: {
       label: "Request Training",
       href: "/partnerships",
@@ -46,7 +46,7 @@ export const trainingCellProgram: ProgramData = {
       title: "Executive Board Development Program",
       description:
         "Designed for experienced delegates aspiring to serve as Chairs, Vice-Chairs, Moderators, Rapporteurs, and committee leaders. Day 1 covers Executive Board fundamentals — understanding roles, committee management, rules of procedure from the Chair's perspective, delegate evaluation systems, and professional conduct and neutrality. Day 2 focuses on leadership — moderating effective debate, committee flow management, crisis handling, delegate engagement, award selection methodology, conference ethics, and leadership best practices.",
-      image: "/images/hero-3.png",
+      image: "/images/tarining-upadted-3.jpg",
       imageAlt: "Executive Board Development training",
       badge: "2-Day Program · 3 Hours Per Day",
       caption: "Participants gain practical insight into conference administration and committee leadership.",
@@ -55,7 +55,7 @@ export const trainingCellProgram: ProgramData = {
       title: "Flexible Training Options",
       description:
         "Institutions may choose from multiple formats tailored to their specific needs — the Delegate Excellence Programme, Executive Board Development Programme, combined training programmes, customised institutional workshops, and online or offline delivery options. Whether you need a single focused session or a comprehensive multi-day programme, SMJMUN adapts to your institution's requirements, schedule, and student demographics.",
-      image: "/images/SHCOOL-PHOTO.webp",
+      image: "/images/training-updated-2.jpg",
       imageAlt: "Customised training workshop",
       badge: "Custom Programs",
       cta: {
@@ -163,34 +163,44 @@ export const trainingCellProgram: ProgramData = {
       "Dare to participate. Rise through learning. Create meaningful impact.",
     images: [
       {
-        src: "/images/student-training.jpeg",
+        src: "/images/training-updated-2.jpg",
         alt: "SMJMUN training session",
         aspect: "wide",
       },
       {
-        src: "/images/SHCOOL-PHOTO-1.webp",
+        src: "/images/tarining-upadted-3.jpg",
         alt: "Delegates in practice session",
         aspect: "normal",
       },
       {
-        src: "/images/student-training-2.jpeg",
+        src: "/images/training-upadted-4.jpg  ",
         alt: "Workshop exercise",
         caption: "Practical exercises build lasting confidence",
         aspect: "tall",
       },
       {
-        src: "/images/hero-1.webp",
+        src: "/images/training-upadted-5.jpg",
         alt: "Conference preparation",
         aspect: "normal",
       },
       {
-        src: "/images/community.webp",
+        src: "/images/training-updated-1.jpeg",
         alt: "SMJMUN training community",
         aspect: "normal",
       },
       {
         src: "/images/moment-1.jpeg",
-        alt: "Mock committee session",
+        alt: "Mock committee session 1",
+        aspect: "normal",
+      },
+      {
+        src: "/images/training-updated-6.jpg",
+        alt: "Mock committee session 2",
+        aspect: "normal",
+      },
+      {
+        src: "/images/training-updated-7.jpg",
+        alt: "Mock committee session 3",
         aspect: "normal",
       },
     ],
@@ -230,23 +240,23 @@ export const trainingCellProgram: ProgramData = {
 
   related: [
     {
-      title: "School Association Programme",
+      title: "School Conference Programme",
       slug: "school-mun-association",
-      image: "/images/hero-1.webp",
+      image: "/images/school-partnership-1.jpg",
       description:
         "Bringing international-standard MUN experiences to school campuses across India.",
     },
     {
       title: "College & University Programme",
       slug: "college-mun-association",
-      image: "/images/hero-2.png",
+      image: "/images/hero-image-updated-1.jpeg",
       description:
         "Transforming students into confident communicators, thinkers, and leaders.",
     },
     {
       title: "Partnership Programme",
       slug: "partnership-program",
-      image: "/images/partnerships-image.webp",
+      image: "/images/smj-hero-4.jpeg",
       description:
         "Strategic institutional partnerships for long-term MUN ecosystem development.",
     },

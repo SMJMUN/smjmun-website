@@ -61,7 +61,7 @@ export default function FounderHero() {
             <div className="absolute inset-0 bg-[#BB8B57]/10 z-10 mix-blend-overlay pointer-events-none" />
             
             <Image
-              src="/images/founder-2.jpeg"
+              src="/images/founder-updated-1.jpeg"
               alt="Aarushh Sahu"
               fill
               className="object-cover object-top grayscale-[20%] contrast-110"

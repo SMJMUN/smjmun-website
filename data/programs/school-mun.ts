@@ -258,24 +258,24 @@ export const schoolMunProgram: ProgramData = {
   },
 
   related: [
-    {
+     {
       title: "College & University Programme",
       slug: "college-mun-association",
-      image: "/images/hero-2.png",
+      image: "/images/hero-image-updated-1.jpeg",
       description:
-        "Transforming students into confident communicators, thinkers, and leaders through experiential learning.",
+        "Transforming students into confident communicators, thinkers, and leaders.",
     },
     {
       title: "Training Programmes",
       slug: "training-cell",
-      image: "/images/student-training.jpeg",
+      image: "/images/training-updated-6.jpg",
       description:
         "Structured delegate preparation and executive board development for institutions and students.",
     },
     {
       title: "Partnership Programme",
       slug: "partnership-program",
-      image: "/images/partnerships-image.webp",
+      image: "/images/smj-hero-4.jpeg",
       description:
         "Strategic institutional partnerships for long-term MUN ecosystem development.",
     },
@@ -293,6 +293,6 @@ export const schoolMunProgram: ProgramData = {
       label: "Contact Us",
       href: "/partnerships#contact",
     },
-    backgroundImage: "/images/hero-1.webp",
+    backgroundImage: "/images/training-updated-1.jpeg",
   },
 };

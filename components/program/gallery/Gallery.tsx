@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { Section } from "../shared/Section";
 import { Container } from "../shared/Container";
@@ -27,16 +27,16 @@ export function Gallery({ data }: GalleryProps) {
 
   // Auto-rotate one slot at a time
   const [activeSlot, setActiveSlot] = useState(0);
+  const nextImageIndex = useRef(4);
 
   const rotateSlot = useCallback(() => {
     setSlotIndices((prev) => {
       const next = [...prev];
-      // Get the max index currently showing
-      const maxShowing = Math.max(...next);
-      // Assign next image to the active slot (wrap around)
-      next[activeSlot] = (maxShowing + 1) % poolSize;
+      // Assign next unique image to the active slot
+      next[activeSlot] = nextImageIndex.current % poolSize;
       return next;
     });
+    nextImageIndex.current = (nextImageIndex.current + 1) % poolSize;
     setActiveSlot((prev) => (prev + 1) % 4);
   }, [activeSlot, poolSize]);
 

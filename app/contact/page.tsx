@@ -179,7 +179,7 @@ export default function ContactPage() {
                 <p className="text-white mt-3" style={{ fontSize: '17px', fontFamily: 'var(--font-sora)' }}>
                   Monday &mdash; Saturday
                   <br />
-                  10:00 AM &mdash; 6:00 PM IST
+                  10:00 AM &mdash; 10:00 PM IST
                 </p>
               </div>
               <div>

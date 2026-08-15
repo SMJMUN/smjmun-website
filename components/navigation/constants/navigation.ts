@@ -19,7 +19,7 @@ export const MAIN_NAVIGATION: NavigationItemType[] = [
 
 export const CALL_TO_ACTION = {
   label: 'Register Now',
-  href: '/register',
+  href: '/conferences',
 };
 
 // Data for the Conferences Mega Menu

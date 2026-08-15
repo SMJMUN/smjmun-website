@@ -74,7 +74,7 @@ export default function GalleryCTA() {
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
             </Link>
             <Link
-              href="/register"
+              href="/conferences"
               id="gallery-cta-register"
               className="inline-flex items-center gap-3 font-sans text-[12px] font-medium tracking-[0.15em] uppercase text-gold hover:text-gold/80 transition-colors duration-300"
               aria-label="Register for a conference"

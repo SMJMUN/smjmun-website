@@ -61,7 +61,7 @@ export function ChatToggleButton() {
                 <X size={14} />
               </button>
               <p className="text-sm font-medium leading-relaxed text-black">
-                Questions about committees, registration, or schedules? Ask AI Tejas.
+                Questions about committees, registration, or schedules? Ask Tejas AI.
               </p>
               {/* Triangle pointer */}
               <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white rotate-45 border-r border-b border-black/5" />

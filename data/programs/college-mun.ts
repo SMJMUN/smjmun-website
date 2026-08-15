@@ -163,10 +163,27 @@ export const collegeMunProgram: ProgramData = {
     subtitle:
       "Dare to challenge ideas. Rise through knowledge and leadership. Create meaningful impact through responsible action.",
     images: [
-      {
+       {
+        src: "/images/tarining-upadted-3.jpg",
+        alt: "Delegates in practice session",
+        aspect: "normal",
+      },
+        {
         src: "/images/program-image-3.webp",
         alt: "SMJMUN college conference",
         aspect: "wide",
+      },
+         
+      {
+        src: "/images/training-upadted-4.jpg  ",
+        alt: "Workshop exercise",
+        caption: "Practical exercises build lasting confidence",
+        aspect: "tall",
+      },
+      {
+        src: "/images/training-upadted-5.jpg",
+        alt: "Conference preparation",
+        aspect: "normal",
       },
       {
         src: "/images/program-image-2.webp",

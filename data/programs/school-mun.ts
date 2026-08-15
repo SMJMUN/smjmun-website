@@ -164,13 +164,29 @@ export const schoolMunProgram: ProgramData = {
       "Dare to participate. Rise through learning. Create meaningful impact.",
     images: [
       {
-        src: "/images/smg-hero-7.jpeg",
+          src: "/images/training-updated-2.jpg",
         alt: "SMJMUN conference opening ceremony",
         aspect: "wide",
       },
       {
         src: "/images/moment-1.jpeg",
         alt: "Student delegates in committee session",
+        aspect: "normal",
+      },
+            {
+        src: "/images/tarining-upadted-3.jpg",
+        alt: "Delegates in practice session",
+        aspect: "normal",
+      },
+      {
+        src: "/images/training-upadted-4.jpg  ",
+        alt: "Workshop exercise",
+        caption: "Practical exercises build lasting confidence",
+        aspect: "tall",
+      },
+      {
+        src: "/images/training-upadted-5.jpg",
+        alt: "Conference preparation",
         aspect: "normal",
       },
       {

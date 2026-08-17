@@ -147,15 +147,15 @@ export default async function GalleryCollectionPage({
           <PhotoMasonry images={gallery.images!} />
         ) : (
           <section
-            className="section-padding-sm bg-white"
+            className="section-padding-sm bg-[#0A0A0A]"
             aria-label="No photographs available"
           >
             <div className="content-wide text-center py-16">
               <div className="gold-rule mx-auto mb-8" />
-              <p className="font-serif text-[22px] italic text-navy/40">
+              <p className="font-serif text-[22px] italic text-white/40">
                 Photographs coming soon.
               </p>
-              <p className="font-sans text-[13px] text-navy/30 mt-3">
+              <p className="font-sans text-[13px] text-white/30 mt-3">
                 This collection is being prepared. Check back shortly.
               </p>
             </div>

@@ -61,7 +61,7 @@ export default function ArticleGrid({
   const latestPosts = useMemo(() => posts.slice(0, 5), [posts]);
 
   return (
-    <section className="bg-ivory" style={{ paddingTop: "72px", paddingBottom: "100px" }}>
+    <section className="bg-[#0A0A0A]" style={{ paddingTop: "72px", paddingBottom: "100px" }}>
       <div className="content-wide">
         {/* ── Section header + search ─────────────────────────────── */}
         <div className="flex flex-col gap-6 mb-10 lg:flex-row lg:items-end lg:justify-between">
@@ -83,12 +83,12 @@ export default function ArticleGrid({
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-[1px] bg-gold" />
-                <h2 className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-navy/50">
+                <h2 className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-white/50">
                   Latest Articles
                 </h2>
               </div>
               {filteredPosts.length > 0 && (
-                <span className="font-sans text-[11px] text-navy/35">
+                <span className="font-sans text-[11px] text-white/35">
                   {filteredPosts.length} article{filteredPosts.length !== 1 ? "s" : ""}
                 </span>
               )}
@@ -97,7 +97,7 @@ export default function ArticleGrid({
             {filteredPosts.length === 0 ? (
               <div className="py-20 text-center">
                 <div className="gold-rule mx-auto mb-6" />
-                <p className="font-serif text-[22px] italic text-navy/40">
+                <p className="font-serif text-[22px] italic text-white/40">
                   {searchQuery || activeCategory !== "All"
                     ? "No articles match your selection."
                     : "Articles coming soon."}
@@ -108,7 +108,7 @@ export default function ArticleGrid({
                       onSearchChange("");
                       onCategoryChange("All");
                     }}
-                    className="mt-4 font-sans text-[12px] tracking-[0.1em] uppercase text-charcoal underline underline-offset-4 cursor-pointer"
+                    className="mt-4 font-sans text-[12px] tracking-[0.1em] uppercase text-white underline underline-offset-4 cursor-pointer"
                   >
                     Clear filters
                   </button>

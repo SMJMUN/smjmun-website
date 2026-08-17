@@ -37,7 +37,7 @@ export default function FounderCTA() {
         <div className="max-w-[1440px] mx-auto px-6 text-center">
           <Reveal delay={0.1}>
             <span className="block text-xs uppercase tracking-[0.2em] text-white/50 mb-6">
-              Connect with Aarushh
+              Connect with Aarushh Sir
             </span>
             <div className="flex justify-center items-center gap-6 md:gap-10">
               <a 

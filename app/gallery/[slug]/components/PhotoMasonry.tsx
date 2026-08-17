@@ -25,7 +25,7 @@ export default function PhotoMasonry({ images }: PhotoMasonryProps) {
     <section
       id="gallery-photographs"
       className="section-padding-sm"
-      style={{ backgroundColor: "#ffffff" }}
+      style={{ backgroundColor: "#0A0A0A" }}
       aria-labelledby="photo-masonry-heading"
     >
       <div className="content-wide">
@@ -34,7 +34,7 @@ export default function PhotoMasonry({ images }: PhotoMasonryProps) {
           <p className="text-label text-gold mb-5">Photographs</p>
           <h2
             id="photo-masonry-heading"
-            className="text-heading text-navy"
+            className="text-heading text-white"
           >
             The Collection
           </h2>

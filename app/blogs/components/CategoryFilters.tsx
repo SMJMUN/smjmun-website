@@ -58,8 +58,8 @@ export default function CategoryFilters({
                 px-5 py-2.5 border transition-all duration-300 cursor-pointer whitespace-nowrap
                 ${
                   isActive
-                    ? "bg-navy text-white border-navy"
-                    : "bg-transparent text-navy/55 border-navy/15 hover:border-navy/40 hover:text-navy"
+                    ? "bg-[#1A1A1A] text-white border-white/20"
+                    : "bg-transparent text-white/55 border-white/15 hover:border-white/40 hover:text-white"
                 }
               `}
             >

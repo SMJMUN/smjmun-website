@@ -12,9 +12,10 @@ import { NavigationData } from '@/lib/sanity/navigation/types';
 
 interface MobileNavProps {
   navigationData: NavigationData;
+  onRegisterClick: () => void;
 }
 
-export function MobileNav({ navigationData }: MobileNavProps) {
+export function MobileNav({ navigationData, onRegisterClick }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -45,7 +46,7 @@ export function MobileNav({ navigationData }: MobileNavProps) {
             <SheetDescription>Main navigation for the SMJ MUN website</SheetDescription>
           </div>
 
-          <MobileDrawer onClose={() => setOpen(false)} navigationData={navigationData} />
+          <MobileDrawer onClose={() => setOpen(false)} navigationData={navigationData} onRegisterClick={onRegisterClick} />
         </SheetContent>
       </Sheet>
     </div>

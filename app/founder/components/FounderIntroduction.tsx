@@ -17,7 +17,7 @@ export default function FounderIntroduction() {
         <div className="space-y-8 text-lg md:text-xl font-light text-white/80 leading-[1.8] md:leading-[2]">
           <Reveal delay={0.1}>
             <p>
-              Aarushh Sahu is the Founder and President of SMJMUN and a passionate advocate for experiential youth education.
+              Mr. Aarushh Sahu is the Founder and President of SMJMUN and a passionate advocate for experiential youth education.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -27,7 +27,7 @@ export default function FounderIntroduction() {
           </Reveal>
           <Reveal delay={0.3}>
             <p>
-              Over the years, Mr. Sahu participated in 70+ national and 10+ international Model United Nations conferences, earning 55+ Best Delegate awards and serving on the Executive Board of 50+ committees.
+              Over the years, Mr. Aarushh Sahu participated in 70+ national and 10+ international Model United Nations conferences, earning 55+ Best Delegate awards and serving on the Executive Board of 50+ committees.
             </p>
           </Reveal>
           <Reveal delay={0.4}>
@@ -46,7 +46,7 @@ export default function FounderIntroduction() {
           </Reveal>
           <Reveal delay={0.6}>
             <p>
-              Today, Aarushh works toward creating platforms where students can develop the confidence to speak, the discipline to prepare, the curiosity to understand and the courage to lead.
+              Today, Mr. Aarushh Sahu works toward creating platforms where students can develop the confidence to speak, the discipline to prepare, the curiosity to understand and the courage to lead.
             </p>
           </Reveal>
           <Reveal delay={0.7}>

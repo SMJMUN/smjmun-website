@@ -172,7 +172,7 @@ export default async function ConferenceDetailPage({
         {/* <ConferenceTimeline conference={conference} /> */}
         <DelegateExperience />
         <GallerySection conference={conference} />
-        <VenueSection conference={conference} />
+        {/* <VenueSection conference={conference} /> */}
         <FAQSection />
 
         <RegistrationCTA conference={conference} />

@@ -38,7 +38,7 @@ export default function FounderMessage() {
         <Reveal delay={0.2}>
           <div className="mt-12 pt-8 border-t border-white/10">
             <p className="font-[family-name:var(--font-playfair)] font-bold text-white text-xl">
-              — Aarushh Sahu
+              — Mr. Aarushh Sahu
             </p>
             <p className="text-xs uppercase tracking-[0.15em] text-[#BB8B57] mt-2">
               Founder & President, SMJMUN

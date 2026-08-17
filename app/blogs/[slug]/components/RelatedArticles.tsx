@@ -54,7 +54,7 @@ export default function RelatedArticles({
 
   return (
     <section
-      className="bg-white border-t border-navy/8"
+      className="bg-[#0A0A0A] border-t border-white/10"
       style={{
         paddingTop: "clamp(56px, 6vw, 88px)",
         paddingBottom: "clamp(72px, 8vw, 112px)",
@@ -65,13 +65,13 @@ export default function RelatedArticles({
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
             <div className="w-8 h-[1px] bg-gold" />
-            <h2 className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-navy/45">
+            <h2 className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-white/45">
               Continue Reading
             </h2>
           </div>
           <Link
             href="/blogs"
-            className="font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-navy/35 no-underline hover:text-navy transition-colors duration-300 flex items-center gap-1.5"
+            className="font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-white/35 no-underline hover:text-white transition-colors duration-300 flex items-center gap-1.5"
           >
             View All
             <span className="inline-block transition-transform duration-300">→</span>
@@ -89,7 +89,7 @@ export default function RelatedArticles({
             return (
               <article
                 key={post._id}
-                className="group flex flex-col   border-navy/8 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1 bg-white"
+                className="group flex flex-col border border-white/10 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1 bg-[#1A1A1A] rounded-md overflow-hidden"
               >
                 {/* Image */}
                 <Link
@@ -109,7 +109,7 @@ export default function RelatedArticles({
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-navy to-navy/70 flex items-center justify-center">
+                    <div className="w-full h-full bg-gradient-to-br from-[#1A1A1A] to-[#1A1A1A]/70 flex items-center justify-center">
                       <span className="font-serif text-gold/30 text-3xl italic">SMJ</span>
                     </div>
                   )}
@@ -120,7 +120,7 @@ export default function RelatedArticles({
                   <p className="font-sans text-[9px] font-600 tracking-[0.18em] uppercase text-gold mb-2">
                     {category}
                   </p>
-                  <h3 className="font-serif text-[16px] font-bold leading-[1.3] text-navy mb-2 line-clamp-2 group-hover:text-charcoal transition-colors duration-300">
+                  <h3 className="font-serif text-[16px] font-bold leading-[1.3] text-white mb-2 line-clamp-2 group-hover:text-white/80 transition-colors duration-300">
                     <Link href={`/blogs/${post.slug.current}`} className="no-underline">
                       {post.title}
                     </Link>
@@ -128,13 +128,13 @@ export default function RelatedArticles({
                   <div className="mt-auto pt-3 flex items-center justify-between">
                     <time
                       dateTime={post.publishedAt}
-                      className="font-sans text-[11px] text-navy/35"
+                      className="font-sans text-[11px] text-white/35"
                     >
                       {formatDate(post.publishedAt)}
                     </time>
                     <Link
                       href={`/blogs/${post.slug.current}`}
-                      className="font-sans text-[10px] font-500 tracking-[0.12em] uppercase text-charcoal no-underline flex items-center gap-1 group/link"
+                      className="font-sans text-[10px] font-500 tracking-[0.12em] uppercase text-white/80 no-underline flex items-center gap-1 group/link"
                     >
                       Read
                       <span className="transition-transform duration-300 group-hover/link:translate-x-0.5">→</span>

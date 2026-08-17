@@ -33,7 +33,7 @@ export default function CollectionStats({ gallery }: CollectionStatsProps) {
   return (
     <section
       className="py-16 lg:py-20 border-b"
-      style={{ borderColor: "rgba(4,33,71,0.08)", backgroundColor: "#ffffff" }}
+      style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "#1A1A1A" }}
       aria-label="Collection statistics"
     >
       <div className="content-wide">
@@ -41,12 +41,12 @@ export default function CollectionStats({ gallery }: CollectionStatsProps) {
           {stats.map((stat, i) => (
             <div key={i} className="text-center group">
               <div
-                className="font-bold tracking-[-0.02em] text-navy mb-2 group-hover:text-gold transition-colors duration-500"
+                className="font-bold tracking-[-0.02em] text-white mb-2 group-hover:text-gold transition-colors duration-500"
                 style={{ fontFamily: "var(--font-sora)", fontSize: "clamp(36px,4.5vw,60px)", lineHeight: 1 }}
               >
                 {stat.value}
               </div>
-              <div className="font-sans text-[10px] font-medium tracking-[0.22em] uppercase text-navy/40">
+              <div className="font-sans text-[10px] font-medium tracking-[0.22em] uppercase text-white/40">
                 {stat.label}
               </div>
             </div>

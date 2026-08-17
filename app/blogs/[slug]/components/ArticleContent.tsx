@@ -42,7 +42,7 @@ export default function ArticleContent({ post }: ArticleContentProps) {
 
   return (
     <section
-      className="bg-white"
+      className="bg-[#0A0A0A]"
       style={{
         paddingTop: "clamp(56px, 6vw, 88px)",
         paddingBottom: "clamp(72px, 8vw, 120px)",
@@ -63,18 +63,18 @@ export default function ArticleContent({ post }: ArticleContentProps) {
           >
             <div className="max-w-[720px]">
               {hasContent ? (
-                <div className="article-body" style={{ color: "black" }}>
-                  <PortableTextRenderer value={post.body!} />
+                <div className="article-body">
+                  <PortableTextRenderer value={post.body!} theme="dark" />
                 </div>
               ) : (
-                <p className="font-serif text-[18px] italic text-navy/40 leading-[1.7]">
+                <p className="font-serif text-[18px] italic text-white/40 leading-[1.7]">
                   This article is being prepared. Check back soon.
                 </p>
               )}
 
               {/* Share buttons below content */}
               {hasContent && (  
-                <div className="mt-12 pt-8 border-t border-navy/8">
+                <div className="mt-12 pt-8 border-t border-white/10">
                   <ShareButtons
                     title={post.title}
                     url={`/blogs/${post.slug.current}`}

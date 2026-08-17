@@ -28,7 +28,7 @@ export default function ArticleHero({ post }: ArticleHeroProps) {
     <header
       className="relative overflow-hidden"
       style={{
-        backgroundColor: "var(--color-navy)",
+        backgroundColor: "#0A0A0A",
         paddingTop: "clamp(130px, 14vw, 190px)",
         paddingBottom: "clamp(56px, 6vw, 88px)",
       }}

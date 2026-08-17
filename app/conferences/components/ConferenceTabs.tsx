@@ -1,11 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { Conference } from "@/lib/sanity/conference/types";
 import ConferenceCard from "./ConferenceCard";
 
 export default function ConferenceTabs({ conferences }: { conferences: Conference[] }) {
   const [activeTab, setActiveTab] = useState<"upcoming" | "closing_soon" | "past">("upcoming");
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#past' || hash === '#past-conferences') setActiveTab('past');
+    else if (hash === '#closing-soon' || hash === '#closing_soon') setActiveTab('closing_soon');
+    else if (hash === '#upcoming') setActiveTab('upcoming');
+
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab');
+    if (tab === 'past' || tab === 'closing_soon' || tab === 'upcoming') {
+      setActiveTab(tab as "upcoming" | "closing_soon" | "past");
+    }
+
+    const handleHashChange = () => {
+      const newHash = window.location.hash;
+      if (newHash === '#past' || newHash === '#past-conferences') setActiveTab('past');
+      else if (newHash === '#closing-soon' || newHash === '#closing_soon') setActiveTab('closing_soon');
+      else if (newHash === '#upcoming') setActiveTab('upcoming');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const upcoming = conferences.filter(c => c.status === "upcoming" || c.status === "live");
   const past = conferences.filter(c => c.status === "completed");
@@ -26,9 +48,13 @@ export default function ConferenceTabs({ conferences }: { conferences: Conferenc
 
   return (
     <section
-      className="section-padding-md"
+      className="section-padding-md relative"
       style={{ backgroundColor: 'var(--ds-bg-primary)' }}
     >
+      {/* Anchor targets for scrolling */}
+      <div id="past-conferences" className="absolute -top-24" />
+      <div id="upcoming" className="absolute -top-24" />
+
       {/* Section Header */}
       <div className="content-wide mb-12">
         <span className="section-label block mb-4">Explore All</span>

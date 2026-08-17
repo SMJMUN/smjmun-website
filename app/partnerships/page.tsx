@@ -192,88 +192,123 @@ export default function PartnershipsPage() {
             </div>
 
             {/* RIGHT SIDE */}
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  placeholder="Institution Name *"
-                  required
-                  value={formData.institutionName}
-                  onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
-                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
-                />
-                <input
-                  placeholder="Contact Person *"
-                  required
-                  value={formData.contactPerson}
-                  onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
-                />
+            <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label htmlFor="institutionName" className="sr-only">Institution Name</label>
+                  <input
+                    id="institutionName"
+                    placeholder="Institution Name *"
+                    required
+                    value={formData.institutionName}
+                    onChange={(e) => setFormData({ ...formData, institutionName: e.target.value })}
+                    className="w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label htmlFor="contactPerson" className="sr-only">Contact Person</label>
+                  <input
+                    id="contactPerson"
+                    placeholder="Contact Person *"
+                    required
+                    value={formData.contactPerson}
+                    onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                    className="w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300"
+                  />
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  placeholder="Phone Number *"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
-                />
-                <input
-                  placeholder="Email Address *"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
-                />
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label htmlFor="phone" className="sr-only">Phone Number</label>
+                  <input
+                    id="phone"
+                    placeholder="Phone Number *"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label htmlFor="email" className="sr-only">Email Address</label>
+                  <input
+                    id="email"
+                    placeholder="Email Address *"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300"
+                  />
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-1 gap-4">
-                <select
-                  value={formData.institutionType}
-                  onChange={(e) => setFormData({ ...formData, institutionType: e.target.value })}
-                  className="w-full bg-[#83090e] border border-white/20 px-5 py-4 text-white focus:outline-none focus:border-[#bb8b57] appearance-none"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'right 1rem center',
-                    backgroundSize: '1em'
-                  }}
-                >
-                  <option value="" disabled>Institution Type</option>
-                  <option value="School">School</option>
-                  <option value="College">College</option>
-                  <option value="University">University</option>
-                  <option value="NGO">NGO</option>
-                  <option value="Corporate">Corporate</option>
-                </select>
+              <div className="space-y-1">
+                <label htmlFor="institutionType" className="sr-only">Institution Type</label>
+                <div className="relative">
+                  <select
+                    id="institutionType"
+                    required
+                    value={formData.institutionType}
+                    onChange={(e) => setFormData({ ...formData, institutionType: e.target.value })}
+                    className={`w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300 appearance-none ${!formData.institutionType ? 'text-white/40' : 'text-white'}`}
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'right 1.25rem center',
+                      backgroundSize: '1em'
+                    }}
+                  >
+                    <option value="" disabled className="bg-[#1A1A1A] text-white/50">Institution Type *</option>
+                    <option value="School" className="bg-[#1A1A1A] text-white">School</option>
+                    <option value="College" className="bg-[#1A1A1A] text-white">College</option>
+                    <option value="University" className="bg-[#1A1A1A] text-white">University</option>
+                    <option value="NGO" className="bg-[#1A1A1A] text-white">NGO</option>
+                    <option value="Corporate" className="bg-[#1A1A1A] text-white">Corporate</option>
+                  </select>
+                </div>
               </div>
 
-              <textarea
-                rows={5}
-                placeholder="Message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full bg-transparent border border-white/20 px-5 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-[#bb8b57]"
-              />
+              <div className="space-y-1">
+                <label htmlFor="message" className="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  placeholder="Message (Optional)"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-white/[0.03] border border-white/10 px-5 py-4 font-sans text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#bb8b57] focus:bg-white/[0.05] transition-all duration-300 resize-none"
+                />
+              </div>
 
               {status === "error" && (
-                <div className="text-red-500 text-sm mt-2">{errorMessage}</div>
+                <div className="font-sans text-[13px] text-red-400 mt-2">{errorMessage}</div>
               )}
               {status === "success" && (
-                <div className="text-green-500 text-sm mt-2">Thank you! Your inquiry has been submitted.</div>
+                <div className="font-sans text-[14px] text-[#bb8b57] mt-2 bg-[#bb8b57]/10 border border-[#bb8b57]/20 p-4">Thank you! Your inquiry has been submitted and our team will be in touch shortly.</div>
               )}
 
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full bg-[#bb8b57] text-white uppercase tracking-[0.2em] py-5 hover:opacity-90 transition-all hover:bg-black disabled:opacity-50 mt-2"
-              >
-                {status === "loading" ? "Submitting..." : "Start The Conversation →"}
-              </button>
+              <div className="pt-3 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+                <button
+                  type="submit"
+                  disabled={status === "loading" || status === "success"}
+                  className="
+                    inline-flex items-center justify-center font-sans text-[12px] font-500 tracking-[0.15em] uppercase
+                    bg-[#bb8b57] text-[#0B0B0B] px-10 py-4 border border-[#bb8b57]
+                    hover:bg-transparent hover:text-[#bb8b57]
+                    transition-all duration-300
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                    w-full sm:w-auto
+                  "
+                >
+                  {status === "loading" ? "Submitting..." : "Start The Conversation →"}
+                </button>
 
-              <p className="text-center text-sm text-white/50 mt-4">
-                Your enquiry will be reviewed personally by our partnerships team. We use your information solely to respond to your request and never share it with third parties.
-              </p>
+                <p className="font-sans text-[11px] leading-[1.6] text-white/30 sm:max-w-[280px] text-center sm:text-left">
+                  Your enquiry will be reviewed personally by our team. We never share your information.
+                </p>
+              </div>
             </form>
           </div>
         </div>

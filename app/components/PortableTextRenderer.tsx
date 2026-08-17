@@ -15,6 +15,8 @@ function slugify(children: React.ReactNode): string {
 
 const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponents => {
   const textColor = theme === "dark" ? "#ffffff" : "#000000";
+  const headingColor = theme === "dark" ? "#ffffff" : "var(--color-navy)";
+  const linkColor = theme === "dark" ? "#ffffff" : "var(--color-charcoal)";
 
   return {
     block: {
@@ -27,7 +29,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontWeight: 700,
             lineHeight: 1.15,
             letterSpacing: "-0.02em",
-            color: "var(--color-navy)",
+            color: headingColor,
             marginBottom: "24px",
             marginTop: "48px",
             scrollMarginTop: "100px",
@@ -45,7 +47,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontWeight: 700,
             lineHeight: 1.2,
             letterSpacing: "-0.01em",
-            color: "var(--color-navy)",
+            color: headingColor,
             marginBottom: "20px",
             marginTop: "40px",
             scrollMarginTop: "100px",
@@ -62,7 +64,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontSize: "clamp(22px, 2.5vw, 28px)",
             fontWeight: 700,
             lineHeight: 1.25,
-            color: "var(--color-navy)",
+            color: headingColor,
             marginBottom: "16px",
             marginTop: "32px",
             scrollMarginTop: "100px",
@@ -79,7 +81,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontSize: "20px",
             fontWeight: 700,
             lineHeight: 1.3,
-            color: "var(--color-navy)",
+            color: headingColor,
             marginBottom: "12px",
             marginTop: "24px",
             scrollMarginTop: "100px",
@@ -108,7 +110,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontSize: "clamp(20px, 2.5vw, 26px)",
             lineHeight: 1.5,
             fontStyle: "italic",
-            color: "var(--color-navy)",
+            color: textColor,
             borderLeft: "3px solid var(--color-gold)",
             paddingLeft: "24px",
             margin: "32px 0",
@@ -133,7 +135,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
             style={{
-              color: "var(--color-charcoal)",
+              color: linkColor,
               textDecoration: "underline",
               textUnderlineOffset: "3px",
             }}
@@ -174,7 +176,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontFamily: "var(--font-body), system-ui, sans-serif",
             fontSize: "17px",
             lineHeight: 1.8,
-            color: "var(--color-navy)",
+            color: textColor,
             marginBottom: "8px",
           }}
         >
@@ -187,7 +189,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
             fontFamily: "var(--font-body), system-ui, sans-serif",
             fontSize: "17px",
             lineHeight: 1.8,
-            color: "var(--color-navy)",
+            color: textColor,
             marginBottom: "8px",
           }}
         >
@@ -217,7 +219,7 @@ const getComponents = (theme: "light" | "dark" = "light"): PortableTextComponent
                 style={{
                   fontFamily: "var(--font-body), system-ui, sans-serif",
                   fontSize: "13px",
-                  color: "var(--color-navy)",
+                  color: textColor,
                   opacity: 0.5,
                   marginTop: "12px",
                   textAlign: "center",

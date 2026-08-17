@@ -39,7 +39,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
         aria-label={`Read: ${post.title}`}
       >
         {/* Thumbnail */}
-        <div className="flex-shrink-0 w-16 h-16 bg-navy overflow-hidden relative">
+        <div className="flex-shrink-0 w-16 h-16 bg-[#1A1A1A] overflow-hidden relative">
           {coverUrl ? (
             <Image
               src={coverUrl}
@@ -50,7 +50,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
               className="object-cover rounded-md  transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full bg-navy/20" />
+            <div className="w-full h-full bg-white/10" />
           )}
         </div>
         {/* Text */}
@@ -61,11 +61,11 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
             {category} 
           </p>
           <h4
-            className="font-serif text-[14px] font-bold leading-snug text-navy line-clamp-2 group-hover:text-charcoal transition-colors duration-300"
+            className="font-serif text-[14px] font-bold leading-snug text-white line-clamp-2 group-hover:text-white/80 transition-colors duration-300"
           >
             {post.title}
           </h4>
-          <p className="font-sans text-[11px] text-navy/40 mt-1">
+          <p className="font-sans text-[11px] text-white/40 mt-1">
             {formatDate(post.publishedAt)}
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
   }
 
   return (
-    <article className="group flex flex-col bg-white rounded-md border-navy/8 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1">
+    <article className="group flex flex-col bg-[#1A1A1A] rounded-md border-white/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1">
       {/* Image */}
       <Link
         href={`/blogs/${post.slug.current}`}
@@ -93,7 +93,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-navy to-navy/70 flex items-center justify-center">
+          <div className="w-full h-full bg-gradient-to-br from-[#1A1A1A] to-[#1A1A1A]/70 flex items-center justify-center">
             <span className="font-serif text-gold/40 text-4xl italic">SMJ</span>
           </div>
         )}
@@ -110,13 +110,13 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
             {category}
           </span>
           <span className="w-1 h-1 rounded-full bg-gold/40 inline-block" />
-          <span className="font-sans text-[10px] text-navy/35 tracking-wide">
+          <span className="font-sans text-[10px] text-white/35 tracking-wide">
             {readTime}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="flex-1 font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-3 group-hover:text-charcoal transition-colors duration-300">
+        <h3 className="flex-1 font-serif text-[19px] lg:text-[21px] font-bold leading-[1.25] tracking-[-0.01em] text-white mb-3 group-hover:text-white/80 transition-colors duration-300">
           <Link href={`/blogs/${post.slug.current}`} className="no-underline">
             {post.title}
           </Link>
@@ -124,21 +124,21 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
 
         {/* Excerpt */}
         {post.excerpt && (
-          <p className="font-sans text-[14px] leading-[1.7] text-navy/55 mb-5 line-clamp-2">
+          <p className="font-sans text-[14px] leading-[1.7] text-white/55 mb-5 line-clamp-2">
             {post.excerpt}
           </p>
         )}
 
         {/* Footer: author + date */}
-        <div className="flex items-center justify-between pt-4 border-t border-navy/8">
+        <div className="flex items-center justify-between pt-4 border-t border-white/10">
           <div className="flex items-center gap-2">
             {post.author && (
-              <span className="font-sans text-[12px] font-medium text-navy/60">
+              <span className="font-sans text-[12px] font-medium text-white/60">
                 {post.author}
               </span>
             )}
           </div>
-          <span className="font-sans text-[11px] text-navy/35">
+          <span className="font-sans text-[11px] text-white/35">
             {formatDate(post.publishedAt)}
           </span>
         </div>
@@ -146,7 +146,7 @@ export default function ArticleCard({ post, variant = "default" }: ArticleCardPr
         {/* Read more link */}
         <Link
           href={`/blogs/${post.slug.current}`}
-          className="mt-4 inline-flex items-center gap-2 font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-charcoal no-underline group/link"
+          className="mt-4 inline-flex items-center gap-2 font-sans text-[11px] font-500 tracking-[0.12em] uppercase text-white/80 no-underline group/link"
         >
           <span>Read Article</span>
           <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">

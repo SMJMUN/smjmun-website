@@ -25,7 +25,7 @@ export default function RelatedGalleries({
   return (
     <section
       className="section-padding-sm"
-      style={{ backgroundColor: "var(--color-ivory)" }}
+      style={{ backgroundColor: "#0A0A0A" }}
       aria-labelledby="related-galleries-heading"
     >
       <div className="content-wide">
@@ -34,13 +34,13 @@ export default function RelatedGalleries({
           <p className="text-label text-gold mb-5">More Archives</p>
           <h2
             id="related-galleries-heading"
-            className="text-heading text-navy"
+            className="text-heading text-white"
           >
             Related Collections
           </h2>
           <div className="gold-rule mx-auto mt-6" aria-hidden="true" />
           <p
-            className="font-sans text-navy/45 mt-5 max-w-[480px] mx-auto"
+            className="font-sans text-white/45 mt-5 max-w-[480px] mx-auto"
             style={{ fontSize: "clamp(13px, 1.2vw, 15px)", lineHeight: 1.7 }}
           >
             Explore more conferences from the SMJ MUN archive.
@@ -60,7 +60,7 @@ export default function RelatedGalleries({
             return (
               <article
                 key={gallery._id}
-                className="group flex flex-col bg-white border border-navy/8 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1"
+                className="group flex flex-col bg-[#1A1A1A] border border-white/10 hover:border-gold/35 transition-all duration-500 hover:-translate-y-1"
               >
                 {/* Image */}
                 <Link
@@ -88,7 +88,7 @@ export default function RelatedGalleries({
                   {/* Photo count overlay */}
                   {gallery.photoCount !== undefined && (
                     <div className="absolute top-4 right-4">
-                      <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-white bg-navy/70 backdrop-blur-sm border border-white/10 px-2.5 py-1">
+                      <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-white bg-black/70 backdrop-blur-sm border border-white/10 px-2.5 py-1">
                         {gallery.photoCount} Photos
                       </span>
                     </div>
@@ -100,7 +100,7 @@ export default function RelatedGalleries({
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
-                  <h3 className="font-serif text-[18px] lg:text-[20px] font-bold leading-[1.2] tracking-[-0.01em] text-navy mb-3 group-hover:text-charcoal transition-colors duration-300">
+                  <h3 className="font-serif text-[18px] lg:text-[20px] font-bold leading-[1.2] tracking-[-0.01em] text-white mb-3 group-hover:text-white/80 transition-colors duration-300">
                     <Link
                       href={`/gallery/${gallery.slug.current}`}
                       className="no-underline"
@@ -112,23 +112,23 @@ export default function RelatedGalleries({
 
                   <div className="flex flex-col gap-1.5 mb-5">
                     {gallery.location && (
-                      <div className="flex items-center gap-2 text-navy/50 font-sans text-[12px]">
+                      <div className="flex items-center gap-2 text-white/50 font-sans text-[12px]">
                         <MapPin size={12} className="text-gold/65 flex-shrink-0" aria-hidden="true" />
                         <span>{gallery.location}</span>
                       </div>
                     )}
                     {date && (
-                      <div className="flex items-center gap-2 text-navy/50 font-sans text-[12px]">
+                      <div className="flex items-center gap-2 text-white/50 font-sans text-[12px]">
                         <Calendar size={12} className="text-gold/65 flex-shrink-0" aria-hidden="true" />
                         <span>{date}</span>
                       </div>
                     )}
                   </div>
 
-                  <div className="mt-auto pt-4 border-t border-navy/8">
+                  <div className="mt-auto pt-4 border-t border-white/10">
                     <Link
                       href={`/gallery/${gallery.slug.current}`}
-                      className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-charcoal no-underline group/link"
+                      className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-white/80 no-underline group/link"
                       aria-label={`View collection: ${gallery.title}`}
                     >
                       <span>View Collection</span>

@@ -28,7 +28,7 @@ export default function FeaturedArticle({ post }: FeaturedArticleProps) {
       className="group block border-[0.5px] border-gold rounded-sm p-2 no-underline h-full"
       aria-label={`Featured story: ${post.title}`}
     >
-      <article className="relative rounded-sm h-full min-h-[420px] lg:min-h-[480px] overflow-hidden bg-navy">
+      <article className="relative rounded-sm h-full min-h-[420px] lg:min-h-[480px] overflow-hidden bg-[#1A1A1A]">
         {/* Cover Image */}
         {coverUrl && (
           <Image
@@ -47,13 +47,13 @@ export default function FeaturedArticle({ post }: FeaturedArticleProps) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(4,33,71,0.97) 0%, rgba(4,33,71,0.6) 45%, rgba(4,33,71,0.1) 100%)",
+              "linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.6) 45%, rgba(10,10,10,0.1) 100%)",
           }}
         />
 
         {/* "Featured Story" pill top-left */}
         <div className="absolute top-5 left-5">
-          <span className="font-sans text-[10px] font-600 tracking-[0.2em] uppercase text-gold bg-navy/60 backdrop-blur-sm border border-gold/30 px-3 py-1.5">
+          <span className="font-sans text-[10px] font-600 tracking-[0.2em] uppercase text-gold bg-black/60 backdrop-blur-sm border border-gold/30 px-3 py-1.5">
             Featured Story
           </span>
         </div>

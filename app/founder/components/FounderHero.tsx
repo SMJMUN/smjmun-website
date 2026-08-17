@@ -30,7 +30,7 @@ export default function FounderHero() {
               className="font-[family-name:var(--font-playfair)] font-bold text-white mb-6 leading-tight"
               style={{ fontSize: 'clamp(48px, 6vw, 82px)', letterSpacing: '-0.02em' }}
             >
-              Aarushh Sahu
+              Mr. Aarushh Sahu
             </h1>
             <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-[500px] mb-12">
               Building a generation of confident, informed, and globally minded young leaders.
@@ -62,7 +62,7 @@ export default function FounderHero() {
             
             <Image
               src="/images/founder-updated-1.jpeg"
-              alt="Aarushh Sahu"
+              alt="Mr. Aarushh Sahu"
               fill
               className="object-cover object-top grayscale-[20%] contrast-110"
               sizes="(max-width: 768px) 100vw, 50vw"

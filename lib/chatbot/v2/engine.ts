@@ -208,7 +208,7 @@ User Question: ${query}`;
 
 ---
 
-Answer the user's question about SMJMUN (Shri Seth Mangilal Ji Sahu International Model United Nations, founded by Aarushh Sahu) or standard MUN procedures.
+Answer the user's question about SMJMUN (Shri Seth Mangilal Ji Sahu International Model United Nations, founded by Mr. Aarushh Sahu) or standard MUN procedures.
 If you do not know the answer, gently direct them to contact@smjmun.com.
 
 User Question: ${query}`;

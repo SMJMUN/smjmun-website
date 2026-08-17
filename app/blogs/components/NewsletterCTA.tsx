@@ -46,7 +46,7 @@ export default function NewsletterCTA() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ backgroundColor: "var(--color-navy)" }}
+      style={{ backgroundColor: "#1A1A1A" }}
     >
       {/* Decorative grid texture */}
       <div

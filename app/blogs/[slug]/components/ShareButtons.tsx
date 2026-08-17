@@ -104,7 +104,7 @@ return (
         font-sans
         text-[12px]
         font-medium
-        text-navy/50
+        text-white/50
       "
     >
       Share this article
@@ -133,11 +133,11 @@ return (
           item.id === "copy" && copied
             ? "border-gold text-gold bg-gold/5"
             : `
-              border-[#d9d2c7]
-              bg-white
-              text-[#3d4451]
-              hover:text-[#042147]
-              hover:border-[#042147]
+              border-[#d9d2c7]/20
+              bg-[#1A1A1A]
+              text-white/50
+              hover:text-white
+              hover:border-white/50
               hover:-translate-y-[1px]
             `
         }

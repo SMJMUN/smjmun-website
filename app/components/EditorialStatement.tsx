@@ -42,7 +42,7 @@ export default function EditorialStatement() {
             className="mt-6 text-[#7A7A7A] text-sm tracking-[0.15em] uppercase"
             style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
           >
-            — Aarush Sahu, Founder
+            — Mr. Aarushh Sahu, Founder
           </p>
 
           {/* Gold Line */}

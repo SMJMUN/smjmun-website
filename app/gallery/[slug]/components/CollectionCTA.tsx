@@ -12,7 +12,7 @@ export default function CollectionCTA({
   return (
     <section
       className="relative overflow-hidden"
-      style={{ backgroundColor: "#042147" }}
+      style={{ backgroundColor: "#1A1A1A" }}
       aria-labelledby="collection-cta-heading"
     >
       {/* Grid texture */}

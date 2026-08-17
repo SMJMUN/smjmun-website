@@ -10,7 +10,7 @@ export default function CollectionSummary({
   return (
     <section
       className="section-padding-sm"
-      style={{ backgroundColor: "#ffffff" }}
+      style={{ backgroundColor: "#0A0A0A" }}
       aria-labelledby="collection-summary-heading"
     >
       <div className="content-wide">
@@ -23,7 +23,7 @@ export default function CollectionSummary({
             </div>
             <h2
               id="collection-summary-heading"
-              className="font-serif text-navy font-bold leading-[1.1] tracking-[-0.015em]"
+              className="font-serif text-white font-bold leading-[1.1] tracking-[-0.015em]"
               style={{ fontSize: "clamp(24px, 2.5vw, 36px)" }}
             >
               {title}
@@ -33,7 +33,7 @@ export default function CollectionSummary({
           {/* Right: Description */}
           <div>
             <p
-              className="font-sans leading-[1.8] text-navy/65"
+              className="font-sans leading-[1.8] text-white/65"
               style={{ fontSize: "clamp(16px, 1.4vw, 18px)" }}
             >
               {description}

@@ -39,7 +39,7 @@ export default function ConferenceHighlights({
   return (
     <section
       className="section-padding-sm"
-      style={{ backgroundColor: "var(--color-ivory)" }}
+      style={{ backgroundColor: "#0A0A0A" }}
       aria-labelledby="highlights-heading"
     >
       <div className="content-wide">
@@ -48,13 +48,13 @@ export default function ConferenceHighlights({
           <p className="text-label text-gold mb-5">Programme</p>
           <h2
             id="highlights-heading"
-            className="text-heading text-navy"
+            className="text-heading text-white"
           >
             Conference Highlights
           </h2>
           <div className="gold-rule mx-auto mt-6" aria-hidden="true" />
           <p
-            className="font-sans text-navy/50 mt-6 max-w-[520px] mx-auto"
+            className="font-sans text-white/50 mt-6 max-w-[520px] mx-auto"
             style={{ fontSize: "clamp(14px, 1.3vw, 16px)", lineHeight: 1.7 }}
           >
             Three days of intensive diplomacy, leadership, and engagement at {title}.
@@ -75,7 +75,7 @@ export default function ConferenceHighlights({
                     {dayIdx + 1}
                   </span>
                 </div>
-                <h3 className="font-serif text-[22px] font-bold text-navy tracking-[-0.01em]">
+                <h3 className="font-serif text-[22px] font-bold text-white tracking-[-0.01em]">
                   {dayData.day}
                 </h3>
               </div>
@@ -93,7 +93,7 @@ export default function ConferenceHighlights({
                   <li key={evIdx} className="relative pl-7 pb-8 last:pb-0">
                     {/* Timeline dot */}
                     <div
-                      className="absolute left-0 top-[6px] w-[7px] h-[7px] border border-gold bg-white"
+                      className="absolute left-0 top-[6px] w-[7px] h-[7px] border border-gold bg-[#0A0A0A]"
                       aria-hidden="true"
                       style={{ borderRadius: "1px" }}
                     />
@@ -104,12 +104,12 @@ export default function ConferenceHighlights({
                     </span>
 
                     {/* Event name */}
-                    <h4 className="font-sans text-[14px] font-semibold text-navy tracking-[-0.005em] mb-1.5">
+                    <h4 className="font-sans text-[14px] font-semibold text-white tracking-[-0.005em] mb-1.5">
                       {event.label}
                     </h4>
 
                     {/* Description */}
-                    <p className="font-sans text-[13px] leading-[1.65] text-navy/50">
+                    <p className="font-sans text-[13px] leading-[1.65] text-white/50">
                       {event.description}
                     </p>
                   </li>

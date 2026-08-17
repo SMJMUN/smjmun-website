@@ -190,8 +190,9 @@ export function ConferencesMenu({ navigationData }: ConferencesMenuProps) {
 
             <div className="space-y-4">
               {[
+                { label: 'Past Conferences', href: '/conferences#past-conferences' },
                 { label: 'Partner With Us', href: '/partnerships' },
-                { label: 'Contact Secretariat', href: '/contact' },
+                { label: 'Contact Us', href: '/contact' },
               ].map((item) => (
                 <Link
                   key={item.label}

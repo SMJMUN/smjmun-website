@@ -127,7 +127,7 @@ export default function FounderSection() {
           <div className="w-full md:w-[45%] md:flex-shrink-0 relative h-[45vh] md:h-auto md:min-h-[600px] overflow-hidden img-zoom-wrap md:rounded-none founder-portrait-tablet tablet-founder-img">
             <Image
               src="/images/founder-2.jpeg"
-              alt="Aarushh Sahu — Founder of SMJMUN"
+              alt="Mr. Aarushh Sahu — Founder of SMJMUN"
               className="img-zoom w-full h-full object-cover md:absolute md:inset-0"
               style={{ borderRadius: '0 20px 20px 0' }}
              fill sizes="(max-width: 768px) 100vw, 50vw" />
@@ -152,14 +152,14 @@ export default function FounderSection() {
                     letterSpacing: '-0.02em',
                   }}
                 >
-                  Aarushh Sahu
+                  Mr. Aarushh Sahu
                 </h2>
               </div>
             </div>
 
             {/* Bio (Progress range: 0.0 to 0.6) */}
             <AnimatedParagraph
-              text="Aarushh Sahu  founded SMJMUN with a single conviction: that world-class diplomatic education should not be the privilege of a few schools in a few cities. What began as one conference has grown into a national platform — 11,000+ delegates trained, 70+ national conferences delivered, 10+ institutional partners. As a delegate, he won 55+ Best Delegate awards and chaired 50+ committees across national and international circuits; as a founder, he builds the rooms he once competed in."
+              text="Mr. Aarushh Sahu  founded SMJMUN with a single conviction: that world-class diplomatic education should not be the privilege of a few schools in a few cities. What began as one conference has grown into a national platform — 11,000+ delegates trained, 70+ national conferences delivered, 10+ institutional partners. As a delegate, he won 55+ Best Delegate awards and chaired 50+ committees across national and international circuits; as a founder, he builds the rooms he once competed in."
               progress={maxProgress}
               range={[0.0, 0.55]}
               className="mb-10 leading-[1.8]"

@@ -11,14 +11,14 @@ import Footer from '@/app/components/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Aarushh Sahu — Founder & President | SMJMUN',
-  description: 'Discover the journey, leadership philosophy, and vision of Aarushh Sahu, Founder & President of SMJMUN.',
+  title: 'Mr. Aarushh Sahu — Founder & President | SMJMUN',
+  description: 'Discover the journey, leadership philosophy, and vision of Mr. Aarushh Sahu, Founder & President of SMJMUN.',
   alternates: {
     canonical: 'https://smjmun.com/founder',
   },
   openGraph: {
-    title: 'Aarushh Sahu — Founder & President | SMJMUN',
-    description: 'Discover the journey, leadership philosophy, and vision of Aarushh Sahu, Founder & President of SMJMUN.',
+    title: 'Mr. Aarushh Sahu — Founder & President | SMJMUN',
+    description: 'Discover the journey, leadership philosophy, and vision of Mr. Aarushh Sahu, Founder & President of SMJMUN.',
     url: 'https://smjmun.com/founder',
     type: 'profile',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: 'https://smjmun.com/images/founder-2.jpeg',
         width: 800,
         height: 800,
-        alt: 'Aarushh Sahu',
+        alt: 'Mr. Aarushh Sahu',
       },
     ],
   },
@@ -36,7 +36,7 @@ export default function FounderPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Aarushh Sahu',
+    name: 'Mr. Aarushh Sahu',
     jobTitle: 'Founder & President',
     image: 'https://smjmun.com/images/founder-2.jpeg',
     worksFor: {

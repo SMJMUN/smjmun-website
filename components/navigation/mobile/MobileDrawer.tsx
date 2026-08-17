@@ -16,9 +16,10 @@ import { NavigationData } from '@/lib/sanity/navigation/types';
 interface MobileDrawerProps {
   onClose: () => void;
   navigationData: NavigationData;
+  onRegisterClick: () => void;
 }
 
-export function MobileDrawer({ onClose, navigationData }: MobileDrawerProps) {
+export function MobileDrawer({ onClose, navigationData, onRegisterClick }: MobileDrawerProps) {
   const pathname = usePathname();
 
   return (
@@ -83,9 +84,11 @@ export function MobileDrawer({ onClose, navigationData }: MobileDrawerProps) {
 
       {/* Footer CTA */}
       <div className="px-6 pb-8 pt-6 border-t border-white/10 flex flex-col gap-3">
-        <Link
-          href={CALL_TO_ACTION.href}
-          onClick={onClose}
+        <button
+          onClick={() => {
+            onClose();
+            onRegisterClick();
+          }}
           className="
             flex items-center justify-center
             w-full py-4
@@ -97,7 +100,7 @@ export function MobileDrawer({ onClose, navigationData }: MobileDrawerProps) {
           "
         >
           {CALL_TO_ACTION.label}
-        </Link>
+        </button>
         <InstallButton variant="mobile-drawer" />
       </div>
 

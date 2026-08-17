@@ -26,7 +26,7 @@ export default function FounderPhilosophy() {
           <div className="w-16 h-[2px] bg-[#BB8B57] mx-auto mb-6" />
           
           <p className="text-[#042147]/80 text-lg md:text-xl font-bold max-w-[700px] mx-auto">
-            — Aarushh Sahu
+            — Mr. Aarushh Sahu
           </p>
         </Reveal>
       </div>

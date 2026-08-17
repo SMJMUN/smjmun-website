@@ -63,7 +63,7 @@ export default function ArticleTOC({ headings }: ArticleTOCProps) {
       {/* Header */}
       <div className="flex items-center gap-3 mb-5">
         <div className="w-5 h-[1px] bg-gold" />
-        <p className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-navy/45">
+        <p className="font-sans text-[10px] font-600 tracking-[0.22em] uppercase text-white/45">
           Table of Contents
         </p>
       </div>
@@ -82,8 +82,8 @@ export default function ArticleTOC({ headings }: ArticleTOCProps) {
                   border-l-2 pl-3 transition-all duration-300
                   ${
                     isActive
-                      ? "border-gold text-navy font-500"
-                      : "border-transparent text-navy/40 hover:text-navy/70 hover:border-navy/20"
+                      ? "border-gold text-white font-500"
+                      : "border-transparent text-white/40 hover:text-white/70 hover:border-white/20"
                   }
                 `}
                 aria-current={isActive ? "location" : undefined}

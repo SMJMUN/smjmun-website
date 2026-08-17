@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { Headphones } from 'lucide-react';
 import { InstallButton } from '@/components/pwa/InstallButton';
 import { NavigationData } from '@/lib/sanity/navigation/types';
+import { RegistrationModal } from './RegistrationModal';
+import { useState } from 'react';
 
 interface ClientHeaderProps {
   navigationData: NavigationData;
@@ -17,9 +19,15 @@ interface ClientHeaderProps {
 
 export function ClientHeader({ navigationData }: ClientHeaderProps) {
   const isScrolled = useScrolledHeader(60);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
   return (
-    <header
+    <>
+      <RegistrationModal 
+        isOpen={isRegisterModalOpen} 
+        onClose={() => setIsRegisterModalOpen(false)} 
+      />
+      <header
       className={cn(
         "fixed top-0 w-full z-[100] transition-all overflow-visible duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
         isScrolled
@@ -58,8 +66,8 @@ export function ClientHeader({ navigationData }: ClientHeaderProps) {
           </Link>
 
           {/* CTA is hidden on mobile, available in drawer */}
-          <Link
-            href="/conferences"
+          <button
+            onClick={() => setIsRegisterModalOpen(true)}
             className={cn(
               "hidden lg:inline-flex rounded-md items-center justify-center py-3 px-6 font-body text-[13px] font-medium tracking-widest uppercase transition-all duration-300",
               isScrolled
@@ -68,13 +76,14 @@ export function ClientHeader({ navigationData }: ClientHeaderProps) {
             )}
           >
             Register Now
-          </Link>
+          </button>
           
 
-          <MobileNav navigationData={navigationData} />
+          <MobileNav navigationData={navigationData} onRegisterClick={() => setIsRegisterModalOpen(true)} />
         </div>
 
       </div>
     </header>
+    </>
   );
 }

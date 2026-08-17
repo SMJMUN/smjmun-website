@@ -40,10 +40,10 @@ export default function AuthorCard({ author }: AuthorCardProps) {
       className="
         max-w-4xl
         mx-auto
-        bg-white/70
+        bg-[#1A1A1A]/70
         backdrop-blur-sm
         border
-        border-[#e8dfd2]
+        border-white/10
         rounded-[20px]
         p-8
         lg:p-10
@@ -80,7 +80,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
               font-serif
               text-[28px]
               lg:text-[34px]
-              text-navy
+              text-white
               leading-tight
               mb-3
             "
@@ -93,7 +93,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
               font-sans
               text-[15px]
               leading-[1.9]
-              text-navy/65
+              text-white/65
               max-w-2xl
               mb-6
             "

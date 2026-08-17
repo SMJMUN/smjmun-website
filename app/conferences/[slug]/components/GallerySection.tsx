@@ -41,7 +41,7 @@ export default async function GallerySection({ conference }: { conference: Confe
         </div>
 
         {/* Masonry layout */}
-        <GalleryMasonry images={imagesToDisplay.slice(0, 8)} />
+        <GalleryMasonry images={imagesToDisplay.filter((img: any) => img && img.asset).slice(0, 8)} />
 
         {globalGallery?.slug && (
           <div className="mt-12 text-center">

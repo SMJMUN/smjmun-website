@@ -57,13 +57,7 @@ export default function GalleryMasonry({
   return (
     <>
       {/* Masonry Grid */}
-      <div
-        className="w-full"
-        style={{
-          columns: "2",
-          columnGap: "8px",
-        }}
-      >
+      <div className="w-full">
         <style>{`
           @media (min-width: 640px) { .masonry-grid { columns: 3 !important; } }
           @media (min-width: 1024px) { .masonry-grid { columns: 4 !important; } }

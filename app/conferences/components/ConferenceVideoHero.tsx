@@ -64,7 +64,7 @@ export default function ConferenceVideoHero({ conference }: { conference?: Confe
           {/* Eyebrow */}
           <div className="mb-6">
             <span className="section-label">
-              SMJ MUN Conferences
+              SMJMUN Conferences
             </span>
           </div>
 

@@ -100,7 +100,7 @@ export function Logo({ isScrolled }: LogoProps) {
         />
 
         <span className="hidden md:block text-[11px] uppercase tracking-[0.22em] text-white/70">
-          Shri Seth Mangilalji Sahu <br />International Model United Nations
+          Shri Seth Mangilal Ji Sahu <br />International Model United Nations
 
         </span>
       </motion.div>

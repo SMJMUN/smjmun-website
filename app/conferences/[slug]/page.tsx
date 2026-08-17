@@ -160,10 +160,10 @@ export default async function ConferenceDetailPage({
               <CommitteeGrid conference={conference} />
             </div>
 
-            {/* Sidebar Area */}
+            {/* Sidebar Area
             <div className="hidden lg:block relative">
               <ConferenceSidebar conference={conference} />
-            </div>
+            </div> */}
 
           </div>
         </div>

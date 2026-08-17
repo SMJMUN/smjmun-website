@@ -2,9 +2,16 @@ import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
 import type { Conference } from "@/lib/sanity/conference/types";
+import { GalleryService } from "@/lib/sanity/gallery/service";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-export default function GallerySection({ conference }: { conference: Conference }) {
-  if (!conference.gallery || conference.gallery.length === 0) return null;
+export default async function GallerySection({ conference }: { conference: Conference }) {
+  const globalGallery = await GalleryService.getGalleryByConferenceSlug(conference.slug.current);
+
+  const imagesToDisplay = globalGallery?.images || conference.gallery;
+
+  if (!imagesToDisplay || imagesToDisplay.length === 0) return null;
 
   return (
     <section
@@ -34,7 +41,7 @@ export default function GallerySection({ conference }: { conference: Conference 
 
         {/* Masonry layout */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
-          {conference.gallery.map((img: any, i: number) => {
+          {imagesToDisplay.slice(0, 5).map((img: any, i: number) => {
             if (!img || (!img.asset && !img.url)) return null;
 
             const isVideo = img.url?.endsWith(".mp4") || img.isVideo;
@@ -92,6 +99,23 @@ export default function GallerySection({ conference }: { conference: Conference 
             );
           })}
         </div>
+
+        {globalGallery?.slug && (
+          <div className="mt-12 text-center">
+            <Link
+              href={`/gallery/${globalGallery.slug.current}`}
+              className="inline-flex items-center justify-center px-8 py-4 font-[family-name:var(--font-sora)] font-semibold text-[13px] tracking-[0.1em] uppercase transition-all duration-300"
+              style={{
+                backgroundColor: "var(--ds-gold)",
+                color: "#ffffff",
+                borderRadius: "var(--ds-radius-md)",
+              }}
+            >
+              View All Photos
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

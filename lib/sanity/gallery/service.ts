@@ -4,6 +4,7 @@ import {
   FEATURED_GALLERY_QUERY,
   GALLERY_BY_SLUG_QUERY,
   RELATED_GALLERIES_QUERY,
+  GALLERY_BY_CONFERENCE_SLUG_QUERY,
 } from "./queries";
 import type { Gallery } from "./types";
 
@@ -35,6 +36,14 @@ export class GalleryService {
       query: RELATED_GALLERIES_QUERY,
       params: { slug },
       tags: ["gallery"],
+    });
+  }
+
+  static async getGalleryByConferenceSlug(slug: string): Promise<Gallery | null> {
+    return sanityFetch<Gallery | null>({
+      query: GALLERY_BY_CONFERENCE_SLUG_QUERY,
+      params: { slug },
+      tags: ["gallery", `conference:${slug}`],
     });
   }
 }

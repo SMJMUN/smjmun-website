@@ -79,3 +79,20 @@ export const RELATED_GALLERIES_QUERY = defineQuery(`
     "photoCount": count(images)
   }
 `);
+
+export const GALLERY_BY_CONFERENCE_SLUG_QUERY = defineQuery(`
+  *[_type == "gallery" && relatedConference->slug.current == $slug] | order(eventDate desc)[0]{
+    _id,
+    _type,
+    title,
+    slug,
+    images[0...5]{
+      _key,
+      asset,
+      alt,
+      caption,
+      category,
+      "url": asset->url
+    }
+  }
+`);

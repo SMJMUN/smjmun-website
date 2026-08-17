@@ -103,9 +103,9 @@ export default function JournalCinematicSection() {
           >
             The conversation
             <br />
-            continues after
+            continues even after
             <br />
-            the closing gavel.
+            the closing conference.
           </h2>
 
           {/* Gold rule */}

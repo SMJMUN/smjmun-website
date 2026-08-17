@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const FAQS = [
   {
-    question: "Who can participate in SMJ MUN?",
-    answer: "SMJ MUN is open to high school and university students from across the globe. Previous MUN experience is not required, as we provide comprehensive training materials and guidance for first-time delegates.",
+    question: "Who can participate in SMJMUN?",
+    answer: "SMJMUN is open to high school and university students from across the globe. Previous MUN experience is not required, as we provide comprehensive training materials and guidance for first-time delegates.",
   },
   {
     question: "How are committees assigned?",

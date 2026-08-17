@@ -207,7 +207,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-white/80 text-lg md:text-xl mt-6 max-w-2xl"
         >
-          SMJMUN — where India's students learn to think, speak, and lead on the world's stage.
+          SMJMUN — where students learn to think, speak, and lead on the world's stage.
         </motion.p>
 
         {/* CTA Buttons */}

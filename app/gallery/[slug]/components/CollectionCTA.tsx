@@ -62,7 +62,7 @@ export default function CollectionCTA({
             className="font-serif text-white font-bold leading-[1.1] tracking-[-0.02em] mb-5"
             style={{ fontSize: "clamp(32px, 4.5vw, 54px)" }}
           >
-            Join the Next Conference
+            Join Our Next Conference
           </h2>
 
           {/* Body */}

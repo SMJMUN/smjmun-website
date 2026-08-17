@@ -61,10 +61,7 @@ const FAQS = [
     q: 'Is accommodation arranged for outstation delegates?',
     a: 'For select conferences, we partner with nearby hotels to offer discounted accommodation packages. Details are shared in your confirmation email if applicable to your conference.',
   },
-  {
-    q: 'When are certificates issued?',
-    a: 'Certificates of participation and awards are issued digitally within two to three weeks of the conference closing ceremony, sent to the email used during registration.',
-  },
+  
 ];
 
 // ─── Trust indicators ─────────────────────────────────────────────────────────
@@ -291,7 +288,7 @@ export default function ContactPage() {
             <div className="text-center mb-14">
               <Eyebrow>Frequently Asked</Eyebrow>
               <h2 className="font-serif text-white font-bold mt-4" style={{ fontSize: 'clamp(28px, 4vw, 42px)' }}>
-                Questions, answered.
+                Questions, Answered.
               </h2>
             </div>
           </FadeIn>

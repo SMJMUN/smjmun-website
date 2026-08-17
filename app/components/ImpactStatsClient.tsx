@@ -34,9 +34,6 @@ const stats = [
   { value: 11000, suffix: '+', label: 'Delegates Trained' },
   { value: 70, suffix: '+', label: 'National Conferences' },
   { value: 10, suffix: '+', label: 'Institutional Collaborations' },
-  { value: 5, suffix: '+', label: 'Countries' },
-  { value: 20, suffix: '+', label: 'States' },
-  { value: 60, suffix: '+', label: 'Cities' },
 ];
 
 export default function ImpactStatsClient() {
@@ -68,20 +65,14 @@ export default function ImpactStatsClient() {
         <span className="section-label text-2xl">Our Impact</span>
       </div>
 
-      {/* Stats grid */}
-      <div className="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      <div className="reveal grid grid-cols-1 md:grid-cols-3 max-w-4xl mx-auto">
         {stats.map((stat, index) => (
           <div
             key={stat.label}
             className={`
               px-6 py-8
               border-[rgba(255,255,255,0.08)]
-              ${index % 2 === 0 ? 'border-r' : ''} 
-              md:${index % 3 !== 2 ? 'border-r' : 'border-r-0'} 
-              lg:${index !== 5 ? 'border-r' : 'border-r-0'} 
-              ${index < 4 ? 'border-b' : ''} 
-              md:${index < 3 ? 'border-b' : 'border-b-0'} 
-              lg:border-b-0
+              ${index < 2 ? 'border-b md:border-b-0 md:border-r' : ''}
             `}
           >
             <div

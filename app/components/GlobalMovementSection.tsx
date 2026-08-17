@@ -41,8 +41,8 @@ export default function GlobalMovementSection() {
             className="font-serif text-white leading-tight"
             style={{ fontSize: 'clamp(22px, 6vw, 30px)', fontWeight: 700, letterSpacing: '-0.02em' }}
           >
-            One platform. 70+ cities.{' '}
-            <span className="text-[#BB8B57]">5+ countries.</span>
+            One platform.{' '}
+            <span className="text-[#BB8B57]">A global movement.</span>
           </motion.h2>
 
           {/* Stats row */}
@@ -52,8 +52,8 @@ export default function GlobalMovementSection() {
               <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Delegates Trained</p>
             </div>
             <div>
-              <p className="text-[#BB8B57] text-2xl font-bold leading-none" style={{ fontFamily: 'var(--font-sora)' }}>5+</p>
-              <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Countries</p>
+              <p className="text-[#BB8B57] text-2xl font-bold leading-none" style={{ fontFamily: 'var(--font-sora)' }}>70+</p>
+              <p className="mt-1 text-[#7A7A7A] text-xs" style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}>Conferences</p>
             </div>
           </div>
 
@@ -101,9 +101,7 @@ export default function GlobalMovementSection() {
             >
               One platform.
               <br />
-              70+ cities.
-              <br />
-              5+ countries.
+              <span className="text-[#BB8B57]">A global movement.</span>
             </motion.h2>
 
             <motion.p
@@ -145,13 +143,13 @@ export default function GlobalMovementSection() {
                   className="text-[#BB8B57]"
                   style={{ fontFamily: 'var(--font-sora)', fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 700, lineHeight: 1 }}
                 >
-                  5+
+                  70+
                 </p>
                 <p
                   className="mt-2 text-[#7A7A7A] text-sm"
                   style={{ fontFamily: 'var(--font-body), system-ui, sans-serif' }}
                 >
-                  Countries
+                  Conferences
                 </p>
               </div>
             </div>

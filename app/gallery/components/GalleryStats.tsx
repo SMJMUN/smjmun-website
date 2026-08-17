@@ -3,15 +3,14 @@ import { Award, Camera, Building, Globe } from "lucide-react";
 const STATS = [
   { value: "30+", label: "Conferences", icon: Award },
   { value: "5,000+", label: "Moments", icon: Camera },
-  { value: "100+", label: "Schools", icon: Building },
-  { value: "100+", label: "Cities", icon: Globe },
+  { value: "10+", label: "Schools", icon: Building },
 ];
 
 export default function GalleryStats() {
   return (
     <section className="py-16 bg-[#131217] border-b border-white/5">
       <div className="content-wide">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
           {STATS.map((stat, i) => {
             const Icon = stat.icon;
             return (

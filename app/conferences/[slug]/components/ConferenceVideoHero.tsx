@@ -24,7 +24,7 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
       className="relative w-full overflow-hidden flex items-end"
       style={{
         height: '90vh',
-        minHeight: '520px',
+        minHeight: '650px',
         maxHeight: '860px',
         backgroundColor: '#0A0A0A',
       }}
@@ -74,7 +74,7 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
       />
 
       {/* Content */}
-      <div className="content-wide relative z-20 pb-16 lg:pb-24 w-full">
+      <div className="content-wide relative z-20 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full mt-auto">
         <div className="max-w-[900px]">
 
           {/* Breadcrumb */}
@@ -118,9 +118,9 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
           <h1
             className="font-serif text-white"
             style={{
-              fontSize: 'clamp(40px, 6vw, 90px)',
+              fontSize: 'clamp(36px, 5vw, 80px)',
               fontWeight: 700,
-              lineHeight: 1.0,
+              lineHeight: 1.05,
               letterSpacing: '-0.02em',
             }}
           >

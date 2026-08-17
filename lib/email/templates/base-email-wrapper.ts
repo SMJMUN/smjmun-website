@@ -31,7 +31,7 @@ export function getBaseEmailWrapper(content: string, previewText: string = "Upda
           margin-bottom: 40px;
         }
         .header {
-          background-color: #0A1628;
+          background-color: #ffffff;
           padding: 30px 20px;
           text-align: center;
         }

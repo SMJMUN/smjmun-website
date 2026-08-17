@@ -38,7 +38,7 @@ export function Stats({ data }: StatsProps) {
     <Section alternate>
       <Container>
         <Reveal>
-          <div className="grid grid-cols-2 gap-8 md:gap-12 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:gap-12 max-w-5xl mx-auto">
             {data.map((item, i) => (
               <StatCounter key={i} item={item} />
             ))}

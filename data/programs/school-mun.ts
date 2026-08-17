@@ -153,8 +153,7 @@ export const schoolMunProgram: ProgramData = {
   stats: [
     { value: 11000, suffix: "+", label: "Delegates Trained" },
     { value: 10, suffix: "+", label: "Partner Schools" },
-    { value: 70, suffix: "+", label: "Cities Reached" },
-    { value: 5, suffix: "+", label: "Years of Impact" },
+    { value: 3, suffix: "+", label: "Years of Impact" },
   ],
 
   gallery: {

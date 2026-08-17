@@ -153,7 +153,6 @@ export const trainingCellProgram: ProgramData = {
     { value: 11000, suffix: "+", label: "Delegates Trained" },
     { value: 200, suffix: "+", label: "Training Sessions" },
     { value: 10, suffix: "+", label: "Institutions" },
-    { value: 40, suffix: "+", label: "Cities" },
   ],
 
   gallery: {

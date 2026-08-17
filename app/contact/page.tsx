@@ -72,9 +72,6 @@ const STATS = [
   { value: '11,000+', label: 'Delegates Trained' },
   { value: '70+', label: 'National Conferences' },
   { value: '10+', label: 'Institutional Collaborations' },
-  { value: '5+', label: 'Countries' },
-  { value: '20+', label: 'States' },
-  { value: '60+', label: 'Cities' },
 ];
 
 // ─── Section label ────────────────────────────────────────────────────────────
@@ -273,7 +270,7 @@ export default function ContactPage() {
       <section className="pb-28 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="h-px w-full bg-white/[0.08] mb-14" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 max-w-4xl mx-auto">
             {STATS.map((s, i) => (
               <StatItem
                 key={s.label}

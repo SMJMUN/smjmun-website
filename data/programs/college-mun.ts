@@ -153,8 +153,7 @@ export const collegeMunProgram: ProgramData = {
   stats: [
     { value: 11000, suffix: "+", label: "Delegates Trained" },
     { value: 10, suffix: "+", label: "Partner Institutions" },
-    { value: 40, suffix: "+", label: "Cities" },
-    { value: 5, suffix: "+", label: "Years" },
+    { value: 3, suffix: "+", label: "Years" },
   ],
 
   gallery: {

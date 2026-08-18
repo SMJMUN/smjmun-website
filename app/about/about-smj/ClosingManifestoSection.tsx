@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ClosingManifestoSection() {
   return (
-    <section className="section-padding-lg border-t border-white/10 bg-[#0A0A0A]">
+    <section className="pb-24 md:pb-32 bg-[#0A0A0A]">
       <div className="content-wide flex flex-col items-center text-center">
         <motion.p
           initial={{ opacity: 0, y: 24 }}

@@ -75,7 +75,7 @@ export function ChatToggleButton() {
         aria-label="Ask Tejas AI"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="group relative flex items-center h-14 rounded-full bg-[rgba(10,10,10,0.85)] backdrop-blur-xl border border-[#BB8B57]/30 shadow-[0_12px_40px_rgba(0,0,0,.45)] transition-all duration-300 hover:border-[#BB8B57]/60"
+        className="group relative flex items-center h-14 rounded-full bg-[rgba(10,10,10,1)] md:bg-[rgba(10,10,10,0.85)] md:backdrop-blur-xl border border-[#BB8B57]/30 shadow-[0_12px_40px_rgba(0,0,0,.45)] transition-all duration-300 hover:border-[#BB8B57]/60"
       >
         <AnimatePresence>
           {!tooltipDismissed && !chatOpen && (

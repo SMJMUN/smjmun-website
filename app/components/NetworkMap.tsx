@@ -54,13 +54,14 @@ export default function NetworkMap({ mobile = false }: NetworkMapProps) {
 
   const mapY  = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const glowY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const yStyle = mobile ? undefined : glowY;
 
   return (
     <div ref={containerRef} className={mobile ? 'relative w-full h-full' : 'relative w-full h-[380px] md:h-[420px] lg:h-[450px]'}>
 
       {/* Massive background glow */}
       <motion.div
-        style={{ y: glowY }}
+        style={{ y: yStyle }}
         className={`
           absolute left-1/2 top-1/2
           -translate-x-1/2 -translate-y-1/2
@@ -73,7 +74,7 @@ export default function NetworkMap({ mobile = false }: NetworkMapProps) {
 
       {/* Secondary glow */}
       <motion.div
-        style={{ y: glowY }}
+        style={{ y: yStyle }}
         className={`
           absolute left-[55%] top-[45%]
           rounded-full bg-[#bb8b57]/8
@@ -91,7 +92,7 @@ export default function NetworkMap({ mobile = false }: NetworkMapProps) {
         <motion.img
           src="/images/world-map.svg"
           alt=""
-          style={{ y: glowY }}
+          style={{ y: yStyle }}
           className="absolute inset-0 w-full opacity-[0.08] z-[100]"
         />
       </motion.div>

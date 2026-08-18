@@ -23,7 +23,7 @@ const stages = [
 
 export default function DareRiseImpactSection() {
   return (
-    <section className="section-padding-lg border-t border-white/10 bg-[#0A0A0A]">
+    <section className="pt-24 md:pt-32 pb-12 border-t border-white/10 bg-[#0A0A0A]">
       <div className="content-wide text-center">
         <span className="section-label">Our Philosophy</span>
       </div>

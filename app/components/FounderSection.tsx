@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import {
   motion,
   useScroll,
@@ -18,11 +18,13 @@ function AnimatedWord({
   progress,
   range,
   isGold = false,
+  isMobile = false,
 }: {
   children: React.ReactNode;
   progress: MotionValue<number>;
   range: [number, number];
   isGold?: boolean;
+  isMobile?: boolean;
 }) {
   const opacity = useTransform(progress, range, [0.14, 1]);
   // For gold text, it transitions from a dull gold/brown to bright gold
@@ -34,7 +36,7 @@ function AnimatedWord({
 
   return (
     <motion.span
-      style={{
+      style={isMobile ? { opacity: 1, color: isGold ? '#BB8B57' : '#FFFFFF', display: 'inline-block' } : {
         opacity,
         color: isGold ? color : undefined,
         display: 'inline-block',
@@ -53,6 +55,7 @@ function AnimatedParagraph({
   className = '',
   style = {},
   isGold = false,
+  isMobile = false,
 }: {
   text: string;
   progress: MotionValue<number>;
@@ -60,6 +63,7 @@ function AnimatedParagraph({
   className?: string;
   style?: React.CSSProperties;
   isGold?: boolean;
+  isMobile?: boolean;
 }) {
   const words = text.split(' ');
   const [start, end] = range;
@@ -72,7 +76,7 @@ function AnimatedParagraph({
         const wordEnd = start + (i + 1) * step;
         return (
           <span key={i} className="inline-block mr-[0.25em] mb-[0.1em]">
-            <AnimatedWord progress={progress} range={[wordStart, wordEnd]} isGold={isGold}>
+            <AnimatedWord progress={progress} range={[wordStart, wordEnd]} isGold={isGold} isMobile={isMobile}>
               {word}
             </AnimatedWord>
           </span>
@@ -84,6 +88,14 @@ function AnimatedParagraph({
 
 export default function FounderSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Track scroll over the tall 250vh section (desktop). On mobile the
   // section is auto-height, so this just tracks normal scroll-through.
@@ -162,6 +174,7 @@ export default function FounderSection() {
               text="Mr. Aarushh Sahu  founded SMJMUN with a single conviction: that world-class diplomatic education should not be the privilege of a few schools in a few cities. What began as one conference has grown into a national platform — 11,000+ delegates trained, 70+ national conferences delivered, 10+ institutional partners. As a delegate, he won 55+ Best Delegate awards and chaired 50+ committees across national and international circuits; as a founder, he builds the rooms he once competed in."
               progress={maxProgress}
               range={[0.0, 0.55]}
+              isMobile={isMobile}
               className="mb-10 leading-[1.8]"
               style={{
                 fontFamily: 'var(--font-body), system-ui, sans-serif',
@@ -176,6 +189,7 @@ export default function FounderSection() {
                 progress={maxProgress}
                 range={[0.55, 0.7]}
                 isGold={true}
+                isMobile={isMobile}
                 className="font-serif italic"
                 style={{
                   fontSize: 'clamp(17px, 1.8vw, 22px)',
@@ -190,6 +204,7 @@ export default function FounderSection() {
               text="His mission extends beyond conferences — building institutional partnerships that embed diplomatic thinking into the fabric of Indian education."
               progress={maxProgress}
               range={[0.7, 1.0]}
+              isMobile={isMobile}
               className="mb-8 leading-[1.75]"
               style={{
                 fontFamily: 'var(--font-body), system-ui, sans-serif',

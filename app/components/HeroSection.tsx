@@ -2,23 +2,24 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const heroImages = ['/images/hero-image-updated-3.jpg', '/images/ceremony-2.webp', '/images/hero-image-updated-1.jpeg',];
 
-const HeroSlider = () => {
+const HeroSlider = ({ isInView }: { isInView: boolean }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const SLIDE_DURATION = 4000;
   useEffect(() => {
+    if (!isInView) return;
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
     }, SLIDE_DURATION);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isInView]);
 
   return (
     <>
@@ -85,10 +86,13 @@ const HeroSlider = () => {
 };
 
 export default function HeroSection() {
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { amount: 0 });
 
   return (
     <section
       id="hero"
+      ref={ref}
       style={{
         position: 'relative',
         width: '100%',
@@ -98,7 +102,7 @@ export default function HeroSection() {
         backgroundColor: '#0A0A0A',
       }}
     >
-      <HeroSlider />
+      <HeroSlider isInView={isInView} />
 
       {/* Dark Gradient Overlay — left-to-right for editorial feel */}
       <div
@@ -109,7 +113,7 @@ export default function HeroSection() {
         }}
       />
       <div
-        className="absolute inset-0 z-[3]"
+        className="hidden md:block absolute inset-0 z-[3]"
         style={{
           background:
             'radial-gradient(circle at 80% 40%, rgba(187,139,87,.18), transparent 35%)',

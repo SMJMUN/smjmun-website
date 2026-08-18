@@ -75,7 +75,7 @@ export function Logo({ isScrolled }: LogoProps) {
             delay: 0.1,
           },
         }}
-        className="flex flex-col origin-top-left pointer-events-none"
+        className="hidden md:flex flex-col origin-top-left pointer-events-none"
       >
         <span
           style={{

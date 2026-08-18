@@ -2,13 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { X } from 'lucide-react';
+import { X, Headphones } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION, CALL_TO_ACTION } from '../constants/navigation';
 import { MobileConferencesAccordion } from './MobileConferencesAccordion';
 import { MobileProgramsAccordion } from './MobileProgramsAccordion';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { InstallButton } from '@/components/pwa/InstallButton';
 
 import { NavigationData } from '@/lib/sanity/navigation/types';
@@ -40,7 +39,7 @@ export function MobileDrawer({ onClose, navigationData, onRegisterClick }: Mobil
       </div>
 
       {/* Navigation Links */}
-      <ScrollArea className="flex-1 h-full">
+      <div className="flex-1 overflow-y-auto min-h-0">
         <nav className="flex flex-col px-6 py-4">
           {MAIN_NAVIGATION.flatMap((item) => {
             const items = [item];
@@ -80,10 +79,10 @@ export function MobileDrawer({ onClose, navigationData, onRegisterClick }: Mobil
             );
           })}
         </nav>
-      </ScrollArea>
+      </div>
 
-      {/* Footer CTA */}
-      <div className="px-6 pb-8 pt-6 border-t border-white/10 flex flex-col gap-3">
+      {/* Footer Actions */}
+      <div className="px-6 pb-24 pt-6 border-t border-white/10 flex flex-col gap-3">
         <button
           onClick={() => {
             onClose();
@@ -96,11 +95,27 @@ export function MobileDrawer({ onClose, navigationData, onRegisterClick }: Mobil
             font-body text-[12px] font-semibold
             tracking-[0.2em] uppercase
             transition-all duration-300
-            hover:bg-white
+            hover:bg-white rounded-md
           "
         >
           {CALL_TO_ACTION.label}
         </button>
+        <Link
+          href="/contact"
+          onClick={onClose}
+          className="
+            flex items-center justify-center gap-2
+            w-full py-4
+            bg-white/5 text-white border border-white/10
+            font-body text-[12px] font-semibold
+            tracking-[0.2em] uppercase
+            transition-all duration-300
+            hover:bg-white hover:text-black rounded-md
+          "
+        >
+          <Headphones className="w-4 h-4" strokeWidth={1.5} />
+          Contact Us
+        </Link>
         <InstallButton variant="mobile-drawer" />
       </div>
 

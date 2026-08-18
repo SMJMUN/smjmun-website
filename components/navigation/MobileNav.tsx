@@ -2,12 +2,9 @@
 
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { Headphones } from 'lucide-react';
-import Link from 'next/link';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { MobileDrawer } from './mobile/MobileDrawer';
 import MenuTwoLineIcon from './constants/MenuIcon';
-import { InstallButton } from '@/components/pwa/InstallButton';
 import { NavigationData } from '@/lib/sanity/navigation/types';
 
 interface MobileNavProps {
@@ -19,16 +16,13 @@ export function MobileNav({ navigationData, onRegisterClick }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex lg:hidden items-center gap-1 z-100">
-      {/* Contact Us icon — mobile */}
-      <InstallButton variant="mobile-header" />
-      <Link
-        href="/contact"
-        aria-label="Contact Us"
-        className="p-2 text-white/70 hover:text-white transition-colors duration-200"
+    <div className="flex lg:hidden items-center gap-3 z-100">
+      <button
+        onClick={onRegisterClick}
+        className="rounded-md flex items-center justify-center py-2 px-4 font-body text-[12px] font-semibold tracking-widest uppercase transition-all duration-300 bg-[#bb8b57] text-black hover:bg-white shadow-sm"
       >
-        <Headphones className="w-5 h-5" strokeWidth={1.5} />
-      </Link>
+        Register
+      </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger aria-label="Open navigation menu"  className="p-2 -mr-2 text-white/70 hover:text-white focus:outline-none transition-colors duration-200" >

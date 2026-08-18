@@ -35,13 +35,13 @@ const sectionsData: EditorialSectionData[] = [
   {
     title: "School Partnerships",
     description: "We help schools build enduring Model United Nations ecosystems through delegate development, faculty mentoring, institutional training and annual conference support. Rather than organising isolated events, we create sustainable cultures of leadership, critical thinking and global citizenship.",
-    image: "/images/smj-hero-4.jpeg",
+    image: "/images/partnership-updated-3.webp",
     cta: { label: "Learn More", href: "/programs/school-mun-association" },
   },
   {
     title: "College Partnerships",
     description: "We work alongside universities and student societies to strengthen existing MUN communities, establish new initiatives and mentor executive boards. Our focus is not simply on organising conferences but on helping institutions cultivate confident, responsible student leaders.",
-    image: "/images/program-image-2.webp",
+    image: "/images/partnership-updated-1.webp",
     cta: { label: "Learn More", href: "/programs/college-mun-association" },
   },
   // {

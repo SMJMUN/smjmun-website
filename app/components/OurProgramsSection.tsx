@@ -15,7 +15,7 @@ const PROGRAMS = [
       `SMJMUN Conferences represent the flagship experience of the organization, bringing together students from diverse schools, colleges, and regions to engage in meaningful dialogue on global challenges.`,
       `Every conference is designed to simulate the workings of international institutions, allowing delegates to step into the roles of diplomats, policymakers, and world leaders. Through committee sessions, negotiations, moderated debates, and resolution drafting, participants gain firsthand exposure to the complexities of international decision-making.`,
     ],
-    image: '/images/smj-hero-5.jpeg',
+    image: '/images/conf-updated-1.webp',
     href: '/conferences',
   },
   {
@@ -26,7 +26,7 @@ const PROGRAMS = [
       `The School MUN Program introduces students to the world of diplomacy, public speaking, and international affairs through a structured and age-appropriate learning environment.`,
       `Designed specifically for school students, the program focuses on building strong foundational skills while making Model United Nations accessible, engaging, and intellectually stimulating. Participants learn research techniques, speech delivery, committee procedures, and the art of persuasive communication.`,
     ],
-    image: '/images/smj-hero-7.jpeg',
+    image: '/images/school-mun-updated-11.webp',
     href: '/programs/school-mun-association',
   },
   {
@@ -37,7 +37,7 @@ const PROGRAMS = [
       `The SMJMUN Training Cell serves as the academic and developmental backbone of the organization. It is responsible for designing comprehensive learning frameworks that prepare students for excellence inside and outside committee rooms.`,
       `Through carefully structured workshops, bootcamps, research modules, and skill-development sessions, the Training Cell ensures that every participant receives world-class mentorship and guidance.`,
     ],
-    image: '/images/student-training-2.jpeg',
+    image: '/images/training-upadted-4.webp',
     href: '/programs/training-cell',
   },
   {
@@ -48,7 +48,7 @@ const PROGRAMS = [
       `The College MUN Program is designed for university students seeking a more advanced and intellectually demanding diplomatic experience.`,
       `These conferences and initiatives focus on complex policy discussions, strategic negotiations, and high-level committee simulations that mirror the realities of international governance and decision-making. Participants engage with pressing global issues while refining their ability to construct arguments, defend positions, and build consensus.`,
     ],
-    image: '/images/moment-1.jpeg',
+    image: '/images/partnership-updated-1.webp',
     href: '/programs/college-mun-association',
   },
   {
@@ -70,7 +70,7 @@ const PROGRAMS = [
       `The SMJMUN Community is a growing network of delegates, chairs, organizers, educators, and alumni united by a shared passion for diplomacy, leadership, and lifelong learning.`,
       `What begins as participation in a conference often evolves into lasting relationships, mentorship opportunities, and collaborative initiatives that continue well beyond the committee room.`,
     ],
-    image: '/images/community.webp',
+    image: '/images/community-updated-6.jpg',
     href: '/conferences',
   },
 ];

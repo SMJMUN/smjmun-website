@@ -12,6 +12,10 @@ export const ABOUT_MENU = {
     {
       title: "About The Founder",
       href: "/founder"
+    },
+    {
+      title: "About The Logo",
+      href: "/about-logo"
     }
   ]
 };

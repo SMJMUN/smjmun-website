@@ -5,10 +5,10 @@ import YoutubeCard from './YoutubeCard';
 import { Reveal } from '@/components/program/shared/Reveal';
 
 const HIGHLIGHTS_URLS = [
-  'https://www.youtube.com/shorts/DT_ZeQR_lZo',
   'https://www.youtube.com/shorts/KC1vhEubL-4',
-  'https://www.youtube.com/shorts/sVZM_XzMfTM',
   'https://www.youtube.com/shorts/hxQSbC-nPFs',
+  'https://www.youtube.com/shorts/DT_ZeQR_lZo',
+  'https://www.youtube.com/shorts/sVZM_XzMfTM',
 ];
 
 export default function HighlightsSection() {

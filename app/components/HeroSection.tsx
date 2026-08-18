@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
-const heroImages = ['/images/hero-image-updated-3.jpg', '/images/ceremony-2.webp', '/images/hero-image-updated-1.jpeg',];
+const heroImages = ['/images/hero-image-updated-3.webp', '/images/ceremony-2.webp', '/images/hero-image-updated-1.webp',];
 
 const HeroSlider = ({ isInView }: { isInView: boolean }) => {
   const [currentImage, setCurrentImage] = useState(0);

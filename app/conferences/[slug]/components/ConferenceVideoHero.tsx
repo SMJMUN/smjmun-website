@@ -29,24 +29,17 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
         backgroundColor: '#0A0A0A',
       }}
     >
-      {/* Background Image with Ken Burns */}
-      {bgUrl ? (
-        <Image
-          src={'/images/students-training-2.jpeg'}
-          alt={conference.title}
-          fill
-          priority
-          unoptimized
-                      sizes="(max-width: 768px) 100vw, 600px"
-
-          className="object-cover animate-[kenBurns_20s_ease-out_infinite_alternate]"
-        />
-      ) : (
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(135deg, #111111, rgba(187,139,87,0.06))' }}
-        />
-      )}
+      {/* Background Video with Ken Burns */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover animate-[kenBurns_20s_ease-out_infinite_alternate]"
+        poster={bgUrl || '/images/students-training-2.jpeg'}
+      >
+        <source src="/conf-hero-vid.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark editorial overlay */}
       <div

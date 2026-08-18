@@ -4,7 +4,7 @@ import { Reveal } from '@/components/program/shared/Reveal';
 const partners = [
   {
     name: 'IPS',
-    logo: '/images/ips-logo-updated.png',
+    logo: '/images/ips-logo-updated.webp',
   },
   {
     name: 'VIT',

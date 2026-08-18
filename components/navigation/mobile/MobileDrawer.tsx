@@ -45,6 +45,7 @@ export function MobileDrawer({ onClose, navigationData, onRegisterClick }: Mobil
             const items = [item];
             if (item.label === 'About') {
               items.push({ label: 'About Founder', href: '/founder' });
+              items.push({ label: 'About Logo', href: '/about-logo' });
             }
             return items;
           }).map((item) => {

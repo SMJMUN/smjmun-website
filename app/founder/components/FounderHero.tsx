@@ -1,8 +1,141 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const founderImages = [
+  '/images/founder-updated-1.webp',
+   '/images/founder-updated-8.webp',
+  '/images/school-mun-updated-11.webp',
+  '/images/founder-updated-3.webp',
+  '/images/founder-updated-4.webp',
+ 
+
+];
+
+const FounderImageSlider = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0 });
+
+  const SLIDE_DURATION = 4000;
+
+  useEffect(() => {
+    if (!isInView) return;
+    // Use setTimeout so the timer resets completely when currentImage changes (via manual swipe)
+    const timer = setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % founderImages.length);
+    }, SLIDE_DURATION);
+
+    return () => clearTimeout(timer);
+  }, [isInView, currentImage]);
+
+  const goToNext = () => setCurrentImage((prev) => (prev + 1) % founderImages.length);
+  const goToPrev = () => setCurrentImage((prev) => (prev - 1 + founderImages.length) % founderImages.length);
+
+  return (
+    <div ref={ref} className="w-full h-full relative overflow-hidden group">
+      {/* Invisible Swipe Overlay */}
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.2}
+        onDragEnd={(e, { offset }) => {
+          const swipe = offset.x;
+          const swipeThreshold = 50;
+          if (swipe < -swipeThreshold) {
+            goToNext();
+          } else if (swipe > swipeThreshold) {
+            goToPrev();
+          }
+        }}
+        className="absolute inset-0 z-20 cursor-grab active:cursor-grabbing touch-pan-y"
+      />
+
+      {/* Background Images with Crossfade */}
+      {founderImages.map((src, index) => (
+        <div
+          key={index}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: index === currentImage ? 1 : 0,
+            transition: 'opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            transform: index === currentImage ? 'scale(1.02)' : 'scale(1)',
+          }}
+        >
+          {src ? (
+            <Image
+              src={src}
+              alt={`Mr. Aarushh Sahu - moment ${index + 1}`}
+              fill
+              className="object-cover object-top grayscale-[20%] contrast-110"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index === 0}
+            />
+          ) : (
+            <div className="w-full h-full bg-[#151515]" />
+          )}
+        </div>
+      ))}
+
+      {/* Navigation Buttons (Visible on Hover/Desktop, or Tap/Mobile) */}
+      <div className="absolute inset-y-0 left-4 z-30 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <button
+          onClick={(e) => { e.stopPropagation(); goToPrev(); }}
+          className="w-10 h-10 rounded-full bg-black/40 backdrop-blur border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all pointer-events-auto"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+      </div>
+      <div className="absolute inset-y-0 right-4 z-30 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <button
+          onClick={(e) => { e.stopPropagation(); goToNext(); }}
+          className="w-10 h-10 rounded-full bg-black/40 backdrop-blur border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all pointer-events-auto"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Progress Segments — bottom right aligned */}
+      <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-30 flex flex-col items-end gap-3 pointer-events-auto">
+        <div className="flex items-center gap-2">
+          {founderImages.map((_, index) => (
+            <div
+              key={`progress-${index}`}
+              onClick={() => setCurrentImage(index)}
+              className="relative h-[2px] w-8 md:w-12 overflow-hidden bg-white/30 cursor-pointer"
+            >
+              {index === currentImage && (
+                <div
+                  key={`fill-${currentImage}`}
+                  className="absolute left-0 top-0 h-full bg-[#BB8B57]"
+                  style={{
+                    width: "100%",
+                    animation: `fillBar ${SLIDE_DURATION}ms linear forwards`,
+                  }}
+                />
+              )}
+              {index < currentImage && (
+                <div className="absolute inset-0 bg-[#BB8B57]" />
+              )}
+            </div>
+          ))}
+        </div>
+        
+        {/* Counter */}
+        <div className="text-[10px] md:text-xs tracking-[0.25em] text-white/90 font-mono">
+          {String(currentImage + 1).padStart(2, "0")} /{" "}
+          {String(founderImages.length).padStart(2, "0")}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function FounderHero() {
   const scrollToNext = () => {
@@ -60,14 +193,7 @@ export default function FounderHero() {
             <div className="absolute inset-4 md:inset-8 border border-[#BB8B57]/30 z-20 pointer-events-none" />
             <div className="absolute inset-0 bg-[#BB8B57]/10 z-10 mix-blend-overlay pointer-events-none" />
             
-            <Image
-              src="/images/founder-updated-1.jpeg"
-              alt="Mr. Aarushh Sahu"
-              fill
-              className="object-cover object-top grayscale-[20%] contrast-110"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+            <FounderImageSlider />
           </motion.div>
         </div>
 

@@ -38,7 +38,8 @@ export const collegeMunProgram: ProgramData = {
       title: "Phase I — Delegate Preparation",
       description:
         "Two days of focused preparation. Day 1 covers foundations and research — Introduction to MUN, understanding international institutions, committees and agendas, rules of procedure, research methodology, country portfolio development, position paper preparation, and conference readiness. Day 2 focuses on communication and negotiation — public speaking fundamentals, committee strategy, professional communication, negotiation and lobbying, resolution drafting, leadership and team collaboration, and effective delegate participation.",
-      image: "/images/student-training.jpeg",
+            image: "/images/training-upadted-4.webp",
+
       imageAlt: "College delegate training session",
       badge: "2-Day Training",
       caption: "Building professional communication and negotiation skills.",
@@ -47,7 +48,7 @@ export const collegeMunProgram: ProgramData = {
       title: "Phase II — International-Standard Conference",
       description:
         "Participants engage in a professionally managed conference designed to simulate real-world discussions and decision-making environments. The conference includes committee sessions, policy deliberations, structured debate, negotiation and collaboration, resolution drafting, leadership opportunities, opening and closing ceremonies, and awards and recognition. Students gain exposure to policy analysis, strategic thinking, communication, and collaborative problem-solving.",
-      image: "/images/program-image-1.webp",
+      image: "/images/training-updated-7.webp",
       imageAlt: "SMJMUN college conference in session",
       badge: "3-Day Conference",
       caption: "Simulating real-world decision-making environments.",
@@ -56,7 +57,8 @@ export const collegeMunProgram: ProgramData = {
       title: "Conference Management & Advisory",
       description:
         "Institutions planning their own conferences can also partner with SMJMUN for complete conference management and advisory support. Our team assists with registration management, delegate coordination, executive board management, committee design, study guides, awards and recognition, conference operations, on-ground execution, and strategic advisory. From concept to closing ceremony, SMJMUN can serve as your conference partner.",
-      image: "/images/program-image-2.webp",
+            image: "/images/school-mun-updated.webp",
+
       imageAlt: "Conference advisory and management",
       badge: "Advisory Services",
       cta: {
@@ -163,50 +165,50 @@ export const collegeMunProgram: ProgramData = {
       "Dare to challenge ideas. Rise through knowledge and leadership. Create meaningful impact through responsible action.",
     images: [
        {
-        src: "/images/tarining-upadted-3.jpg",
+        src: "/images/tarining-upadted-3.webp",
         alt: "Delegates in practice session",
         aspect: "normal",
       },
         {
-        src: "/images/program-image-3.webp",
+        src: "/images/school-mun-updated.webp",
         alt: "SMJMUN college conference",
         aspect: "wide",
       },
          
       {
-        src: "/images/training-upadted-4.jpg  ",
+        src: "/images/training-upadted-4.webp",
         alt: "Workshop exercise",
         caption: "Practical exercises build lasting confidence",
         aspect: "tall",
       },
       {
-        src: "/images/training-upadted-5.jpg",
+        src: "/images/training-upadted-5.webp",
         alt: "Conference preparation",
         aspect: "normal",
       },
       {
-        src: "/images/program-image-2.webp",
+        src: "/images/community-updated-5.webp",
         alt: "College delegates in session",
         aspect: "normal",
       },
       {
-        src: "/images/student-training-2.jpeg",
+        src: "/images/award-updated-1.webp",
         alt: "Training workshop",
         caption: "Professional development through experiential learning",
         aspect: "tall",
       },
       {
-        src: "/images/program-image-1.webp",
+        src: "/images/school-mun-updated-10.webp",
         alt: "Conference deliberations",
         aspect: "normal",
       },
       {
-        src: "/images/community-2.jpeg",
+        src: "/images/training-updated-6.webp",
         alt: "Networking at SMJMUN",
         aspect: "normal",
       },
       {
-        src: "/images/moment-2.jpeg",
+        src: "/images/training-updated-6.webp",
         alt: "Delegates collaborating",
         aspect: "normal",
       },
@@ -271,7 +273,7 @@ export const collegeMunProgram: ProgramData = {
    {
       title: "Training Programmes",
       slug: "training-cell",
-      image: "/images/training-updated-6.jpg",
+      image: "/images/training-updated-6.webp",
       description:
         "Structured delegate preparation and executive board development for institutions and students.",
     },

@@ -13,15 +13,17 @@ export default function ConferenceVideoHero({ conference }: { conference?: Confe
 
   return (
     <section className="relative h-screen min-h-[700px] overflow-hidden" style={{ backgroundColor: 'var(--ds-bg-primary)' }}>
-      {/* Background Image */}
-      <Image
-        src={finalBgUrl}
-        alt={conference?.title || "Conference"}
-        fill
-        priority
-        unoptimized={finalBgUrl.startsWith('/')}
-        className="object-cover scale-[1.02]"
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover scale-[1.02]"
+        poster={finalBgUrl}
+      >
+        <source src="/conf-hero-vid.mp4" type="video/mp4" />
+      </video>
 
     {/* Dark Editorial Overlay */}
     <div

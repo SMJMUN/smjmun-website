@@ -114,7 +114,7 @@ export default function FeaturedConference({ conference }: { conference: Confere
               style={{ backgroundColor: 'var(--ds-surface)' }}
             >
               {/* Registration badge */}
-              {conference.registrationOpen && (
+              {conference.registrationOpen && (!conference.registrationCloseDate || new Date().getTime() <= new Date(conference.registrationCloseDate).getTime()) && (
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   <span

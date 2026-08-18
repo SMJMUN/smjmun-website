@@ -16,7 +16,11 @@ export default function ConferenceCard({ conference }: { conference: Conference 
     ? urlFor(conference.heroImage).width(800).height(500).quality(85).url()
     : null;
 
-  const status = STATUS_LABEL[conference.status] || STATUS_LABEL.upcoming;
+  let statusKey = conference.status;
+  if (conference.date && new Date().getTime() > new Date(conference.date).getTime()) {
+    statusKey = 'completed';
+  }
+  const status = STATUS_LABEL[statusKey] || STATUS_LABEL.upcoming;
   const formattedDate = conference.date
     ? new Date(conference.date).toLocaleDateString("en-IN", {
         day: "numeric",
@@ -69,7 +73,7 @@ export default function ConferenceCard({ conference }: { conference: Conference 
         />
 
         {/* Registration Open badge */}
-        {conference.registrationOpen && (
+        {conference.registrationOpen && (!conference.registrationCloseDate || new Date().getTime() <= new Date(conference.registrationCloseDate).getTime()) && (
           <div
             className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5"
             style={{

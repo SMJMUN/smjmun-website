@@ -25,8 +25,13 @@ export default function RegistrationCTA({ conference }: { conference: Conference
   if (!conference.registrationOpen) return null;
 
   let daysRemaining = null;
+  const now = new Date().getTime();
   if (conference.registrationCloseDate) {
-    const diff = new Date(conference.registrationCloseDate).getTime() - new Date().getTime();
+    const closeTime = new Date(conference.registrationCloseDate).getTime();
+    if (now > closeTime) {
+      return null;
+    }
+    const diff = closeTime - now;
     daysRemaining = Math.max(0, Math.ceil(diff / (1000 * 3600 * 24)));
   }
 

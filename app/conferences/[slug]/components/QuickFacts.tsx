@@ -7,16 +7,26 @@ export default function QuickFacts({ conference }: { conference: Conference }) {
     ? new Date(conference.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })
     : null;
 
-  const deadlineDate = conference.registrationCloseDate
+  let deadlineDate = conference.registrationCloseDate
     ? new Date(conference.registrationCloseDate).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })
     : null;
+  let deadlineLabel = "Deadline";
+
+  const now = new Date().getTime();
+  if (conference.date && now > new Date(conference.date).getTime()) {
+    deadlineLabel = "Status";
+    deadlineDate = "Conference Concluded";
+  } else if (conference.registrationCloseDate && now > new Date(conference.registrationCloseDate).getTime()) {
+    deadlineLabel = "Status";
+    deadlineDate = "Registration Closed";
+  }
 
   const facts = [
     { label: "Date",       value: formattedDate,        icon: Calendar  },
     { label: "Venue",      value: conference.venue,     icon: MapPin    },
     { label: "Fee",        value: conference.registrationFee ? `₹${conference.registrationFee.toLocaleString("en-IN")}` : null, icon: CreditCard },
     { label: "Capacity",   value: conference.capacity   ? `${conference.capacity} Delegates` : null, icon: Users  },
-    { label: "Deadline",   value: deadlineDate,         icon: Clock     },
+    { label: deadlineLabel, value: deadlineDate,        icon: Clock     },
     { label: "Committees", value: conference.committees?.length ? `${conference.committees.length} Committees` : null, icon: Award },
   ].filter(f => f.value);
 

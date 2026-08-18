@@ -13,7 +13,11 @@ const STATUS_STYLES: Record<string, { text: string; color: string; bg: string; b
 };
 
 export default function ConferenceVideoHero({ conference }: { conference: Conference }) {
-  const status = STATUS_STYLES[conference.status] || STATUS_STYLES.upcoming;
+  let statusKey = conference.status;
+  if (conference.date && new Date().getTime() > new Date(conference.date).getTime()) {
+    statusKey = 'completed';
+  }
+  const status = STATUS_STYLES[statusKey] || STATUS_STYLES.upcoming;
 
   const bgUrl = conference.heroImage
     ? urlFor(conference.heroImage).width(1920).height(1080).quality(85).url()
@@ -144,7 +148,7 @@ export default function ConferenceVideoHero({ conference }: { conference: Confer
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
-            {conference.registrationOpen && (
+            {conference.registrationOpen && (!conference.registrationCloseDate || new Date().getTime() <= new Date(conference.registrationCloseDate).getTime()) && (
               <Link href={`/register/${conference.slug.current}`} className="btn-ds-primary">
                 Register Now
               </Link>

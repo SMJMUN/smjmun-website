@@ -19,6 +19,9 @@ export default function FeaturedConference({ conference }: { conference: Confere
       })
     : null;
 
+  const isPast = conference.date ? new Date(conference.date) < new Date() : false;
+  const headingText = isPast ? "Past Highlight" : "Next on the Stage";
+
   return (
     <section
       id="upcoming-conferences"
@@ -37,7 +40,7 @@ export default function FeaturedConference({ conference }: { conference: Confere
             lineHeight: 1.1,
           }}
         >
-          Next on the Stage
+          {headingText}
         </h2>
         <div className="gold-rule mx-auto mt-6" />
       </div>
